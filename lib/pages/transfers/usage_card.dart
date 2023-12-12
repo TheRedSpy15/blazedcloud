@@ -84,7 +84,7 @@ class UsageCard extends ConsumerWidget {
                     ),
                     if (!isTerabyteActive)
                       const Text(
-                        'Activate 1TB using Playstore build. You can uninstall that version when done.',
+                        'Purchase 1TB using Playstore build. You can uninstall that version when done.',
                         textAlign: TextAlign.center,
                       ),
                   ],
