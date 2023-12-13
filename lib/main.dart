@@ -69,8 +69,12 @@ void callbackDispatcher() {
     logger.d("Native called background task: $task");
 
     if (task == "download") {
-      return await DownloadController.startDownload(inputData?['uid'],
-          inputData?['fileKey'], inputData?['token'], inputData?['exportDir']);
+      return await DownloadController.startDownload(
+          inputData?['uid'],
+          inputData?['fileKey'],
+          inputData?['token'],
+          inputData?['exportDir'],
+          inputData?['startDate']);
     } else if (task == "upload") {
       return await UploadController.startUpload(
           inputData?['uid'],
@@ -78,7 +82,8 @@ void callbackDispatcher() {
           inputData?['localName'],
           inputData?['size'],
           inputData?['s3Directory'],
-          inputData?['token']);
+          inputData?['token'],
+          inputData?['startDate']);
     }
 
     return Future.value(true);

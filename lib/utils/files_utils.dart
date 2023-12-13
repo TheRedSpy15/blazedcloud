@@ -64,6 +64,11 @@ String formatMinutes(int minutes) {
 }
 
 List<String> fuzzySearch(String query, List<String> list) {
+  // filter out empty strings and place holder files
+  list = list
+      .where((item) => item.isNotEmpty && !item.contains('.blazed-placeholder'))
+      .toList();
+
   // Calculate a "score" for each item in the list based on how close it matches the query
   final scoredItems = list.map<Map<String, dynamic>>((item) {
     final lowerCaseItem = item.toLowerCase();
@@ -147,6 +152,7 @@ String getFileName(String filename) {
   return filename.substring(filename.lastIndexOf('/') + 1);
 }
 
+/// DO NOT USE AS FOR CONTENT-TYPE HEADER. This is purely for UI purposes
 FileType getFileType(String fileName) {
   if (fileName.endsWith('.jpg') ||
       fileName.endsWith('.jpeg') ||
@@ -228,8 +234,13 @@ FileType getFileType(String fileName) {
   }
 }
 
+String getFolderFromKey(String key) {
+  // remove the file name from the key
+  return key.substring(0, key.lastIndexOf('/') + 1);
+}
+
 List<String> getFolderList(ListBucketResult list) {
-  if (list.contents == null) {
+  if (list.commonPrefixes == null) {
     return [];
   }
 

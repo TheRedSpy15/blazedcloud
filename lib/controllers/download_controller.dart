@@ -57,6 +57,7 @@ class DownloadController {
           "fileKey": fileKey,
           "exportDir": await getExportDirectoryFromHive(),
           "token": pb.authStore.token,
+          "startDate": DateTime.now().toIso8601String(),
         });
   }
 
@@ -68,11 +69,18 @@ class DownloadController {
             .length));
   }
 
-  /// returns true if the download was started, false if the file already exists or is already being downloaded.
+  /// returns true if the download was started or doesn't need to be started
   ///
   /// Call this directly to bypass using workmanager
-  static Future<bool> startDownload(
-      String uid, String fileKey, String token, String appDocDir) async {
+  static Future<bool> startDownload(String uid, String fileKey, String token,
+      String appDocDir, String startDate) async {
+    // if start date was more than 12 hours ago, return true
+    if (DateTime.now().difference(DateTime.parse(startDate)) >=
+        const Duration(hours: 12)) {
+      logger.i('Upload started more than 12 hours ago, killing worker.');
+      return true;
+    }
+
     SendPort? sendPort = IsolateNameServer.lookupPortByName("downloader");
     final filePath = '$appDocDir/$fileKey'; // Define the file path
 
@@ -84,7 +92,7 @@ class DownloadController {
     getOfflineFile(fileKey).then((value) {
       if (value.existsSync()) {
         logger.i('File already exists: ${value.path}');
-        return false;
+        return true;
       }
     });
 

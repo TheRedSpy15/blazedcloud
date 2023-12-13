@@ -131,6 +131,58 @@ Future<ListBucketResult> getFilelist(
   }
 }
 
+Future<ListBucketResult> getFilelistByFolder(
+    String uid, String prefix, String token) async {
+  logger.d("Getting file list $prefix");
+  var headers = {'Authorization': 'Bearer $token'};
+
+  var form = {'prefix': prefix};
+  final response = await httpClient.post(
+      Uri.parse('$backendUrl/data/v2/list/$uid'),
+      headers: headers,
+      body: form);
+
+  if (response.statusCode == 200) {
+    final result = ListBucketResult.fromJson(jsonDecode(response.body));
+    logger.d("Got file list. Size: ${result.contents?.length} Prefix: $prefix");
+
+    return result;
+  } else {
+    logger.e(response.reasonPhrase);
+    throw Exception('Failed to load file list');
+  }
+}
+
+/// gets all objects for a user. Rate limited to 1 request per second by api
+Future<List<String>> getSearchList(String uid, String token) async {
+  var headers = {'Authorization': 'Bearer $token', 'redirect': 'follow'};
+  var request = http.Request('GET', Uri.parse('$backendUrl/data/listall/$uid'));
+
+  request.headers.addAll(headers);
+
+  // data is returned as array of Contents objects
+  final response = await httpClient.send(request);
+
+  if (response.statusCode == 200) {
+    final responseBody = await response.stream.bytesToString();
+    List<String> keys = List.empty(growable: true);
+
+    try {
+      final json = jsonDecode(responseBody);
+      for (var item in json) {
+        keys.add(item['Key']);
+      }
+    } catch (e) {
+      logger.e("Error parsing search list: $e");
+    }
+
+    return keys;
+  } else {
+    logger.e(response.reasonPhrase);
+    throw Exception('Failed to load file list');
+  }
+}
+
 /// don't call directly. use uploadFile
 Future<String> getUploadUrl(
     String uid, String filename, String token, int length,
@@ -154,6 +206,27 @@ Future<String> getUploadUrl(
   } else {
     logger.e(response.reasonPhrase);
     throw Exception('Failed to get upload url');
+  }
+}
+
+Future<int> getUsage(String uid, String token) async {
+  // GET to /data/usage/{uid}
+  logger.d("Getting usage for $uid");
+
+  var headers = {'Authorization': 'Bearer $token'};
+  var request = http.Request('GET', Uri.parse('$backendUrl/data/usage/$uid'));
+
+  request.headers.addAll(headers);
+
+  http.StreamedResponse response = await httpClient.send(request);
+
+  if (response.statusCode == 200) {
+    final responseBody = await response.stream.bytesToString();
+    logger.d("Got usage $responseBody");
+    return int.parse(responseBody);
+  } else {
+    logger.e(response.reasonPhrase);
+    throw Exception('Failed to load usage');
   }
 }
 

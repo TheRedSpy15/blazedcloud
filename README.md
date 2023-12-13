@@ -1,6 +1,6 @@
 # blazedcloud
 
-![logo](https://github.com/TheRedSpy15/blazedcloud/assets/32081703/640a966a-e8fa-4a8d-b0da-4e0fd0abff2e)
+![logo](https://github.com/TheRedSpy15/blazedcloud/blob/development/assets/icon-192.png)
 
 [![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
 
@@ -47,3 +47,13 @@ Experience cloud storage the way it should be—simple, secure, and transparent.
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
      alt="Get it on Google Play"
      height="100">](https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud)
+
+# Contributing
+
+The project is always open to pull requests. However, pleae note that all changes must first go through the development branch before they are merged into main
+
+# Contributors
+
+<a href="https://github.com/theredspy15/blazedcloud/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=theredspy15/blazedcloud" />
+</a>

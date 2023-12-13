@@ -15,13 +15,9 @@ class User {
   String email;
   String created;
   String updated;
-  List<String> sharing;
   bool terabyte_active;
-  bool prereg_bonus;
   String glassfy;
   int capacity_gigs;
-  bool usingPersonalEncryption;
-  String personalEncryptionHashes;
 
   User({
     this.id = "",
@@ -33,13 +29,9 @@ class User {
     this.email = "",
     this.created = "",
     this.updated = "",
-    this.sharing = const [],
     this.terabyte_active = false,
     this.glassfy = "",
     this.capacity_gigs = 5,
-    this.usingPersonalEncryption = false,
-    this.personalEncryptionHashes = "",
-    this.prereg_bonus = false,
   });
 
   // delete user
@@ -63,14 +55,9 @@ class User {
       email: result.getStringValue('email'),
       created: result.getStringValue('created'),
       updated: result.getStringValue('updated'),
-      sharing: result.getListValue('sharing'),
       terabyte_active: result.getBoolValue('terabyte_active'),
-      prereg_bonus: result.getBoolValue('prereg_bonus'),
       glassfy: result.getStringValue('glassfy'),
       capacity_gigs: result.getIntValue('capacity_gigs'),
-      usingPersonalEncryption: result.getBoolValue('usingPersonalEncryption'),
-      personalEncryptionHashes:
-          result.getStringValue('personalEncryptionHashes'),
     );
   }
 
@@ -84,12 +71,8 @@ class User {
         'email': email,
         'created': created,
         'updated': updated,
-        'sharing': sharing,
         'terabyte_active': terabyte_active,
-        'prereg_bonus': prereg_bonus,
         'glassfy': glassfy,
         'capacity_gigs': capacity_gigs,
-        'usingPersonalEncryption': usingPersonalEncryption,
-        'personalEncryptionHashes': personalEncryptionHashes,
       };
 }
