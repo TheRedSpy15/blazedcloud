@@ -5,9 +5,6 @@ Blazed Cloud ist nicht nur eine weitere Cloud-Speicher-App; Es ist ein Bekenntni
 🔐 Erstklassige Sicherheit mit AES-256-Verschlüsselung:
 Seien Sie beruhigt mit dem Wissen, dass Ihre Dateien durch eine AES-256-Verschlüsselung nach Militärstandard geschützt sind. Blazed Cloud nimmt Ihre Privatsphäre ernst und stellt sicher, dass nur Sie Zugriff auf Ihre wertvollen Daten haben.
 
-🌍 Open Source, vom Client bis zum Server:
-Transparenz ist der Schlüssel, und deshalb ist Blazed Cloud vollständig Open Source. Nicht nur der Clientcode, sondern auch der Servercode ist zur Prüfung öffentlich. Wir legen großen Wert darauf, Ihnen vollständige Transparenz darüber zu verschaffen, wie Ihre Daten gehandhabt und gesichert werden.
-
 🚀 Einfaches und intuitives Design:
 Blazed Cloud ist auf Einfachheit ausgelegt. Kein unnötiger Schnickschnack, keine verwirrenden Funktionen – nur eine übersichtliche Benutzeroberfläche, die Ihnen genau das bietet, was Sie brauchen. Mit nur wenigen Fingertipps können Sie Ihre Dateien mühelos hochladen, herunterladen und verwalten.
 

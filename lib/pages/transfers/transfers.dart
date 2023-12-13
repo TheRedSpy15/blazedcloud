@@ -1,6 +1,6 @@
 import 'package:blazedcloud/models/transfers/download_state.dart';
 import 'package:blazedcloud/models/transfers/upload_state.dart';
-import 'package:blazedcloud/pages/settings/usage_card.dart';
+import 'package:blazedcloud/pages/transfers/usage_card.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/material.dart';

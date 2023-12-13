@@ -9,9 +9,5 @@ int getTotalGigCapacity(User user) {
     total += 1000;
   }
 
-  if (user.prereg_bonus) {
-    total += 10;
-  }
-
   return total;
 }

@@ -1,7 +1,5 @@
 import 'package:blazedcloud/log.dart';
-import 'package:blazedcloud/pages/files/file_item.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
-import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +15,6 @@ class SearchItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final FileType type = getFileType(fileKey);
-    final downloadController = ref.watch(downloadControllerProvider);
 
     return InkWell(
       child: Card(
@@ -30,32 +27,6 @@ class SearchItem extends ConsumerWidget {
                     : Icons.insert_drive_file,
           ),
           title: Text(getFileName(fileKey)),
-          trailing: PopupMenuButton<String>(
-            itemBuilder: (context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'open',
-                child: Text('Open'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'save',
-                child: Text('Save'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'delete',
-                child: Text('Delete'),
-              ),
-            ],
-            onSelected: (value) {
-              if (value == 'open') {
-                openItem(fileKey, ref);
-              } else if (value == 'save') {
-                downloadItem(fileKey, downloadController, ref.context);
-              } else if (value == 'delete') {
-                // ask for confirmation before deleting
-                deleteItem(fileKey, context, ref);
-              }
-            },
-          ),
         ),
       ),
       onTap: () {

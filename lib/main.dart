@@ -2,11 +2,11 @@ import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
 import 'package:blazedcloud/log.dart';
-import 'package:blazedcloud/models/pocketbase/authstore.dart';
 import 'package:blazedcloud/pages/dashboard.dart';
 import 'package:blazedcloud/pages/login/locked.dart';
 import 'package:blazedcloud/pages/login/login.dart';
 import 'package:blazedcloud/pages/login/signup.dart';
+import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/foundation.dart';
@@ -17,7 +17,6 @@ import 'package:glassfy_flutter/glassfy_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pocketbase/pocketbase.dart';
 import 'package:workmanager/workmanager.dart';
 
 void main() async {
@@ -43,30 +42,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-final healthCheckProvider = FutureProvider.autoDispose<bool>((ref) async {
-  logger.i("Checking health");
-  final health = await pb.health.check();
-  logger.i("Health check result: $health");
-  return health.code == 200;
-});
-
-final savedAuthProvider = FutureProvider.autoDispose<bool>((ref) async {
-  final customAuth = CustomAuthStore();
-
-  final auth = await customAuth.loadAuth();
-  if (auth != null) {
-    logger.i("Loaded auth: $auth");
-    pb = PocketBase(backendUrl, authStore: auth);
-    if (pb.authStore.isValid) {
-      logger.i("Token is valid. User: ${pb.authStore.model.id}");
-    }
-  } else {
-    logger.i("No saved auth");
-  }
-
-  return auth != null && pb.authStore.isValid;
-});
-
 // GoRouter configuration
 final _router = GoRouter(
   initialLocation: '/landing',
@@ -83,7 +58,12 @@ final _router = GoRouter(
     GoRoute(
       name: "signup",
       path: '/landing/signup',
-      builder: (context, state) => const SignUpScreen(),
+      builder: (context, state) => SignUpScreen(),
+    ),
+    GoRoute(
+      name: "locked",
+      path: '/locked',
+      builder: (context, state) => const LockedScreen(),
     ),
     GoRoute(
       name: "dashboard",
@@ -99,8 +79,12 @@ void callbackDispatcher() {
     logger.d("Native called background task: $task");
 
     if (task == "download") {
-      return await DownloadController.startDownload(inputData?['uid'],
-          inputData?['fileKey'], inputData?['token'], inputData?['exportDir']);
+      return await DownloadController.startDownload(
+          inputData?['uid'],
+          inputData?['fileKey'],
+          inputData?['token'],
+          inputData?['exportDir'],
+          inputData?['startDate']);
     } else if (task == "upload") {
       return await UploadController.startUpload(
           inputData?['uid'],
@@ -108,7 +92,8 @@ void callbackDispatcher() {
           inputData?['localName'],
           inputData?['size'],
           inputData?['s3Directory'],
-          inputData?['token']);
+          inputData?['token'],
+          inputData?['startDate']);
     }
 
     return Future.value(true);

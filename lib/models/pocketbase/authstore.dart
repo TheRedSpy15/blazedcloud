@@ -61,7 +61,7 @@ class CustomAuthStore extends AuthStore {
     try {
       pb.collection('users').authRefresh(headers: {"Authorization": token});
     } catch (e) {
-      logger.d("auth refresh failed");
+      logger.e("auth refresh failed");
 
       // clear auth
       clear();

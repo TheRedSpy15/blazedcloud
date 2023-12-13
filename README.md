@@ -1,6 +1,6 @@
 # blazedcloud
 
-![logo](https://github.com/TheRedSpy15/blazedcloud/assets/32081703/640a966a-e8fa-4a8d-b0da-4e0fd0abff2e)
+![logo](https://github.com/TheRedSpy15/blazedcloud/blob/development/assets/icon-192.png)
 
 [![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
 
@@ -10,8 +10,9 @@
 
 Simple, minimalistic file backup provider built with Flutter and Pocketbase
 
-Backend repo: https://github.com/TheRedSpy15/blazed-cloud-pb
-
+### Other Blazed Cloud Repos:
+- [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
+- [Landing](https://github.com/TheRedSpy15/blazedcloud-landing)
 
 ## Our shamelessly ChatGPT generated description:
 
@@ -21,9 +22,6 @@ Blazed Cloud is not just another cloud storage app; it's a commitment to simplic
 
 🔐 Unparalleled Security with AES-256 Encryption:
 Rest easy knowing that your files are safeguarded with military-grade AES-256 encryption. Blazed Cloud takes your privacy seriously, ensuring that only you have access to your valuable data.
-
-🌍 Open Source, from Client to Server:
-Transparency is key, and that's why Blazed Cloud is entirely open source. Not just the client code, but even the server code is public for scrutiny. We believe in giving you complete visibility into how your data is handled and secured.
 
 🚀 Simple and Intuitive Design:
 Blazed Cloud is designed with simplicity in mind. No unnecessary frills, no confusing features—just a clean interface that gives you exactly what you need. Effortlessly upload, download, and manage your files with a few taps.
@@ -43,4 +41,19 @@ Experience cloud storage the way it should be—simple, secure, and transparent.
 
 # Download
 
-<a href='https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="100">](https://f-droid.org/packages/com.chancesoftwarellc.blazedcloud/)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+     alt="Get it on Google Play"
+     height="100">](https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud)
+
+# Contributing
+
+The project is always open to pull requests. However, pleae note that all changes must first go through the development branch before they are merged into main
+
+# Contributors
+
+<a href="https://github.com/theredspy15/blazedcloud/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=theredspy15/blazedcloud" />
+</a>

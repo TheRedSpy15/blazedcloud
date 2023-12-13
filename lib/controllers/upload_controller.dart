@@ -7,7 +7,6 @@ import 'dart:ui';
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/transfers/upload_state.dart';
-import 'package:blazedcloud/pages/settings/usage_card.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
@@ -37,7 +36,8 @@ class UploadController {
         updateUploadNotification();
 
         if (!uploadState.isUploading) {
-          _ref.invalidate(fileListProvider(""));
+          _ref.invalidate(
+              fileListProvider(_ref.read(currentDirectoryProvider)));
           _ref.invalidate(combinedDataProvider(pb.authStore.model.id));
         }
       } catch (error) {
@@ -64,6 +64,7 @@ class UploadController {
           "localPath": localPath,
           "localName": localName,
           "size": size,
+          "startDate": DateTime.now().toIso8601String(),
         });
   }
 
@@ -89,8 +90,22 @@ class UploadController {
             .length));
   }
 
-  static Future<bool> startUpload(String uid, String localPath,
-      String localName, int size, String s3Directory, String token) async {
+  /// returns true if the download was started or doesn't need to be started
+  static Future<bool> startUpload(
+      String uid,
+      String localPath,
+      String localName,
+      int size,
+      String s3Directory,
+      String token,
+      String startDate) async {
+    // return true if start date is more than 12 hours ago
+    if (DateTime.now().difference(DateTime.parse(startDate)) >=
+        const Duration(hours: 12)) {
+      logger.i('Upload started more than 12 hours ago, killing worker.');
+      return true;
+    }
+
     final uploadState = UploadState.inProgress(localPath);
     SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
     const Duration rateLimit =
@@ -146,6 +161,13 @@ class UploadController {
                 logger.e('send port error ($fileKey): $error');
               }
               lastDataSentTime = DateTime.now();
+            } else if (!uploadState.isUploading) {
+              // don't rate limit if finished
+              try {
+                sendPort!.send(jsonEncode(uploadState.toJson()));
+              } catch (error) {
+                logger.e('send port error ($fileKey): $error');
+              }
             }
           } else {
             sendPort = IsolateNameServer.lookupPortByName("uploader");

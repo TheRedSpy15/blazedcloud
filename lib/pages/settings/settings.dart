@@ -89,7 +89,7 @@ class SettingsScreen extends ConsumerWidget {
               CustomSettingsGroup(
                 items: [
                   githubSetting(),
-                  githubBackendSetting(),
+                  //githubBackendSetting(),
                   signOutSetting(context),
                   deleteAccountSetting(context, isPremium),
                 ],

@@ -5,9 +5,6 @@ Blazed Cloud non è solo un'altra app di archiviazione cloud; è un impegno per 
 🔐 Sicurezza di livello superiore con crittografia AES-256:
 Stai tranquillo sapendo che i tuoi file sono protetti con la crittografia AES-256 di livello militare. Blazed Cloud prende sul serio la tua privacy, assicurando che solo tu abbia accesso ai tuoi dati preziosi.
 
-🌍 Open Source, dal Client al Server:
-La trasparenza è fondamentale ed è per questo che Blazed Cloud è interamente open source. Non solo il codice client, ma anche il codice server è pubblico per essere esaminato. Crediamo nel darti una visibilità completa su come i tuoi dati vengono gestiti e protetti.
-
 🚀 Design semplice e intuitivo:
 Blazed Cloud è progettato pensando alla semplicità. Nessun fronzolo inutile, nessuna funzionalità confusa: solo un'interfaccia pulita che ti offre esattamente ciò di cui hai bisogno. Carica, scarica e gestisci facilmente i tuoi file con pochi tocchi.
 

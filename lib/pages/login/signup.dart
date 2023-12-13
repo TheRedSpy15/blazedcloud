@@ -8,7 +8,19 @@ final emailController = TextEditingController();
 final passwordController = TextEditingController();
 
 class SignUpScreen extends ConsumerWidget {
-  const SignUpScreen({super.key});
+  final allowedDomains = [
+    'gmail.com',
+    'outlook.com',
+    'yahoo.com',
+    'aol.com',
+    'pm.me',
+    'protonmail.com',
+    'skiff.com',
+    'chancesoftwarellc.com'
+  ];
+
+  final passwordMinLength = 8;
+  SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -46,13 +58,24 @@ class SignUpScreen extends ConsumerWidget {
             // Login Button
             ElevatedButton(
               onPressed: () {
+                if (!isValidEmail(emailController.text)) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Invalid email domain")));
+                  return;
+                }
+                if (!isValidPassword(passwordController.text)) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                          "Password must be $passwordMinLength characters long")));
+                  return;
+                }
+
                 final body = <String, dynamic>{
                   "email": emailController.text,
                   "emailVisibility": false,
                   "password": passwordController.text,
                   "passwordConfirm": passwordController.text,
                   "active": false,
-                  "capacity_gigs": 5,
                   "usingPersonalEncryption": false
                 };
 
@@ -92,5 +115,19 @@ class SignUpScreen extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  bool isValidEmail(String email) {
+    final emailParts = email.split('@');
+    if (emailParts.length != 2) {
+      return false;
+    }
+
+    final domain = emailParts[1];
+    return allowedDomains.contains(domain);
+  }
+
+  bool isValidPassword(String password) {
+    return password.length >= passwordMinLength;
   }
 }

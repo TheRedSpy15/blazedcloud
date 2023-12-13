@@ -5,9 +5,6 @@ Blazed Cloud bukan sekadar aplikasi penyimpanan cloud; ini adalah komitmen terha
 🔐 Keamanan Tingkat Atas dengan Enkripsi AES-256:
 Tenang saja karena file Anda dilindungi dengan enkripsi AES-256 tingkat militer. Blazed Cloud menjaga privasi Anda dengan serius, memastikan bahwa hanya Anda yang memiliki akses ke data berharga Anda.
 
-🌍 Sumber Terbuka, dari Klien ke Server:
-Transparansi adalah kuncinya, dan itulah sebabnya Blazed Cloud sepenuhnya bersifat open source. Bukan hanya kode klien, tetapi bahkan kode server bersifat publik untuk diperiksa. Kami percaya dalam memberikan Anda visibilitas lengkap tentang bagaimana data Anda ditangani dan diamankan.
-
 🚀 Desain Sederhana dan Intuitif:
 Blazed Cloud dirancang dengan mempertimbangkan kesederhanaan. Tanpa embel-embel yang tidak perlu, tanpa fitur yang membingungkan—hanya antarmuka bersih yang memberikan apa yang Anda butuhkan. Unggah, unduh, dan kelola file Anda dengan mudah hanya dengan beberapa ketukan.
 
