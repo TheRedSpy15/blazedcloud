@@ -1,7 +1,6 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/log.dart';
-import 'package:blazedcloud/pages/transfers/usage_card.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
@@ -38,9 +37,9 @@ void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
             Navigator.of(context).pop();
             deleteFile(pb.authStore.model.id, fileKey, pb.authStore.token)
                 .then((_) {
-              ref.invalidate(fileListProvider(""));
-              ref.invalidate(combinedDataProvider(pb.authStore.model.id));
-            }).timeout(const Duration(seconds: 1));
+              String folder = getFolderFromKey(fileKey);
+              ref.invalidate(fileListProvider(folder));
+            });
           },
           child: const Text('Delete'),
         ),
@@ -200,10 +199,12 @@ void shareItem(String fileKey, WidgetRef ref) {
 
 class FileItem extends ConsumerWidget {
   final String fileKey;
+  final int expectedSize; // used for ensuring offline file is complete
 
   const FileItem({
     super.key,
     required this.fileKey,
+    this.expectedSize = 0,
   });
 
   @override

@@ -1,15 +1,12 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/search_delagate.dart';
-import 'package:blazedcloud/models/pocketbase/user.dart';
 import 'package:blazedcloud/pages/files/file_item.dart';
 import 'package:blazedcloud/pages/files/folder_item.dart';
-import 'package:blazedcloud/pages/transfers/usage_card.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
-import 'package:blazedcloud/utils/user_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -25,9 +22,9 @@ class FilesPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final fileList = ref.watch(fileListProvider(""));
     final uploadController = ref.watch(uploadControllerProvider);
     final currentDirectory = ref.watch(currentDirectoryProvider);
+    final objectList = ref.watch(fileListProvider(currentDirectory));
 
     return PopScope(
       onPopInvoked: (canPop) {
@@ -54,24 +51,18 @@ class FilesPage extends ConsumerWidget {
                       )
                     : null,
             actions: [
-              fileList.when(
-                data: (data) => IconButton(
-                  onPressed: () {
-                    showSearch(
-                        context: context, delegate: FileSearchDelegate(data));
-                  },
-                  icon: const Icon(Icons.search),
-                ),
-                loading: () => const SizedBox.shrink(),
-                error: (err, stack) {
-                  logger.e("Error loading file list: $err");
-                  return const SizedBox.shrink();
+              IconButton(
+                onPressed: () {
+                  ref.read(searchKeysProvider.future).then((keys) => showSearch(
+                      context: context, delegate: FileSearchDelegate(keys)));
                 },
+                icon: const Icon(Icons.search),
               )
             ]),
-        body: fileList.when(
+        body: objectList.when(
           data: (data) {
-            final folderList = getFolderList(data);
+            final folders = data.commonPrefixes ?? [];
+            final files = data.contents ?? [];
             if (data.contents?.isEmpty ?? true) {
               return const Center(
                 child: Text("No files or folders"),
@@ -82,19 +73,19 @@ class FilesPage extends ConsumerWidget {
               RefreshIndicator(
                 onRefresh: () async {
                   // Invalidate by refreshing the FutureProvider
-                  ref.invalidate(fileListProvider(""));
+                  ref.invalidate(fileListProvider(currentDirectory));
 
                   // Wait for the new data to load
-                  await ref.read(fileListProvider("").future);
+                  await ref.read(fileListProvider(currentDirectory).future);
                 },
                 child: ListView.builder(
                   physics: const AlwaysScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemCount: folderList.length + (data.contents?.length ?? 0),
+                  itemCount: folders.length + files.length,
                   itemBuilder: (context, index) {
-                    if (index < folderList.length) {
+                    if (index < folders.length) {
                       // Render folder items
-                      String folderKey = folderList[index];
+                      String folderKey = folders[index].prefix ?? "";
 
                       if ("$folderKey/" != currentDirectory &&
                           isKeyInDirectory(folderKey, true, currentDirectory)) {
@@ -106,19 +97,16 @@ class FilesPage extends ConsumerWidget {
                       }
                     } else {
                       // Render file items
-                      int fileIndex = index - folderList.length;
-                      String fileKey = data.contents?[fileIndex].key ?? "";
+                      int fileIndex = index - folders.length;
+                      String fileKey = files[fileIndex].key ?? "";
+                      int fileSize = files[fileIndex].size ?? 0;
                       if (fileKey.contains(".blazed-placeholder")) {
                         return const SizedBox.shrink();
                       }
-                      if (isKeyInDirectory(fileKey, false, currentDirectory)) {
-                        return FileItem(
-                          fileKey: fileKey,
-                        );
-                      } else {
-                        return const SizedBox
-                            .shrink(); // Skip file items as needed
-                      }
+                      return FileItem(
+                        fileKey: fileKey,
+                        expectedSize: fileSize,
+                      );
                     }
                   },
                 ),
@@ -141,6 +129,8 @@ class FilesPage extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
+              key: const Key("newFolderButton"),
+              heroTag: "newFolderButton",
               onPressed: () {
                 // show dialog to create a new folder
                 showDialog(
@@ -170,7 +160,7 @@ class FilesPage extends ConsumerWidget {
                           logger.i(
                               'Creating folder ${ref.read(newFolderNameProvider.notifier).state}');
                           createFolder(newFolderKey).then((success) {
-                            ref.invalidate(fileListProvider(""));
+                            ref.invalidate(fileListProvider(currentDirectory));
                             if (success) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -200,10 +190,10 @@ class FilesPage extends ConsumerWidget {
             const SizedBox(width: 16),
             ref.watch(combinedDataProvider(pb.authStore.model.id)).when(
                 data: (data) {
-                  final usageGB = computeTotalSizeGb(data['fileList']);
-                  final capacityGB = getTotalGigCapacity(data['user'] as User);
+                  final usageGB =
+                      (data['usage'] / 1000000000).truncateToDouble();
 
-                  if (usageGB >= capacityGB) {
+                  if (usageGB >= data['capacity']) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text(
@@ -213,6 +203,8 @@ class FilesPage extends ConsumerWidget {
                     return const SizedBox.shrink();
                   } else {
                     return FloatingActionButton(
+                        key: const Key("uploadButton"),
+                        heroTag: "uploadButton",
                         onPressed: () {
                           uploadController.selectFilesToUpload(
                               ref.read(currentDirectoryProvider));

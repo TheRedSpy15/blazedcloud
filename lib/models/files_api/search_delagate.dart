@@ -1,12 +1,11 @@
-import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/pages/files/search_item.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/material.dart';
 
 class FileSearchDelegate extends SearchDelegate {
-  final ListBucketResult list;
+  final List<String> keys;
 
-  FileSearchDelegate(this.list);
+  FileSearchDelegate(this.keys);
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -32,19 +31,19 @@ class FileSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return productSearchResults();
+    return fileSearchResults();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return productSearchResults();
+    return fileSearchResults();
   }
 
-  ListView productSearchResults() {
+  ListView fileSearchResults() {
     return ListView(
       children: [
-        ...fuzzySearch(query, getKeysFromList(list, false))
-            .map((e) => SearchItem(fileKey: getStartingDirectory() + e))
+        ...fuzzySearch(query, keys).map(
+            (e) => SearchItem(key: Key(e), fileKey: getStartingDirectory() + e))
       ],
     );
   }

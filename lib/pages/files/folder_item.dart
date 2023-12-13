@@ -2,7 +2,6 @@ import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
-import 'package:blazedcloud/pages/transfers/usage_card.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
@@ -32,9 +31,8 @@ void delete(String folderKey, BuildContext context, WidgetRef ref) {
             Navigator.of(context).pop();
             deleteFolder(pb.authStore.model.id, folderKey, pb.authStore.token)
                 .then((_) {
-              ref.invalidate(fileListProvider(""));
-              ref.invalidate(combinedDataProvider(pb.authStore.model.id));
-            }).timeout(const Duration(seconds: 1));
+              ref.invalidate(fileListProvider(getParentDirectory(folderKey)));
+            });
           },
           child: const Text('Delete'),
         ),
@@ -97,7 +95,7 @@ class FolderItem extends ConsumerWidget {
             ],
             onSelected: (value) {
               if (value == 'save') {
-                ref.read(fileListProvider("")).whenData((list) =>
+                ref.read(fileListProvider(folderKey)).whenData((list) =>
                     downloadFolder(
                         folderKey, list, downloadController, context));
               } else if (value == 'delete') {
@@ -111,6 +109,7 @@ class FolderItem extends ConsumerWidget {
         // change the current directory to the folder name
         ref.read(currentDirectoryProvider.notifier).state =
             '${ref.read(currentDirectoryProvider.notifier).state}${getFolderName(folderKey)}/';
+        ref.invalidate(fileListProvider(ref.read(currentDirectoryProvider)));
       },
     );
   }
