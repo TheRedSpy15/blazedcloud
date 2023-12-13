@@ -59,6 +59,7 @@ dependencies:
   badges: ^3.1.2
   workmanager: ^0.5.2
   local_auth: ^2.1.7
+  github_snitch: ^0.0.13
 
 dev_dependencies:
   flutter_test:

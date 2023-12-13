@@ -183,6 +183,23 @@ Future<List<String>> getSearchList(String uid, String token) async {
   }
 }
 
+/// Only call this once. Gets token for githuh_snitch
+Future<String> getSnitchToken() async {
+  // GET to /data/usage/{uid}
+  logger.d("Getting snitch token");
+  var request = http.Request('GET', Uri.parse('$backendUrl/snitch'));
+  http.StreamedResponse response = await httpClient.send(request);
+
+  if (response.statusCode == 200) {
+    final responseBody = await response.stream.bytesToString();
+    logger.d("Got snitch token");
+    return responseBody;
+  } else {
+    logger.e(response.reasonPhrase);
+    throw Exception('Failed to load snitch token');
+  }
+}
+
 /// don't call directly. use uploadFile
 Future<String> getUploadUrl(
     String uid, String filename, String token, int length,
