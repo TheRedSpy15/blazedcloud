@@ -23,7 +23,13 @@ class SignUpScreen extends ConsumerWidget {
     'yandex.com',
     'zoho.com',
     'mail.com',
-    'gmx.com'
+    'gmx.com',
+    'tutanota.com',
+    'tutamail.com',
+    'tuta.com',
+    'tutanota.de',
+    'tuta.io',
+    'keemail.me',
   ];
 
   final passwordMinLength = 8;
