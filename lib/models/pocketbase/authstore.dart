@@ -58,8 +58,13 @@ class CustomAuthStore extends AuthStore {
       logger.d("no auth in hive");
     }
 
+    if (token.isEmpty) {
+      return null;
+    }
     try {
-      pb.collection('users').authRefresh(headers: {"Authorization": token});
+      await pb
+          .collection('users')
+          .authRefresh(headers: {"Authorization": token});
     } catch (e) {
       logger.e("auth refresh failed");
 

@@ -9,6 +9,7 @@ final passwordController = TextEditingController();
 
 class SignUpScreen extends ConsumerWidget {
   final allowedDomains = [
+    // @TODO get this from the backend
     'gmail.com',
     'outlook.com',
     'yahoo.com',
@@ -16,7 +17,19 @@ class SignUpScreen extends ConsumerWidget {
     'pm.me',
     'protonmail.com',
     'skiff.com',
-    'chancesoftwarellc.com'
+    'chancesoftwarellc.com',
+    'icloud.com',
+    'hotmail.com',
+    'yandex.com',
+    'zoho.com',
+    'mail.com',
+    'gmx.com',
+    'tutanota.com',
+    'tutamail.com',
+    'tuta.com',
+    'tutanota.de',
+    'tuta.io',
+    'keemail.me',
   ];
 
   final passwordMinLength = 8;

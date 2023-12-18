@@ -4,8 +4,6 @@ import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
-
 class UsageCard extends ConsumerWidget {
   const UsageCard({super.key});
 
