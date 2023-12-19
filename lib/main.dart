@@ -62,7 +62,7 @@ final _router = GoRouter(
     GoRoute(
       name: "signup",
       path: '/landing/signup',
-      builder: (context, state) => SignUpScreen(),
+      builder: (context, state) => const SignUpScreen(),
     ),
     GoRoute(
       name: "locked",

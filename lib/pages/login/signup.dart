@@ -1,39 +1,19 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/log.dart';
+import 'package:blazedcloud/services/files_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_snitch/github_snitch.dart';
 import 'package:go_router/go_router.dart';
 
 final emailController = TextEditingController();
+final isAttemptingSignupProvider = StateProvider<bool>((ref) => false);
+
 final passwordController = TextEditingController();
 
 class SignUpScreen extends ConsumerWidget {
-  final allowedDomains = [
-    // @TODO get this from the backend
-    'gmail.com',
-    'outlook.com',
-    'yahoo.com',
-    'aol.com',
-    'pm.me',
-    'protonmail.com',
-    'skiff.com',
-    'chancesoftwarellc.com',
-    'icloud.com',
-    'hotmail.com',
-    'yandex.com',
-    'zoho.com',
-    'mail.com',
-    'gmx.com',
-    'tutanota.com',
-    'tutamail.com',
-    'tuta.com',
-    'tutanota.de',
-    'tuta.io',
-    'keemail.me',
-  ];
-
   final passwordMinLength = 8;
-  SignUpScreen({super.key});
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -71,56 +51,27 @@ class SignUpScreen extends ConsumerWidget {
             // Login Button
             ElevatedButton(
               onPressed: () {
-                if (!isValidEmail(emailController.text)) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Invalid email domain")));
+                if (ref.read(isAttemptingSignupProvider)) {
                   return;
                 }
-                if (!isValidPassword(passwordController.text)) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(
-                          "Password must be $passwordMinLength characters long")));
-                  return;
-                }
+                ref.read(isAttemptingSignupProvider.notifier).state = true;
 
-                final body = <String, dynamic>{
-                  "email": emailController.text,
-                  "emailVisibility": false,
-                  "password": passwordController.text,
-                  "passwordConfirm": passwordController.text,
-                  "active": false,
-                  "usingPersonalEncryption": false
-                };
+                getAllowedEmailDomains().then((domains) {
+                  if (!isValidEmail(emailController.text, domains)) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Invalid email domain")));
+                    return;
+                  }
+                  if (!isValidPassword(passwordController.text)) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            "Password must be $passwordMinLength characters long")));
+                    return;
+                  }
 
-                try {
-                  pb.collection('users').create(body: body).then((value) {
-                    pb
-                        .collection('users')
-                        .requestVerification(emailController.text);
-
-                    // we need to login now after creating the user
-                    pb
-                        .collection('users')
-                        .authWithPassword(
-                          emailController.text,
-                          passwordController.text,
-                        )
-                        .then((value) {
-                      pb.authStore.save(value.token, value.record);
-
-                      if (pb.authStore.isValid) {
-                        context.go('/dashboard');
-                      }
-                    });
-                  }).onError((error, stackTrace) {
-                    logger.e(error);
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Invalid email or password")));
-                    return Future.value(null);
-                  });
-                } catch (e) {
-                  logger.e(e);
-                }
+                  createAccount(context);
+                  ref.read(isAttemptingSignupProvider.notifier).state = false;
+                });
               },
               child: const Text('Sign up'),
             ),
@@ -130,7 +81,49 @@ class SignUpScreen extends ConsumerWidget {
     );
   }
 
-  bool isValidEmail(String email) {
+  /// Creates a new user then logs them in
+  void createAccount(BuildContext context) {
+    final body = <String, dynamic>{
+      "email": emailController.text,
+      "emailVisibility": false,
+      "password": passwordController.text,
+      "passwordConfirm": passwordController.text,
+      "active": false,
+      "usingPersonalEncryption": false
+    };
+
+    try {
+      pb.collection('users').create(body: body).then((value) {
+        pb.collection('users').requestVerification(emailController.text);
+
+        // we need to login now after creating the user
+        pb
+            .collection('users')
+            .authWithPassword(
+              emailController.text,
+              passwordController.text,
+            )
+            .then((value) {
+          pb.authStore.save(value.token, value.record);
+
+          if (pb.authStore.isValid) {
+            context.go('/dashboard');
+          }
+        });
+      }).onError((error, stackTrace) {
+        logger.e(error);
+        GhSnitch.report(
+            title: "Failed Login after Signup", body: error.toString());
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Failed loging in after signup")));
+        return Future.value(null);
+      });
+    } catch (e) {
+      logger.e(e);
+    }
+  }
+
+  bool isValidEmail(String email, List<String> allowedDomains) {
     final emailParts = email.split('@');
     if (emailParts.length != 2) {
       return false;
