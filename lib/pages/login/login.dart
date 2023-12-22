@@ -47,34 +47,40 @@ class LoginScreen extends ConsumerWidget {
 
             // Login Button
             ElevatedButton(
-              onPressed: () {
-                if (ref.read(isAttemptingLoginProvider)) {
-                  return;
-                }
-                ref.read(isAttemptingLoginProvider.notifier).state = true;
+              onPressed: ref.watch(isAttemptingLoginProvider)
+                  ? null
+                  : () {
+                      if (ref.read(isAttemptingLoginProvider)) {
+                        return;
+                      }
+                      ref.read(isAttemptingLoginProvider.notifier).state = true;
 
-                // attempt login with pocketbase
-                pb
-                    .collection('users')
-                    .authWithPassword(
-                      emailController.text,
-                      passwordController.text,
-                    )
-                    .then((value) {
-                  pb.authStore.save(value.token, value.record);
+                      // attempt login with pocketbase
+                      pb
+                          .collection('users')
+                          .authWithPassword(
+                            emailController.text,
+                            passwordController.text,
+                          )
+                          .then((value) {
+                        pb.authStore.save(value.token, value.record);
 
-                  if (pb.authStore.isValid) {
-                    context.go('/dashboard');
-                  }
-                }).onError((error, stackTrace) {
-                  logger.e("Error logging in: $error");
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text("Invalid email or password")));
-                  return null;
-                });
+                        if (pb.authStore.isValid) {
+                          context.go('/dashboard');
+                        }
+                      }).onError((error, stackTrace) {
+                        logger.e("Error logging in: $error");
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text("Invalid email or password")));
+                        ref.read(isAttemptingLoginProvider.notifier).state =
+                            false;
+                        return null;
+                      });
 
-                ref.read(isAttemptingLoginProvider.notifier).state = false;
-              },
+                      ref.read(isAttemptingLoginProvider.notifier).state =
+                          false;
+                    },
               child: const Text('Login'),
             ),
 

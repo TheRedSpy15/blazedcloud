@@ -50,29 +50,38 @@ class SignUpScreen extends ConsumerWidget {
 
             // Login Button
             ElevatedButton(
-              onPressed: () {
-                if (ref.read(isAttemptingSignupProvider)) {
-                  return;
-                }
-                ref.read(isAttemptingSignupProvider.notifier).state = true;
+              onPressed: ref.watch(isAttemptingSignupProvider)
+                  ? null
+                  : () {
+                      if (ref.read(isAttemptingSignupProvider)) {
+                        return;
+                      }
+                      ref.read(isAttemptingSignupProvider.notifier).state =
+                          true;
 
-                getAllowedEmailDomains().then((domains) {
-                  if (!isValidEmail(emailController.text, domains)) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("Invalid email domain")));
-                    return;
-                  }
-                  if (!isValidPassword(passwordController.text)) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                            "Password must be $passwordMinLength characters long")));
-                    return;
-                  }
+                      getAllowedEmailDomains().then((domains) {
+                        if (!isValidEmail(emailController.text, domains)) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("Invalid email domain")));
+                          ref.read(isAttemptingSignupProvider.notifier).state =
+                              false;
+                          return;
+                        }
+                        if (!isValidPassword(passwordController.text)) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                                  "Password must be $passwordMinLength characters long")));
+                          ref.read(isAttemptingSignupProvider.notifier).state =
+                              false;
+                          return;
+                        }
 
-                  createAccount(context);
-                  ref.read(isAttemptingSignupProvider.notifier).state = false;
-                });
-              },
+                        createAccount(context);
+                        ref.read(isAttemptingSignupProvider.notifier).state =
+                            false;
+                      });
+                    },
               child: const Text('Sign up'),
             ),
           ],
