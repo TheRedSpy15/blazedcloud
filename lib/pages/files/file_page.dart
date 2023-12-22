@@ -63,7 +63,8 @@ class FilesPage extends ConsumerWidget {
           data: (data) {
             final folders = data.commonPrefixes ?? [];
             final files = data.contents ?? [];
-            if (data.contents?.isEmpty ?? true) {
+            if ((data.contents?.isEmpty ?? true) &&
+                (data.commonPrefixes?.isEmpty ?? true)) {
               return const Center(
                 child: Text("No files or folders"),
               );
@@ -161,21 +162,6 @@ class FilesPage extends ConsumerWidget {
                               'Creating folder ${ref.read(newFolderNameProvider.notifier).state}');
                           createFolder(newFolderKey).then((success) {
                             ref.invalidate(fileListProvider(currentDirectory));
-                            if (success) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                      'Created folder ${ref.read(newFolderNameProvider.notifier).state}'),
-                                ),
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                      'Error creating folder ${ref.read(newFolderNameProvider.notifier).state}'),
-                                ),
-                              );
-                            }
                           });
                           Navigator.of(context).pop();
                         },
@@ -193,15 +179,7 @@ class FilesPage extends ConsumerWidget {
                   final usageGB =
                       (data['usage'] / 1000000000).truncateToDouble();
 
-                  if (usageGB >= data['capacity']) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                            'You have reached your storage limit. Please upgrade your storage.'),
-                      ),
-                    );
-                    return const SizedBox.shrink();
-                  } else {
+                  if (usageGB < data['capacity']) {
                     return FloatingActionButton(
                         key: const Key("uploadButton"),
                         heroTag: "uploadButton",
@@ -211,6 +189,7 @@ class FilesPage extends ConsumerWidget {
                         },
                         child: const Icon(Icons.file_upload));
                   }
+                  return const SizedBox.shrink();
                 },
                 loading: () => const SizedBox.shrink(),
                 error: (err, stack) {

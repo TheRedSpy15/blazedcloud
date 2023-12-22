@@ -61,6 +61,22 @@ Future<bool> deleteFolder(String uid, String folderKey, String token) async {
   }
 }
 
+Future<List<String>> getAllowedEmailDomains() async {
+  var request = http.Request('GET', Uri.parse('$backendUrl/config/emails'));
+  http.StreamedResponse response = await httpClient.send(request);
+
+  if (response.statusCode == 200) {
+    final responseBody = await response.stream.bytesToString();
+    logger.d("Got allowed email domains $responseBody");
+    return List<String>.from(jsonDecode(responseBody));
+  } else {
+    logger.e(response.reasonPhrase);
+    
+    // fallback to protonmail and gmail
+    return ["protonmail.com", "gmail.com"];
+  }
+}
+
 Future<http.StreamedResponse> getFile(
     String uid, String fileKey, String token) async {
   logger.i("Getting file ${getFileName(fileKey)} with key $fileKey");

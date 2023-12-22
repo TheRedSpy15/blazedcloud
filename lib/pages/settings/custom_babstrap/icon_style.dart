@@ -7,12 +7,9 @@ class IconStyle {
   double? borderRadius;
 
   IconStyle({
-    iconsColor = Colors.white,
-    withBackground = true,
-    backgroundColor = Colors.blue,
+    this.iconsColor = Colors.white,
+    this.withBackground = true,
+    this.backgroundColor = Colors.blue,
     borderRadius = 8,
-  })  : iconsColor = iconsColor,
-        withBackground = withBackground,
-        backgroundColor = backgroundColor,
-        borderRadius = double.parse(borderRadius!.toString());
+  }) : borderRadius = double.parse(borderRadius!.toString());
 }

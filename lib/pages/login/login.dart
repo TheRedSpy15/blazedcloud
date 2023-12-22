@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 final emailController = TextEditingController();
+final isAttemptingLoginProvider = StateProvider<bool>((ref) => false);
+
 final passwordController = TextEditingController();
 
 class LoginScreen extends ConsumerWidget {
@@ -46,6 +48,11 @@ class LoginScreen extends ConsumerWidget {
             // Login Button
             ElevatedButton(
               onPressed: () {
+                if (ref.read(isAttemptingLoginProvider)) {
+                  return;
+                }
+                ref.read(isAttemptingLoginProvider.notifier).state = true;
+
                 // attempt login with pocketbase
                 pb
                     .collection('users')
@@ -65,6 +72,8 @@ class LoginScreen extends ConsumerWidget {
                       content: Text("Invalid email or password")));
                   return null;
                 });
+
+                ref.read(isAttemptingLoginProvider.notifier).state = false;
               },
               child: const Text('Login'),
             ),
