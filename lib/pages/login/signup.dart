@@ -133,13 +133,17 @@ class SignUpScreen extends ConsumerWidget {
   }
 
   bool isValidEmail(String email, List<String> allowedDomains) {
-    final emailParts = email.split('@');
-    if (emailParts.length != 2) {
+    final emailRegex = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+    if (!emailRegex.hasMatch(email)) {
       return false;
     }
 
-    final domain = emailParts[1];
-    return allowedDomains.contains(domain);
+    for (var domain in allowedDomains) {
+      if (email.endsWith(domain)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   bool isValidPassword(String password) {
