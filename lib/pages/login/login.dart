@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 final emailController = TextEditingController();
+final isAttemptingLoginProvider = StateProvider<bool>((ref) => false);
+
 final passwordController = TextEditingController();
 
 class LoginScreen extends ConsumerWidget {
@@ -45,27 +47,40 @@ class LoginScreen extends ConsumerWidget {
 
             // Login Button
             ElevatedButton(
-              onPressed: () {
-                // attempt login with pocketbase
-                pb
-                    .collection('users')
-                    .authWithPassword(
-                      emailController.text,
-                      passwordController.text,
-                    )
-                    .then((value) {
-                  pb.authStore.save(value.token, value.record);
+              onPressed: ref.watch(isAttemptingLoginProvider)
+                  ? null
+                  : () {
+                      if (ref.read(isAttemptingLoginProvider)) {
+                        return;
+                      }
+                      ref.read(isAttemptingLoginProvider.notifier).state = true;
 
-                  if (pb.authStore.isValid) {
-                    context.go('/dashboard');
-                  }
-                }).onError((error, stackTrace) {
-                  logger.e("Error logging in: $error");
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Text("Invalid email or password")));
-                  return null;
-                });
-              },
+                      // attempt login with pocketbase
+                      pb
+                          .collection('users')
+                          .authWithPassword(
+                            emailController.text,
+                            passwordController.text,
+                          )
+                          .then((value) {
+                        pb.authStore.save(value.token, value.record);
+
+                        if (pb.authStore.isValid) {
+                          context.go('/dashboard');
+                        }
+                      }).onError((error, stackTrace) {
+                        logger.e("Error logging in: $error");
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text("Invalid email or password")));
+                        ref.read(isAttemptingLoginProvider.notifier).state =
+                            false;
+                        return null;
+                      });
+
+                      ref.read(isAttemptingLoginProvider.notifier).state =
+                          false;
+                    },
               child: const Text('Login'),
             ),
 

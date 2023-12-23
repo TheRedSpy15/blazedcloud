@@ -8,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
 
-final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
-
 class UsageCard extends ConsumerWidget {
   const UsageCard({super.key});
 
