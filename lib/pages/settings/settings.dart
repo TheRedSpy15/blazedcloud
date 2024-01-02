@@ -257,7 +257,6 @@ class SettingsScreen extends ConsumerWidget {
       AsyncValue<User> userData, BuildContext context, WidgetRef ref) {
     return userData.when(
       data: (user) {
-        ref.read(isPrunableProvider.notifier).state = user.prunable;
         return CustomSettingsItem(
           onTap: () {
             HapticFeedback.mediumImpact();
@@ -265,7 +264,7 @@ class SettingsScreen extends ConsumerWidget {
             pb.collection('users').update(user.id, body: {
               "prunable": !user.prunable,
             }).then((value) {
-              ref.read(isPrunableProvider.notifier).state = !user.prunable;
+              ref.invalidate(accountUserProvider(pb.authStore.model.id));
             }).onError((error, stackTrace) {
               logger.e("Error updating user: $error");
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -276,12 +275,12 @@ class SettingsScreen extends ConsumerWidget {
           },
           icons: CupertinoIcons.timer,
           trailing: Switch(
-            value: ref.watch(isPrunableProvider),
+            value: user.prunable,
             onChanged: (value) {
               pb.collection('users').update(user.id, body: {
                 "prunable": value,
               }).then((_) {
-                ref.read(isPrunableProvider.notifier).state = value;
+                ref.invalidate(accountUserProvider(pb.authStore.model.id));
               }).onError((error, stackTrace) {
                 logger.e("Error updating user: $error");
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
