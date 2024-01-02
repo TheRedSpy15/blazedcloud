@@ -20,7 +20,7 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh';
 
-  static String m0(foldername) => "您确定要删除此文件夹吗？\\n\\n\\u2022 ${foldername}";
+  static String m0(foldername) => "您确定要删除此文件夹吗？${foldername}";
 
   static String m1(filename) => "正在下载 ${filename}";
 

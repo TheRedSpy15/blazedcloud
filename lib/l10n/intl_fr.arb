@@ -57,7 +57,7 @@
     "createFolder": "Créer un dossier",
     "create": "Créer",
     "deleteFolder": "Supprimer le dossier",
-    "confirmFolderDelete": "Êtes-vous sûr de vouloir supprimer ce dossier ? \\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "Êtes-vous sûr de vouloir supprimer ce dossier ? {foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

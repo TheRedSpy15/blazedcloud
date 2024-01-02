@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
   static String m0(foldername) =>
-      "Sind Sie sicher, dass Sie diesen Ordner löschen möchten? \\n\\n\\u2022 ${foldername}";
+      "Sind Sie sicher, dass Sie diesen Ordner löschen möchten? ${foldername}";
 
   static String m1(filename) => "Herunterladen von ${filename}";
 

@@ -57,7 +57,7 @@
     "createFolder": "Crear carpeta",
     "create": "Crear",
     "deleteFolder": "Eliminar carpeta",
-    "confirmFolderDelete": "¿Estás seguro de que quieres eliminar esta carpeta? \\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "¿Estás seguro de que quieres eliminar esta carpeta? {foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

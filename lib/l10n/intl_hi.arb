@@ -57,7 +57,7 @@
     "createFolder": "फ़ोल्डर बनाएं",
     "create": "बनाएं",
     "deleteFolder": "फ़ोल्डर हटाएं",
-    "confirmFolderDelete": "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? \\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? {foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

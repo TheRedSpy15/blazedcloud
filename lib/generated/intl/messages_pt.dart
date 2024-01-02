@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt';
 
   static String m0(foldername) =>
-      "Tem certeza de que deseja excluir esta pasta? \\n\\n\\u2022 ${foldername}";
+      "Tem certeza de que deseja excluir esta pasta? ${foldername}";
 
   static String m1(filename) => "Baixando ${filename}";
 

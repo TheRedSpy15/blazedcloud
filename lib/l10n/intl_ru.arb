@@ -57,7 +57,7 @@
     "createFolder": "Создать папку",
     "create": "Создать",
     "deleteFolder": "Удалить папку",
-    "confirmFolderDelete": "Вы уверены, что хотите удалить эту папку? \\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "Вы уверены, что хотите удалить эту папку? {foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

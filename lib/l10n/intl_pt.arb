@@ -57,7 +57,7 @@
     "createFolder": "Criar pasta",
     "create": "Criar",
     "deleteFolder": "Excluir pasta",
-    "confirmFolderDelete": "Tem certeza de que deseja excluir esta pasta? \\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "Tem certeza de que deseja excluir esta pasta? {foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

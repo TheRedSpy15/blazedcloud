@@ -4,7 +4,6 @@ import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:github_snitch/github_snitch.dart';
 import 'package:go_router/go_router.dart';
 
 final emailController = TextEditingController();
@@ -123,8 +122,6 @@ class SignUpScreen extends ConsumerWidget {
         });
       }).onError((error, stackTrace) {
         logger.e(error);
-        GhSnitch.report(
-            title: "Failed Login after Signup", body: error.toString());
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(S.of(context).failedLogingInAfterSignup)));
         return Future.value(null);

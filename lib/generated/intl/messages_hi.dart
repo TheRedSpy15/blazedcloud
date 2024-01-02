@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'hi';
 
   static String m0(foldername) =>
-      "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? \\n\\n\\u2022 ${foldername}";
+      "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? ${foldername}";
 
   static String m1(filename) => "${filename} डाउनलोड हो रहा है";
 

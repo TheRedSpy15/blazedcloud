@@ -470,10 +470,10 @@ class S {
     );
   }
 
-  /// `Are you sure you want to delete this Folder? \n\n\u2022 {foldername}`
+  /// `Are you sure you want to delete this Folder? {foldername}`
   String confirmFolderDelete(Object foldername) {
     return Intl.message(
-      'Are you sure you want to delete this Folder? \\n\\n\\u2022 $foldername',
+      'Are you sure you want to delete this Folder? $foldername',
       name: 'confirmFolderDelete',
       desc: '',
       args: [foldername],

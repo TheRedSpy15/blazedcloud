@@ -57,7 +57,7 @@
     "createFolder": "Ordner erstellen",
     "create": "Erstellen",
     "deleteFolder": "Ordner löschen",
-    "confirmFolderDelete": "Sind Sie sicher, dass Sie diesen Ordner löschen möchten? \\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "Sind Sie sicher, dass Sie diesen Ordner löschen möchten? {foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

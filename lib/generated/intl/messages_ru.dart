@@ -21,7 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
   static String m0(foldername) =>
-      "Вы уверены, что хотите удалить эту папку? \\n\\n\\u2022 ${foldername}";
+      "Вы уверены, что хотите удалить эту папку? ${foldername}";
 
   static String m1(filename) => "Загрузка ${filename}";
 

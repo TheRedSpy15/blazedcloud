@@ -8,14 +8,12 @@ import 'package:blazedcloud/pages/login/login.dart';
 import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
-import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:github_snitch/github_snitch.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lottie/lottie.dart';
@@ -33,18 +31,6 @@ void main() async {
       isInDebugMode:
           kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
       );
-
-  getSnitchToken().then((token) {
-    GhSnitch.initialize(
-        owner: "TheRedSpy15", token: token, repo: "blazedcloud");
-    if (kReleaseMode) {
-      // For report exceptions & bugs Automaticlly
-      GhSnitch.listenToExceptions(
-          assignees: ["TheRedSpy15"], labels: ["snitch-bug"]);
-    }
-  }).catchError((err) {
-    logger.e("Error getting snitch token: $err");
-  });
 
   runApp(const MyApp());
 }

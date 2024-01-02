@@ -57,7 +57,7 @@
     "createFolder": "创建文件夹",
     "create": "创建",
     "deleteFolder": "删除文件夹",
-    "confirmFolderDelete": "您确定要删除此文件夹吗？\\n\\n\\u2022 {foldername}",
+    "confirmFolderDelete": "您确定要删除此文件夹吗？{foldername}",
     "@confirmFolderDelete": {
         "placeholders": {
             "foldername": {}

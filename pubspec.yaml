@@ -57,7 +57,6 @@ dependencies:
   badges: ^3.1.2
   workmanager: ^0.5.2
   local_auth: ^2.1.7
-  github_snitch: ^0.0.13
   intl: ^0.18.1
   flutter_localizations:
     sdk: flutter
