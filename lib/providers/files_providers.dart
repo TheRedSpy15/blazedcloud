@@ -23,8 +23,8 @@ final currentDirectoryProvider =
     StateProvider<String>((ref) => pb.authStore.model.id + '/');
 
 /// pass the directory to list files from (folder key). Use empty string for root
-final fileListProvider = FutureProvider.autoDispose
-    .family<ListBucketResult, String>((ref, folder) async {
+final fileListProvider =
+    FutureProvider.family<ListBucketResult, String>((ref, folder) async {
   return getFilelistByFolder(pb.authStore.model.id, folder, pb.authStore.token);
 });
 

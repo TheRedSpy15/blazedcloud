@@ -1,4 +1,5 @@
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class SignUpScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign up'),
+        title: Text(S.of(context).signUp),
       ),
       body: Center(
         child: Column(
@@ -30,8 +31,8 @@ class SignUpScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
                 controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
+                decoration: InputDecoration(
+                  labelText: S.of(context).email,
                 ),
               ),
             ),
@@ -42,8 +43,8 @@ class SignUpScreen extends ConsumerWidget {
               child: TextFormField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
+                decoration: InputDecoration(
+                  labelText: S.of(context).password,
                 ),
               ),
             ),
@@ -61,17 +62,18 @@ class SignUpScreen extends ConsumerWidget {
 
                       getAllowedEmailDomains().then((domains) {
                         if (!isValidEmail(emailController.text, domains)) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text("Invalid email domain")));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text(S.of(context).emailDomainNotAllowed)));
                           ref.read(isAttemptingSignupProvider.notifier).state =
                               false;
                           return;
                         }
                         if (!isValidPassword(passwordController.text)) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(
-                                  "Password must be $passwordMinLength characters long")));
+                              content: Text(S
+                                  .of(context)
+                                  .passwordMustBePasswordminlengthCharactersLong)));
                           ref.read(isAttemptingSignupProvider.notifier).state =
                               false;
                           return;
@@ -82,7 +84,7 @@ class SignUpScreen extends ConsumerWidget {
                             false;
                       });
                     },
-              child: const Text('Sign up'),
+              child: Text(S.of(context).signUp),
             ),
           ],
         ),
@@ -124,7 +126,7 @@ class SignUpScreen extends ConsumerWidget {
         GhSnitch.report(
             title: "Failed Login after Signup", body: error.toString());
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Failed loging in after signup")));
+            SnackBar(content: Text(S.of(context).failedLogingInAfterSignup)));
         return Future.value(null);
       });
     } catch (e) {

@@ -1,0 +1,101 @@
+{
+    "@@locale": "ru",
+    "serverMaintenance": "Сервер находится на техническом обслуживании. Пожалуйста, попробуйте позже.",
+    "appName": "Blazed Cloud",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "emptyDirectory": "Нет файлов или папок",
+    "errorErr": "Ошибка: $err",
+    "invalidEmailOrPassword": "Неверный адрес электронной почты или пароль",
+    "login": "Войти",
+    "forgotPassword": "Забыли пароль?",
+    "resetPassword": "Сбросить пароль",
+    "email": "Эл. почта",
+    "cancel": "Отмена",
+    "passwordResetEmailSent": "Письмо для сброса пароля отправлено!",
+    "errorSendingPasswordResetEmail": "Ошибка при отправке письма для сброса пароля",
+    "send": "Отправить",
+    "password": "Пароль",
+    "settings": "Настройки",
+    "transfers": "Передачи",
+    "files": "Файлы",
+    "emailDomainNotAllowed": "Домен электронной почты не разрешен",
+    "passwordMustBePasswordminlengthCharactersLong": "Пароль должен содержать не менее $passwordMinLength символов",
+    "signUp": "Зарегистрироваться",
+    "failedLogingInAfterSignup": "Не удалось войти после регистрации",
+    "errorSendingRequest": "Ошибка при отправке запроса",
+    "requestSent": "Запрос отправлен!",
+    "errorUpdatingUserPleaseTryAgain": "Ошибка обновления пользователя. Пожалуйста, попробуйте снова.",
+    "deleteFile": "Удалить файл",
+    "areYouSureYouWantToDeleteThisFile": "Вы уверены, что хотите удалить этот файл?",
+    "downloadingGetfilenamefilekey": "Загрузка {filename}",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "Открытие файла: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "Ошибка открытия файла: $e",
+    "openingInBrowser": "Открытие в браузере...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Не удалось открыть. Пожалуйста, попробуйте сначала сохранить файл",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступен в автономном режиме",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "Поделиться файлом",
+    "linkCopiedToClipboard": "Ссылка скопирована в буфер обмена",
+    "share": "Поделиться",
+    "open": "Открыть",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "Создать папку",
+    "create": "Создать",
+    "deleteFolder": "Удалить папку",
+    "confirmFolderDelete": "Вы уверены, что хотите удалить эту папку? \\n\\n\\u2022 {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "Требуется аутентификация",
+    "areYouSureYouWantToDeleteYourAccountThis": "Вы уверены, что хотите удалить свою учетную запись? Это необратимо.\\n\\nПожалуйста, обратите внимание, что вам нужно будет вручную отменить подписку через магазин приложений (если у вас есть подписка)",
+    "deleteAccount": "Удалить учетную запись",
+    "accountDeleted": "Учетная запись удалена",
+    "yourAccountHasBeenDeleted": "Ваша учетная запись была удалена.",
+    "ok": "OK",
+    "failedToDeleteAccount": "Не удалось удалить учетную запись",
+    "changeDownloadLocation": "Изменить место загрузки",
+    "changeEmail": "Изменить адрес электронной почты",
+    "willSendALinkToYourEmailToCompleteThe": "Отправим ссылку на ваш адрес электронной почты для завершения изменений",
+    "viewBackendOnGithub": "Просмотреть бэкенд на Github",
+    "viewOnGithub": "Просмотреть на Github",
+    "autoDeleteAcount": "Автоматическое удаление учетной записи",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Удалить вашу учетную запись после 90 дней бездействия. Всегда игнорируется для пользователей с активной подпиской.",
+    "signOut": "Выход",
+    "areYouSureYouWantToSignOut": "Вы уверены, что хотите выйти?",
+    "requireBiometricsToOpenApp": "Требовать биометрию для открытия приложения",
+    "changePassword": "Изменить пароль",
+    "willSendALinkToYourEmailToResetYour": "Отправим ссылку на ваш адрес электронной почты для сброса пароля",
+    "downloading": "Загрузка...",
+    "downloaded": "Загружено",
+    "selectDownloadDirectory": "Выберите каталог загрузки",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Пожалуйста, выберите каталог, в который вы хотели бы загрузить ваши файлы на следующем экране.",
+    "pickFolder": "Выбрать папку",
+    "offlineFilesAreStoredAtSnapshotdata": "Офлайн-файлы хранятся в {path}",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "Загрузка...",
+    "uploaded": "Загружено",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Приобретите 1 ТБ, используя версию из магазина Play. Вы можете удалить эту версию после завершения.",
+    "folderName": "Имя папки",
+    "storageUsage": "Использование хранилища"
+}

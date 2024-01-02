@@ -29,3 +29,7 @@ final isPrefsLoaded = FutureProvider.autoDispose<bool>((ref) async {
       prefs.getBool('biometric') ?? false;
   return true;
 });
+
+final isPrunableProvider = StateProvider<bool>((ref) {
+  return true;
+});

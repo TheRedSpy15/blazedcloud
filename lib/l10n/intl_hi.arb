@@ -1,0 +1,101 @@
+{
+    "@@locale": "hi",
+    "serverMaintenance": "सर्वर वर्तमान में रखरखाव के लिए है। कृपया बाद में पुनः प्रयास करें।",
+    "appName": "ब्लेज्ड क्लाउड",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "emptyDirectory": "कोई फ़ाइल या फ़ोल्डर नहीं",
+    "errorErr": "त्रुटि: $err",
+    "invalidEmailOrPassword": "अमान्य ईमेल या पासवर्ड",
+    "login": "लॉग इन",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "resetPassword": "पासवर्ड रीसेट",
+    "email": "ईमेल",
+    "cancel": "रद्द करें",
+    "passwordResetEmailSent": "पासवर्ड रीसेट ईमेल भेजा गया है!",
+    "errorSendingPasswordResetEmail": "पासवर्ड रीसेट ईमेल भेजने में त्रुटि",
+    "send": "भेजें",
+    "password": "पासवर्ड",
+    "settings": "सेटिंग्स",
+    "transfers": "स्थानांतरण",
+    "files": "फ़ाइलें",
+    "emailDomainNotAllowed": "ईमेल डोमेन अनुमत नहीं है",
+    "passwordMustBePasswordminlengthCharactersLong": "पासवर्ड $passwordMinLength अक्षरों लंबा होना चाहिए",
+    "signUp": "साइन अप",
+    "failedLogingInAfterSignup": "साइन अप के बाद लॉग इन में विफल",
+    "errorSendingRequest": "अनुरोध भेजने में त्रुटि",
+    "requestSent": "अनुरोध भेजा गया!",
+    "errorUpdatingUserPleaseTryAgain": "उपयोगकर्ता को अपडेट करने में त्रुटि. कृपया पुनः प्रयास करें।",
+    "deleteFile": "फ़ाइल हटाएं",
+    "areYouSureYouWantToDeleteThisFile": "क्या आप इस फ़ाइल को हटाना चाहते हैं?",
+    "downloadingGetfilenamefilekey": "{filename} डाउनलोड हो रहा है",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "फ़ाइल खोल रहा है: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "त्रुटि फ़ाइल खोलते समय: $e",
+    "openingInBrowser": "ब्राउज़र में खोल रहा है...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "खोलने में विफल हुआ. कृपया पहले फ़ाइल को सहेजने का प्रयास करें",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "फ़ाइल {filename} ऑफ़लाइन उपलब्ध नहीं है",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "फ़ाइल साझा करें",
+    "linkCopiedToClipboard": "लिंक क्लिपबोर्ड पर कॉपी किया गया",
+    "share": "साझा करें",
+    "open": "खोलें",
+    "blazedExplorer": "ब्लेज्ड एक्सप्लोरर",
+    "createFolder": "फ़ोल्डर बनाएं",
+    "create": "बनाएं",
+    "deleteFolder": "फ़ोल्डर हटाएं",
+    "confirmFolderDelete": "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? \\n\\n\\u2022 {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "प्रमाणीकरण आवश्यक है",
+    "areYouSureYouWantToDeleteYourAccountThis": "क्या आप वाकई अपने खाते को हटाना चाहते हैं? यह परिणामस्वरूप है।\\n\\nकृपया ध्यान दें, आपको यदि है, तो आपको अपनी सदस्यता को प्ले स्टोर के माध्यम से मैन्युअली रद्द करना होगा (यदि आपकी सदस्यता है)",
+    "deleteAccount": "खाता हटाएं",
+    "accountDeleted": "खाता हटा दिया गया है",
+    "yourAccountHasBeenDeleted": "आपका खाता हटा दिया गया है।",
+    "ok": "ठीक है",
+    "failedToDeleteAccount": "खाता हटाने में विफल",
+    "changeDownloadLocation": "डाउनलोड स्थान बदलें",
+    "changeEmail": "ईमेल बदलें",
+    "willSendALinkToYourEmailToCompleteThe": "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि परिवर्तन को पूरा किया जा सके",
+    "viewBackendOnGithub": "गिटहब पर बैकएंड देखें",
+    "viewOnGithub": "गिटहब पर देखें",
+    "autoDeleteAcount": "स्वत: नष्ट खाता",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "निष्क्रियता के 90 दिनों के बाद अपना खाता हटाएं। सदस्यता वाले उपयोगकर्ताओं के लिए हमेशा अनदेखा किया जाता है।",
+    "signOut": "साइन आउट",
+    "areYouSureYouWantToSignOut": "क्या आप वाकई साइन आउट करना चाहते हैं?",
+    "requireBiometricsToOpenApp": "एप्लिकेशन खोलने के लिए बायोमेट्रिक्स की आवश्यकता है",
+    "changePassword": "पासवर्ड बदलें",
+    "willSendALinkToYourEmailToResetYour": "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप अपना पासवर्ड रीसेट कर सकें",
+    "downloading": "डाउनलोड हो रहा है...",
+    "downloaded": "डाउनलोड हो गया",
+    "selectDownloadDirectory": "डाउनलोड निर्दिष्ट करें",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "कृपया एक निर्दिष्ट करें जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।",
+    "pickFolder": "फ़ोल्डर चुनें",
+    "offlineFilesAreStoredAtSnapshotdata": "ऑफ़लाइन फ़ाइलें {path} में स्टोर होती हैं",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "अपलोड हो रहा है...",
+    "uploaded": "अपलोड हो गया",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। जब हो जाए, तो आप उस संस्करण को अनइंस्टॉल कर सकते हैं।",
+    "folderName": "फ़ोल्डर का नाम",
+    "storageUsage": "स्टोरेज उपयोग"
+}
