@@ -1,18 +1,23 @@
 {
     "@@locale": "de",
-    "serverMaintenance": "Der Server wird derzeit gewartet. Bitte versuchen Sie es später erneut.",
+    "serverMaintenance": "Server wird derzeit gewartet. Bitte versuchen Sie es später erneut.",
     "appName": "Blazed Cloud",
     "save": "Speichern",
     "delete": "Löschen",
     "emptyDirectory": "Keine Dateien oder Ordner",
-    "errorErr": "Fehler: $err",
+    "errorErr": "Fehler: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
     "invalidEmailOrPassword": "Ungültige E-Mail oder Passwort",
     "login": "Anmelden",
     "forgotPassword": "Passwort vergessen?",
     "resetPassword": "Passwort zurücksetzen",
     "email": "E-Mail",
     "cancel": "Abbrechen",
-    "passwordResetEmailSent": "E-Mail zum Zurücksetzen des Passworts gesendet!",
+    "passwordResetEmailSent": "Passwort-Zurücksetzen-E-Mail gesendet!",
     "errorSendingPasswordResetEmail": "Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts",
     "send": "Senden",
     "password": "Passwort",
@@ -20,7 +25,12 @@
     "transfers": "Übertragungen",
     "files": "Dateien",
     "emailDomainNotAllowed": "E-Mail-Domäne nicht erlaubt",
-    "passwordMustBePasswordminlengthCharactersLong": "Das Passwort muss mindestens $passwordMinLength Zeichen lang sein",
+    "passwordMustBePasswordminlengthCharactersLong": "Das Passwort muss {length} Zeichen lang sein",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
     "signUp": "Registrieren",
     "failedLogingInAfterSignup": "Anmeldung nach der Registrierung fehlgeschlagen",
     "errorSendingRequest": "Fehler beim Senden der Anfrage",
@@ -40,10 +50,15 @@
             "filename": {}
         }
     },
-    "errorOpeningFileE": "Fehler beim Öffnen der Datei: $e",
-    "openingInBrowser": "Öffnen im Browser...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "Öffnen fehlgeschlagen. Versuchen Sie zuerst, die Datei zu speichern",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "Die Datei {filename} ist offline nicht verfügbar",
+    "errorOpeningFileE": "Fehler beim Öffnen der Datei: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "Im Browser öffnen...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Öffnen fehlgeschlagen. Versuchen Sie bitte zuerst, die Datei zu speichern",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "Datei {filename} ist offline nicht verfügbar",
     "@fileGetfilenamefilekeyIsNotAvailableOffline": {
         "placeholders": {
             "filename": {}
@@ -64,7 +79,7 @@
         }
     },
     "authenticationRequired": "Authentifizierung erforderlich",
-    "areYouSureYouWantToDeleteYourAccountThis": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist nicht rückgängig zu machen. Bitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)",
+    "areYouSureYouWantToDeleteYourAccountThis": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist irreversibel. Bitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)",
     "deleteAccount": "Konto löschen",
     "accountDeleted": "Konto gelöscht",
     "yourAccountHasBeenDeleted": "Ihr Konto wurde gelöscht.",
@@ -75,7 +90,8 @@
     "willSendALinkToYourEmailToCompleteThe": "Wir senden einen Link an Ihre E-Mail, um die Änderung abzuschließen",
     "viewBackendOnGithub": "Backend auf Github anzeigen",
     "viewOnGithub": "Auf Github anzeigen",
-    "autoDeleteAcount": "Konto nach 90 Tagen Inaktivität automatisch löschen. Immer ignoriert für Benutzer mit aktiven Abonnements.",
+    "autoDeleteAcount": "Konto automatisch löschen",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Löschen Sie Ihr Konto nach 90 Tagen Inaktivität. Immer ignoriert für Benutzer mit aktiven Abonnements.",
     "signOut": "Abmelden",
     "areYouSureYouWantToSignOut": "Sind Sie sicher, dass Sie sich abmelden möchten?",
     "requireBiometricsToOpenApp": "Biometrie erforderlich, um die App zu öffnen",
@@ -94,7 +110,8 @@
     },
     "uploading": "Hochladen...",
     "uploaded": "Hochgeladen",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Kaufen Sie 1 TB mit der Playstore-Version. Sie können diese Version deinstallieren, wenn Sie fertig sind.",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Kaufe 1 TB mit der Playstore-Version. Sie können diese Version deinstallieren, wenn Sie fertig sind.",
     "folderName": "Ordnername",
-    "storageUsage": "Speichernutzung"
+    "storageUsage": "Speichernutzung",
+    "howLongToShare": "Wie lange soll die Datei für die Freigabe verfügbar sein?"
 }

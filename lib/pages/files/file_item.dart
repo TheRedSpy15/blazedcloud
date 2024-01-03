@@ -84,7 +84,8 @@ void openFromOffline(String fileKey, WidgetRef ref) {
       logger.e('Error opening file: $e');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content: Text(S.of(ref.context).errorOpeningFileE),
+          content:
+              Text(S.of(ref.context).errorOpeningFileE(getFileName(fileKey))),
         ),
       );
     }
@@ -149,8 +150,7 @@ void shareItem(String fileKey, WidgetRef ref) {
           children: [
             Column(
               children: [
-                const Text(
-                    'How long should the file be available for sharing?'),
+                Text(S.of(context).howLongToShare),
                 const SizedBox(height: 8.0),
                 Slider(
                   value: ref.watch(shareDurationProvider).toDouble(),

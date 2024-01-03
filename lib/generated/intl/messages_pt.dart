@@ -25,12 +25,18 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "Baixando ${filename}";
 
-  static String m2(filename) =>
+  static String m2(err) => "Erro: ${err}";
+
+  static String m3(filename) => "Erro ao abrir arquivo: ${filename}";
+
+  static String m4(filename) =>
       "Arquivo ${filename} não está disponível offline";
 
-  static String m3(path) => "Os arquivos offline são armazenados em ${path}";
+  static String m5(path) => "Os arquivos offline são armazenados em ${path}";
 
-  static String m4(filename) => "Abrindo arquivo: ${filename}";
+  static String m6(filename) => "Abrindo arquivo: ${filename}";
+
+  static String m7(length) => "A senha deve ter ${length} caracteres";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -42,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Tem certeza de que deseja excluir este arquivo?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente através da loja de aplicativos (se tiver uma)"),
+                "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente pela loja de aplicativos (se tiver uma)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Tem certeza de que deseja sair?"),
         "authenticationRequired":
@@ -54,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("Alterar local de download"),
-        "changeEmail": MessageLookupByLibrary.simpleMessage("Alterar email"),
+        "changeEmail": MessageLookupByLibrary.simpleMessage("Alterar Email"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Alterar senha"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Criar"),
@@ -74,9 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Domínio de email não permitido"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Nenhum arquivo ou pasta"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("Erro: \$err"),
-        "errorOpeningFileE":
-            MessageLookupByLibrary.simpleMessage("Erro ao abrir arquivo: \$e"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
             "Erro ao enviar email de redefinição de senha"),
         "errorSendingRequest":
@@ -84,41 +89,41 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorUpdatingUserPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
             "Erro ao atualizar usuário. Por favor, tente novamente."),
         "failedLogingInAfterSignup": MessageLookupByLibrary.simpleMessage(
-            "Falha ao entrar após o cadastro"),
+            "Falha no login após o cadastro"),
         "failedToDeleteAccount":
             MessageLookupByLibrary.simpleMessage("Falha ao excluir conta"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Falha ao abrir. Por favor, tente salvar o arquivo primeiro"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Arquivos"),
         "folderName": MessageLookupByLibrary.simpleMessage("Nome da pasta"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Esqueceu a senha?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?"),
         "invalidEmailOrPassword":
             MessageLookupByLibrary.simpleMessage("Email ou senha inválidos"),
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Link copiado para a área de transferência"),
         "login": MessageLookupByLibrary.simpleMessage("Entrar"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Abrir"),
-        "openingFileGetfilenamefilekey": m4,
+        "openingFileGetfilenamefilekey": m6,
         "openingInBrowser":
             MessageLookupByLibrary.simpleMessage("Abrindo no navegador..."),
         "password": MessageLookupByLibrary.simpleMessage("Senha"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "A senha deve ter pelo menos \$passwordMinLength caracteres"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Email de redefinição de senha enviado!"),
-        "pickFolder": MessageLookupByLibrary.simpleMessage("Escolher pasta"),
+        "pickFolder": MessageLookupByLibrary.simpleMessage("Escolher Pasta"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
-                "Por favor, selecione um diretório onde você gostaria de baixar seus arquivos na próxima tela."),
+                "Por favor, selecione um diretório onde deseja baixar seus arquivos na próxima tela."),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
-                "Compre 1TB usando a versão da Play Store. Você pode desinstalar essa versão quando terminar."),
+                "Compre 1TB usando a versão da Playstore. Você pode desinstalar essa versão quando terminar."),
         "requestSent":
             MessageLookupByLibrary.simpleMessage("Solicitação enviada!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
@@ -136,15 +141,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "shareFile":
             MessageLookupByLibrary.simpleMessage("Compartilhar arquivo"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sair"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Cadastre-se"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Cadastrar"),
         "storageUsage":
-            MessageLookupByLibrary.simpleMessage("Uso do armazenamento"),
+            MessageLookupByLibrary.simpleMessage("Uso de armazenamento"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferências"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Enviado"),
         "uploading": MessageLookupByLibrary.simpleMessage("Enviando..."),
-        "viewBackendOnGithub":
-            MessageLookupByLibrary.simpleMessage("Ver backend no Github"),
-        "viewOnGithub": MessageLookupByLibrary.simpleMessage("Ver no Github"),
+        "viewBackendOnGithub": MessageLookupByLibrary.simpleMessage(
+            "Visualizar backend no Github"),
+        "viewOnGithub":
+            MessageLookupByLibrary.simpleMessage("Visualizar no Github"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Enviaremos um link para o seu email para concluir a alteração"),

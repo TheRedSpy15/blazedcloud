@@ -25,37 +25,44 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "Загрузка ${filename}";
 
-  static String m2(filename) =>
+  static String m2(err) => "Ошибка: ${err}";
+
+  static String m3(filename) => "Ошибка открытия файла: ${filename}";
+
+  static String m4(filename) =>
       "Файл ${filename} недоступен в автономном режиме";
 
-  static String m3(path) => "Офлайн-файлы хранятся в ${path}";
+  static String m5(path) =>
+      "Файлы для автономного режима сохраняются по пути${path}";
 
-  static String m4(filename) => "Открытие файла: ${filename}";
+  static String m6(filename) => "Открытие файла: ${filename}";
+
+  static String m7(length) => "Пароль должен содержать ${length} символов";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
-            MessageLookupByLibrary.simpleMessage("Учетная запись удалена"),
+            MessageLookupByLibrary.simpleMessage("Аккаунт удален"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
                 "Вы уверены, что хотите удалить этот файл?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Вы уверены, что хотите удалить свою учетную запись? Это необратимо. Пожалуйста, обратите внимание, что вам нужно будет вручную отменить подписку через магазин приложений (если у вас есть подписка)"),
+                "Вы уверены, что хотите удалить свою учетную запись? Это невозможно отменить. Обратите внимание, что вы должны вручную отменить подписку в магазине приложений (если у вас есть одна)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Вы уверены, что хотите выйти?"),
         "authenticationRequired":
             MessageLookupByLibrary.simpleMessage("Требуется аутентификация"),
         "autoDeleteAcount": MessageLookupByLibrary.simpleMessage(
-            "Автоматическое удаление учетной записи"),
+            "Автоматическое удаление аккаунта"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
         "cancel": MessageLookupByLibrary.simpleMessage("Отмена"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("Изменить место загрузки"),
-        "changeEmail": MessageLookupByLibrary.simpleMessage(
-            "Изменить адрес электронной почты"),
+        "changeEmail":
+            MessageLookupByLibrary.simpleMessage("Изменить эл. почту"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Изменить пароль"),
         "confirmFolderDelete": m0,
@@ -63,12 +70,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "createFolder": MessageLookupByLibrary.simpleMessage("Создать папку"),
         "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
         "deleteAccount":
-            MessageLookupByLibrary.simpleMessage("Удалить учетную запись"),
+            MessageLookupByLibrary.simpleMessage("Удалить аккаунт"),
         "deleteFile": MessageLookupByLibrary.simpleMessage("Удалить файл"),
         "deleteFolder": MessageLookupByLibrary.simpleMessage("Удалить папку"),
         "deleteYourAccountAfter90DaysOfInactivityUsersWith":
             MessageLookupByLibrary.simpleMessage(
-                "Удалить вашу учетную запись после 90 дней бездействия. Всегда игнорируется для пользователей с активной подпиской."),
+                "Удалить ваш аккаунт после 90 дней бездействия. Всегда игнорируется для пользователей с активными подписками."),
         "downloaded": MessageLookupByLibrary.simpleMessage("Загружено"),
         "downloading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
         "downloadingGetfilenamefilekey": m1,
@@ -77,82 +84,81 @@ class MessageLookup extends MessageLookupByLibrary {
             "Домен электронной почты не разрешен"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Нет файлов или папок"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("Ошибка: \$err"),
-        "errorOpeningFileE":
-            MessageLookupByLibrary.simpleMessage("Ошибка открытия файла: \$e"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
-            "Ошибка при отправке письма для сброса пароля"),
+            "Ошибка отправки письма для сброса пароля"),
         "errorSendingRequest":
-            MessageLookupByLibrary.simpleMessage("Ошибка при отправке запроса"),
+            MessageLookupByLibrary.simpleMessage("Ошибка отправки запроса"),
         "errorUpdatingUserPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
             "Ошибка обновления пользователя. Пожалуйста, попробуйте снова."),
         "failedLogingInAfterSignup": MessageLookupByLibrary.simpleMessage(
             "Не удалось войти после регистрации"),
-        "failedToDeleteAccount": MessageLookupByLibrary.simpleMessage(
-            "Не удалось удалить учетную запись"),
+        "failedToDeleteAccount":
+            MessageLookupByLibrary.simpleMessage("Не удалось удалить аккаунт"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Не удалось открыть. Пожалуйста, попробуйте сначала сохранить файл"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Файлы"),
         "folderName": MessageLookupByLibrary.simpleMessage("Имя папки"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Забыли пароль?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "На какой срок файл должен быть доступен для общего доступа?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
             "Неверный адрес электронной почты или пароль"),
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Ссылка скопирована в буфер обмена"),
         "login": MessageLookupByLibrary.simpleMessage("Войти"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Открыть"),
-        "openingFileGetfilenamefilekey": m4,
+        "openingFileGetfilenamefilekey": m6,
         "openingInBrowser":
             MessageLookupByLibrary.simpleMessage("Открытие в браузере..."),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "Пароль должен содержать не менее \$passwordMinLength символов"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Письмо для сброса пароля отправлено!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Выбрать папку"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
-                "Пожалуйста, выберите каталог, в который вы хотели бы загрузить ваши файлы на следующем экране."),
+                "Выберите директорию, в которую вы хотели бы загрузить ваши файлы на следующем экране."),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
-                "Приобретите 1 ТБ, используя версию из магазина Play. Вы можете удалить эту версию после завершения."),
+                "Приобретите 1 ТБ, используя сборку из Play Store. Вы можете удалить эту версию после завершения."),
         "requestSent":
             MessageLookupByLibrary.simpleMessage("Запрос отправлен!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
             "Требовать биометрию для открытия приложения"),
-        "resetPassword":
-            MessageLookupByLibrary.simpleMessage("Сбросить пароль"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Сброс пароля"),
         "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
-        "selectDownloadDirectory":
-            MessageLookupByLibrary.simpleMessage("Выберите каталог загрузки"),
+        "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
+            "Выберите директорию для загрузки"),
         "send": MessageLookupByLibrary.simpleMessage("Отправить"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Сервер находится на техническом обслуживании. Пожалуйста, попробуйте позже."),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "share": MessageLookupByLibrary.simpleMessage("Поделиться"),
         "shareFile": MessageLookupByLibrary.simpleMessage("Поделиться файлом"),
-        "signOut": MessageLookupByLibrary.simpleMessage("Выход"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Выйти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Использование хранилища"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачи"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Загружено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
-        "viewBackendOnGithub": MessageLookupByLibrary.simpleMessage(
-            "Просмотреть бэкенд на Github"),
+        "viewBackendOnGithub":
+            MessageLookupByLibrary.simpleMessage("Посмотреть бэкэнд на Github"),
         "viewOnGithub":
-            MessageLookupByLibrary.simpleMessage("Просмотреть на Github"),
+            MessageLookupByLibrary.simpleMessage("Посмотреть на Github"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
-                "Отправим ссылку на ваш адрес электронной почты для завершения изменений"),
-        "willSendALinkToYourEmailToResetYour": MessageLookupByLibrary.simpleMessage(
-            "Отправим ссылку на ваш адрес электронной почты для сброса пароля"),
+                "Отправим ссылку на вашу электронную почту для завершения изменения"),
+        "willSendALinkToYourEmailToResetYour":
+            MessageLookupByLibrary.simpleMessage(
+                "Отправим ссылку на вашу электронную почту для сброса пароля"),
         "yourAccountHasBeenDeleted": MessageLookupByLibrary.simpleMessage(
             "Ваша учетная запись была удалена.")
       };
