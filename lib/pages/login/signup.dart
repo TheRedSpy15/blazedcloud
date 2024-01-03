@@ -1,9 +1,9 @@
 import 'package:blazedcloud/constants.dart';
-import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:github_snitch/github_snitch.dart';
 import 'package:go_router/go_router.dart';
 
 final emailController = TextEditingController();
@@ -19,7 +19,7 @@ class SignUpScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.of(context).signUp),
+        title: const Text('Sign up'),
       ),
       body: Center(
         child: Column(
@@ -30,8 +30,8 @@ class SignUpScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
                 controller: emailController,
-                decoration: InputDecoration(
-                  labelText: S.of(context).email,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -42,8 +42,8 @@ class SignUpScreen extends ConsumerWidget {
               child: TextFormField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
-                  labelText: S.of(context).password,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
                 ),
               ),
             ),
@@ -61,18 +61,17 @@ class SignUpScreen extends ConsumerWidget {
 
                       getAllowedEmailDomains().then((domains) {
                         if (!isValidEmail(emailController.text, domains)) {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content:
-                                  Text(S.of(context).emailDomainNotAllowed)));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text("Invalid email domain")));
                           ref.read(isAttemptingSignupProvider.notifier).state =
                               false;
                           return;
                         }
                         if (!isValidPassword(passwordController.text)) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(S
-                                  .of(context)
-                                  .passwordMustBePasswordminlengthCharactersLong)));
+                              content: Text(
+                                  "Password must be $passwordMinLength characters long")));
                           ref.read(isAttemptingSignupProvider.notifier).state =
                               false;
                           return;
@@ -83,7 +82,7 @@ class SignUpScreen extends ConsumerWidget {
                             false;
                       });
                     },
-              child: Text(S.of(context).signUp),
+              child: const Text('Sign up'),
             ),
           ],
         ),
@@ -122,8 +121,10 @@ class SignUpScreen extends ConsumerWidget {
         });
       }).onError((error, stackTrace) {
         logger.e(error);
+        GhSnitch.report(
+            title: "Failed Login after Signup", body: error.toString());
         ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(S.of(context).failedLogingInAfterSignup)));
+            const SnackBar(content: Text("Failed loging in after signup")));
         return Future.value(null);
       });
     } catch (e) {
@@ -132,17 +133,13 @@ class SignUpScreen extends ConsumerWidget {
   }
 
   bool isValidEmail(String email, List<String> allowedDomains) {
-    final emailRegex = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-    if (!emailRegex.hasMatch(email)) {
+    final emailParts = email.split('@');
+    if (emailParts.length != 2) {
       return false;
     }
 
-    for (var domain in allowedDomains) {
-      if (email.endsWith(domain)) {
-        return true;
-      }
-    }
-    return false;
+    final domain = emailParts[1];
+    return allowedDomains.contains(domain);
   }
 
   bool isValidPassword(String password) {

@@ -5,8 +5,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
-bool isRequestingNotificationPermission = false;
-
 class NotificationService {
   int uploads = 0;
   int downloads = 0;

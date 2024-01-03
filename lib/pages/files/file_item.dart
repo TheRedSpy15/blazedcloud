@@ -1,6 +1,5 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
-import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
@@ -22,14 +21,14 @@ void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: Text(S.of(context).deleteFile),
-      content: Text(S.of(context).areYouSureYouWantToDeleteThisFile),
+      title: const Text('Delete file'),
+      content: const Text('Are you sure you want to delete this file?'),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(S.of(context).cancel),
+          child: const Text('Cancel'),
         ),
         TextButton(
           onPressed: () {
@@ -42,7 +41,7 @@ void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
               ref.invalidate(fileListProvider(folder));
             });
           },
-          child: Text(S.of(context).delete),
+          child: const Text('Delete'),
         ),
       ],
     ),
@@ -59,9 +58,7 @@ void downloadItem(String fileKey, DownloadController downloadController,
       HapticFeedback.vibrate();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(S
-              .of(context)
-              .downloadingGetfilenamefilekey(getFileName(fileKey))),
+          content: Text('Downloading ${getFileName(fileKey)}'),
         ),
       );
     }
@@ -74,9 +71,7 @@ void openFromOffline(String fileKey, WidgetRef ref) {
       logger.i('Opening file: ${file.path}');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content: Text(S
-              .of(ref.context)
-              .openingFileGetfilenamefilekey(getFileName(fileKey))),
+          content: Text('Opening file: ${getFileName(fileKey)}'),
         ),
       );
       openFile(file);
@@ -84,7 +79,7 @@ void openFromOffline(String fileKey, WidgetRef ref) {
       logger.e('Error opening file: $e');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content: Text(S.of(ref.context).errorOpeningFileE),
+          content: Text('Error opening file: $e'),
         ),
       );
     }
@@ -98,17 +93,16 @@ void openFromUrl(String fileKey, WidgetRef ref) {
     canLaunchUrl(Uri.parse(link)).then((canLaunch) {
       if (canLaunch) {
         ScaffoldMessenger.of(ref.context).showSnackBar(
-          SnackBar(
-            content: Text(S.of(ref.context).openingInBrowser),
+          const SnackBar(
+            content: Text('Opening in browser...'),
           ),
         );
         launchUrl(Uri.parse(link));
       } else {
         logger.e('Could not launch url: $link');
         ScaffoldMessenger.of(ref.context).showSnackBar(
-          SnackBar(
-            content:
-                Text(S.of(ref.context).failedToOpenPleaseTrySavingTheFileFirst),
+          const SnackBar(
+            content: Text('Failed to open. Please try saving the file first'),
           ),
         );
       }
@@ -128,10 +122,8 @@ void openItem(String fileKey, WidgetRef ref) {
       logger.i('File $fileKey is not available offline');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content: Text(S
-              .of(ref.context)
-              .fileGetfilenamefilekeyIsNotAvailableOffline(
-                  getFileName(fileKey))),
+          content:
+              Text('File ${getFileName(fileKey)} is not available offline'),
         ),
       );
     }
@@ -144,7 +136,7 @@ void shareItem(String fileKey, WidgetRef ref) {
     context: ref.context,
     builder: (context) => StatefulBuilder(builder: (context, setState) {
       return AlertDialog(
-        title: Text(S.of(context).shareFile),
+        title: const Text('Share file'),
         content: Wrap(
           children: [
             Column(
@@ -174,7 +166,7 @@ void shareItem(String fileKey, WidgetRef ref) {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text(S.of(context).cancel),
+            child: const Text('Cancel'),
           ),
           TextButton(
             onPressed: () {
@@ -191,13 +183,13 @@ void shareItem(String fileKey, WidgetRef ref) {
                 );
 
                 ScaffoldMessenger.of(ref.context).showSnackBar(
-                  SnackBar(
-                    content: Text(S.of(context).linkCopiedToClipboard),
+                  const SnackBar(
+                    content: Text('Link copied to clipboard'),
                   ),
                 );
               });
             },
-            child: Text(S.of(context).share),
+            child: const Text('Share'),
           ),
         ],
       );
@@ -247,21 +239,21 @@ class FileItem extends ConsumerWidget {
           ),
           trailing: PopupMenuButton<String>(
             itemBuilder: (context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'open',
-                child: Text(S.of(context).open),
+                child: Text('Open'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'share',
-                child: Text(S.of(context).share),
+                child: Text('Share'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'save',
-                child: Text(S.of(context).save),
+                child: Text('Save'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'delete',
-                child: Text(S.of(context).delete),
+                child: Text('Delete'),
               ),
             ],
             onSelected: (value) {

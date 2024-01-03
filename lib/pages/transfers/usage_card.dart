@@ -1,5 +1,4 @@
 import 'package:blazedcloud/constants.dart';
-import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +19,9 @@ class UsageCard extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              S.of(context).storageUsage,
-              style:
-                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            const Text(
+              'Storage Usage',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
             usageData.when(
@@ -66,10 +64,8 @@ class UsageCard extends ConsumerWidget {
                       ),
                     ),
                     if (!data['isTerabyteActive'])
-                      Text(
-                        S
-                            .of(context)
-                            .purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion,
+                      const Text(
+                        'Purchase 1TB using Playstore build. You can uninstall that version when done.',
                         textAlign: TextAlign.center,
                       ),
                   ],

@@ -1,5 +1,4 @@
 import 'package:badges/badges.dart' as badges;
-import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/pages/files/file_page.dart';
 import 'package:blazedcloud/pages/settings/settings.dart';
 import 'package:blazedcloud/pages/transfers/transfers.dart';
@@ -30,20 +29,20 @@ class Dashboard extends ConsumerWidget {
         },
         selectedIndex: currentPageIndex,
         destinations: <Widget>[
-          NavigationDestination(
-            icon: const Icon(Icons.folder),
-            label: S.of(context).files,
+          const NavigationDestination(
+            icon: Icon(Icons.folder),
+            label: 'Files',
           ),
           NavigationDestination(
             icon: badges.Badge(
                 badgeContent: Text("${transfers.length}"),
                 showBadge: transfers.isNotEmpty,
                 child: const Icon(Icons.cloud_sync)),
-            label: S.of(context).transfers,
+            label: 'Transfers',
           ),
-          NavigationDestination(
-            icon: const Icon(Icons.settings),
-            label: S.of(context).settings,
+          const NavigationDestination(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
       ),

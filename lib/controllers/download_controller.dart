@@ -29,9 +29,7 @@ class DownloadController {
         downloadNotifier.updateDownloadStateByKey(
             downloadState.downloadKey, downloadState);
 
-        if (!isRequestingNotificationPermission) {
-          updateDownloadNotification();
-        }
+        updateDownloadNotification();
       } catch (error) {
         logger.e('Error updating download state: $error');
       }
@@ -64,14 +62,11 @@ class DownloadController {
   }
 
   void updateDownloadNotification() {
-    isRequestingNotificationPermission = true;
-    NotificationService().initNotification().then((_) {
-      NotificationService().showDownloadNotification(_ref
-          .read(downloadStateProvider)
-          .where((element) => element.isDownloading && !element.isError)
-          .length);
-      isRequestingNotificationPermission = false;
-    });
+    NotificationService().initNotification().then((_) => NotificationService()
+        .showDownloadNotification(_ref
+            .read(downloadStateProvider)
+            .where((element) => element.isDownloading && !element.isError)
+            .length));
   }
 
   /// returns true if the download was started or doesn't need to be started
