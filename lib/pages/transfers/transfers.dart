@@ -1,3 +1,4 @@
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/models/transfers/download_state.dart';
 import 'package:blazedcloud/models/transfers/upload_state.dart';
 import 'package:blazedcloud/pages/transfers/usage_card.dart';
@@ -34,13 +35,12 @@ class TransfersPage extends ConsumerWidget {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                      'Progress: ${(transfer.progress * 100).toStringAsFixed(2)}%'),
+                  Text('${(transfer.progress * 100).toStringAsFixed(2)}%'),
                   transfer.isError
                       ? Text('Error: ${transfer.errorMessage}')
                       : transfer.isDownloading
-                          ? const Text('Downloading...')
-                          : const Text('Downloaded'),
+                          ? Text(S.of(context).downloading)
+                          : Text(S.of(context).downloaded),
                 ],
               ),
               leading: const Icon(Icons.download_rounded),
@@ -59,8 +59,8 @@ class TransfersPage extends ConsumerWidget {
                   transfer.isError
                       ? Text('Error: ${transfer.errorMessage}')
                       : transfer.isUploading
-                          ? const Text('Uploading...')
-                          : const Text('Uploaded'),
+                          ? Text(S.of(context).uploading)
+                          : Text(S.of(context).uploaded),
                 ],
               ),
             ),

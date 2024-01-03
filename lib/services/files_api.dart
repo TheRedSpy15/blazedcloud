@@ -71,7 +71,7 @@ Future<List<String>> getAllowedEmailDomains() async {
     return List<String>.from(jsonDecode(responseBody));
   } else {
     logger.e(response.reasonPhrase);
-    
+
     // fallback to protonmail and gmail
     return ["protonmail.com", "gmail.com"];
   }
@@ -200,6 +200,7 @@ Future<List<String>> getSearchList(String uid, String token) async {
 }
 
 /// Only call this once. Gets token for githuh_snitch
+@Deprecated("Github snitch is too unreliable")
 Future<String> getSnitchToken() async {
   // GET to /data/usage/{uid}
   logger.d("Getting snitch token");

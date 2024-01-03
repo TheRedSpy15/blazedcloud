@@ -1,4 +1,5 @@
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/search_delagate.dart';
 import 'package:blazedcloud/pages/files/file_item.dart';
@@ -38,7 +39,7 @@ class FilesPage extends ConsumerWidget {
                     .watch(currentDirectoryProvider)
                     .split("/")
                     .lastWhere((element) => element.isNotEmpty))
-                : const Text('Blazed Explorer'),
+                : Text(S.of(context).blazedExplorer),
 
             // if current directory isn't root, show a back button
             leading:
@@ -65,8 +66,8 @@ class FilesPage extends ConsumerWidget {
             final files = data.contents ?? [];
             if ((data.contents?.isEmpty ?? true) &&
                 (data.commonPrefixes?.isEmpty ?? true)) {
-              return const Center(
-                child: Text("No files or folders"),
+              return Center(
+                child: Text(S.of(context).emptyDirectory),
               );
             }
 
@@ -122,7 +123,7 @@ class FilesPage extends ConsumerWidget {
           error: (err, stack) {
             logger.e("Error loading file list: $err");
             return Center(
-              child: Text("Error: $err"),
+              child: Text(S.of(context).errorErr),
             );
           },
         ),
@@ -137,10 +138,10 @@ class FilesPage extends ConsumerWidget {
                 showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: const Text('Create folder'),
+                    title: Text(S.of(context).createFolder),
                     content: TextField(
-                      decoration: const InputDecoration(
-                        labelText: 'Folder name',
+                      decoration: InputDecoration(
+                        labelText: S.of(context).folderName,
                       ),
                       onChanged: (value) {
                         ref.read(newFolderNameProvider.notifier).state = value;
@@ -151,7 +152,7 @@ class FilesPage extends ConsumerWidget {
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: const Text('Cancel'),
+                        child: Text(S.of(context).cancel),
                       ),
                       TextButton(
                         onPressed: () {
@@ -165,7 +166,7 @@ class FilesPage extends ConsumerWidget {
                           });
                           Navigator.of(context).pop();
                         },
-                        child: const Text('Create'),
+                        child: Text(S.of(context).create),
                       ),
                     ],
                   ),

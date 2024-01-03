@@ -8,17 +8,18 @@ import 'package:blazedcloud/pages/login/login.dart';
 import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
-import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:github_snitch/github_snitch.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:workmanager/workmanager.dart';
+
+import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,18 +31,6 @@ void main() async {
       isInDebugMode:
           kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
       );
-
-  getSnitchToken().then((token) {
-    GhSnitch.initialize(
-        owner: "TheRedSpy15", token: token, repo: "blazedcloud");
-    if (kReleaseMode) {
-      // For report exceptions & bugs Automaticlly
-      GhSnitch.listenToExceptions(
-          assignees: ["TheRedSpy15"], labels: ["snitch-bug"]);
-    }
-  }).catchError((err) {
-    logger.e("Error getting snitch token: $err");
-  });
 
   runApp(const MyApp());
 }
@@ -115,17 +104,18 @@ class LandingContent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Blazed Cloud",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
+          Text(S.of(context).appName,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
           Lottie.asset("assets/lottie/fire.json", repeat: true),
           ElevatedButton(
             onPressed: () {
               context.pushNamed('login');
             },
             style: const ButtonStyle(),
-            child: const Text(
-              'Login',
-              style: TextStyle(fontSize: 30),
+            child: Text(
+              S.of(context).login,
+              style: const TextStyle(fontSize: 30),
             ),
           ),
           ElevatedButton(
@@ -133,9 +123,9 @@ class LandingContent extends StatelessWidget {
               context.pushNamed('signup');
             },
             style: const ButtonStyle(),
-            child: const Text(
-              'Sign up',
-              style: TextStyle(fontSize: 30),
+            child: Text(
+              S.of(context).signUp,
+              style: const TextStyle(fontSize: 30),
             ),
           ),
         ],
@@ -219,11 +209,12 @@ class LandingPage extends ConsumerWidget {
                           children: [
                             Column(
                               children: [
-                                const Text(
-                                    "Server is currently undergoing maintenance. Please try again later."),
+                                Text(S.of(context).serverMaintenance),
                                 if (snapshot.hasData && snapshot.data != '')
-                                  Text(
-                                      "Offline files are stored at ${snapshot.data}"),
+                                  Text(S
+                                      .of(context)
+                                      .offlineFilesAreStoredAtSnapshotdata(
+                                          snapshot.data ?? '')),
                               ],
                             ),
                           ],
@@ -258,6 +249,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         /* dark theme settings */
       ),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
     ));
   }
 }

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/models/transfers/download_state.dart';
@@ -398,21 +399,21 @@ Future<String> promptForDownloadDirectory(BuildContext context) async {
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: const Text('Select download directory'),
-        content: const Text(
-            'Please select a directory where you would like to download your files in the next screen.'),
+        title: Text(S.of(context).selectDownloadDirectory),
+        content: Text(
+            S.of(context).pleaseSelectADirectoryWhereYouWouldLikeToDownload),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text('Cancel'),
+            child: Text(S.of(context).cancel),
           ),
           TextButton(
             onPressed: () {
               Navigator.pop(context, 'select');
             },
-            child: const Text('Pick Folder'),
+            child: Text(S.of(context).pickFolder),
           ),
         ],
       );

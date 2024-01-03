@@ -1,4 +1,5 @@
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/main.dart';
 import 'package:blazedcloud/models/pocketbase/user.dart';
@@ -45,7 +46,7 @@ class SettingsScreen extends ConsumerWidget {
             },
           ),
           iconStyle: babstrap.IconStyle(),
-          title: 'Require biometrics to open app',
+          title: S.of(ref.context).requireBiometricsToOpenApp,
         );
       }
       return null;
@@ -63,7 +64,7 @@ class SettingsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(S.of(context).settings),
       ),
       backgroundColor: context.isDarkMode ? Colors.black : Colors.blueGrey[50],
       body: SingleChildScrollView(
@@ -75,7 +76,8 @@ class SettingsScreen extends ConsumerWidget {
               CustomSettingsGroup(
                 items: [
                   downloadLocationChangeSetting(context),
-                  biometricSetting(ref)
+                  biometricSetting(ref),
+                  prunableSetting(userData, context, ref),
                 ],
               ),
               CustomSettingsGroup(
@@ -86,8 +88,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               CustomSettingsGroup(
                 items: [
-                  githubSetting(),
-                  //githubBackendSetting(),
+                  githubSetting(context),
                   signOutSetting(context),
                   deleteAccountSetting(context),
                 ],
@@ -107,16 +108,16 @@ class SettingsScreen extends ConsumerWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text('Delete account'),
-              content: const Text(
-                  'Are you sure you want to delete your account? This is irreversible.\n\nPlease note, you will need to cancel your subscription through the play store manually (if you have one)'),
+              title: Text(S.of(context).deleteAccount),
+              content:
+                  Text(S.of(context).areYouSureYouWantToDeleteYourAccountThis),
               actions: [
                 TextButton(
-                  child: const Text('CANCEL'),
+                  child: Text(S.of(context).cancel),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
                 TextButton(
-                  child: const Text('DELETE'),
+                  child: Text(S.of(context).delete),
                   onPressed: () => Navigator.of(context).pop(true),
                 ),
               ],
@@ -138,11 +139,11 @@ class SettingsScreen extends ConsumerWidget {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    title: const Text('Account deleted'),
-                    content: const Text('Your account has been deleted.'),
+                    title: Text(S.of(context).accountDeleted),
+                    content: Text(S.of(context).yourAccountHasBeenDeleted),
                     actions: [
                       TextButton(
-                        child: const Text('OK'),
+                        child: Text(S.of(context).ok),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                     ],
@@ -152,8 +153,8 @@ class SettingsScreen extends ConsumerWidget {
             } catch (e) {
               // show snackbar
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Failed to delete account'),
+                SnackBar(
+                  content: Text(S.of(context).failedToDeleteAccount),
                 ),
               );
             }
@@ -161,7 +162,7 @@ class SettingsScreen extends ConsumerWidget {
         });
       },
       icons: CupertinoIcons.delete_solid,
-      title: "Delete account",
+      title: S.of(context).deleteAccount,
       trailing: const SizedBox.shrink(),
       titleStyle: const TextStyle(
         color: Colors.red,
@@ -179,7 +180,7 @@ class SettingsScreen extends ConsumerWidget {
       icons: CupertinoIcons.folder,
       trailing: const SizedBox.shrink(),
       iconStyle: babstrap.IconStyle(),
-      title: 'Change Download Location',
+      title: S.of(context).changeDownloadLocation,
     );
   }
 
@@ -190,43 +191,24 @@ class SettingsScreen extends ConsumerWidget {
         HapticFeedback.mediumImpact();
         userData.whenData((user) =>
             pb.collection('users').requestEmailChange(user.email).then((value) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(const SnackBar(content: Text("Request Sent!")));
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).requestSent)));
             }).onError((error, stackTrace) {
               logger.e("Error sending request: $error");
               ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Error sending request")));
+                  SnackBar(content: Text(S.of(context).errorSendingRequest)));
               return null;
             }));
       },
       icons: CupertinoIcons.at,
       trailing: const SizedBox.shrink(),
       iconStyle: babstrap.IconStyle(),
-      title: 'Change Email',
-      subtitle: "Will send a link to your email to complete the change",
+      title: S.of(context).changeEmail,
+      subtitle: S.of(context).willSendALinkToYourEmailToCompleteThe,
     );
   }
 
-  CustomSettingsItem githubBackendSetting() {
-    return CustomSettingsItem(
-      onTap: () {
-        final url = Uri.parse("https://github.com/TheRedSpy15/blazed-cloud-pb");
-        canLaunchUrl(url).then((canLaunch) {
-          if (canLaunch) {
-            launchUrl(url);
-          } else {
-            logger.e("Can't launch url: $url");
-          }
-        });
-      },
-      icons: CupertinoIcons.doc_text,
-      trailing: const SizedBox.shrink(),
-      iconStyle: babstrap.IconStyle(),
-      title: 'View backend on Github',
-    );
-  }
-
-  CustomSettingsItem githubSetting() {
+  CustomSettingsItem githubSetting(BuildContext context) {
     return CustomSettingsItem(
       onTap: () {
         final url = Uri.parse("https://github.com/TheRedSpy15/blazedcloud");
@@ -241,7 +223,7 @@ class SettingsScreen extends ConsumerWidget {
       icons: CupertinoIcons.doc_text,
       trailing: const SizedBox.shrink(),
       iconStyle: babstrap.IconStyle(),
-      title: 'View on Github',
+      title: S.of(context).viewOnGithub,
     );
   }
 
@@ -254,20 +236,71 @@ class SettingsScreen extends ConsumerWidget {
                 .collection('users')
                 .requestPasswordReset(user.email)
                 .then((value) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Password reset email sent!")));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(S.of(context).passwordResetEmailSent)));
             }).onError((error, stackTrace) {
               logger.e("Error sending password reset email: $error");
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text("Error sending password reset email")));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(S.of(context).errorSendingPasswordResetEmail)));
               return null;
             }));
       },
       icons: CupertinoIcons.lock_shield_fill,
       iconStyle: babstrap.IconStyle(),
       trailing: const SizedBox.shrink(),
-      title: 'Change Password',
-      subtitle: "Will send a link to your email to reset your password",
+      title: S.of(context).changePassword,
+      subtitle: S.of(context).willSendALinkToYourEmailToResetYour,
+    );
+  }
+
+  CustomSettingsItem? prunableSetting(
+      AsyncValue<User> userData, BuildContext context, WidgetRef ref) {
+    return userData.when(
+      data: (user) {
+        return CustomSettingsItem(
+          onTap: () {
+            HapticFeedback.mediumImpact();
+
+            pb.collection('users').update(user.id, body: {
+              "prunable": !user.prunable,
+            }).then((value) {
+              ref.invalidate(accountUserProvider(pb.authStore.model.id));
+            }).onError((error, stackTrace) {
+              logger.e("Error updating user: $error");
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content:
+                      Text(S.of(context).errorUpdatingUserPleaseTryAgain)));
+              return null;
+            });
+          },
+          icons: CupertinoIcons.timer,
+          trailing: Switch(
+            value: user.prunable,
+            onChanged: (value) {
+              pb.collection('users').update(user.id, body: {
+                "prunable": value,
+              }).then((_) {
+                ref.invalidate(accountUserProvider(pb.authStore.model.id));
+              }).onError((error, stackTrace) {
+                logger.e("Error updating user: $error");
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content:
+                        Text(S.of(context).errorUpdatingUserPleaseTryAgain)));
+                return null;
+              });
+            },
+          ),
+          iconStyle: babstrap.IconStyle(backgroundColor: Colors.red),
+          title: S.of(context).autoDeleteAcount,
+          subtitle:
+              S.of(context).deleteYourAccountAfter90DaysOfInactivityUsersWith,
+        );
+      },
+      loading: () => null,
+      error: (err, stack) {
+        logger.e("Error getting user: $err");
+        return null;
+      },
     );
   }
 
@@ -278,15 +311,15 @@ class SettingsScreen extends ConsumerWidget {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              title: const Text('Sign Out'),
-              content: const Text('Are you sure you want to sign out?'),
+              title: Text(S.of(context).signOut),
+              content: Text(S.of(context).areYouSureYouWantToSignOut),
               actions: [
                 TextButton(
-                  child: const Text('CANCEL'),
+                  child: Text(S.of(context).cancel),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
                 TextButton(
-                  child: const Text('SIGN OUT'),
+                  child: Text(S.of(context).signOut),
                   onPressed: () => Navigator.of(context).pop(true),
                 ),
               ],
@@ -306,7 +339,7 @@ class SettingsScreen extends ConsumerWidget {
       },
       icons: Icons.exit_to_app_rounded,
       trailing: const SizedBox.shrink(),
-      title: "Sign Out",
+      title: S.of(context).signOut,
     );
   }
 }
