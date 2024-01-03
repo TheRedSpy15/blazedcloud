@@ -23,6 +23,7 @@ Blazed Cloud aims to be a privacy friendly Google Drive, and be simpler to use.
 - **Free Tier:** 5 GB
 - **Encryption:** 256-bit
 - **Max Storage:** 1 Terabyte (for now)
+- **Platforms:** Mobile, Web (desktop WIP)
 
 ### This Repository Specifically
 
