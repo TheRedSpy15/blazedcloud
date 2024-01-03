@@ -41,7 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "क्या आप इस फ़ाइल को हटाना चाहते हैं?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "क्या आप वाकई अपने खाते को हटाना चाहते हैं? यह परिणामस्वरूप है।\\n\\nकृपया ध्यान दें, आपको यदि है, तो आपको अपनी सदस्यता को प्ले स्टोर के माध्यम से मैन्युअली रद्द करना होगा (यदि आपकी सदस्यता है)"),
+                "क्या आप वाकई अपने खाते को हटाना चाहते हैं? यह परिणामस्वरूप है। कृपया ध्यान दें, आपको यदि है, तो आपको अपनी सदस्यता को प्ले स्टोर के माध्यम से मैन्युअली रद्द करना होगा (यदि आपकी सदस्यता है)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "क्या आप वाकई साइन आउट करना चाहते हैं?"),
         "authenticationRequired":

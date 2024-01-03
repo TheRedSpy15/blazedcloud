@@ -490,10 +490,10 @@ class S {
     );
   }
 
-  /// `Are you sure you want to delete your account? This is irreversible.\n\nPlease note, you will need to cancel your subscription through the play store manually (if you have one)`
+  /// `Are you sure you want to delete your account? This is irreversible. Please note, you will need to cancel your subscription through the play store manually (if you have one)`
   String get areYouSureYouWantToDeleteYourAccountThis {
     return Intl.message(
-      'Are you sure you want to delete your account? This is irreversible.\\n\\nPlease note, you will need to cancel your subscription through the play store manually (if you have one)',
+      'Are you sure you want to delete your account? This is irreversible. Please note, you will need to cancel your subscription through the play store manually (if you have one)',
       name: 'areYouSureYouWantToDeleteYourAccountThis',
       desc: '',
       args: [],

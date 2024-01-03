@@ -42,7 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ви впевнені, що хочете видалити цей файл?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Ви впевнені, що хочете видалити свій обліковий запис? Це незворотньо.\\n\\nЗверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин гри (якщо вона є)"),
+                "Ви впевнені, що хочете видалити свій обліковий запис? Це незворотньо. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин гри (якщо вона є)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Ви впевнені, що хочете вийти?"),
         "authenticationRequired":

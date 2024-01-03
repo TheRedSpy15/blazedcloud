@@ -64,7 +64,7 @@
         }
     },
     "authenticationRequired": "需要身份验证",
-    "areYouSureYouWantToDeleteYourAccountThis": "您确定要删除您的账户吗？这是不可逆的。\\n\\n请注意，您需要手动通过Play商店取消订阅（如果有的话）",
+    "areYouSureYouWantToDeleteYourAccountThis": "您确定要删除您的账户吗？这是不可逆的。 请注意，您需要手动通过Play商店取消订阅（如果有的话）",
     "deleteAccount": "删除账户",
     "accountDeleted": "账户已删除",
     "yourAccountHasBeenDeleted": "您的账户已被删除。",

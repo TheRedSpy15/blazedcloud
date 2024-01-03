@@ -42,7 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Êtes-vous sûr de vouloir supprimer ce fichier ?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Êtes-vous sûr de vouloir supprimer votre compte ? C\'\'est irréversible.\\n\\nVeuillez noter que vous devrez annuler votre abonnement manuellement via le play store (si vous en avez un)"),
+                "Êtes-vous sûr de vouloir supprimer votre compte ? C\'\'est irréversible. Veuillez noter que vous devrez annuler votre abonnement manuellement via le play store (si vous en avez un)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Êtes-vous sûr de vouloir vous déconnecter ?"),
         "authenticationRequired":

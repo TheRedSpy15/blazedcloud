@@ -64,7 +64,7 @@
         }
     },
     "authenticationRequired": "Autenticación requerida",
-    "areYouSureYouWantToDeleteYourAccountThis": "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible.\\n\\nTen en cuenta que deberás cancelar tu suscripción manualmente a través de la tienda de aplicaciones (si tienes una)",
+    "areYouSureYouWantToDeleteYourAccountThis": "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción manualmente a través de la tienda de aplicaciones (si tienes una)",
     "deleteAccount": "Eliminar cuenta",
     "accountDeleted": "Cuenta eliminada",
     "yourAccountHasBeenDeleted": "Tu cuenta ha sido eliminada.",

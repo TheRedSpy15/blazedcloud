@@ -64,7 +64,7 @@
         }
     },
     "authenticationRequired": "Authentification requise",
-    "areYouSureYouWantToDeleteYourAccountThis": "Êtes-vous sûr de vouloir supprimer votre compte ? C''est irréversible.\\n\\nVeuillez noter que vous devrez annuler votre abonnement manuellement via le play store (si vous en avez un)",
+    "areYouSureYouWantToDeleteYourAccountThis": "Êtes-vous sûr de vouloir supprimer votre compte ? C''est irréversible. Veuillez noter que vous devrez annuler votre abonnement manuellement via le play store (si vous en avez un)",
     "deleteAccount": "Supprimer le compte",
     "accountDeleted": "Compte supprimé",
     "yourAccountHasBeenDeleted": "Votre compte a été supprimé.",

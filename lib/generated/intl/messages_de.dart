@@ -42,7 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Sind Sie sicher, dass Sie diese Datei löschen möchten?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist nicht rückgängig zu machen.\\n\\nBitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)"),
+                "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist nicht rückgängig zu machen. Bitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Sind Sie sicher, dass Sie sich abmelden möchten?"),
         "authenticationRequired": MessageLookupByLibrary.simpleMessage(

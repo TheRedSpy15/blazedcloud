@@ -64,7 +64,7 @@
         }
     },
     "authenticationRequired": "Authentication Required",
-    "areYouSureYouWantToDeleteYourAccountThis": "Are you sure you want to delete your account? This is irreversible.\\n\\nPlease note, you will need to cancel your subscription through the play store manually (if you have one)",
+    "areYouSureYouWantToDeleteYourAccountThis": "Are you sure you want to delete your account? This is irreversible. Please note, you will need to cancel your subscription through the play store manually (if you have one)",
     "deleteAccount": "Delete account",
     "accountDeleted": "Account deleted",
     "yourAccountHasBeenDeleted": "Your account has been deleted.",

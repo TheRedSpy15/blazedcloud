@@ -38,7 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("您确定要删除此文件吗？"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "您确定要删除您的账户吗？这是不可逆的。\\n\\n请注意，您需要手动通过Play商店取消订阅（如果有的话）"),
+                "您确定要删除您的账户吗？这是不可逆的。 请注意，您需要手动通过Play商店取消订阅（如果有的话）"),
         "areYouSureYouWantToSignOut":
             MessageLookupByLibrary.simpleMessage("您确定要注销吗？"),
         "authenticationRequired":

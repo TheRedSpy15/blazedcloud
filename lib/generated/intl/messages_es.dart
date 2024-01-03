@@ -42,7 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "¿Estás seguro de que quieres eliminar este archivo?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible.\\n\\nTen en cuenta que deberás cancelar tu suscripción manualmente a través de la tienda de aplicaciones (si tienes una)"),
+                "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción manualmente a través de la tienda de aplicaciones (si tienes una)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "¿Estás seguro de que quieres cerrar sesión?"),
         "authenticationRequired":

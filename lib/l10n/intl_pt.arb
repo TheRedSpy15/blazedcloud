@@ -64,7 +64,7 @@
         }
     },
     "authenticationRequired": "Autenticação necessária",
-    "areYouSureYouWantToDeleteYourAccountThis": "Tem certeza de que deseja excluir sua conta? Isso é irreversível.\\n\\nPor favor, observe que você precisará cancelar sua assinatura manualmente através da loja de aplicativos (se tiver uma)",
+    "areYouSureYouWantToDeleteYourAccountThis": "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente através da loja de aplicativos (se tiver uma)",
     "deleteAccount": "Excluir conta",
     "accountDeleted": "Conta excluída",
     "yourAccountHasBeenDeleted": "Sua conta foi excluída.",

@@ -64,7 +64,7 @@
         }
     },
     "authenticationRequired": "Authentifizierung erforderlich",
-    "areYouSureYouWantToDeleteYourAccountThis": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist nicht rückgängig zu machen.\\n\\nBitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)",
+    "areYouSureYouWantToDeleteYourAccountThis": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist nicht rückgängig zu machen. Bitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)",
     "deleteAccount": "Konto löschen",
     "accountDeleted": "Konto gelöscht",
     "yourAccountHasBeenDeleted": "Ihr Konto wurde gelöscht.",
