@@ -57,7 +57,11 @@ Only the Play Store variant allows upgrading your subscription to the terabyte p
 
 The project is always open to pull requests. However, pleae note that all changes must first go through the development branch before they are merged into main
 
-# Contributors
+## Translations
+
+This is honestly going to be the easiest and most popular way to contribute. You can fork this repository and modify the [ARB files for a specific language](https://github.com/TheRedSpy15/blazedcloud/tree/main/lib/l10n) then create a pull request. We currently are relying on ChatGPT for translations so any suggestions from actual native speakers is an upgrade
+
+## Contributors
 
 <a href="https://github.com/theredspy15/blazedcloud/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=theredspy15/blazedcloud" />
