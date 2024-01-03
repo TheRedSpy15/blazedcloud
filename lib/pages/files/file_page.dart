@@ -123,7 +123,7 @@ class FilesPage extends ConsumerWidget {
           error: (err, stack) {
             logger.e("Error loading file list: $err");
             return Center(
-              child: Text(S.of(context).errorErr),
+              child: Text(S.of(context).errorErr(err.toString())),
             );
           },
         ),

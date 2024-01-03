@@ -5,7 +5,12 @@
     "save": "Salvar",
     "delete": "Excluir",
     "emptyDirectory": "Nenhum arquivo ou pasta",
-    "errorErr": "Erro: $err",
+    "errorErr": "Erro: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
     "invalidEmailOrPassword": "Email ou senha inválidos",
     "login": "Entrar",
     "forgotPassword": "Esqueceu a senha?",
@@ -20,9 +25,14 @@
     "transfers": "Transferências",
     "files": "Arquivos",
     "emailDomainNotAllowed": "Domínio de email não permitido",
-    "passwordMustBePasswordminlengthCharactersLong": "A senha deve ter pelo menos $passwordMinLength caracteres",
-    "signUp": "Cadastre-se",
-    "failedLogingInAfterSignup": "Falha ao entrar após o cadastro",
+    "passwordMustBePasswordminlengthCharactersLong": "A senha deve ter {length} caracteres",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "Cadastrar",
+    "failedLogingInAfterSignup": "Falha no login após o cadastro",
     "errorSendingRequest": "Erro ao enviar solicitação",
     "requestSent": "Solicitação enviada!",
     "errorUpdatingUserPleaseTryAgain": "Erro ao atualizar usuário. Por favor, tente novamente.",
@@ -40,7 +50,12 @@
             "filename": {}
         }
     },
-    "errorOpeningFileE": "Erro ao abrir arquivo: $e",
+    "errorOpeningFileE": "Erro ao abrir arquivo: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
     "openingInBrowser": "Abrindo no navegador...",
     "failedToOpenPleaseTrySavingTheFileFirst": "Falha ao abrir. Por favor, tente salvar o arquivo primeiro",
     "fileGetfilenamefilekeyIsNotAvailableOffline": "Arquivo {filename} não está disponível offline",
@@ -64,17 +79,17 @@
         }
     },
     "authenticationRequired": "Autenticação necessária",
-    "areYouSureYouWantToDeleteYourAccountThis": "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente através da loja de aplicativos (se tiver uma)",
+    "areYouSureYouWantToDeleteYourAccountThis": "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente pela loja de aplicativos (se tiver uma)",
     "deleteAccount": "Excluir conta",
     "accountDeleted": "Conta excluída",
     "yourAccountHasBeenDeleted": "Sua conta foi excluída.",
     "ok": "OK",
     "failedToDeleteAccount": "Falha ao excluir conta",
     "changeDownloadLocation": "Alterar local de download",
-    "changeEmail": "Alterar email",
+    "changeEmail": "Alterar Email",
     "willSendALinkToYourEmailToCompleteThe": "Enviaremos um link para o seu email para concluir a alteração",
-    "viewBackendOnGithub": "Ver backend no Github",
-    "viewOnGithub": "Ver no Github",
+    "viewBackendOnGithub": "Visualizar backend no Github",
+    "viewOnGithub": "Visualizar no Github",
     "autoDeleteAcount": "Excluir conta automaticamente",
     "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Excluir sua conta após 90 dias de inatividade. Sempre ignorado para usuários com assinaturas ativas.",
     "signOut": "Sair",
@@ -85,8 +100,8 @@
     "downloading": "Baixando...",
     "downloaded": "Baixado",
     "selectDownloadDirectory": "Selecionar diretório de download",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Por favor, selecione um diretório onde você gostaria de baixar seus arquivos na próxima tela.",
-    "pickFolder": "Escolher pasta",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Por favor, selecione um diretório onde deseja baixar seus arquivos na próxima tela.",
+    "pickFolder": "Escolher Pasta",
     "offlineFilesAreStoredAtSnapshotdata": "Os arquivos offline são armazenados em {path}",
     "@offlineFilesAreStoredAtSnapshotdata": {
         "placeholders": {
@@ -95,7 +110,8 @@
     },
     "uploading": "Enviando...",
     "uploaded": "Enviado",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compre 1TB usando a versão da Play Store. Você pode desinstalar essa versão quando terminar.",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compre 1TB usando a versão da Playstore. Você pode desinstalar essa versão quando terminar.",
     "folderName": "Nome da pasta",
-    "storageUsage": "Uso do armazenamento"
+    "storageUsage": "Uso de armazenamento",
+    "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?"
 }

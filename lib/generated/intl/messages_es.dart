@@ -25,12 +25,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "Descargando ${filename}";
 
-  static String m2(filename) =>
+  static String m2(err) => "Error: ${err}";
+
+  static String m3(filename) => "Error al abrir el archivo: ${filename}";
+
+  static String m4(filename) =>
       "El archivo ${filename} no está disponible sin conexión";
 
-  static String m3(path) => "Los archivos sin conexión se almacenan en ${path}";
+  static String m5(path) => "Los archivos sin conexión se almacenan en ${path}";
 
-  static String m4(filename) => "Abriendo archivo: ${filename}";
+  static String m6(filename) => "Abriendo archivo: ${filename}";
+
+  static String m7(length) =>
+      "La contraseña debe tener ${length} caracteres de longitud";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -42,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "¿Estás seguro de que quieres eliminar este archivo?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción manualmente a través de la tienda de aplicaciones (si tienes una)"),
+                "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción a través de la tienda de juegos manualmente (si tienes una)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "¿Estás seguro de que quieres cerrar sesión?"),
         "authenticationRequired":
@@ -69,7 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Eliminar carpeta"),
         "deleteYourAccountAfter90DaysOfInactivityUsersWith":
             MessageLookupByLibrary.simpleMessage(
-                "Eliminar tu cuenta después de 90 días de inactividad. Siempre ignorado para usuarios con suscripciones activas."),
+                "Eliminar tu cuenta después de 90 días de inactividad. Siempre se ignora para usuarios con suscripciones activas."),
         "downloaded": MessageLookupByLibrary.simpleMessage("Descargado"),
         "downloading": MessageLookupByLibrary.simpleMessage("Descargando..."),
         "downloadingGetfilenamefilekey": m1,
@@ -78,9 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Dominio de correo electrónico no permitido"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Sin archivos o carpetas"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("Error: \$err"),
-        "errorOpeningFileE": MessageLookupByLibrary.simpleMessage(
-            "Error al abrir el archivo: \$e"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
             "Error al enviar el correo electrónico de restablecimiento de contraseña"),
         "errorSendingRequest": MessageLookupByLibrary.simpleMessage(
@@ -88,33 +94,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorUpdatingUserPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
             "Error al actualizar el usuario. Por favor, inténtalo de nuevo."),
         "failedLogingInAfterSignup": MessageLookupByLibrary.simpleMessage(
-            "Error al iniciar sesión después del registro"),
+            "Fallo al iniciar sesión después del registro"),
         "failedToDeleteAccount":
             MessageLookupByLibrary.simpleMessage("Error al eliminar la cuenta"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Error al abrir. Por favor, intenta guardar el archivo primero"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Archivos"),
         "folderName":
             MessageLookupByLibrary.simpleMessage("Nombre de la carpeta"),
         "forgotPassword":
-            MessageLookupByLibrary.simpleMessage("¿Olvidaste tu contraseña?"),
+            MessageLookupByLibrary.simpleMessage("¿Olvidaste la contraseña?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "¿Cuánto tiempo debería estar disponible el archivo para compartir?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
-            "Correo electrónico o contraseña no válidos"),
+            "Correo electrónico o contraseña inválidos"),
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Enlace copiado al portapapeles"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Abrir"),
-        "openingFileGetfilenamefilekey": m4,
+        "openingFileGetfilenamefilekey": m6,
         "openingInBrowser":
             MessageLookupByLibrary.simpleMessage("Abriendo en el navegador..."),
         "password": MessageLookupByLibrary.simpleMessage("Contraseña"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "La contraseña debe tener al menos \$passwordMinLength caracteres"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "¡Correo electrónico de restablecimiento de contraseña enviado!"),
         "pickFolder":
@@ -124,7 +130,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Por favor, selecciona un directorio donde te gustaría descargar tus archivos en la próxima pantalla."),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
-                "Compra 1TB usando la versión de Playstore. Puedes desinstalar esa versión cuando hayas terminado."),
+                "Compra 1TB utilizando la versión de Playstore. Puedes desinstalar esa versión cuando hayas terminado."),
         "requestSent":
             MessageLookupByLibrary.simpleMessage("¡Solicitud enviada!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
@@ -137,7 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "El servidor está actualmente en mantenimiento. Por favor, inténtalo de nuevo más tarde."),
-        "settings": MessageLookupByLibrary.simpleMessage("Configuración"),
+        "settings": MessageLookupByLibrary.simpleMessage("Configuraciones"),
         "share": MessageLookupByLibrary.simpleMessage("Compartir"),
         "shareFile": MessageLookupByLibrary.simpleMessage("Compartir archivo"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),

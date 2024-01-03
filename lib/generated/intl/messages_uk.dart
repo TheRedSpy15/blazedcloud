@@ -25,12 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "Завантаження ${filename}";
 
-  static String m2(filename) =>
-      "Файл ${filename} недоступний в автономному режимі";
+  static String m2(err) => "Помилка: ${err}";
 
-  static String m3(path) => "Офлайн-файли зберігаються за адресою ${path}";
+  static String m3(filename) => "Помилка відкриття файлу: ${filename}";
 
-  static String m4(filename) => "Відкривається файл: ${filename}";
+  static String m4(filename) => "Файл ${filename} недоступний офлайн";
+
+  static String m5(path) => "Офлайн-файли зберігаються за адресою ${path}";
+
+  static String m6(filename) => "Відкриття файлу: ${filename}";
+
+  static String m7(length) => "Пароль повинен бути довжиною ${length} символів";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -42,13 +47,13 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Ви впевнені, що хочете видалити цей файл?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Ви впевнені, що хочете видалити свій обліковий запис? Це незворотньо. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин гри (якщо вона є)"),
+                "Ви впевнені, що хочете видалити свій обліковий запис? Це невідворотнє. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин Play (якщо ви маєте одну)."),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Ви впевнені, що хочете вийти?"),
         "authenticationRequired":
-            MessageLookupByLibrary.simpleMessage("Вимагається автентифікація"),
+            MessageLookupByLibrary.simpleMessage("Потрібна аутентифікація"),
         "autoDeleteAcount": MessageLookupByLibrary.simpleMessage(
-            "Автоматично видалити обліковий запис"),
+            "Автоматично видаляти обліковий запис"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
         "cancel": MessageLookupByLibrary.simpleMessage("Скасувати"),
@@ -68,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteFolder": MessageLookupByLibrary.simpleMessage("Видалити папку"),
         "deleteYourAccountAfter90DaysOfInactivityUsersWith":
             MessageLookupByLibrary.simpleMessage(
-                "Видалити обліковий запис через 90 днів бездіяльності. Завжди ігнорується для користувачів з активними підписками."),
+                "Видаляти обліковий запис після 90 днів бездіяльності. Завжди ігнорується для користувачів із активними підписками."),
         "downloaded": MessageLookupByLibrary.simpleMessage("Завантажено"),
         "downloading": MessageLookupByLibrary.simpleMessage("Завантаження..."),
         "downloadingGetfilenamefilekey": m1,
@@ -76,63 +81,61 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Домен електронної пошти не дозволений"),
         "emptyDirectory":
-            MessageLookupByLibrary.simpleMessage("Немає файлів або папок"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("Помилка: \$err"),
-        "errorOpeningFileE": MessageLookupByLibrary.simpleMessage(
-            "Помилка відкриття файлу: \$e"),
+            MessageLookupByLibrary.simpleMessage("Немає файлів чи папок"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
-            "Помилка відправки листа із скиданням пароля"),
+            "Помилка відправлення електронного листа для скидання пароля"),
         "errorSendingRequest":
-            MessageLookupByLibrary.simpleMessage("Помилка відправки запиту"),
+            MessageLookupByLibrary.simpleMessage("Помилка відправлення запиту"),
         "errorUpdatingUserPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
-            "Помилка оновлення користувача. Будь ласка, спробуйте ще раз."),
+            "Помилка оновлення користувача. Будь ласка, спробуйте знову."),
         "failedLogingInAfterSignup": MessageLookupByLibrary.simpleMessage(
             "Не вдалося увійти після реєстрації"),
         "failedToDeleteAccount": MessageLookupByLibrary.simpleMessage(
             "Не вдалося видалити обліковий запис"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
-                "Не вдалося відкрити. Будь ласка, спробуйте спершу зберегти файл"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+                "Не вдалося відкрити. Будь ласка, спробуйте спочатку зберегти файл."),
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Файли"),
-        "folderName": MessageLookupByLibrary.simpleMessage("Ім\'\'я папки"),
+        "folderName": MessageLookupByLibrary.simpleMessage("Назва папки"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Забули пароль?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "На який термін файл повинен бути доступний для спільного використання?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
-            "Невірна електронна пошта або пароль"),
+            "Невірний електронний лист або пароль"),
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Посилання скопійовано в буфер обміну"),
         "login": MessageLookupByLibrary.simpleMessage("Увійти"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Відкрити"),
-        "openingFileGetfilenamefilekey": m4,
+        "openingFileGetfilenamefilekey": m6,
         "openingInBrowser":
-            MessageLookupByLibrary.simpleMessage("Відкривається в браузері..."),
+            MessageLookupByLibrary.simpleMessage("Відкриття у браузері..."),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "Пароль повинен бути довжиною не менше \$passwordMinLength символів"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
-            "Лист із скиданням пароля відправлено!"),
+            "Електронний лист для скидання пароля відправлено!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Вибрати папку"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
-                "Будь ласка, виберіть каталог, куди ви хочете завантажити файли на наступному екрані."),
+                "Будь ласка, виберіть каталог, куди ви хочете завантажити ваші файли на наступному екрані."),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
-                "Придбайте 1 ТБ, використовуючи версію Playstore. Ви можете видалити цю версію після завершення."),
-        "requestSent":
-            MessageLookupByLibrary.simpleMessage("Запит відправлено!"),
+                "Придбайте 1 ТБ за допомогою збірки Playstore. Ви можете видалити цю версію після завершення."),
+        "requestSent": MessageLookupByLibrary.simpleMessage("Запит надіслано!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
-            "Вимагати біометричних даних для відкриття додатка"),
+            "Вимагати біометрії для відкриття додатка"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Скинути пароль"),
         "save": MessageLookupByLibrary.simpleMessage("Зберегти"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
-            "Виберіть каталог для завантаження"),
+            "Вибрати каталог для завантаження"),
         "send": MessageLookupByLibrary.simpleMessage("Відправити"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
-            "Сервер в даний момент перебуває на технічному обслуговуванні. Будь ласка, спробуйте пізніше."),
+            "Сервер наразі перебуває на технічному обслуговуванні. Будь ласка, спробуйте знову пізніше."),
         "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
         "share": MessageLookupByLibrary.simpleMessage("Поділитися"),
         "shareFile": MessageLookupByLibrary.simpleMessage("Поділитися файлом"),
@@ -141,18 +144,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Використання сховища"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),
-        "uploaded": MessageLookupByLibrary.simpleMessage("Вивантажено"),
-        "uploading": MessageLookupByLibrary.simpleMessage("Вивантаження..."),
+        "uploaded": MessageLookupByLibrary.simpleMessage("Відправлено"),
+        "uploading": MessageLookupByLibrary.simpleMessage("Відправлення..."),
         "viewBackendOnGithub": MessageLookupByLibrary.simpleMessage(
-            "Переглянути бекенд на Github"),
+            "Переглянути backend на Github"),
         "viewOnGithub":
-            MessageLookupByLibrary.simpleMessage("Переглянути на Github"),
+            MessageLookupByLibrary.simpleMessage("Перегляд на Github"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
-                "Надішлють посилання на вашу електронну пошту для завершення зміни"),
+                "Відправимо посилання на вашу електронну пошту для завершення зміни"),
         "willSendALinkToYourEmailToResetYour": MessageLookupByLibrary.simpleMessage(
-            "Надішлють посилання на вашу електронну пошту для скидання пароля"),
+            "Відправимо посилання на вашу електронну пошту для скидання пароля"),
         "yourAccountHasBeenDeleted": MessageLookupByLibrary.simpleMessage(
-            "Ваш обліковий запис був видалений.")
+            "Ваш обліковий запис видалено.")
       };
 }

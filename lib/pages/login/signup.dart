@@ -72,7 +72,8 @@ class SignUpScreen extends ConsumerWidget {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(S
                                   .of(context)
-                                  .passwordMustBePasswordminlengthCharactersLong)));
+                                  .passwordMustBePasswordminlengthCharactersLong(
+                                      passwordMinLength))));
                           ref.read(isAttemptingSignupProvider.notifier).state =
                               false;
                           return;

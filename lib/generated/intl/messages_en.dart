@@ -25,11 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "Downloading ${filename}";
 
-  static String m2(filename) => "File ${filename} is not available offline";
+  static String m2(err) => "Error: ${err}";
 
-  static String m3(path) => "Offline files are stored at ${path}";
+  static String m3(filename) => "Error opening file: ${filename}";
 
-  static String m4(filename) => "Opening file: ${filename}";
+  static String m4(filename) => "File ${filename} is not available offline";
+
+  static String m5(path) => "Offline files are stored at ${path}";
+
+  static String m6(filename) => "Opening file: ${filename}";
+
+  static String m7(length) => "Password must be ${length} characters long";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -74,9 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email Domain not allowed"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("No files or folders"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("Error: \$err"),
-        "errorOpeningFileE":
-            MessageLookupByLibrary.simpleMessage("Error opening file: \$e"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
             "Error sending password reset email"),
         "errorSendingRequest":
@@ -90,26 +95,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Failed to open. Please try saving the file first"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Files"),
         "folderName": MessageLookupByLibrary.simpleMessage("Folder name"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot password?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "How long should the file be available for sharing?"),
         "invalidEmailOrPassword":
             MessageLookupByLibrary.simpleMessage("Invalid email or password"),
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("Link copied to clipboard"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Open"),
-        "openingFileGetfilenamefilekey": m4,
+        "openingFileGetfilenamefilekey": m6,
         "openingInBrowser":
             MessageLookupByLibrary.simpleMessage("Opening in browser..."),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "Password must be \$passwordMinLength characters long"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("Password reset email sent!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Pick Folder"),

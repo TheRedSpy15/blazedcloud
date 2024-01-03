@@ -25,11 +25,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "${filename} डाउनलोड हो रहा है";
 
-  static String m2(filename) => "फ़ाइल ${filename} ऑफ़लाइन उपलब्ध नहीं है";
+  static String m2(err) => "त्रुटि: ${err}";
 
-  static String m3(path) => "ऑफ़लाइन फ़ाइलें ${path} में स्टोर होती हैं";
+  static String m3(filename) => "त्रुटि फ़ाइल खोलते समय: ${filename}";
 
-  static String m4(filename) => "फ़ाइल खोल रहा है: ${filename}";
+  static String m4(filename) => "फ़ाइल ${filename} ऑफ़लाइन उपलब्ध नहीं है";
+
+  static String m5(path) => "ऑफ़लाइन फ़ाइलें ${path} पर संग्रहित हैं";
+
+  static String m6(filename) => "फ़ाइल खोल रहा है: ${filename}";
+
+  static String m7(length) => "पासवर्ड ${length} अक्षरों का होना चाहिए";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -41,13 +47,13 @@ class MessageLookup extends MessageLookupByLibrary {
                 "क्या आप इस फ़ाइल को हटाना चाहते हैं?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "क्या आप वाकई अपने खाते को हटाना चाहते हैं? यह परिणामस्वरूप है। कृपया ध्यान दें, आपको यदि है, तो आपको अपनी सदस्यता को प्ले स्टोर के माध्यम से मैन्युअली रद्द करना होगा (यदि आपकी सदस्यता है)"),
+                "क्या आप वाकई अपने खाता को हटाना चाहते हैं? यह अनपुनरावृत्ती है। कृपया ध्यान दें, आपको अगर है तो आपको अपनी सदस्यता को प्ले स्टोर से मैन्युअली रद्द करना होगा।"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
-            "क्या आप वाकई साइन आउट करना चाहते हैं?"),
+            "क्या आप सचमुच साइन आउट करना चाहते हैं?"),
         "authenticationRequired":
             MessageLookupByLibrary.simpleMessage("प्रमाणीकरण आवश्यक है"),
         "autoDeleteAcount":
-            MessageLookupByLibrary.simpleMessage("स्वत: नष्ट खाता"),
+            MessageLookupByLibrary.simpleMessage("स्वतः हटाएं खाता"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("ब्लेज्ड एक्सप्लोरर"),
         "cancel": MessageLookupByLibrary.simpleMessage("रद्द करें"),
@@ -64,7 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर हटाएं"),
         "deleteYourAccountAfter90DaysOfInactivityUsersWith":
             MessageLookupByLibrary.simpleMessage(
-                "निष्क्रियता के 90 दिनों के बाद अपना खाता हटाएं। सदस्यता वाले उपयोगकर्ताओं के लिए हमेशा अनदेखा किया जाता है।"),
+                "निष्क्रियता के बाद 90 दिनों में अपने खाता को हटाएं। हमेशा ऐक्टिव सब्सक्रिप्शन वाले उपयोगकर्ताओं के लिए हमेशा अनदेखा किया जाता है।"),
         "downloaded": MessageLookupByLibrary.simpleMessage("डाउनलोड हो गया"),
         "downloading":
             MessageLookupByLibrary.simpleMessage("डाउनलोड हो रहा है..."),
@@ -74,9 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ईमेल डोमेन अनुमत नहीं है"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("कोई फ़ाइल या फ़ोल्डर नहीं"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("त्रुटि: \$err"),
-        "errorOpeningFileE":
-            MessageLookupByLibrary.simpleMessage("त्रुटि फ़ाइल खोलते समय: \$e"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
             "पासवर्ड रीसेट ईमेल भेजने में त्रुटि"),
         "errorSendingRequest":
@@ -84,66 +89,66 @@ class MessageLookup extends MessageLookupByLibrary {
         "errorUpdatingUserPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
             "उपयोगकर्ता को अपडेट करने में त्रुटि. कृपया पुनः प्रयास करें।"),
         "failedLogingInAfterSignup": MessageLookupByLibrary.simpleMessage(
-            "साइन अप के बाद लॉग इन में विफल"),
+            "साइन अप के बाद लॉगिन में असफल"),
         "failedToDeleteAccount":
-            MessageLookupByLibrary.simpleMessage("खाता हटाने में विफल"),
+            MessageLookupByLibrary.simpleMessage("खाता हटाने में असफल"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
-                "खोलने में विफल हुआ. कृपया पहले फ़ाइल को सहेजने का प्रयास करें"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+                "खोलने में असफल हुआ। कृपया पहले फ़ाइल को सहेजने का प्रयास करें"),
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("फ़ाइलें"),
         "folderName": MessageLookupByLibrary.simpleMessage("फ़ोल्डर का नाम"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("पासवर्ड भूल गए?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?"),
         "invalidEmailOrPassword":
             MessageLookupByLibrary.simpleMessage("अमान्य ईमेल या पासवर्ड"),
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
-            "लिंक क्लिपबोर्ड पर कॉपी किया गया"),
-        "login": MessageLookupByLibrary.simpleMessage("लॉग इन"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+            "लिंक क्लिपबोर्ड पर कॉपी किया गया है"),
+        "login": MessageLookupByLibrary.simpleMessage("लॉगिन"),
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("ठीक है"),
         "open": MessageLookupByLibrary.simpleMessage("खोलें"),
-        "openingFileGetfilenamefilekey": m4,
-        "openingInBrowser":
-            MessageLookupByLibrary.simpleMessage("ब्राउज़र में खोल रहा है..."),
+        "openingFileGetfilenamefilekey": m6,
+        "openingInBrowser": MessageLookupByLibrary.simpleMessage(
+            "ब्राउज़र में खोला जा रहा है..."),
         "password": MessageLookupByLibrary.simpleMessage("पासवर्ड"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "पासवर्ड \$passwordMinLength अक्षरों लंबा होना चाहिए"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "पासवर्ड रीसेट ईमेल भेजा गया है!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर चुनें"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
-                "कृपया एक निर्दिष्ट करें जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।"),
+                "कृपया चुनें एक डायरेक्टरी जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
-                "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। जब हो जाए, तो आप उस संस्करण को अनइंस्टॉल कर सकते हैं।"),
+                "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। आप उस संस्करण को स्थानांतरित कर सकते हैं जब काम हो जाए।"),
         "requestSent": MessageLookupByLibrary.simpleMessage("अनुरोध भेजा गया!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
-            "एप्लिकेशन खोलने के लिए बायोमेट्रिक्स की आवश्यकता है"),
+            "ऐप खोलने के लिए बायोमेट्रिक्स की आवश्यकता है"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("पासवर्ड रीसेट"),
         "save": MessageLookupByLibrary.simpleMessage("सहेजें"),
-        "selectDownloadDirectory":
-            MessageLookupByLibrary.simpleMessage("डाउनलोड निर्दिष्ट करें"),
+        "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
+            "डाउनलोड निर्दिष्ट करें डायरेक्टरी"),
         "send": MessageLookupByLibrary.simpleMessage("भेजें"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
-            "सर्वर वर्तमान में रखरखाव के लिए है। कृपया बाद में पुनः प्रयास करें।"),
+            "सर्वर वर्तमान में मेनटेनेंस के तहत है। कृपया बाद में पुनः प्रयास करें।"),
         "settings": MessageLookupByLibrary.simpleMessage("सेटिंग्स"),
         "share": MessageLookupByLibrary.simpleMessage("साझा करें"),
         "shareFile": MessageLookupByLibrary.simpleMessage("फ़ाइल साझा करें"),
         "signOut": MessageLookupByLibrary.simpleMessage("साइन आउट"),
-        "signUp": MessageLookupByLibrary.simpleMessage("साइन अप"),
+        "signUp": MessageLookupByLibrary.simpleMessage("साइन अप करें"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("स्टोरेज उपयोग"),
-        "transfers": MessageLookupByLibrary.simpleMessage("स्थानांतरण"),
+        "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),
         "uploaded": MessageLookupByLibrary.simpleMessage("अपलोड हो गया"),
         "uploading": MessageLookupByLibrary.simpleMessage("अपलोड हो रहा है..."),
         "viewBackendOnGithub":
-            MessageLookupByLibrary.simpleMessage("गिटहब पर बैकएंड देखें"),
-        "viewOnGithub": MessageLookupByLibrary.simpleMessage("गिटहब पर देखें"),
+            MessageLookupByLibrary.simpleMessage("जितह पर देखें"),
+        "viewOnGithub": MessageLookupByLibrary.simpleMessage("जितह पर देखें"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
-                "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि परिवर्तन को पूरा किया जा सके"),
+                "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप परिवर्तन को पूरा कर सकें"),
         "willSendALinkToYourEmailToResetYour": MessageLookupByLibrary.simpleMessage(
             "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप अपना पासवर्ड रीसेट कर सकें"),
         "yourAccountHasBeenDeleted":

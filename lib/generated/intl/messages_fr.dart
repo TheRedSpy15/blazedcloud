@@ -25,12 +25,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(filename) => "Téléchargement de ${filename}";
 
-  static String m2(filename) =>
+  static String m2(err) => "Erreur : ${err}";
+
+  static String m3(filename) =>
+      "Erreur lors de l\'\'ouverture du fichier : ${filename}";
+
+  static String m4(filename) =>
       "Le fichier ${filename} n\'\'est pas disponible hors ligne";
 
-  static String m3(path) => "Les fichiers hors ligne sont stockés à ${path}";
+  static String m5(path) => "Les fichiers hors ligne sont stockés à ${path}";
 
-  static String m4(filename) => "Ouverture du fichier : ${filename}";
+  static String m6(filename) => "Ouverture du fichier : ${filename}";
+
+  static String m7(length) =>
+      "Le mot de passe doit comporter ${length} caractères";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -42,7 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Êtes-vous sûr de vouloir supprimer ce fichier ?"),
         "areYouSureYouWantToDeleteYourAccountThis":
             MessageLookupByLibrary.simpleMessage(
-                "Êtes-vous sûr de vouloir supprimer votre compte ? C\'\'est irréversible. Veuillez noter que vous devrez annuler votre abonnement manuellement via le play store (si vous en avez un)"),
+                "Êtes-vous sûr de vouloir supprimer votre compte ? C\'\'est irréversible. Veuillez noter que vous devrez annuler votre abonnement manuellement via le Play Store (si vous en avez un)"),
         "areYouSureYouWantToSignOut": MessageLookupByLibrary.simpleMessage(
             "Êtes-vous sûr de vouloir vous déconnecter ?"),
         "authenticationRequired":
@@ -55,7 +63,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeDownloadLocation": MessageLookupByLibrary.simpleMessage(
             "Changer l\'\'emplacement de téléchargement"),
         "changeEmail":
-            MessageLookupByLibrary.simpleMessage("Changer l\'\'email"),
+            MessageLookupByLibrary.simpleMessage("Changer l\'\'adresse email"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Changer le mot de passe"),
         "confirmFolderDelete": m0,
@@ -71,7 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Supprimer le dossier"),
         "deleteYourAccountAfter90DaysOfInactivityUsersWith":
             MessageLookupByLibrary.simpleMessage(
-                "Supprimer votre compte après 90 jours d\'\'inactivité. Toujours ignoré pour les utilisateurs avec des abonnements actifs."),
+                "Supprimez votre compte après 90 jours d\'\'inactivité. Toujours ignoré pour les utilisateurs avec des abonnements actifs."),
         "downloaded": MessageLookupByLibrary.simpleMessage("Téléchargé"),
         "downloading":
             MessageLookupByLibrary.simpleMessage("Téléchargement en cours..."),
@@ -81,52 +89,51 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Domaine email non autorisé"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Aucun fichier ou dossier"),
-        "errorErr": MessageLookupByLibrary.simpleMessage("Erreur : \$err"),
-        "errorOpeningFileE": MessageLookupByLibrary.simpleMessage(
-            "Erreur lors de l\'\'ouverture du fichier : \$e"),
+        "errorErr": m2,
+        "errorOpeningFileE": m3,
         "errorSendingPasswordResetEmail": MessageLookupByLibrary.simpleMessage(
             "Erreur lors de l\'envoi de l\'email de réinitialisation du mot de passe"),
         "errorSendingRequest": MessageLookupByLibrary.simpleMessage(
             "Erreur lors de l\'\'envoi de la demande"),
         "errorUpdatingUserPleaseTryAgain": MessageLookupByLibrary.simpleMessage(
-            "Erreur lors de la mise à jour de l\'\'utilisateur. Veuillez réessayer."),
+            "Erreur de mise à jour de l\'\'utilisateur. Veuillez réessayer."),
         "failedLogingInAfterSignup": MessageLookupByLibrary.simpleMessage(
             "Échec de la connexion après l\'\'inscription"),
         "failedToDeleteAccount": MessageLookupByLibrary.simpleMessage(
             "Échec de la suppression du compte"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
-                "Échec de l\'\'ouverture. Veuillez essayer d\'abord d\'enregistrer le fichier"),
-        "fileGetfilenamefilekeyIsNotAvailableOffline": m2,
+                "Échec de l\'ouverture. Veuillez essayer de sauvegarder le fichier d\'abord"),
+        "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Fichiers"),
         "folderName": MessageLookupByLibrary.simpleMessage("Nom du dossier"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Mot de passe oublié ?"),
+        "howLongToShare": MessageLookupByLibrary.simpleMessage(
+            "Combien de temps le fichier devrait-il être disponible pour le partage ?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
             "Email ou mot de passe invalide"),
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Lien copié dans le presse-papiers"),
         "login": MessageLookupByLibrary.simpleMessage("Connexion"),
-        "offlineFilesAreStoredAtSnapshotdata": m3,
+        "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Ouvrir"),
-        "openingFileGetfilenamefilekey": m4,
+        "openingFileGetfilenamefilekey": m6,
         "openingInBrowser": MessageLookupByLibrary.simpleMessage(
             "Ouverture dans le navigateur..."),
         "password": MessageLookupByLibrary.simpleMessage("Mot de passe"),
-        "passwordMustBePasswordminlengthCharactersLong":
-            MessageLookupByLibrary.simpleMessage(
-                "Le mot de passe doit comporter \$passwordMinLength caractères"),
+        "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Email de réinitialisation du mot de passe envoyé !"),
         "pickFolder":
             MessageLookupByLibrary.simpleMessage("Choisir le dossier"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
-                "Veuillez sélectionner un répertoire où vous souhaitez télécharger vos fichiers dans l\'\'écran suivant."),
+                "Veuillez sélectionner un répertoire où vous souhaitez télécharger vos fichiers à l\'\'écran suivant."),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
-                "Achetez 1 To en utilisant la version Playstore. Vous pouvez désinstaller cette version une fois terminée."),
+                "Achetez 1 To avec la version du Play Store. Vous pouvez désinstaller cette version une fois terminée."),
         "requestSent":
             MessageLookupByLibrary.simpleMessage("Demande envoyée !"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
@@ -156,9 +163,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("Voir sur Github"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
-                "Enverra un lien à votre email pour compléter le changement"),
+                "Enverra un lien à votre adresse email pour compléter le changement"),
         "willSendALinkToYourEmailToResetYour": MessageLookupByLibrary.simpleMessage(
-            "Enverra un lien à votre email pour réinitialiser votre mot de passe"),
+            "Enverra un lien à votre adresse email pour réinitialiser votre mot de passe"),
         "yourAccountHasBeenDeleted":
             MessageLookupByLibrary.simpleMessage("Votre compte a été supprimé.")
       };

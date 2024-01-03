@@ -100,13 +100,13 @@ class S {
     );
   }
 
-  /// `Error: $err`
-  String get errorErr {
+  /// `Error: {err}`
+  String errorErr(Object err) {
     return Intl.message(
-      'Error: \$err',
+      'Error: $err',
       name: 'errorErr',
       desc: '',
-      args: [],
+      args: [err],
     );
   }
 
@@ -250,13 +250,13 @@ class S {
     );
   }
 
-  /// `Password must be $passwordMinLength characters long`
-  String get passwordMustBePasswordminlengthCharactersLong {
+  /// `Password must be {length} characters long`
+  String passwordMustBePasswordminlengthCharactersLong(Object length) {
     return Intl.message(
-      'Password must be \$passwordMinLength characters long',
+      'Password must be $length characters long',
       name: 'passwordMustBePasswordminlengthCharactersLong',
       desc: '',
-      args: [],
+      args: [length],
     );
   }
 
@@ -350,13 +350,13 @@ class S {
     );
   }
 
-  /// `Error opening file: $e`
-  String get errorOpeningFileE {
+  /// `Error opening file: {filename}`
+  String errorOpeningFileE(Object filename) {
     return Intl.message(
-      'Error opening file: \$e',
+      'Error opening file: $filename',
       name: 'errorOpeningFileE',
       desc: '',
-      args: [],
+      args: [filename],
     );
   }
 
@@ -779,6 +779,16 @@ class S {
       args: [],
     );
   }
+
+  /// `How long should the file be available for sharing?`
+  String get howLongToShare {
+    return Intl.message(
+      'How long should the file be available for sharing?',
+      name: 'howLongToShare',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -791,6 +801,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'hi'),
+      Locale.fromSubtags(languageCode: 'ja'),
+      Locale.fromSubtags(languageCode: 'ko'),
       Locale.fromSubtags(languageCode: 'pt'),
       Locale.fromSubtags(languageCode: 'ru'),
       Locale.fromSubtags(languageCode: 'uk'),

@@ -1,31 +1,41 @@
 {
     "@@locale": "uk",
-    "serverMaintenance": "Сервер в даний момент перебуває на технічному обслуговуванні. Будь ласка, спробуйте пізніше.",
+    "serverMaintenance": "Сервер наразі перебуває на технічному обслуговуванні. Будь ласка, спробуйте знову пізніше.",
     "appName": "Blazed Cloud",
     "save": "Зберегти",
     "delete": "Видалити",
-    "emptyDirectory": "Немає файлів або папок",
-    "errorErr": "Помилка: $err",
-    "invalidEmailOrPassword": "Невірна електронна пошта або пароль",
+    "emptyDirectory": "Немає файлів чи папок",
+    "errorErr": "Помилка: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "Невірний електронний лист або пароль",
     "login": "Увійти",
     "forgotPassword": "Забули пароль?",
     "resetPassword": "Скинути пароль",
     "email": "Електронна пошта",
     "cancel": "Скасувати",
-    "passwordResetEmailSent": "Лист із скиданням пароля відправлено!",
-    "errorSendingPasswordResetEmail": "Помилка відправки листа із скиданням пароля",
+    "passwordResetEmailSent": "Електронний лист для скидання пароля відправлено!",
+    "errorSendingPasswordResetEmail": "Помилка відправлення електронного листа для скидання пароля",
     "send": "Відправити",
     "password": "Пароль",
     "settings": "Налаштування",
     "transfers": "Передачі",
     "files": "Файли",
     "emailDomainNotAllowed": "Домен електронної пошти не дозволений",
-    "passwordMustBePasswordminlengthCharactersLong": "Пароль повинен бути довжиною не менше $passwordMinLength символів",
+    "passwordMustBePasswordminlengthCharactersLong": "Пароль повинен бути довжиною {length} символів",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
     "signUp": "Зареєструватися",
     "failedLogingInAfterSignup": "Не вдалося увійти після реєстрації",
-    "errorSendingRequest": "Помилка відправки запиту",
-    "requestSent": "Запит відправлено!",
-    "errorUpdatingUserPleaseTryAgain": "Помилка оновлення користувача. Будь ласка, спробуйте ще раз.",
+    "errorSendingRequest": "Помилка відправлення запиту",
+    "requestSent": "Запит надіслано!",
+    "errorUpdatingUserPleaseTryAgain": "Помилка оновлення користувача. Будь ласка, спробуйте знову.",
     "deleteFile": "Видалити файл",
     "areYouSureYouWantToDeleteThisFile": "Ви впевнені, що хочете видалити цей файл?",
     "downloadingGetfilenamefilekey": "Завантаження {filename}",
@@ -34,16 +44,21 @@
             "filename": {}
         }
     },
-    "openingFileGetfilenamefilekey": "Відкривається файл: {filename}",
+    "openingFileGetfilenamefilekey": "Відкриття файлу: {filename}",
     "@openingFileGetfilenamefilekey": {
         "placeholders": {
             "filename": {}
         }
     },
-    "errorOpeningFileE": "Помилка відкриття файлу: $e",
-    "openingInBrowser": "Відкривається в браузері...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "Не вдалося відкрити. Будь ласка, спробуйте спершу зберегти файл",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступний в автономному режимі",
+    "errorOpeningFileE": "Помилка відкриття файлу: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "Відкриття у браузері...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Не вдалося відкрити. Будь ласка, спробуйте спочатку зберегти файл.",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступний офлайн",
     "@fileGetfilenamefilekeyIsNotAvailableOffline": {
         "placeholders": {
             "filename": {}
@@ -63,29 +78,29 @@
             "foldername": {}
         }
     },
-    "authenticationRequired": "Вимагається автентифікація",
-    "areYouSureYouWantToDeleteYourAccountThis": "Ви впевнені, що хочете видалити свій обліковий запис? Це незворотньо. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин гри (якщо вона є)",
+    "authenticationRequired": "Потрібна аутентифікація",
+    "areYouSureYouWantToDeleteYourAccountThis": "Ви впевнені, що хочете видалити свій обліковий запис? Це невідворотнє. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин Play (якщо ви маєте одну).",
     "deleteAccount": "Видалити обліковий запис",
     "accountDeleted": "Обліковий запис видалено",
-    "yourAccountHasBeenDeleted": "Ваш обліковий запис був видалений.",
+    "yourAccountHasBeenDeleted": "Ваш обліковий запис видалено.",
     "ok": "OK",
     "failedToDeleteAccount": "Не вдалося видалити обліковий запис",
     "changeDownloadLocation": "Змінити місце завантаження",
     "changeEmail": "Змінити електронну пошту",
-    "willSendALinkToYourEmailToCompleteThe": "Надішлють посилання на вашу електронну пошту для завершення зміни",
-    "viewBackendOnGithub": "Переглянути бекенд на Github",
-    "viewOnGithub": "Переглянути на Github",
-    "autoDeleteAcount": "Автоматично видалити обліковий запис",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Видалити обліковий запис через 90 днів бездіяльності. Завжди ігнорується для користувачів з активними підписками.",
+    "willSendALinkToYourEmailToCompleteThe": "Відправимо посилання на вашу електронну пошту для завершення зміни",
+    "viewBackendOnGithub": "Переглянути backend на Github",
+    "viewOnGithub": "Перегляд на Github",
+    "autoDeleteAcount": "Автоматично видаляти обліковий запис",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Видаляти обліковий запис після 90 днів бездіяльності. Завжди ігнорується для користувачів із активними підписками.",
     "signOut": "Вийти",
     "areYouSureYouWantToSignOut": "Ви впевнені, що хочете вийти?",
-    "requireBiometricsToOpenApp": "Вимагати біометричних даних для відкриття додатка",
+    "requireBiometricsToOpenApp": "Вимагати біометрії для відкриття додатка",
     "changePassword": "Змінити пароль",
-    "willSendALinkToYourEmailToResetYour": "Надішлють посилання на вашу електронну пошту для скидання пароля",
+    "willSendALinkToYourEmailToResetYour": "Відправимо посилання на вашу електронну пошту для скидання пароля",
     "downloading": "Завантаження...",
     "downloaded": "Завантажено",
-    "selectDownloadDirectory": "Виберіть каталог для завантаження",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Будь ласка, виберіть каталог, куди ви хочете завантажити файли на наступному екрані.",
+    "selectDownloadDirectory": "Вибрати каталог для завантаження",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Будь ласка, виберіть каталог, куди ви хочете завантажити ваші файли на наступному екрані.",
     "pickFolder": "Вибрати папку",
     "offlineFilesAreStoredAtSnapshotdata": "Офлайн-файли зберігаються за адресою {path}",
     "@offlineFilesAreStoredAtSnapshotdata": {
@@ -93,9 +108,10 @@
             "path": {}
         }
     },
-    "uploading": "Вивантаження...",
-    "uploaded": "Вивантажено",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Придбайте 1 ТБ, використовуючи версію Playstore. Ви можете видалити цю версію після завершення.",
-    "folderName": "Ім''я папки",
-    "storageUsage": "Використання сховища"
+    "uploading": "Відправлення...",
+    "uploaded": "Відправлено",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Придбайте 1 ТБ за допомогою збірки Playstore. Ви можете видалити цю версію після завершення.",
+    "folderName": "Назва папки",
+    "storageUsage": "Використання сховища",
+    "howLongToShare": "На який термін файл повинен бути доступний для спільного використання?"
 }

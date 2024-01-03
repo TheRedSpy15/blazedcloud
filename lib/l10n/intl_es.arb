@@ -5,10 +5,15 @@
     "save": "Guardar",
     "delete": "Eliminar",
     "emptyDirectory": "Sin archivos o carpetas",
-    "errorErr": "Error: $err",
-    "invalidEmailOrPassword": "Correo electrónico o contraseña no válidos",
+    "errorErr": "Error: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "Correo electrónico o contraseña inválidos",
     "login": "Iniciar sesión",
-    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "forgotPassword": "¿Olvidaste la contraseña?",
     "resetPassword": "Restablecer contraseña",
     "email": "Correo electrónico",
     "cancel": "Cancelar",
@@ -16,13 +21,18 @@
     "errorSendingPasswordResetEmail": "Error al enviar el correo electrónico de restablecimiento de contraseña",
     "send": "Enviar",
     "password": "Contraseña",
-    "settings": "Configuración",
+    "settings": "Configuraciones",
     "transfers": "Transferencias",
     "files": "Archivos",
     "emailDomainNotAllowed": "Dominio de correo electrónico no permitido",
-    "passwordMustBePasswordminlengthCharactersLong": "La contraseña debe tener al menos $passwordMinLength caracteres",
+    "passwordMustBePasswordminlengthCharactersLong": "La contraseña debe tener {length} caracteres de longitud",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
     "signUp": "Registrarse",
-    "failedLogingInAfterSignup": "Error al iniciar sesión después del registro",
+    "failedLogingInAfterSignup": "Fallo al iniciar sesión después del registro",
     "errorSendingRequest": "Error al enviar la solicitud",
     "requestSent": "¡Solicitud enviada!",
     "errorUpdatingUserPleaseTryAgain": "Error al actualizar el usuario. Por favor, inténtalo de nuevo.",
@@ -40,7 +50,12 @@
             "filename": {}
         }
     },
-    "errorOpeningFileE": "Error al abrir el archivo: $e",
+    "errorOpeningFileE": "Error al abrir el archivo: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
     "openingInBrowser": "Abriendo en el navegador...",
     "failedToOpenPleaseTrySavingTheFileFirst": "Error al abrir. Por favor, intenta guardar el archivo primero",
     "fileGetfilenamefilekeyIsNotAvailableOffline": "El archivo {filename} no está disponible sin conexión",
@@ -64,7 +79,7 @@
         }
     },
     "authenticationRequired": "Autenticación requerida",
-    "areYouSureYouWantToDeleteYourAccountThis": "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción manualmente a través de la tienda de aplicaciones (si tienes una)",
+    "areYouSureYouWantToDeleteYourAccountThis": "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción a través de la tienda de juegos manualmente (si tienes una)",
     "deleteAccount": "Eliminar cuenta",
     "accountDeleted": "Cuenta eliminada",
     "yourAccountHasBeenDeleted": "Tu cuenta ha sido eliminada.",
@@ -76,7 +91,7 @@
     "viewBackendOnGithub": "Ver backend en Github",
     "viewOnGithub": "Ver en Github",
     "autoDeleteAcount": "Eliminar cuenta automáticamente",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Eliminar tu cuenta después de 90 días de inactividad. Siempre ignorado para usuarios con suscripciones activas.",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Eliminar tu cuenta después de 90 días de inactividad. Siempre se ignora para usuarios con suscripciones activas.",
     "signOut": "Cerrar sesión",
     "areYouSureYouWantToSignOut": "¿Estás seguro de que quieres cerrar sesión?",
     "requireBiometricsToOpenApp": "Requerir biometría para abrir la aplicación",
@@ -95,7 +110,8 @@
     },
     "uploading": "Subiendo...",
     "uploaded": "Subido",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compra 1TB usando la versión de Playstore. Puedes desinstalar esa versión cuando hayas terminado.",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compra 1TB utilizando la versión de Playstore. Puedes desinstalar esa versión cuando hayas terminado.",
     "folderName": "Nombre de la carpeta",
-    "storageUsage": "Uso de almacenamiento"
+    "storageUsage": "Uso de almacenamiento",
+    "howLongToShare": "¿Cuánto tiempo debería estar disponible el archivo para compartir?"
 }
