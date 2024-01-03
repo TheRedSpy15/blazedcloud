@@ -1,4 +1,5 @@
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,7 +17,7 @@ class LoginScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text(S.of(context).login),
       ),
       body: Center(
         child: Column(
@@ -27,8 +28,8 @@ class LoginScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: TextFormField(
                 controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
+                decoration: InputDecoration(
+                  labelText: S.of(context).email,
                 ),
               ),
             ),
@@ -39,8 +40,8 @@ class LoginScreen extends ConsumerWidget {
               child: TextFormField(
                 controller: passwordController,
                 obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
+                decoration: InputDecoration(
+                  labelText: S.of(context).password,
                 ),
               ),
             ),
@@ -70,9 +71,9 @@ class LoginScreen extends ConsumerWidget {
                         }
                       }).onError((error, stackTrace) {
                         logger.e("Error logging in: $error");
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content: Text("Invalid email or password")));
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content:
+                                Text(S.of(context).invalidEmailOrPassword)));
                         ref.read(isAttemptingLoginProvider.notifier).state =
                             false;
                         return null;
@@ -81,7 +82,7 @@ class LoginScreen extends ConsumerWidget {
                       ref.read(isAttemptingLoginProvider.notifier).state =
                           false;
                     },
-              child: const Text('Login'),
+              child: Text(S.of(context).login),
             ),
 
             // password reset button
@@ -89,7 +90,7 @@ class LoginScreen extends ConsumerWidget {
               onPressed: () {
                 showPasswordResetDialog(context);
               },
-              child: const Text('Forgot password?'),
+              child: Text(S.of(context).forgotPassword),
             ),
           ],
         ),
@@ -101,10 +102,10 @@ class LoginScreen extends ConsumerWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Reset password'),
+        title: Text(S.of(context).resetPassword),
         content: TextField(
-          decoration: const InputDecoration(
-            labelText: 'Email',
+          decoration: InputDecoration(
+            labelText: S.of(context).email,
           ),
           onChanged: (value) {
             emailController.text = value;
@@ -115,7 +116,7 @@ class LoginScreen extends ConsumerWidget {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Cancel'),
+            child: Text(S.of(context).cancel),
           ),
           TextButton(
             onPressed: () {
@@ -124,17 +125,18 @@ class LoginScreen extends ConsumerWidget {
                   .collection('users')
                   .requestPasswordReset(emailController.text)
                   .then((value) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text("Password reset email sent!")));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(S.of(context).passwordResetEmailSent)));
                 Navigator.of(context).pop();
               }).onError((error, stackTrace) {
                 logger.e("Error sending password reset email: $error");
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text("Error sending password reset email")));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content:
+                        Text(S.of(context).errorSendingPasswordResetEmail)));
                 return null;
               });
             },
-            child: const Text('Send'),
+            child: Text(S.of(context).send),
           ),
         ],
       ),

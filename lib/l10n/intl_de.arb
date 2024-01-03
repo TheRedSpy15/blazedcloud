@@ -1,0 +1,100 @@
+{
+    "@@locale": "de",
+    "serverMaintenance": "Der Server wird derzeit gewartet. Bitte versuchen Sie es später erneut.",
+    "appName": "Blazed Cloud",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "emptyDirectory": "Keine Dateien oder Ordner",
+    "errorErr": "Fehler: $err",
+    "invalidEmailOrPassword": "Ungültige E-Mail oder Passwort",
+    "login": "Anmelden",
+    "forgotPassword": "Passwort vergessen?",
+    "resetPassword": "Passwort zurücksetzen",
+    "email": "E-Mail",
+    "cancel": "Abbrechen",
+    "passwordResetEmailSent": "E-Mail zum Zurücksetzen des Passworts gesendet!",
+    "errorSendingPasswordResetEmail": "Fehler beim Senden der E-Mail zum Zurücksetzen des Passworts",
+    "send": "Senden",
+    "password": "Passwort",
+    "settings": "Einstellungen",
+    "transfers": "Übertragungen",
+    "files": "Dateien",
+    "emailDomainNotAllowed": "E-Mail-Domäne nicht erlaubt",
+    "passwordMustBePasswordminlengthCharactersLong": "Das Passwort muss mindestens $passwordMinLength Zeichen lang sein",
+    "signUp": "Registrieren",
+    "failedLogingInAfterSignup": "Anmeldung nach der Registrierung fehlgeschlagen",
+    "errorSendingRequest": "Fehler beim Senden der Anfrage",
+    "requestSent": "Anfrage gesendet!",
+    "errorUpdatingUserPleaseTryAgain": "Fehler beim Aktualisieren des Benutzers. Bitte versuchen Sie es erneut.",
+    "deleteFile": "Datei löschen",
+    "areYouSureYouWantToDeleteThisFile": "Sind Sie sicher, dass Sie diese Datei löschen möchten?",
+    "downloadingGetfilenamefilekey": "Herunterladen von {filename}",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "Öffnen der Datei: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "Fehler beim Öffnen der Datei: $e",
+    "openingInBrowser": "Öffnen im Browser...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Öffnen fehlgeschlagen. Versuchen Sie zuerst, die Datei zu speichern",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "Die Datei {filename} ist offline nicht verfügbar",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "Datei teilen",
+    "linkCopiedToClipboard": "Link in die Zwischenablage kopiert",
+    "share": "Teilen",
+    "open": "Öffnen",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "Ordner erstellen",
+    "create": "Erstellen",
+    "deleteFolder": "Ordner löschen",
+    "confirmFolderDelete": "Sind Sie sicher, dass Sie diesen Ordner löschen möchten? {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "Authentifizierung erforderlich",
+    "areYouSureYouWantToDeleteYourAccountThis": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Dies ist nicht rückgängig zu machen.\\n\\nBitte beachten Sie, dass Sie Ihr Abonnement manuell über den Play Store kündigen müssen (falls vorhanden)",
+    "deleteAccount": "Konto löschen",
+    "accountDeleted": "Konto gelöscht",
+    "yourAccountHasBeenDeleted": "Ihr Konto wurde gelöscht.",
+    "ok": "OK",
+    "failedToDeleteAccount": "Fehler beim Löschen des Kontos",
+    "changeDownloadLocation": "Download-Speicherort ändern",
+    "changeEmail": "E-Mail ändern",
+    "willSendALinkToYourEmailToCompleteThe": "Wir senden einen Link an Ihre E-Mail, um die Änderung abzuschließen",
+    "viewBackendOnGithub": "Backend auf Github anzeigen",
+    "viewOnGithub": "Auf Github anzeigen",
+    "autoDeleteAcount": "Konto nach 90 Tagen Inaktivität automatisch löschen. Immer ignoriert für Benutzer mit aktiven Abonnements.",
+    "signOut": "Abmelden",
+    "areYouSureYouWantToSignOut": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+    "requireBiometricsToOpenApp": "Biometrie erforderlich, um die App zu öffnen",
+    "changePassword": "Passwort ändern",
+    "willSendALinkToYourEmailToResetYour": "Wir senden einen Link an Ihre E-Mail, um Ihr Passwort zurückzusetzen",
+    "downloading": "Herunterladen...",
+    "downloaded": "Heruntergeladen",
+    "selectDownloadDirectory": "Download-Verzeichnis auswählen",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Bitte wählen Sie ein Verzeichnis aus, in dem Sie Ihre Dateien im nächsten Bildschirm herunterladen möchten.",
+    "pickFolder": "Ordner auswählen",
+    "offlineFilesAreStoredAtSnapshotdata": "Offline-Dateien werden unter {path} gespeichert",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "Hochladen...",
+    "uploaded": "Hochgeladen",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Kaufen Sie 1 TB mit der Playstore-Version. Sie können diese Version deinstallieren, wenn Sie fertig sind.",
+    "folderName": "Ordnername",
+    "storageUsage": "Speichernutzung"
+}

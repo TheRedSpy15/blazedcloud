@@ -18,6 +18,7 @@ class User {
   bool terabyte_active;
   String glassfy;
   int capacity_gigs;
+  bool prunable;
 
   User({
     this.id = "",
@@ -32,6 +33,7 @@ class User {
     this.terabyte_active = false,
     this.glassfy = "",
     this.capacity_gigs = 5,
+    this.prunable = false,
   });
 
   // delete user
@@ -58,6 +60,7 @@ class User {
       terabyte_active: result.getBoolValue('terabyte_active'),
       glassfy: result.getStringValue('glassfy'),
       capacity_gigs: result.getIntValue('capacity_gigs'),
+      prunable: result.getBoolValue('prunable'),
     );
   }
 
@@ -74,5 +77,6 @@ class User {
         'terabyte_active': terabyte_active,
         'glassfy': glassfy,
         'capacity_gigs': capacity_gigs,
+        'prunable': prunable,
       };
 }

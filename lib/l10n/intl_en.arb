@@ -1,0 +1,101 @@
+{
+    "@@locale": "en",
+    "serverMaintenance": "Server is currently undergoing maintenance. Please try again later.",
+    "appName": "Blazed Cloud",
+    "save": "Save",
+    "delete": "Delete",
+    "emptyDirectory": "No files or folders",
+    "errorErr": "Error: $err",
+    "invalidEmailOrPassword": "Invalid email or password",
+    "login": "Login",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "email": "Email",
+    "cancel": "Cancel",
+    "passwordResetEmailSent": "Password reset email sent!",
+    "errorSendingPasswordResetEmail": "Error sending password reset email",
+    "send": "Send",
+    "password": "Password",
+    "settings": "Settings",
+    "transfers": "Transfers",
+    "files": "Files",
+    "emailDomainNotAllowed": "Email Domain not allowed",
+    "passwordMustBePasswordminlengthCharactersLong": "Password must be $passwordMinLength characters long",
+    "signUp": "Sign up",
+    "failedLogingInAfterSignup": "Failed loging in after signup",
+    "errorSendingRequest": "Error sending request",
+    "requestSent": "Request Sent!",
+    "errorUpdatingUserPleaseTryAgain": "Error updating user. Please try again.",
+    "deleteFile": "Delete file",
+    "areYouSureYouWantToDeleteThisFile": "Are you sure you want to delete this file?",
+    "downloadingGetfilenamefilekey": "Downloading {filename}",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "Opening file: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "Error opening file: $e",
+    "openingInBrowser": "Opening in browser...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Failed to open. Please try saving the file first",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "File {filename} is not available offline",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "Share file",
+    "linkCopiedToClipboard": "Link copied to clipboard",
+    "share": "Share",
+    "open": "Open",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "Create folder",
+    "create": "Create",
+    "deleteFolder": "Delete folder",
+    "confirmFolderDelete": "Are you sure you want to delete this Folder? {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "Authentication Required",
+    "areYouSureYouWantToDeleteYourAccountThis": "Are you sure you want to delete your account? This is irreversible.\\n\\nPlease note, you will need to cancel your subscription through the play store manually (if you have one)",
+    "deleteAccount": "Delete account",
+    "accountDeleted": "Account deleted",
+    "yourAccountHasBeenDeleted": "Your account has been deleted.",
+    "ok": "OK",
+    "failedToDeleteAccount": "Failed to delete account",
+    "changeDownloadLocation": "Change Download Location",
+    "changeEmail": "Change Email",
+    "willSendALinkToYourEmailToCompleteThe": "Will send a link to your email to complete the change",
+    "viewBackendOnGithub": "View backend on Github",
+    "viewOnGithub": "View on Github",
+    "autoDeleteAcount": "Auto Delete Acount",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Delete your account after 90 days of inactivity. Always ignored for users with active subscriptions.",
+    "signOut": "Sign Out",
+    "areYouSureYouWantToSignOut": "Are you sure you want to sign out?",
+    "requireBiometricsToOpenApp": "Require biometrics to open app",
+    "changePassword": "Change Password",
+    "willSendALinkToYourEmailToResetYour": "Will send a link to your email to reset your password",
+    "downloading": "Downloading...",
+    "downloaded": "Downloaded",
+    "selectDownloadDirectory": "Select download directory",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Please select a directory where you would like to download your files in the next screen.",
+    "pickFolder": "Pick Folder",
+    "offlineFilesAreStoredAtSnapshotdata": "Offline files are stored at {path}",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "Uploading...",
+    "uploaded": "Uploaded",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Purchase 1TB using Playstore build. You can uninstall that version when done.",
+    "folderName": "Folder name",
+    "storageUsage": "Storage Usage"
+}
