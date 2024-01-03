@@ -33,9 +33,7 @@ class UploadController {
         uploadNotifier.updateUploadStateByKey(
             uploadState.uploadKey, uploadState);
 
-        if (!isRequestingNotificationPermission) {
-          updateUploadNotification();
-        }
+        updateUploadNotification();
 
         if (!uploadState.isUploading) {
           _ref.invalidate(
@@ -56,7 +54,7 @@ class UploadController {
           networkType: NetworkType.unmetered,
         ),
         tag: localPath,
-        backoffPolicy: BackoffPolicy.exponential,
+        backoffPolicy: BackoffPolicy.linear,
         outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
         existingWorkPolicy: ExistingWorkPolicy.keep,
         inputData: {
@@ -85,20 +83,14 @@ class UploadController {
   }
 
   void updateUploadNotification() {
-    isRequestingNotificationPermission = true;
-    NotificationService().initNotification().then((_) {
-      NotificationService().showUploadNotification(_ref
-          .read(uploadStateProvider)
-          .where((element) => element.isUploading && !element.isError)
-          .length);
-      isRequestingNotificationPermission = false;
-    }).catchError((error) {
-      logger.e('Error initializing notifications: $error');
-      isRequestingNotificationPermission = false;
-    });
+    NotificationService().initNotification().then((_) => NotificationService()
+        .showUploadNotification(_ref
+            .read(uploadStateProvider)
+            .where((element) => element.isUploading && !element.isError)
+            .length));
   }
 
-  /// returns true if the download was started, doesn't need to be started or can't be started
+  /// returns true if the download was started or doesn't need to be started
   static Future<bool> startUpload(
       String uid,
       String localPath,
@@ -126,12 +118,6 @@ class UploadController {
     final completer = Completer<bool>();
     try {
       final file = File(localPath);
-      if (!file.existsSync()) {
-        logger.e('File not in cache: $localPath');
-        uploadState.setError('Cache ran out of space');
-        completer.complete(true);
-        return completer.future;
-      }
 
       final uploadUrl = await getUploadUrl(
         uid,
@@ -175,8 +161,8 @@ class UploadController {
                 logger.e('send port error ($fileKey): $error');
               }
               lastDataSentTime = DateTime.now();
-            } else if (!uploadState.isUploading || uploadState.isError) {
-              // don't rate limit if we're not uploading or if there's an error
+            } else if (!uploadState.isUploading) {
+              // don't rate limit if finished
               try {
                 sendPort!.send(jsonEncode(uploadState.toJson()));
               } catch (error) {
@@ -212,6 +198,7 @@ class UploadController {
       }
 
       uploadState.setError(error.toString());
+      uploadState.completed();
       completer.complete(false);
 
       // send progress to the UI

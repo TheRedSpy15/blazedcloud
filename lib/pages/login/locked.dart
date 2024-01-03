@@ -1,4 +1,3 @@
-import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:flutter/material.dart';
@@ -19,9 +18,8 @@ class LockedScreen extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(S.of(context).authenticationRequired,
-                  style: const TextStyle(
-                      fontSize: 30, fontWeight: FontWeight.bold),
+              const Text('Authentication Required',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center),
               const Text(
                 "Saved files are still visisble in export folder",
