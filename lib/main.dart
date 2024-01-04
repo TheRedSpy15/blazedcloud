@@ -24,6 +24,15 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  try {
+    logger.i("Initializing Glassfy");
+    await Glassfy.initialize('e7e4e5d11b2f48169f26e930a660862b',
+        watcherMode: false);
+    logger.i("Glassfy initialized");
+  } catch (e) {
+    logger.w("Glassfy failed to initialize: $e");
+  }
+
   await Hive.initFlutter();
 
   await Workmanager().initialize(
