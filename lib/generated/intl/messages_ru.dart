@@ -147,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Использование хранилища"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачи"),
+        "upgradeStorage1Terabyte":
+            MessageLookupByLibrary.simpleMessage("Покупка 1 терабайта"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Загружено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
         "viewBackendOnGithub":

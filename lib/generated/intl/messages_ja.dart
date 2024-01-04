@@ -135,6 +135,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("サインアップ"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("ストレージ使用量"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
+        "upgradeStorage1Terabyte":
+            MessageLookupByLibrary.simpleMessage("1テラバイトを購入する"),
         "uploaded": MessageLookupByLibrary.simpleMessage("アップロード済み"),
         "uploading": MessageLookupByLibrary.simpleMessage("アップロード中..."),
         "viewBackendOnGithub":

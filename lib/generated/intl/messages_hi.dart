@@ -141,6 +141,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("साइन अप करें"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("स्टोरेज उपयोग"),
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),
+        "upgradeStorage1Terabyte": MessageLookupByLibrary.simpleMessage(
+            "स्टोरेज अपग्रेड (1 टेराबाइट)"),
         "uploaded": MessageLookupByLibrary.simpleMessage("अपलोड हो गया"),
         "uploading": MessageLookupByLibrary.simpleMessage("अपलोड हो रहा है..."),
         "viewBackendOnGithub":

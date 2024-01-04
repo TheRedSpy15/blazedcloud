@@ -117,7 +117,8 @@ class UsageCard extends ConsumerWidget {
                                         .state = false;
                                   }
                                 },
-                                child: const Text("Upgrade Storage (1 TB)"));
+                                child: Text(
+                                    S.of(context).upgradeStorage1Terabyte));
                           },
                           error: (e, s) {
                             logger.e(e);

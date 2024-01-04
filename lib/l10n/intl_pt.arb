@@ -113,5 +113,6 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compre 1TB usando a versão da Playstore. Você pode desinstalar essa versão quando terminar.",
     "folderName": "Nome da pasta",
     "storageUsage": "Uso de armazenamento",
-    "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?"
+    "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?",
+    "upgradeStorage1Terabyte": "Compre 1 Terabyte"
 }

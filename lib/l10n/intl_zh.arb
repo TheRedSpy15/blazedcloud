@@ -113,5 +113,6 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "使用Play商店版本购买1TB。完成后，您可以卸载该版本。",
     "folderName": "文件夹名称",
     "storageUsage": "存储使用",
-    "howLongToShare": "这个文件应该分享多久"
+    "howLongToShare": "这个文件应该分享多久",
+    "upgradeStorage1Terabyte": "购买1TB"
 }
