@@ -8,38 +8,40 @@
 
 ## TLDR
 
-Simple, minimalistic file backup provider built with Flutter and Pocketbase
+Simple, minimalistic file backup provider built with Flutter, Pocketbase and S3 compatible APIs
 
 ### Other Blazed Cloud Repos:
 - [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
 - [Landing](https://github.com/TheRedSpy15/blazedcloud-landing)
+- Desktop (nearly finished)
 
-## Our shamelessly ChatGPT generated description:
+# Overview
+### What is Blazed Cloud?
 
-🌐 Welcome to Blazed Cloud, your go-to cloud storage solution for a seamless and secure file management experience! 🚀
+Blazed Cloud aims to be a privacy friendly Google Drive, and be simpler to use.
 
-Blazed Cloud is not just another cloud storage app; it's a commitment to simplicity, security, and transparency. Our mission is to provide users with a straightforward and efficient way to store their files in the cloud while ensuring the highest level of data protection.
+- **Free Tier:** 5 GB
+- **Encryption:** 256-bit
+- **Max Storage:** 1 Terabyte (for now)
+- **Platforms:** Mobile, Web (desktop WIP)
 
-🔐 Unparalleled Security with AES-256 Encryption:
-Rest easy knowing that your files are safeguarded with military-grade AES-256 encryption. Blazed Cloud takes your privacy seriously, ensuring that only you have access to your valuable data.
+### This Repository Specifically
 
-🚀 Simple and Intuitive Design:
-Blazed Cloud is designed with simplicity in mind. No unnecessary frills, no confusing features—just a clean interface that gives you exactly what you need. Effortlessly upload, download, and manage your files with a few taps.
+This repository is for the mobile application to access Blazed Cloud. It's designed with Flutter and is currently only on Android. Once it's a bit more feature complete it'll go on IOS. This is to focus on developing the core features, before testing and adapting the code to work on both platforms
 
-📂 Your Cloud, Your Way:
-Customize your cloud storage experience to suit your needs. Organize your files, create folders, and access your data anytime, anywhere. Blazed Cloud puts you in control.
+This mobile client has all it's basic features completed. However the following are still in development:
+- [ ] Automatic Camera uploads
+- [ ] Automatic folder syncing
+- [ ] Files can be downloaded for offline use, but no current in-app viewing
+- [ ] Oauth Sign in
 
-🌐 Cross-Platform Compatibility:
-Access your files seamlessly across all your devices. Blazed Cloud is compatible with Android, iOS, and web browsers, ensuring you can connect and manage your data from wherever you are.
-
-🛠️ Community-Driven Development:
-Join the Blazed Cloud community! Contribute to the development, report issues, and be a part of a growing network of users who value simplicity, security, and open source principles.
-
-Experience cloud storage the way it should be—simple, secure, and transparent. Download Blazed Cloud now and take control of your digital world.
-
-🔥 Blaze a trail in the cloud with Blazed Cloud! 🔥
+**Completed Features outside of core functions**
+- [x] App locking with biometrics
+- [x] Timed file sharing via urls
 
 # Download
+
+Releases are also available directly via GitHub
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
@@ -48,11 +50,19 @@ Experience cloud storage the way it should be—simple, secure, and transparent.
      alt="Get it on Google Play"
      height="100">](https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud)
 
+**F-DROID NOTE**
+
+Only the Play Store variant allows upgrading your subscription to the terabyte plan. This is to simplify the billing setup for the service and reduce points of failure, as we use [Glassfy](https://glassfy.io/) to handle billing code. This also brings the benefit of keeping Google's Play billing libraries out of the app for F-Droid users. However, you will need to temporaily use the Play store version if you wish to subscribe to the premium service. After which you can uninstall it in favor of the F-Droid variant
+
 # Contributing
 
 The project is always open to pull requests. However, pleae note that all changes must first go through the development branch before they are merged into main
 
-# Contributors
+## Translations
+
+This is honestly going to be the easiest and most popular way to contribute. You can fork this repository and modify the [ARB files for a specific language](https://github.com/TheRedSpy15/blazedcloud/tree/main/lib/l10n) then create a pull request. We currently are relying on ChatGPT for translations so any suggestions from actual native speakers is an upgrade
+
+## Contributors
 
 <a href="https://github.com/theredspy15/blazedcloud/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=theredspy15/blazedcloud" />

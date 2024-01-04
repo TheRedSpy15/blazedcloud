@@ -1,5 +1,6 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
@@ -14,15 +15,15 @@ void delete(String folderKey, BuildContext context, WidgetRef ref) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('Delete folder'),
-      content: Text(
-          "Are you sure you want to delete this Folder? \n\n\u2022 ${getFolderName(folderKey)}"),
+      title: Text(S.of(context).deleteFolder),
+      content:
+          Text(S.of(context).confirmFolderDelete(getFolderName(folderKey))),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Cancel'),
+          child: Text(S.of(context).cancel),
         ),
         TextButton(
           onPressed: () {
@@ -34,7 +35,7 @@ void delete(String folderKey, BuildContext context, WidgetRef ref) {
               ref.invalidate(fileListProvider(getParentDirectory(folderKey)));
             });
           },
-          child: const Text('Delete'),
+          child: Text(S.of(context).delete),
         ),
       ],
     ),
@@ -43,6 +44,8 @@ void delete(String folderKey, BuildContext context, WidgetRef ref) {
 
 void downloadFolder(String folderKey, ListBucketResult list,
     DownloadController downloadController, BuildContext context) {
+  logger.d(
+      'test Saving $folderKey \n with $list \n size ${list.contents?.length}');
   checkIfAccessToDownloadDirectoryIsGranted().then((granted) {
     if (!granted) {
       promptForDownloadDirectory(context);
@@ -84,20 +87,22 @@ class FolderItem extends ConsumerWidget {
           title: Text(getFolderName(folderKey)),
           trailing: PopupMenuButton<String>(
             itemBuilder: (context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'save',
-                child: Text('Save'),
+                child: Text(S.of(context).save),
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'delete',
-                child: Text('Delete'),
+                child: Text(S.of(context).delete),
               ),
             ],
             onSelected: (value) {
               if (value == 'save') {
-                ref.read(fileListProvider(folderKey)).whenData((list) =>
-                    downloadFolder(
-                        folderKey, list, downloadController, context));
+                ref.read(fileListProvider(folderKey)).whenData((list) {
+                  logger.d(
+                      'test Saving $folderKey \n with $list \n size ${list.contents?.length}');
+                  downloadFolder(folderKey, list, downloadController, context);
+                });
               } else if (value == 'delete') {
                 delete(folderKey, context, ref);
               }

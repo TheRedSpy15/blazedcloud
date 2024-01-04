@@ -1,5 +1,6 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
@@ -21,14 +22,14 @@ void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('Delete file'),
-      content: const Text('Are you sure you want to delete this file?'),
+      title: Text(S.of(context).deleteFile),
+      content: Text(S.of(context).areYouSureYouWantToDeleteThisFile),
       actions: [
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: const Text('Cancel'),
+          child: Text(S.of(context).cancel),
         ),
         TextButton(
           onPressed: () {
@@ -41,7 +42,7 @@ void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
               ref.invalidate(fileListProvider(folder));
             });
           },
-          child: const Text('Delete'),
+          child: Text(S.of(context).delete),
         ),
       ],
     ),
@@ -58,7 +59,9 @@ void downloadItem(String fileKey, DownloadController downloadController,
       HapticFeedback.vibrate();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Downloading ${getFileName(fileKey)}'),
+          content: Text(S
+              .of(context)
+              .downloadingGetfilenamefilekey(getFileName(fileKey))),
         ),
       );
     }
@@ -71,7 +74,9 @@ void openFromOffline(String fileKey, WidgetRef ref) {
       logger.i('Opening file: ${file.path}');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content: Text('Opening file: ${getFileName(fileKey)}'),
+          content: Text(S
+              .of(ref.context)
+              .openingFileGetfilenamefilekey(getFileName(fileKey))),
         ),
       );
       openFile(file);
@@ -79,7 +84,8 @@ void openFromOffline(String fileKey, WidgetRef ref) {
       logger.e('Error opening file: $e');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content: Text('Error opening file: $e'),
+          content:
+              Text(S.of(ref.context).errorOpeningFileE(getFileName(fileKey))),
         ),
       );
     }
@@ -93,16 +99,17 @@ void openFromUrl(String fileKey, WidgetRef ref) {
     canLaunchUrl(Uri.parse(link)).then((canLaunch) {
       if (canLaunch) {
         ScaffoldMessenger.of(ref.context).showSnackBar(
-          const SnackBar(
-            content: Text('Opening in browser...'),
+          SnackBar(
+            content: Text(S.of(ref.context).openingInBrowser),
           ),
         );
         launchUrl(Uri.parse(link));
       } else {
         logger.e('Could not launch url: $link');
         ScaffoldMessenger.of(ref.context).showSnackBar(
-          const SnackBar(
-            content: Text('Failed to open. Please try saving the file first'),
+          SnackBar(
+            content:
+                Text(S.of(ref.context).failedToOpenPleaseTrySavingTheFileFirst),
           ),
         );
       }
@@ -122,8 +129,10 @@ void openItem(String fileKey, WidgetRef ref) {
       logger.i('File $fileKey is not available offline');
       ScaffoldMessenger.of(ref.context).showSnackBar(
         SnackBar(
-          content:
-              Text('File ${getFileName(fileKey)} is not available offline'),
+          content: Text(S
+              .of(ref.context)
+              .fileGetfilenamefilekeyIsNotAvailableOffline(
+                  getFileName(fileKey))),
         ),
       );
     }
@@ -136,13 +145,12 @@ void shareItem(String fileKey, WidgetRef ref) {
     context: ref.context,
     builder: (context) => StatefulBuilder(builder: (context, setState) {
       return AlertDialog(
-        title: const Text('Share file'),
+        title: Text(S.of(context).shareFile),
         content: Wrap(
           children: [
             Column(
               children: [
-                const Text(
-                    'How long should the file be available for sharing?'),
+                Text(S.of(context).howLongToShare),
                 const SizedBox(height: 8.0),
                 Slider(
                   value: ref.watch(shareDurationProvider).toDouble(),
@@ -166,7 +174,7 @@ void shareItem(String fileKey, WidgetRef ref) {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: const Text('Cancel'),
+            child: Text(S.of(context).cancel),
           ),
           TextButton(
             onPressed: () {
@@ -183,13 +191,13 @@ void shareItem(String fileKey, WidgetRef ref) {
                 );
 
                 ScaffoldMessenger.of(ref.context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Link copied to clipboard'),
+                  SnackBar(
+                    content: Text(S.of(context).linkCopiedToClipboard),
                   ),
                 );
               });
             },
-            child: const Text('Share'),
+            child: Text(S.of(context).share),
           ),
         ],
       );
@@ -239,21 +247,21 @@ class FileItem extends ConsumerWidget {
           ),
           trailing: PopupMenuButton<String>(
             itemBuilder: (context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'open',
-                child: Text('Open'),
+                child: Text(S.of(context).open),
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'share',
-                child: Text('Share'),
+                child: Text(S.of(context).share),
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'save',
-                child: Text('Save'),
+                child: Text(S.of(context).save),
               ),
-              const PopupMenuItem<String>(
+              PopupMenuItem<String>(
                 value: 'delete',
-                child: Text('Delete'),
+                child: Text(S.of(context).delete),
               ),
             ],
             onSelected: (value) {

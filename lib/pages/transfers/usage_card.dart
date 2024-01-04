@@ -1,5 +1,6 @@
 import 'package:blazedcloud/PurchaseApi.dart';
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/glassfy_providers.dart';
@@ -27,9 +28,10 @@ class UsageCard extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Storage Usage',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            Text(
+              S.of(context).storageUsage,
+              style:
+                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8.0),
             usageData.when(
