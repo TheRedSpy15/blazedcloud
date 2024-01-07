@@ -50,7 +50,8 @@ class CustomSettingsGroup extends StatelessWidget {
             ),
             child: ListView.separated(
               separatorBuilder: (context, index) {
-                return const Divider();
+                //return const Divider();
+                return const SizedBox.shrink();
               },
               itemCount: items.length,
               itemBuilder: (BuildContext context, int index) {

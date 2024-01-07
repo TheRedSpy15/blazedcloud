@@ -113,3 +113,10 @@ lib/generated_plugin_registrant.dart
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # End of https://www.toptal.com/developers/gitignore/api/flutter
+
+flutter_export_environment.sh
+Flutter-Generated.xcconfig
+generated_plugins.cmake
+generated_plugin_registrant.cc
+generated_plugin_registrant.h
+GeneratedPluginRegistrant.swift
