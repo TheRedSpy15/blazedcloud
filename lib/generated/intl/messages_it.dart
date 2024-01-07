@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Account eliminato"),
+        "allowedEmails":
+            MessageLookupByLibrary.simpleMessage("Email Consentite"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -63,8 +65,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeEmail": MessageLookupByLibrary.simpleMessage("Cambia email"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Cambia password"),
+        "close": MessageLookupByLibrary.simpleMessage("Chiudi"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Crea"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Crea un Account"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Crea cartella"),
         "delete": MessageLookupByLibrary.simpleMessage("Elimina"),
         "deleteAccount":
@@ -151,10 +156,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploaded": MessageLookupByLibrary.simpleMessage("Caricato"),
         "uploading":
             MessageLookupByLibrary.simpleMessage("Caricamento in corso..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Visualizza Domini Email Consentiti"),
         "viewBackendOnGithub": MessageLookupByLibrary.simpleMessage(
             "Visualizza il backend su Github"),
         "viewOnGithub":
             MessageLookupByLibrary.simpleMessage("Visualizza su Github"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Benvenuto di nuovo!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Inviaremos un link alla tua email per completare il cambio"),

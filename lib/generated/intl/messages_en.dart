@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Account deleted"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("Allowed Emails"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -62,8 +63,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeEmail": MessageLookupByLibrary.simpleMessage("Change Email"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Create"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Create an Account"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Create folder"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete account"),
@@ -143,9 +147,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("Transfers"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Uploaded"),
         "uploading": MessageLookupByLibrary.simpleMessage("Uploading..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("View Allowed Email Domains"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("View backend on Github"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("View on Github"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Will send a link to your email to complete the change"),

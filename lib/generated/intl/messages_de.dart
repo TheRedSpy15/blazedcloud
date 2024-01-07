@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Konto gelöscht"),
+        "allowedEmails":
+            MessageLookupByLibrary.simpleMessage("Erlaubte E-Mails"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -62,8 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeEmail": MessageLookupByLibrary.simpleMessage("E-Mail ändern"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Passwort ändern"),
+        "close": MessageLookupByLibrary.simpleMessage("Schließen"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Erstellen"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Benutzerkonto erstellen"),
         "createFolder":
             MessageLookupByLibrary.simpleMessage("Ordner erstellen"),
         "delete": MessageLookupByLibrary.simpleMessage("Löschen"),
@@ -146,10 +151,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("Übertragungen"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Hochgeladen"),
         "uploading": MessageLookupByLibrary.simpleMessage("Hochladen..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Erlaubte E-Mail-Domains anzeigen"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("Backend auf Github anzeigen"),
         "viewOnGithub":
             MessageLookupByLibrary.simpleMessage("Auf Github anzeigen"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Willkommen zurück!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Wir senden einen Link an Ihre E-Mail, um die Änderung abzuschließen"),

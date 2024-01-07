@@ -789,6 +789,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Create an Account`
+  String get createAnAccount {
+    return Intl.message(
+      'Create an Account',
+      name: 'createAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allowed Emails`
+  String get allowedEmails {
+    return Intl.message(
+      'Allowed Emails',
+      name: 'allowedEmails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Allowed Email Domains`
+  String get viewAllowedEmailDomains {
+    return Intl.message(
+      'View Allowed Email Domains',
+      name: 'viewAllowedEmailDomains',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome Back!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome Back!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

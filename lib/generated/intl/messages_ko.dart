@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted": MessageLookupByLibrary.simpleMessage("계정이 삭제되었습니다"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("허용된 이메일"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage("이 파일을 삭제하시겠습니까?"),
@@ -56,8 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("다운로드 위치 변경"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("이메일 변경"),
         "changePassword": MessageLookupByLibrary.simpleMessage("비밀번호 변경"),
+        "close": MessageLookupByLibrary.simpleMessage("닫기"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("생성"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("계정 만들기"),
         "createFolder": MessageLookupByLibrary.simpleMessage("폴더 생성"),
         "delete": MessageLookupByLibrary.simpleMessage("삭제"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("계정 삭제"),
@@ -135,9 +138,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
         "uploaded": MessageLookupByLibrary.simpleMessage("업로드 완료"),
         "uploading": MessageLookupByLibrary.simpleMessage("업로드 중..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("허용된 이메일 도메인 보기"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("Github에서 백엔드 보기"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("Github에서 보기"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("다시 환영합니다!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage("변경을 완료하려면 이메일로 링크를 보내드립니다"),
         "willSendALinkToYourEmailToResetYour":

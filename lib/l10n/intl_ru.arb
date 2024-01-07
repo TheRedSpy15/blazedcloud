@@ -113,5 +113,10 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Приобретите 1 ТБ, используя сборку из Play Store. Вы можете удалить эту версию после завершения.",
     "folderName": "Имя папки",
     "storageUsage": "Использование хранилища",
-    "howLongToShare": "На какой срок файл должен быть доступен для общего доступа?"
+    "howLongToShare": "На какой срок файл должен быть доступен для общего доступа?",
+    "createAnAccount": "Создать аккаунт",
+    "allowedEmails": "Разрешенные электронные почты",
+    "close": "Закрыть",
+    "viewAllowedEmailDomains": "Просмотр разрешенных доменов электронной почты",
+    "welcomeBack": "Добро пожаловать назад!"
 }

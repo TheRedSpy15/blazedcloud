@@ -41,6 +41,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Обліковий запис видалено"),
+        "allowedEmails":
+            MessageLookupByLibrary.simpleMessage("Дозволені електронні адреси"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -63,8 +65,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Змінити електронну пошту"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Змінити пароль"),
+        "close": MessageLookupByLibrary.simpleMessage("Закрити"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Створити"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Створити обліковий запис"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Створити папку"),
         "delete": MessageLookupByLibrary.simpleMessage("Видалити"),
         "deleteAccount":
@@ -146,10 +151,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Відправлено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Відправлення..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Переглянути дозволені домени електронної пошти"),
         "viewBackendOnGithub": MessageLookupByLibrary.simpleMessage(
             "Переглянути backend на Github"),
         "viewOnGithub":
             MessageLookupByLibrary.simpleMessage("Перегляд на Github"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Ласкаво просимо назад!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Відправимо посилання на вашу електронну пошту для завершення зміни"),

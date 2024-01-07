@@ -113,5 +113,10 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Playstoreビルドを使用して1TBを購入します。終了時にそのバージョンをアンインストールできます。",
     "folderName": "フォルダ名",
     "storageUsage": "ストレージ使用量",
-    "howLongToShare": "ファイルの共有期間はどれくらいでしょうか？"
+    "howLongToShare": "ファイルの共有期間はどれくらいでしょうか？",
+    "createAnAccount": "アカウントを作成",
+    "allowedEmails": "許可されたメール",
+    "close": "閉じる",
+    "viewAllowedEmailDomains": "許可されたメールドメインを表示",
+    "welcomeBack": "おかえりなさい！"
 }

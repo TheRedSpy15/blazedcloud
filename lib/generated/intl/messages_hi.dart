@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("खाता हटा दिया गया है"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("अनुमत ईमेल"),
         "appName": MessageLookupByLibrary.simpleMessage("ब्लेज्ड क्लाउड"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -61,8 +62,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("डाउनलोड स्थान बदलें"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("ईमेल बदलें"),
         "changePassword": MessageLookupByLibrary.simpleMessage("पासवर्ड बदलें"),
+        "close": MessageLookupByLibrary.simpleMessage("बंद करें"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("बनाएं"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("खाता बनाएं"),
         "createFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर बनाएं"),
         "delete": MessageLookupByLibrary.simpleMessage("हटाएं"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("खाता हटाएं"),
@@ -143,9 +146,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),
         "uploaded": MessageLookupByLibrary.simpleMessage("अपलोड हो गया"),
         "uploading": MessageLookupByLibrary.simpleMessage("अपलोड हो रहा है..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("अनुमत ईमेल डोमेन देखें"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("जितह पर देखें"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("जितह पर देखें"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("फिर से स्वागत है!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप परिवर्तन को पूरा कर सकें"),

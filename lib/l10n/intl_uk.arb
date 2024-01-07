@@ -113,5 +113,10 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Придбайте 1 ТБ за допомогою збірки Playstore. Ви можете видалити цю версію після завершення.",
     "folderName": "Назва папки",
     "storageUsage": "Використання сховища",
-    "howLongToShare": "На який термін файл повинен бути доступний для спільного використання?"
+    "howLongToShare": "На який термін файл повинен бути доступний для спільного використання?",
+    "createAnAccount": "Створити обліковий запис",
+    "allowedEmails": "Дозволені електронні адреси",
+    "close": "Закрити",
+    "viewAllowedEmailDomains": "Переглянути дозволені домени електронної пошти",
+    "welcomeBack": "Ласкаво просимо назад!"
 }

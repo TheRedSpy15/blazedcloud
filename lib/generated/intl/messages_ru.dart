@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Аккаунт удален"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage(
+            "Разрешенные электронные почты"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -65,8 +67,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Изменить эл. почту"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Изменить пароль"),
+        "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Создать"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Создать аккаунт"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Создать папку"),
         "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
         "deleteAccount":
@@ -149,10 +154,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("Передачи"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Загружено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Просмотр разрешенных доменов электронной почты"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("Посмотреть бэкэнд на Github"),
         "viewOnGithub":
             MessageLookupByLibrary.simpleMessage("Посмотреть на Github"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Добро пожаловать назад!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Отправим ссылку на вашу электронную почту для завершения изменения"),

@@ -113,5 +113,10 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Kaufe 1 TB mit der Playstore-Version. Sie können diese Version deinstallieren, wenn Sie fertig sind.",
     "folderName": "Ordnername",
     "storageUsage": "Speichernutzung",
-    "howLongToShare": "Wie lange soll die Datei für die Freigabe verfügbar sein?"
+    "howLongToShare": "Wie lange soll die Datei für die Freigabe verfügbar sein?",
+    "createAnAccount": "Benutzerkonto erstellen",
+    "allowedEmails": "Erlaubte E-Mails",
+    "close": "Schließen",
+    "viewAllowedEmailDomains": "Erlaubte E-Mail-Domains anzeigen",
+    "welcomeBack": "Willkommen zurück!"
 }

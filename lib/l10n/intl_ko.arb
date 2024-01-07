@@ -113,5 +113,10 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Play 스토어 빌드를 사용하여 1TB를 구매하세요. 완료되면 해당 버전을 삭제할 수 있습니다.",
     "folderName": "폴더 이름",
     "storageUsage": "저장 공간 사용량",
-    "howLongToShare": "파일을 공유할 기간은 얼마나 되어야 합니까?"
+    "howLongToShare": "파일을 공유할 기간은 얼마나 되어야 합니까?",
+    "createAnAccount": "계정 만들기",
+    "allowedEmails": "허용된 이메일",
+    "close": "닫기",
+    "viewAllowedEmailDomains": "허용된 이메일 도메인 보기",
+    "welcomeBack": "다시 환영합니다!"
 }

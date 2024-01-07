@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted": MessageLookupByLibrary.simpleMessage("帐户已删除"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("允许的电子邮件"),
         "appName": MessageLookupByLibrary.simpleMessage("烈火云"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage("您确定要删除此文件吗？"),
@@ -56,8 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("更改下载位置"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("更改电子邮件"),
         "changePassword": MessageLookupByLibrary.simpleMessage("更改密码"),
+        "close": MessageLookupByLibrary.simpleMessage("关闭"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("创建"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("创建账户"),
         "createFolder": MessageLookupByLibrary.simpleMessage("创建文件夹"),
         "delete": MessageLookupByLibrary.simpleMessage("删除"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("删除帐户"),
@@ -129,9 +132,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
         "uploaded": MessageLookupByLibrary.simpleMessage("已上传"),
         "uploading": MessageLookupByLibrary.simpleMessage("正在上传..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("查看允许的电子邮件域"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("在Github上查看后端"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("在Github上查看"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("欢迎回来！"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage("将通过电子邮件发送链接以完成更改"),
         "willSendALinkToYourEmailToResetYour":

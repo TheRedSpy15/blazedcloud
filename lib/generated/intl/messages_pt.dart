@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Conta excluída"),
+        "allowedEmails":
+            MessageLookupByLibrary.simpleMessage("Emails Permitidos"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -62,8 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Alterar local de download"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("Alterar Email"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Alterar senha"),
+        "close": MessageLookupByLibrary.simpleMessage("Fechar"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Criar"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Criar uma Conta"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Criar pasta"),
         "delete": MessageLookupByLibrary.simpleMessage("Excluir"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Excluir conta"),
@@ -147,10 +152,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("Transferências"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Enviado"),
         "uploading": MessageLookupByLibrary.simpleMessage("Enviando..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Ver Domínios de Email Permitidos"),
         "viewBackendOnGithub": MessageLookupByLibrary.simpleMessage(
             "Visualizar backend no Github"),
         "viewOnGithub":
             MessageLookupByLibrary.simpleMessage("Visualizar no Github"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Bem-Vindo de Volta!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Enviaremos um link para o seu email para concluir a alteração"),

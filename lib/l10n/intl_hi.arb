@@ -113,5 +113,10 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। आप उस संस्करण को स्थानांतरित कर सकते हैं जब काम हो जाए।",
     "folderName": "फ़ोल्डर का नाम",
     "storageUsage": "स्टोरेज उपयोग",
-    "howLongToShare": "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?"
+    "howLongToShare": "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?",
+    "createAnAccount": "खाता बनाएं",
+    "allowedEmails": "अनुमत ईमेल",
+    "close": "बंद करें",
+    "viewAllowedEmailDomains": "अनुमत ईमेल डोमेन देखें",
+    "welcomeBack": "फिर से स्वागत है!"
 }
