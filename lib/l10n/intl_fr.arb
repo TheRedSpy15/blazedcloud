@@ -114,5 +114,14 @@
     "folderName": "Nom du dossier",
     "storageUsage": "Utilisation du stockage",
     "howLongToShare": "Combien de temps le fichier devrait-il être disponible pour le partage ?",
-    "upgradeStorage1Terabyte": "Améliorer le stockage (1 téraoctet)"
+    "upgradeStorage1Terabyte": "Améliorer le stockage (1 téraoctet)",
+    "createAnAccount": "Créer un compte",
+    "allowedEmails": "Adresses e-mail autorisées",
+    "close": "Fermer",
+    "viewAllowedEmailDomains": "Voir les domaines d''e-mail autorisés",
+    "welcomeBack": "Bienvenue de nouveau !",
+    "upgradeStorage": "Mise à niveau du stockage",
+    "failedToOpenPortal": "Échec de l''ouverture du portail",
+    "manageAccount": "Gérer le compte",
+    "subscribedThroughPlaystoreOrAppstore": "Abonné via le Playstore ou l''Appstore"
 }

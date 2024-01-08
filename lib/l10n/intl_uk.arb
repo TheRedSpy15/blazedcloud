@@ -114,5 +114,14 @@
     "folderName": "Назва папки",
     "storageUsage": "Використання сховища",
     "howLongToShare": "На який термін файл повинен бути доступний для спільного використання?",
-    "upgradeStorage1Terabyte": "Придбати 1 терабайт"
+    "upgradeStorage1Terabyte": "Придбати 1 терабайт",
+    "createAnAccount": "Створити обліковий запис",
+    "allowedEmails": "Дозволені електронні адреси",
+    "close": "Закрити",
+    "viewAllowedEmailDomains": "Переглянути дозволені домени електронної пошти",
+    "welcomeBack": "Ласкаво просимо назад!",
+    "upgradeStorage": "Оновлення сховища",
+    "failedToOpenPortal": "Не вдалося відкрити портал",
+    "manageAccount": "Управління обліковим записом",
+    "subscribedThroughPlaystoreOrAppstore": "Підписано через Playstore або Appstore"
 }

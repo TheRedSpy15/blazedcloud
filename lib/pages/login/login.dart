@@ -19,80 +19,106 @@ class LoginScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(S.of(context).login),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Email Input
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: S.of(context).email,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Wrap(
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(S.of(context).welcomeBack,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25)),
+
+                      // Email Input
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: TextFormField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            labelText: S.of(context).email,
+                          ),
+                        ),
+                      ),
+
+                      // Password Input
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: TextFormField(
+                          controller: passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: S.of(context).password,
+                          ),
+                        ),
+                      ),
+
+                      // Login Button
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).splashColor),
+                        ),
+                        onPressed: ref.watch(isAttemptingLoginProvider)
+                            ? null
+                            : () {
+                                if (ref.read(isAttemptingLoginProvider)) {
+                                  return;
+                                }
+                                ref
+                                    .read(isAttemptingLoginProvider.notifier)
+                                    .state = true;
+
+                                // attempt login with pocketbase
+                                pb
+                                    .collection('users')
+                                    .authWithPassword(
+                                      emailController.text,
+                                      passwordController.text,
+                                    )
+                                    .then((value) {
+                                  pb.authStore.save(value.token, value.record);
+
+                                  if (pb.authStore.isValid) {
+                                    context.go('/dashboard');
+                                  }
+                                }).onError((error, stackTrace) {
+                                  logger.e("Error logging in: $error");
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(S
+                                              .of(context)
+                                              .invalidEmailOrPassword)));
+                                  ref
+                                      .read(isAttemptingLoginProvider.notifier)
+                                      .state = false;
+                                  return null;
+                                });
+
+                                ref
+                                    .read(isAttemptingLoginProvider.notifier)
+                                    .state = false;
+                              },
+                        child: Text(S.of(context).login),
+                      ),
+
+                      // password reset button
+                      TextButton(
+                        onPressed: () {
+                          showPasswordResetDialog(context);
+                        },
+                        child: Text(S.of(context).forgotPassword),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-
-            // Password Input
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextFormField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: S.of(context).password,
-                ),
-              ),
-            ),
-
-            // Login Button
-            ElevatedButton(
-              onPressed: ref.watch(isAttemptingLoginProvider)
-                  ? null
-                  : () {
-                      if (ref.read(isAttemptingLoginProvider)) {
-                        return;
-                      }
-                      ref.read(isAttemptingLoginProvider.notifier).state = true;
-
-                      // attempt login with pocketbase
-                      pb
-                          .collection('users')
-                          .authWithPassword(
-                            emailController.text,
-                            passwordController.text,
-                          )
-                          .then((value) {
-                        pb.authStore.save(value.token, value.record);
-
-                        if (pb.authStore.isValid) {
-                          context.go('/dashboard');
-                        }
-                      }).onError((error, stackTrace) {
-                        logger.e("Error logging in: $error");
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content:
-                                Text(S.of(context).invalidEmailOrPassword)));
-                        ref.read(isAttemptingLoginProvider.notifier).state =
-                            false;
-                        return null;
-                      });
-
-                      ref.read(isAttemptingLoginProvider.notifier).state =
-                          false;
-                    },
-              child: Text(S.of(context).login),
-            ),
-
-            // password reset button
-            TextButton(
-              onPressed: () {
-                showPasswordResetDialog(context);
-              },
-              child: Text(S.of(context).forgotPassword),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

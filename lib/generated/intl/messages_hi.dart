@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("खाता हटा दिया गया है"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("अनुमत ईमेल"),
         "appName": MessageLookupByLibrary.simpleMessage("ब्लेज्ड क्लाउड"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -61,8 +62,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("डाउनलोड स्थान बदलें"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("ईमेल बदलें"),
         "changePassword": MessageLookupByLibrary.simpleMessage("पासवर्ड बदलें"),
+        "close": MessageLookupByLibrary.simpleMessage("बंद करें"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("बनाएं"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("खाता बनाएं"),
         "createFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर बनाएं"),
         "delete": MessageLookupByLibrary.simpleMessage("हटाएं"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("खाता हटाएं"),
@@ -95,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "खोलने में असफल हुआ। कृपया पहले फ़ाइल को सहेजने का प्रयास करें"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("पोर्टल खोलने में विफल"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("फ़ाइलें"),
         "folderName": MessageLookupByLibrary.simpleMessage("फ़ोल्डर का नाम"),
@@ -107,6 +112,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "लिंक क्लिपबोर्ड पर कॉपी किया गया है"),
         "login": MessageLookupByLibrary.simpleMessage("लॉगिन"),
+        "manageAccount":
+            MessageLookupByLibrary.simpleMessage("खाता प्रबंधित करें"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("ठीक है"),
         "open": MessageLookupByLibrary.simpleMessage("खोलें"),
@@ -140,14 +147,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("साइन आउट"),
         "signUp": MessageLookupByLibrary.simpleMessage("साइन अप करें"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("स्टोरेज उपयोग"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"),
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("भंडारण अपग्रेड करें"),
         "upgradeStorage1Terabyte": MessageLookupByLibrary.simpleMessage(
             "स्टोरेज अपग्रेड (1 टेराबाइट)"),
         "uploaded": MessageLookupByLibrary.simpleMessage("अपलोड हो गया"),
         "uploading": MessageLookupByLibrary.simpleMessage("अपलोड हो रहा है..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("अनुमत ईमेल डोमेन देखें"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("जितह पर देखें"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("जितह पर देखें"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("फिर से स्वागत है!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप परिवर्तन को पूरा कर सकें"),

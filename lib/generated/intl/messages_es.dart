@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Cuenta eliminada"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage(
+            "Correos electrónicos permitidos"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -65,8 +67,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cambiar correo electrónico"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
+        "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Crear"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Crear una cuenta"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Crear carpeta"),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "deleteAccount":
@@ -100,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Error al abrir. Por favor, intenta guardar el archivo primero"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("Error al abrir el portal"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Archivos"),
         "folderName":
@@ -113,6 +120,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Enlace copiado al portapapeles"),
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
+        "manageAccount":
+            MessageLookupByLibrary.simpleMessage("Gestionar Cuenta"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Abrir"),
@@ -150,14 +159,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Registrarse"),
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Uso de almacenamiento"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Suscripto a través de Playstore o Appstore"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferencias"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("Actualizar Almacenamiento"),
         "upgradeStorage1Terabyte": MessageLookupByLibrary.simpleMessage(
             "Mejorar Almacenamiento (1 Terabyte)"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Subido"),
         "uploading": MessageLookupByLibrary.simpleMessage("Subiendo..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Ver dominios de correo electrónico permitidos"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("Ver backend en Github"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("Ver en Github"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("¡Bienvenido de nuevo!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Enviaremos un enlace a tu correo electrónico para completar el cambio"),

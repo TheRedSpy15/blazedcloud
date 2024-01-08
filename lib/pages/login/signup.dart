@@ -21,72 +21,134 @@ class SignUpScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(S.of(context).signUp),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Email Input
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: S.of(context).email,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Wrap(
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(S.of(context).createAnAccount,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 25)),
+
+                      // Email Input
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: TextFormField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            labelText: S.of(context).email,
+                          ),
+                        ),
+                      ),
+
+                      // Password Input
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: TextFormField(
+                          controller: passwordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: S.of(context).password,
+                          ),
+                        ),
+                      ),
+
+                      // signup Button
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Theme.of(context).splashColor),
+                        ),
+                        onPressed: ref.watch(isAttemptingSignupProvider)
+                            ? null
+                            : () {
+                                if (ref.read(isAttemptingSignupProvider)) {
+                                  return;
+                                }
+                                ref
+                                    .read(isAttemptingSignupProvider.notifier)
+                                    .state = true;
+
+                                getAllowedEmailDomains().then((domains) {
+                                  if (!isValidEmail(
+                                      emailController.text, domains)) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(S
+                                                .of(context)
+                                                .emailDomainNotAllowed)));
+                                    ref
+                                        .read(
+                                            isAttemptingSignupProvider.notifier)
+                                        .state = false;
+                                    return;
+                                  }
+                                  if (!isValidPassword(
+                                      passwordController.text)) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                            content: Text(S
+                                                .of(context)
+                                                .passwordMustBePasswordminlengthCharactersLong(
+                                                    passwordMinLength))));
+                                    ref
+                                        .read(
+                                            isAttemptingSignupProvider.notifier)
+                                        .state = false;
+                                    return;
+                                  }
+
+                                  createAccount(context);
+                                  ref
+                                      .read(isAttemptingSignupProvider.notifier)
+                                      .state = false;
+                                });
+                              },
+                        child: Text(S.of(context).signUp),
+                      ),
+
+                      TextButton(
+                        onPressed: () {
+                          getAllowedEmailDomains().then((value) {
+                            // show dialog
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text(S.of(context).allowedEmails),
+                                    content: SingleChildScrollView(
+                                      child: Column(
+                                        children: [
+                                          Text(value.join("\n")),
+                                        ],
+                                      ),
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text(S.of(context).close),
+                                      ),
+                                    ],
+                                  );
+                                });
+                          });
+                        },
+                        child: Text(S.of(context).viewAllowedEmailDomains),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-
-            // Password Input
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextFormField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: S.of(context).password,
-                ),
-              ),
-            ),
-
-            // Login Button
-            ElevatedButton(
-              onPressed: ref.watch(isAttemptingSignupProvider)
-                  ? null
-                  : () {
-                      if (ref.read(isAttemptingSignupProvider)) {
-                        return;
-                      }
-                      ref.read(isAttemptingSignupProvider.notifier).state =
-                          true;
-
-                      getAllowedEmailDomains().then((domains) {
-                        if (!isValidEmail(emailController.text, domains)) {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content:
-                                  Text(S.of(context).emailDomainNotAllowed)));
-                          ref.read(isAttemptingSignupProvider.notifier).state =
-                              false;
-                          return;
-                        }
-                        if (!isValidPassword(passwordController.text)) {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(S
-                                  .of(context)
-                                  .passwordMustBePasswordminlengthCharactersLong(
-                                      passwordMinLength))));
-                          ref.read(isAttemptingSignupProvider.notifier).state =
-                              false;
-                          return;
-                        }
-
-                        createAccount(context);
-                        ref.read(isAttemptingSignupProvider.notifier).state =
-                            false;
-                      });
-                    },
-              child: Text(S.of(context).signUp),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -114,5 +114,14 @@
     "folderName": "フォルダ名",
     "storageUsage": "ストレージ使用量",
     "howLongToShare": "ファイルの共有期間はどれくらいでしょうか？",
-    "upgradeStorage1Terabyte": "1テラバイトを購入する"
+    "upgradeStorage1Terabyte": "1テラバイトを購入する",
+    "createAnAccount": "アカウントを作成",
+    "allowedEmails": "許可されたメール",
+    "close": "閉じる",
+    "viewAllowedEmailDomains": "許可されたメールドメインを表示",
+    "welcomeBack": "おかえりなさい！",
+    "upgradeStorage": "ストレージのアップグレード",
+    "failedToOpenPortal": "ポータルを開けませんでした",
+    "manageAccount": "アカウントの管理",
+    "subscribedThroughPlaystoreOrAppstore": "PlaystoreまたはAppstore経由で購読済み"
 }

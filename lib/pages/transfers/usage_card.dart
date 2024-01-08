@@ -6,10 +6,23 @@ import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
 
 final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
+
+class RefChromeSafariBrowser extends ChromeSafariBrowser {
+  final WidgetRef ref;
+
+  RefChromeSafariBrowser({required this.ref});
+
+  @override
+  void onClosed() {
+    logger.d("ChromeSafari browser closed");
+    ref.invalidate(combinedDataProvider(pb.authStore.model.id));
+  }
+}
 
 class UsageCard extends ConsumerWidget {
   const UsageCard({super.key});
@@ -50,7 +63,7 @@ class UsageCard extends ConsumerWidget {
 
                 // Define the colors based on usage and theme brightness
                 Color progressBarColor =
-                    percentage > 100 ? Colors.red : Colors.blue;
+                    percentage > 100 ? Colors.red : Colors.purple;
                 Color textColor = percentage > 100
                     ? Colors.red
                     : themeBrightness == Brightness.dark

@@ -114,5 +114,14 @@
     "folderName": "फ़ोल्डर का नाम",
     "storageUsage": "स्टोरेज उपयोग",
     "howLongToShare": "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?",
-    "upgradeStorage1Terabyte": "स्टोरेज अपग्रेड (1 टेराबाइट)"
+    "upgradeStorage1Terabyte": "स्टोरेज अपग्रेड (1 टेराबाइट)",
+    "createAnAccount": "खाता बनाएं",
+    "allowedEmails": "अनुमत ईमेल",
+    "close": "बंद करें",
+    "viewAllowedEmailDomains": "अनुमत ईमेल डोमेन देखें",
+    "welcomeBack": "फिर से स्वागत है!",
+    "upgradeStorage": "भंडारण अपग्रेड करें",
+    "failedToOpenPortal": "पोर्टल खोलने में विफल",
+    "manageAccount": "खाता प्रबंधित करें",
+    "subscribedThroughPlaystoreOrAppstore": "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"
 }

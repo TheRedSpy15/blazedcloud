@@ -50,9 +50,7 @@ Releases are also available directly via GitHub
      alt="Get it on Google Play"
      height="100">](https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud)
 
-**F-DROID NOTE**
-
-Only the Play Store variant allows upgrading your subscription to the terabyte plan. This is to simplify the billing setup for the service and reduce points of failure, as we use [Glassfy](https://glassfy.io/) to handle billing code. This also brings the benefit of keeping Google's Play billing libraries out of the app for F-Droid users. However, you will need to temporaily use the Play store version if you wish to subscribe to the premium service. After which you can uninstall it in favor of the F-Droid variant
+Dont forget to take advantage of our [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
 
 # Contributing
 

@@ -114,5 +114,14 @@
     "folderName": "Имя папки",
     "storageUsage": "Использование хранилища",
     "howLongToShare": "На какой срок файл должен быть доступен для общего доступа?",
-    "upgradeStorage1Terabyte": "Покупка 1 терабайта"
+    "upgradeStorage1Terabyte": "Покупка 1 терабайта",
+    "createAnAccount": "Создать аккаунт",
+    "allowedEmails": "Разрешенные электронные почты",
+    "close": "Закрыть",
+    "viewAllowedEmailDomains": "Просмотр разрешенных доменов электронной почты",
+    "welcomeBack": "Добро пожаловать назад!",
+    "upgradeStorage": "Повышение объема хранилища",
+    "failedToOpenPortal": "Не удалось открыть портал",
+    "manageAccount": "Управление учетной записью",
+    "subscribedThroughPlaystoreOrAppstore": "Подписано через Playstore или Appstore"
 }

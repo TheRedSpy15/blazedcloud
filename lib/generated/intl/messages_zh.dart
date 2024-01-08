@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted": MessageLookupByLibrary.simpleMessage("帐户已删除"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("允许的电子邮件"),
         "appName": MessageLookupByLibrary.simpleMessage("烈火云"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage("您确定要删除此文件吗？"),
@@ -56,8 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("更改下载位置"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("更改电子邮件"),
         "changePassword": MessageLookupByLibrary.simpleMessage("更改密码"),
+        "close": MessageLookupByLibrary.simpleMessage("关闭"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("创建"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("创建账户"),
         "createFolder": MessageLookupByLibrary.simpleMessage("创建文件夹"),
         "delete": MessageLookupByLibrary.simpleMessage("删除"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("删除帐户"),
@@ -85,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToDeleteAccount": MessageLookupByLibrary.simpleMessage("删除帐户失败"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage("无法打开。请先尝试保存文件"),
+        "failedToOpenPortal": MessageLookupByLibrary.simpleMessage("无法打开门户"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("文件"),
         "folderName": MessageLookupByLibrary.simpleMessage("文件夹名称"),
@@ -95,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("链接已复制到剪贴板"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage("管理帐户"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "open": MessageLookupByLibrary.simpleMessage("打开"),
@@ -126,14 +131,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("退出登录"),
         "signUp": MessageLookupByLibrary.simpleMessage("注册"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("存储使用"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage("通过Playstore或Appstore订阅"),
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
+        "upgradeStorage": MessageLookupByLibrary.simpleMessage("升级存储"),
         "upgradeStorage1Terabyte":
             MessageLookupByLibrary.simpleMessage("购买1TB"),
         "uploaded": MessageLookupByLibrary.simpleMessage("已上传"),
         "uploading": MessageLookupByLibrary.simpleMessage("正在上传..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("查看允许的电子邮件域"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("在Github上查看后端"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("在Github上查看"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("欢迎回来！"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage("将通过电子邮件发送链接以完成更改"),
         "willSendALinkToYourEmailToResetYour":

@@ -114,5 +114,14 @@
     "folderName": "폴더 이름",
     "storageUsage": "저장 공간 사용량",
     "howLongToShare": "파일을 공유할 기간은 얼마나 되어야 합니까?",
-    "upgradeStorage1Terabyte": "1 테라바이트 구매"
+    "upgradeStorage1Terabyte": "1 테라바이트 구매",
+    "createAnAccount": "계정 만들기",
+    "allowedEmails": "허용된 이메일",
+    "close": "닫기",
+    "viewAllowedEmailDomains": "허용된 이메일 도메인 보기",
+    "welcomeBack": "다시 환영합니다!",
+    "upgradeStorage": "스토리지 업그레이드",
+    "failedToOpenPortal": "포털 열기 실패",
+    "manageAccount": "계정 관리",
+    "subscribedThroughPlaystoreOrAppstore": "Playstore 또는 Appstore를 통해 구독 중"
 }

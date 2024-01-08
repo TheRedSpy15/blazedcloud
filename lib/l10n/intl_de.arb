@@ -114,5 +114,14 @@
     "folderName": "Ordnername",
     "storageUsage": "Speichernutzung",
     "howLongToShare": "Wie lange soll die Datei für die Freigabe verfügbar sein?",
-    "upgradeStorage1Terabyte": "Speicherplatz erweitern (1 Terabyte)"
+    "upgradeStorage1Terabyte": "Speicherplatz erweitern (1 Terabyte)",
+    "createAnAccount": "Benutzerkonto erstellen",
+    "allowedEmails": "Erlaubte E-Mails",
+    "close": "Schließen",
+    "viewAllowedEmailDomains": "Erlaubte E-Mail-Domains anzeigen",
+    "welcomeBack": "Willkommen zurück!",
+    "upgradeStorage": "Speicherplatz erweitern",
+    "failedToOpenPortal": "Portal konnte nicht geöffnet werden",
+    "manageAccount": "Konto verwalten",
+    "subscribedThroughPlaystoreOrAppstore": "Über Playstore oder Appstore abonniert"
 }
