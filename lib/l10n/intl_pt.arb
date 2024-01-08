@@ -113,5 +113,14 @@
     "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compre 1TB usando a versão da Playstore. Você pode desinstalar essa versão quando terminar.",
     "folderName": "Nome da pasta",
     "storageUsage": "Uso de armazenamento",
-    "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?"
+    "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?",
+    "createAnAccount": "Criar uma Conta",
+    "allowedEmails": "Emails Permitidos",
+    "close": "Fechar",
+    "viewAllowedEmailDomains": "Ver Domínios de Email Permitidos",
+    "welcomeBack": "Bem-Vindo de Volta!",
+    "upgradeStorage": "Atualizar Armazenamento",
+    "failedToOpenPortal": "Falha ao abrir o portal",
+    "manageAccount": "Gerenciar Conta",
+    "subscribedThroughPlaystoreOrAppstore": "Inscrito através da Play Store ou App Store"
 }

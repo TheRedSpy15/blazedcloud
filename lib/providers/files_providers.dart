@@ -10,11 +10,10 @@ final combinedDataProvider = FutureProvider.autoDispose
   final usage = await ref.read(usageProvider.future);
   final user = await ref.read(accountUserProvider(userId).future);
 
-  final terabyte = user.terabyte_active;
-
   return {
     'usage': usage,
-    'isTerabyteActive': terabyte,
+    'isTerabyteActive': user.terabyte_active,
+    'stripeActive': user.stripe_active,
     'capacity': getTotalGigCapacity(user),
   };
 });

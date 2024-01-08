@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Аккаунт удален"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage(
+            "Разрешенные электронные почты"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage(
@@ -65,8 +67,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Изменить эл. почту"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Изменить пароль"),
+        "close": MessageLookupByLibrary.simpleMessage("Закрыть"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Создать"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Создать аккаунт"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Создать папку"),
         "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
         "deleteAccount":
@@ -99,6 +104,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Не удалось открыть. Пожалуйста, попробуйте сначала сохранить файл"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("Не удалось открыть портал"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Файлы"),
         "folderName": MessageLookupByLibrary.simpleMessage("Имя папки"),
@@ -111,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Ссылка скопирована в буфер обмена"),
         "login": MessageLookupByLibrary.simpleMessage("Войти"),
+        "manageAccount":
+            MessageLookupByLibrary.simpleMessage("Управление учетной записью"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Открыть"),
@@ -146,13 +155,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Использование хранилища"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Подписано через Playstore или Appstore"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачи"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("Повышение объема хранилища"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Загружено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
+        "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(
+            "Просмотр разрешенных доменов электронной почты"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("Посмотреть бэкэнд на Github"),
         "viewOnGithub":
             MessageLookupByLibrary.simpleMessage("Посмотреть на Github"),
+        "welcomeBack":
+            MessageLookupByLibrary.simpleMessage("Добро пожаловать назад!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage(
                 "Отправим ссылку на вашу электронную почту для завершения изменения"),

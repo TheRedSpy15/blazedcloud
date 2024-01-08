@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted": MessageLookupByLibrary.simpleMessage("アカウントが削除されました"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("許可されたメール"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage("このファイルを削除してもよろしいですか？"),
@@ -57,8 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ダウンロード場所の変更"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("メールアドレスの変更"),
         "changePassword": MessageLookupByLibrary.simpleMessage("パスワードの変更"),
+        "close": MessageLookupByLibrary.simpleMessage("閉じる"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("作成"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("アカウントを作成"),
         "createFolder": MessageLookupByLibrary.simpleMessage("フォルダを作成"),
         "delete": MessageLookupByLibrary.simpleMessage("削除"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("アカウントの削除"),
@@ -90,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "開くのに失敗しました。最初にファイルを保存してみてください。"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("ポータルを開けませんでした"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("ファイル"),
         "folderName": MessageLookupByLibrary.simpleMessage("フォルダ名"),
@@ -101,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("リンクがクリップボードにコピーされました"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage("アカウントの管理"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("開く"),
@@ -134,12 +140,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("サインアウト"),
         "signUp": MessageLookupByLibrary.simpleMessage("サインアップ"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("ストレージ使用量"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage("PlaystoreまたはAppstore経由で購読済み"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
+        "upgradeStorage": MessageLookupByLibrary.simpleMessage("ストレージのアップグレード"),
         "uploaded": MessageLookupByLibrary.simpleMessage("アップロード済み"),
         "uploading": MessageLookupByLibrary.simpleMessage("アップロード中..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("許可されたメールドメインを表示"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("バックエンドをGithubで表示"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("Githubで表示"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("おかえりなさい！"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage("変更を完了するためのリンクをメールで送信します"),
         "willSendALinkToYourEmailToResetYour":

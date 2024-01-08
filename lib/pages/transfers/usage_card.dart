@@ -3,7 +3,21 @@ import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class RefChromeSafariBrowser extends ChromeSafariBrowser {
+  final WidgetRef ref;
+
+  RefChromeSafariBrowser({required this.ref});
+
+  @override
+  void onClosed() {
+    logger.d("ChromeSafari browser closed");
+    ref.invalidate(combinedDataProvider(pb.authStore.model.id));
+  }
+}
 
 class UsageCard extends ConsumerWidget {
   const UsageCard({super.key});
@@ -42,7 +56,7 @@ class UsageCard extends ConsumerWidget {
 
                 // Define the colors based on usage and theme brightness
                 Color progressBarColor =
-                    percentage > 100 ? Colors.red : Colors.blue;
+                    percentage > 100 ? Colors.red : Colors.purple;
                 Color textColor = percentage > 100
                     ? Colors.red
                     : themeBrightness == Brightness.dark
@@ -66,12 +80,48 @@ class UsageCard extends ConsumerWidget {
                       ),
                     ),
                     if (!data['isTerabyteActive'])
-                      Text(
-                        S
-                            .of(context)
-                            .purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion,
-                        textAlign: TextAlign.center,
-                      ),
+                      OutlinedButton(
+                          onPressed: () {
+                            final browser = RefChromeSafariBrowser(ref: ref);
+                            browser
+                                .open(
+                                    url: WebUri(
+                                        "https://portal.blazedcloud.com/auth/subscribe"))
+                                .then((value) {
+                              logger.d('Invalidating combinedDataProvider');
+                              ref.invalidate(
+                                  combinedDataProvider(pb.authStore.model.id));
+                            });
+                          },
+                          child: Text(S.of(context).upgradeStorage))
+                    else if (data['stripeActive'])
+                      OutlinedButton(
+                          onPressed: () {
+                            const link =
+                                "https://portal.blazedcloud.com/dashboard/account";
+                            canLaunchUrl(Uri.parse(link)).then((canLaunch) {
+                              if (canLaunch) {
+                                ScaffoldMessenger.of(ref.context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        S.of(ref.context).openingInBrowser),
+                                  ),
+                                );
+                                launchUrl(Uri.parse(link));
+                              } else {
+                                logger.e('Could not launch url: $link');
+                                ScaffoldMessenger.of(ref.context).showSnackBar(
+                                  SnackBar(
+                                    content:
+                                        Text(S.of(context).failedToOpenPortal),
+                                  ),
+                                );
+                              }
+                            });
+                          },
+                          child: Text(S.of(context).manageAccount))
+                    else if (!data['stripeActive'] && data['isTerabyteActive'])
+                      Text(S.of(context).subscribedThroughPlaystoreOrAppstore),
                   ],
                 );
               },

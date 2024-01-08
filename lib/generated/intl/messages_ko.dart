@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "accountDeleted": MessageLookupByLibrary.simpleMessage("계정이 삭제되었습니다"),
+        "allowedEmails": MessageLookupByLibrary.simpleMessage("허용된 이메일"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
             MessageLookupByLibrary.simpleMessage("이 파일을 삭제하시겠습니까?"),
@@ -56,8 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("다운로드 위치 변경"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("이메일 변경"),
         "changePassword": MessageLookupByLibrary.simpleMessage("비밀번호 변경"),
+        "close": MessageLookupByLibrary.simpleMessage("닫기"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("생성"),
+        "createAnAccount": MessageLookupByLibrary.simpleMessage("계정 만들기"),
         "createFolder": MessageLookupByLibrary.simpleMessage("폴더 생성"),
         "delete": MessageLookupByLibrary.simpleMessage("삭제"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("계정 삭제"),
@@ -88,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("계정 삭제 실패"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage("열지 못했습니다. 먼저 파일을 저장해보세요"),
+        "failedToOpenPortal": MessageLookupByLibrary.simpleMessage("포털 열기 실패"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("파일"),
         "folderName": MessageLookupByLibrary.simpleMessage("폴더 이름"),
@@ -99,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("링크가 클립보드에 복사되었습니다"),
         "login": MessageLookupByLibrary.simpleMessage("로그인"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage("계정 관리"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("확인"),
         "open": MessageLookupByLibrary.simpleMessage("열기"),
@@ -132,12 +137,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("로그아웃"),
         "signUp": MessageLookupByLibrary.simpleMessage("가입"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("저장 공간 사용량"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Playstore 또는 Appstore를 통해 구독 중"),
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
+        "upgradeStorage": MessageLookupByLibrary.simpleMessage("스토리지 업그레이드"),
         "uploaded": MessageLookupByLibrary.simpleMessage("업로드 완료"),
         "uploading": MessageLookupByLibrary.simpleMessage("업로드 중..."),
+        "viewAllowedEmailDomains":
+            MessageLookupByLibrary.simpleMessage("허용된 이메일 도메인 보기"),
         "viewBackendOnGithub":
             MessageLookupByLibrary.simpleMessage("Github에서 백엔드 보기"),
         "viewOnGithub": MessageLookupByLibrary.simpleMessage("Github에서 보기"),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("다시 환영합니다!"),
         "willSendALinkToYourEmailToCompleteThe":
             MessageLookupByLibrary.simpleMessage("변경을 완료하려면 이메일로 링크를 보내드립니다"),
         "willSendALinkToYourEmailToResetYour":

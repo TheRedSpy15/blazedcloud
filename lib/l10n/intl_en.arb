@@ -113,5 +113,14 @@
   "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Purchase 1TB using Playstore build. You can uninstall that version when done.",
   "folderName": "Folder name",
   "storageUsage": "Storage Usage",
-  "howLongToShare": "How long should the file be available for sharing?"
+  "howLongToShare": "How long should the file be available for sharing?",
+  "createAnAccount": "Create an Account",
+  "allowedEmails": "Allowed Emails",
+  "close": "Close",
+  "viewAllowedEmailDomains": "View Allowed Email Domains",
+  "welcomeBack": "Welcome Back!",
+  "upgradeStorage": "Upgrade Storage",
+  "failedToOpenPortal": "Failed to open portal",
+  "manageAccount": "Manage Account",
+  "subscribedThroughPlaystoreOrAppstore": "Subscribed through Playstore or Appstore"
 }

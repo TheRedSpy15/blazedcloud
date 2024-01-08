@@ -789,6 +789,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Create an Account`
+  String get createAnAccount {
+    return Intl.message(
+      'Create an Account',
+      name: 'createAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allowed Emails`
+  String get allowedEmails {
+    return Intl.message(
+      'Allowed Emails',
+      name: 'allowedEmails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get close {
+    return Intl.message(
+      'Close',
+      name: 'close',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Allowed Email Domains`
+  String get viewAllowedEmailDomains {
+    return Intl.message(
+      'View Allowed Email Domains',
+      name: 'viewAllowedEmailDomains',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome Back!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome Back!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upgrade Storage`
+  String get upgradeStorage {
+    return Intl.message(
+      'Upgrade Storage',
+      name: 'upgradeStorage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to open portal`
+  String get failedToOpenPortal {
+    return Intl.message(
+      'Failed to open portal',
+      name: 'failedToOpenPortal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Account`
+  String get manageAccount {
+    return Intl.message(
+      'Manage Account',
+      name: 'manageAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribed through Playstore or Appstore`
+  String get subscribedThroughPlaystoreOrAppstore {
+    return Intl.message(
+      'Subscribed through Playstore or Appstore',
+      name: 'subscribedThroughPlaystoreOrAppstore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -801,6 +891,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'hi'),
+      Locale.fromSubtags(languageCode: 'it'),
       Locale.fromSubtags(languageCode: 'ja'),
       Locale.fromSubtags(languageCode: 'ko'),
       Locale.fromSubtags(languageCode: 'pt'),
