@@ -93,6 +93,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "開くのに失敗しました。最初にファイルを保存してみてください。"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("ポータルを開けませんでした"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("ファイル"),
         "folderName": MessageLookupByLibrary.simpleMessage("フォルダ名"),
@@ -104,6 +106,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("リンクがクリップボードにコピーされました"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage("アカウントの管理"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("開く"),
@@ -137,7 +140,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("サインアウト"),
         "signUp": MessageLookupByLibrary.simpleMessage("サインアップ"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("ストレージ使用量"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage("PlaystoreまたはAppstore経由で購読済み"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
+        "upgradeStorage": MessageLookupByLibrary.simpleMessage("ストレージのアップグレード"),
         "uploaded": MessageLookupByLibrary.simpleMessage("アップロード済み"),
         "uploading": MessageLookupByLibrary.simpleMessage("アップロード中..."),
         "viewAllowedEmailDomains":

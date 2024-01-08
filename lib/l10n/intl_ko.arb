@@ -118,5 +118,9 @@
     "allowedEmails": "허용된 이메일",
     "close": "닫기",
     "viewAllowedEmailDomains": "허용된 이메일 도메인 보기",
-    "welcomeBack": "다시 환영합니다!"
+    "welcomeBack": "다시 환영합니다!",
+    "upgradeStorage": "스토리지 업그레이드",
+    "failedToOpenPortal": "포털 열기 실패",
+    "manageAccount": "계정 관리",
+    "subscribedThroughPlaystoreOrAppstore": "Playstore 또는 Appstore를 통해 구독 중"
 }

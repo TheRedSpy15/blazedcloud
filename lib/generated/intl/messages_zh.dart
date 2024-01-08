@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToDeleteAccount": MessageLookupByLibrary.simpleMessage("删除帐户失败"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage("无法打开。请先尝试保存文件"),
+        "failedToOpenPortal": MessageLookupByLibrary.simpleMessage("无法打开门户"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("文件"),
         "folderName": MessageLookupByLibrary.simpleMessage("文件夹名称"),
@@ -98,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("链接已复制到剪贴板"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage("管理帐户"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "open": MessageLookupByLibrary.simpleMessage("打开"),
@@ -129,7 +131,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("退出登录"),
         "signUp": MessageLookupByLibrary.simpleMessage("注册"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("存储使用"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage("通过Playstore或Appstore订阅"),
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
+        "upgradeStorage": MessageLookupByLibrary.simpleMessage("升级存储"),
         "uploaded": MessageLookupByLibrary.simpleMessage("已上传"),
         "uploading": MessageLookupByLibrary.simpleMessage("正在上传..."),
         "viewAllowedEmailDomains":

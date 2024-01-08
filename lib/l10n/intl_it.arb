@@ -118,5 +118,9 @@
     "allowedEmails": "Email Consentite",
     "close": "Chiudi",
     "viewAllowedEmailDomains": "Visualizza Domini Email Consentiti",
-    "welcomeBack": "Benvenuto di nuovo!"
+    "welcomeBack": "Benvenuto di nuovo!",
+    "upgradeStorage": "Aggiorna Archiviazione",
+    "failedToOpenPortal": "Apertura portale non riuscita",
+    "manageAccount": "Gestisci Account",
+    "subscribedThroughPlaystoreOrAppstore": "Sottoscritto tramite Playstore o Appstore"
 }

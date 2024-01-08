@@ -118,5 +118,9 @@
     "allowedEmails": "Дозволені електронні адреси",
     "close": "Закрити",
     "viewAllowedEmailDomains": "Переглянути дозволені домени електронної пошти",
-    "welcomeBack": "Ласкаво просимо назад!"
+    "welcomeBack": "Ласкаво просимо назад!",
+    "upgradeStorage": "Оновлення сховища",
+    "failedToOpenPortal": "Не вдалося відкрити портал",
+    "manageAccount": "Управління обліковим записом",
+    "subscribedThroughPlaystoreOrAppstore": "Підписано через Playstore або Appstore"
 }

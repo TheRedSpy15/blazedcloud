@@ -118,5 +118,9 @@
     "allowedEmails": "Erlaubte E-Mails",
     "close": "Schließen",
     "viewAllowedEmailDomains": "Erlaubte E-Mail-Domains anzeigen",
-    "welcomeBack": "Willkommen zurück!"
+    "welcomeBack": "Willkommen zurück!",
+    "upgradeStorage": "Speicherplatz erweitern",
+    "failedToOpenPortal": "Portal konnte nicht geöffnet werden",
+    "manageAccount": "Konto verwalten",
+    "subscribedThroughPlaystoreOrAppstore": "Über Playstore oder Appstore abonniert"
 }

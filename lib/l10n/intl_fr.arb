@@ -118,5 +118,9 @@
     "allowedEmails": "Adresses e-mail autorisées",
     "close": "Fermer",
     "viewAllowedEmailDomains": "Voir les domaines d''e-mail autorisés",
-    "welcomeBack": "Bienvenue de nouveau !"
+    "welcomeBack": "Bienvenue de nouveau !",
+    "upgradeStorage": "Mise à niveau du stockage",
+    "failedToOpenPortal": "Échec de l''ouverture du portail",
+    "manageAccount": "Gérer le compte",
+    "subscribedThroughPlaystoreOrAppstore": "Abonné via le Playstore ou l''Appstore"
 }

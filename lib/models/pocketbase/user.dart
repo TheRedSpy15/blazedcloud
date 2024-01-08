@@ -19,6 +19,7 @@ class User {
   String glassfy;
   int capacity_gigs;
   bool prunable;
+  bool stripe_active;
 
   User({
     this.id = "",
@@ -34,6 +35,7 @@ class User {
     this.glassfy = "",
     this.capacity_gigs = 5,
     this.prunable = false,
+    this.stripe_active = false,
   });
 
   // delete user
@@ -61,6 +63,7 @@ class User {
       glassfy: result.getStringValue('glassfy'),
       capacity_gigs: result.getIntValue('capacity_gigs'),
       prunable: result.getBoolValue('prunable'),
+      stripe_active: result.getBoolValue('stripe_active'),
     );
   }
 
@@ -78,5 +81,6 @@ class User {
         'glassfy': glassfy,
         'capacity_gigs': capacity_gigs,
         'prunable': prunable,
+        'stripe_active': stripe_active,
       };
 }

@@ -118,5 +118,9 @@
     "allowedEmails": "允许的电子邮件",
     "close": "关闭",
     "viewAllowedEmailDomains": "查看允许的电子邮件域",
-    "welcomeBack": "欢迎回来！"
+    "welcomeBack": "欢迎回来！",
+    "upgradeStorage": "升级存储",
+    "failedToOpenPortal": "无法打开门户",
+    "manageAccount": "管理帐户",
+    "subscribedThroughPlaystoreOrAppstore": "通过Playstore或Appstore订阅"
 }

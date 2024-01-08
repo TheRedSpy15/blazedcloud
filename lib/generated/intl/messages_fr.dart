@@ -109,6 +109,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Échec de l\'ouverture. Veuillez essayer de sauvegarder le fichier d\'abord"),
+        "failedToOpenPortal": MessageLookupByLibrary.simpleMessage(
+            "Échec de l\'\'ouverture du portail"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Fichiers"),
         "folderName": MessageLookupByLibrary.simpleMessage("Nom du dossier"),
@@ -121,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Lien copié dans le presse-papiers"),
         "login": MessageLookupByLibrary.simpleMessage("Connexion"),
+        "manageAccount":
+            MessageLookupByLibrary.simpleMessage("Gérer le compte"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Ouvrir"),
@@ -159,7 +163,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("S\'\'inscrire"),
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Utilisation du stockage"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Abonné via le Playstore ou l\'\'Appstore"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferts"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("Mise à niveau du stockage"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Téléchargé"),
         "uploading":
             MessageLookupByLibrary.simpleMessage("Téléchargement en cours..."),

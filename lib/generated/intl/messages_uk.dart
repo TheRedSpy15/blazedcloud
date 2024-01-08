@@ -102,6 +102,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Не вдалося відкрити. Будь ласка, спробуйте спочатку зберегти файл."),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("Не вдалося відкрити портал"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Файли"),
         "folderName": MessageLookupByLibrary.simpleMessage("Назва папки"),
@@ -114,6 +116,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Посилання скопійовано в буфер обміну"),
         "login": MessageLookupByLibrary.simpleMessage("Увійти"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage(
+            "Управління обліковим записом"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Відкрити"),
@@ -148,7 +152,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Зареєструватися"),
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Використання сховища"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Підписано через Playstore або Appstore"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("Оновлення сховища"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Відправлено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Відправлення..."),
         "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(

@@ -91,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("계정 삭제 실패"),
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage("열지 못했습니다. 먼저 파일을 저장해보세요"),
+        "failedToOpenPortal": MessageLookupByLibrary.simpleMessage("포털 열기 실패"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("파일"),
         "folderName": MessageLookupByLibrary.simpleMessage("폴더 이름"),
@@ -102,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard":
             MessageLookupByLibrary.simpleMessage("링크가 클립보드에 복사되었습니다"),
         "login": MessageLookupByLibrary.simpleMessage("로그인"),
+        "manageAccount": MessageLookupByLibrary.simpleMessage("계정 관리"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("확인"),
         "open": MessageLookupByLibrary.simpleMessage("열기"),
@@ -135,7 +137,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("로그아웃"),
         "signUp": MessageLookupByLibrary.simpleMessage("가입"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("저장 공간 사용량"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Playstore 또는 Appstore를 통해 구독 중"),
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
+        "upgradeStorage": MessageLookupByLibrary.simpleMessage("스토리지 업그레이드"),
         "uploaded": MessageLookupByLibrary.simpleMessage("업로드 완료"),
         "uploading": MessageLookupByLibrary.simpleMessage("업로드 중..."),
         "viewAllowedEmailDomains":

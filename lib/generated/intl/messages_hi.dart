@@ -98,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "खोलने में असफल हुआ। कृपया पहले फ़ाइल को सहेजने का प्रयास करें"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("पोर्टल खोलने में विफल"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("फ़ाइलें"),
         "folderName": MessageLookupByLibrary.simpleMessage("फ़ोल्डर का नाम"),
@@ -110,6 +112,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "लिंक क्लिपबोर्ड पर कॉपी किया गया है"),
         "login": MessageLookupByLibrary.simpleMessage("लॉगिन"),
+        "manageAccount":
+            MessageLookupByLibrary.simpleMessage("खाता प्रबंधित करें"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("ठीक है"),
         "open": MessageLookupByLibrary.simpleMessage("खोलें"),
@@ -143,7 +147,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("साइन आउट"),
         "signUp": MessageLookupByLibrary.simpleMessage("साइन अप करें"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("स्टोरेज उपयोग"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"),
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("भंडारण अपग्रेड करें"),
         "uploaded": MessageLookupByLibrary.simpleMessage("अपलोड हो गया"),
         "uploading": MessageLookupByLibrary.simpleMessage("अपलोड हो रहा है..."),
         "viewAllowedEmailDomains":

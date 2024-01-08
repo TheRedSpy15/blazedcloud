@@ -118,5 +118,9 @@
     "allowedEmails": "許可されたメール",
     "close": "閉じる",
     "viewAllowedEmailDomains": "許可されたメールドメインを表示",
-    "welcomeBack": "おかえりなさい！"
+    "welcomeBack": "おかえりなさい！",
+    "upgradeStorage": "ストレージのアップグレード",
+    "failedToOpenPortal": "ポータルを開けませんでした",
+    "manageAccount": "アカウントの管理",
+    "subscribedThroughPlaystoreOrAppstore": "PlaystoreまたはAppstore経由で購読済み"
 }

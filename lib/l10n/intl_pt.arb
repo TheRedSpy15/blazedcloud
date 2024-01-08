@@ -118,5 +118,9 @@
     "allowedEmails": "Emails Permitidos",
     "close": "Fechar",
     "viewAllowedEmailDomains": "Ver Domínios de Email Permitidos",
-    "welcomeBack": "Bem-Vindo de Volta!"
+    "welcomeBack": "Bem-Vindo de Volta!",
+    "upgradeStorage": "Atualizar Armazenamento",
+    "failedToOpenPortal": "Falha ao abrir o portal",
+    "manageAccount": "Gerenciar Conta",
+    "subscribedThroughPlaystoreOrAppstore": "Inscrito através da Play Store ou App Store"
 }

@@ -118,5 +118,9 @@
     "allowedEmails": "अनुमत ईमेल",
     "close": "बंद करें",
     "viewAllowedEmailDomains": "अनुमत ईमेल डोमेन देखें",
-    "welcomeBack": "फिर से स्वागत है!"
+    "welcomeBack": "फिर से स्वागत है!",
+    "upgradeStorage": "भंडारण अपग्रेड करें",
+    "failedToOpenPortal": "पोर्टल खोलने में विफल",
+    "manageAccount": "खाता प्रबंधित करें",
+    "subscribedThroughPlaystoreOrAppstore": "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"
 }

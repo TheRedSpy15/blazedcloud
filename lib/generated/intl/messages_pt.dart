@@ -100,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToOpenPleaseTrySavingTheFileFirst":
             MessageLookupByLibrary.simpleMessage(
                 "Falha ao abrir. Por favor, tente salvar o arquivo primeiro"),
+        "failedToOpenPortal":
+            MessageLookupByLibrary.simpleMessage("Falha ao abrir o portal"),
         "fileGetfilenamefilekeyIsNotAvailableOffline": m4,
         "files": MessageLookupByLibrary.simpleMessage("Arquivos"),
         "folderName": MessageLookupByLibrary.simpleMessage("Nome da pasta"),
@@ -112,6 +114,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "linkCopiedToClipboard": MessageLookupByLibrary.simpleMessage(
             "Link copiado para a área de transferência"),
         "login": MessageLookupByLibrary.simpleMessage("Entrar"),
+        "manageAccount":
+            MessageLookupByLibrary.simpleMessage("Gerenciar Conta"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Abrir"),
@@ -149,7 +153,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Cadastrar"),
         "storageUsage":
             MessageLookupByLibrary.simpleMessage("Uso de armazenamento"),
+        "subscribedThroughPlaystoreOrAppstore":
+            MessageLookupByLibrary.simpleMessage(
+                "Inscrito através da Play Store ou App Store"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferências"),
+        "upgradeStorage":
+            MessageLookupByLibrary.simpleMessage("Atualizar Armazenamento"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Enviado"),
         "uploading": MessageLookupByLibrary.simpleMessage("Enviando..."),
         "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(

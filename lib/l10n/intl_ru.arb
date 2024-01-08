@@ -118,5 +118,9 @@
     "allowedEmails": "Разрешенные электронные почты",
     "close": "Закрыть",
     "viewAllowedEmailDomains": "Просмотр разрешенных доменов электронной почты",
-    "welcomeBack": "Добро пожаловать назад!"
+    "welcomeBack": "Добро пожаловать назад!",
+    "upgradeStorage": "Повышение объема хранилища",
+    "failedToOpenPortal": "Не удалось открыть портал",
+    "manageAccount": "Управление учетной записью",
+    "subscribedThroughPlaystoreOrAppstore": "Подписано через Playstore или Appstore"
 }

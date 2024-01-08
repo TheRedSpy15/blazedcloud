@@ -839,6 +839,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Upgrade Storage`
+  String get upgradeStorage {
+    return Intl.message(
+      'Upgrade Storage',
+      name: 'upgradeStorage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to open portal`
+  String get failedToOpenPortal {
+    return Intl.message(
+      'Failed to open portal',
+      name: 'failedToOpenPortal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage Account`
+  String get manageAccount {
+    return Intl.message(
+      'Manage Account',
+      name: 'manageAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Subscribed through Playstore or Appstore`
+  String get subscribedThroughPlaystoreOrAppstore {
+    return Intl.message(
+      'Subscribed through Playstore or Appstore',
+      name: 'subscribedThroughPlaystoreOrAppstore',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
