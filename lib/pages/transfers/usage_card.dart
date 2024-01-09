@@ -6,23 +6,11 @@ import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
-
-class RefChromeSafariBrowser extends ChromeSafariBrowser {
-  final WidgetRef ref;
-
-  RefChromeSafariBrowser({required this.ref});
-
-  @override
-  void onClosed() {
-    logger.d("ChromeSafari browser closed");
-    ref.invalidate(combinedDataProvider(pb.authStore.model.id));
-  }
-}
 
 class UsageCard extends ConsumerWidget {
   const UsageCard({super.key});
@@ -86,7 +74,7 @@ class UsageCard extends ConsumerWidget {
                         color: textColor,
                       ),
                     ),
-                    if (!ref.watch(premiumProvider))
+                    if (!data['isTerabyteActive'])
                       ref.watch(premiumOfferingsProvider).when(
                           data: (offerings) {
                             return OutlinedButton(
@@ -138,6 +126,32 @@ class UsageCard extends ConsumerWidget {
                             return const SizedBox.shrink();
                           },
                           loading: () => const SizedBox.shrink())
+                    else if (data['stripeActive'] && data['isTerabyteActive'])
+                      OutlinedButton(
+                          onPressed: () {
+                            const link =
+                                "https://portal.blazedcloud.com/dashboard/account";
+                            canLaunchUrl(Uri.parse(link)).then((canLaunch) {
+                              if (canLaunch) {
+                                ScaffoldMessenger.of(ref.context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        S.of(ref.context).openingInBrowser),
+                                  ),
+                                );
+                                launchUrl(Uri.parse(link));
+                              } else {
+                                logger.e('Could not launch url: $link');
+                                ScaffoldMessenger.of(ref.context).showSnackBar(
+                                  SnackBar(
+                                    content:
+                                        Text(S.of(context).failedToOpenPortal),
+                                  ),
+                                );
+                              }
+                            });
+                          },
+                          child: Text(S.of(context).manageAccount))
                   ],
                 );
               },
