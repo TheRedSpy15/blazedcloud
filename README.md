@@ -38,6 +38,7 @@ This mobile client has all it's basic features completed. However the following 
 **Completed Features outside of core functions**
 - [x] App locking with biometrics
 - [x] Timed file sharing via urls
+- [x] OPTIONAL automatic account deletion (unused over 90 days)
 
 # Download
 
