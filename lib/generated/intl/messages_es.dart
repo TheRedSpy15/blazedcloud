@@ -88,6 +88,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Correo electrónico"),
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Dominio de correo electrónico no permitido"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Sin archivos o carpetas"),
         "errorErr": m2,
@@ -122,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Iniciar sesión"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Gestionar Cuenta"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Abrir"),
@@ -150,10 +153,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Seleccionar directorio de descarga"),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "El servidor está actualmente en mantenimiento. Por favor, inténtalo de nuevo más tarde."),
         "settings": MessageLookupByLibrary.simpleMessage("Configuraciones"),
         "share": MessageLookupByLibrary.simpleMessage("Compartir"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Compartir archivo"),
         "signOut": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
         "signUp": MessageLookupByLibrary.simpleMessage("Registrarse"),

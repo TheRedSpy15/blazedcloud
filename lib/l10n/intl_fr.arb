@@ -1,126 +1,130 @@
 {
-    "@@locale": "fr",
-    "serverMaintenance": "Le serveur est actuellement en maintenance. Veuillez réessayer plus tard.",
-    "appName": "Blazed Cloud",
-    "save": "Enregistrer",
-    "delete": "Supprimer",
-    "emptyDirectory": "Aucun fichier ou dossier",
-    "errorErr": "Erreur : {err}",
-    "@errorErr": {
-        "placeholders": {
-            "err": {}
-        }
-    },
-    "invalidEmailOrPassword": "Email ou mot de passe invalide",
-    "login": "Connexion",
-    "forgotPassword": "Mot de passe oublié ?",
-    "resetPassword": "Réinitialiser le mot de passe",
-    "email": "Email",
-    "cancel": "Annuler",
-    "passwordResetEmailSent": "Email de réinitialisation du mot de passe envoyé !",
-    "errorSendingPasswordResetEmail": "Erreur lors de l'envoi de l'email de réinitialisation du mot de passe",
-    "send": "Envoyer",
-    "password": "Mot de passe",
-    "settings": "Paramètres",
-    "transfers": "Transferts",
-    "files": "Fichiers",
-    "emailDomainNotAllowed": "Domaine email non autorisé",
-    "passwordMustBePasswordminlengthCharactersLong": "Le mot de passe doit comporter {length} caractères",
-    "@passwordMustBePasswordminlengthCharactersLong": {
-        "placeholders": {
-            "length": {}
-        }
-    },
-    "signUp": "S''inscrire",
-    "failedLogingInAfterSignup": "Échec de la connexion après l''inscription",
-    "errorSendingRequest": "Erreur lors de l''envoi de la demande",
-    "requestSent": "Demande envoyée !",
-    "errorUpdatingUserPleaseTryAgain": "Erreur de mise à jour de l''utilisateur. Veuillez réessayer.",
-    "deleteFile": "Supprimer le fichier",
-    "areYouSureYouWantToDeleteThisFile": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
-    "downloadingGetfilenamefilekey": "Téléchargement de {filename}",
-    "@downloadingGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingFileGetfilenamefilekey": "Ouverture du fichier : {filename}",
-    "@openingFileGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "errorOpeningFileE": "Erreur lors de l''ouverture du fichier : {filename}",
-    "@errorOpeningFileE": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingInBrowser": "Ouverture dans le navigateur...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "Échec de l'ouverture. Veuillez essayer de sauvegarder le fichier d'abord",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "Le fichier {filename} n''est pas disponible hors ligne",
-    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "shareFile": "Partager le fichier",
-    "linkCopiedToClipboard": "Lien copié dans le presse-papiers",
-    "share": "Partager",
-    "open": "Ouvrir",
-    "blazedExplorer": "Blazed Explorer",
-    "createFolder": "Créer un dossier",
-    "create": "Créer",
-    "deleteFolder": "Supprimer le dossier",
-    "confirmFolderDelete": "Êtes-vous sûr de vouloir supprimer ce dossier ? {foldername}",
-    "@confirmFolderDelete": {
-        "placeholders": {
-            "foldername": {}
-        }
-    },
-    "authenticationRequired": "Authentification requise",
-    "areYouSureYouWantToDeleteYourAccountThis": "Êtes-vous sûr de vouloir supprimer votre compte ? C''est irréversible. Veuillez noter que vous devrez annuler votre abonnement manuellement via le Play Store (si vous en avez un)",
-    "deleteAccount": "Supprimer le compte",
-    "accountDeleted": "Compte supprimé",
-    "yourAccountHasBeenDeleted": "Votre compte a été supprimé.",
-    "ok": "OK",
-    "failedToDeleteAccount": "Échec de la suppression du compte",
-    "changeDownloadLocation": "Changer l''emplacement de téléchargement",
-    "changeEmail": "Changer l''adresse email",
-    "willSendALinkToYourEmailToCompleteThe": "Enverra un lien à votre adresse email pour compléter le changement",
-    "viewBackendOnGithub": "Voir le backend sur Github",
-    "viewOnGithub": "Voir sur Github",
-    "autoDeleteAcount": "Supprimer automatiquement le compte",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Supprimez votre compte après 90 jours d''inactivité. Toujours ignoré pour les utilisateurs avec des abonnements actifs.",
-    "signOut": "Déconnexion",
-    "areYouSureYouWantToSignOut": "Êtes-vous sûr de vouloir vous déconnecter ?",
-    "requireBiometricsToOpenApp": "Exiger la biométrie pour ouvrir l''application",
-    "changePassword": "Changer le mot de passe",
-    "willSendALinkToYourEmailToResetYour": "Enverra un lien à votre adresse email pour réinitialiser votre mot de passe",
-    "downloading": "Téléchargement en cours...",
-    "downloaded": "Téléchargé",
-    "selectDownloadDirectory": "Sélectionner le répertoire de téléchargement",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Veuillez sélectionner un répertoire où vous souhaitez télécharger vos fichiers à l''écran suivant.",
-    "pickFolder": "Choisir le dossier",
-    "offlineFilesAreStoredAtSnapshotdata": "Les fichiers hors ligne sont stockés à {path}",
-    "@offlineFilesAreStoredAtSnapshotdata": {
-        "placeholders": {
-            "path": {}
-        }
-    },
-    "uploading": "Téléchargement en cours...",
-    "uploaded": "Téléchargé",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Achetez 1 To avec la version du Play Store. Vous pouvez désinstaller cette version une fois terminée.",
-    "folderName": "Nom du dossier",
-    "storageUsage": "Utilisation du stockage",
-    "howLongToShare": "Combien de temps le fichier devrait-il être disponible pour le partage ?",
-    "createAnAccount": "Créer un compte",
-    "allowedEmails": "Adresses e-mail autorisées",
-    "close": "Fermer",
-    "viewAllowedEmailDomains": "Voir les domaines d''e-mail autorisés",
-    "welcomeBack": "Bienvenue de nouveau !",
-    "upgradeStorage": "Mise à niveau du stockage",
-    "failedToOpenPortal": "Échec de l''ouverture du portail",
-    "manageAccount": "Gérer le compte",
-    "subscribedThroughPlaystoreOrAppstore": "Abonné via le Playstore ou l''Appstore"
+  "@@locale": "fr",
+  "serverMaintenance": "Le serveur est actuellement en maintenance. Veuillez réessayer plus tard.",
+  "appName": "Blazed Cloud",
+  "save": "Enregistrer",
+  "delete": "Supprimer",
+  "emptyDirectory": "Aucun fichier ou dossier",
+  "errorErr": "Erreur : {err}",
+  "@errorErr": {
+    "placeholders": {
+      "err": {}
+    }
+  },
+  "invalidEmailOrPassword": "Email ou mot de passe invalide",
+  "login": "Connexion",
+  "forgotPassword": "Mot de passe oublié ?",
+  "resetPassword": "Réinitialiser le mot de passe",
+  "email": "Email",
+  "cancel": "Annuler",
+  "passwordResetEmailSent": "Email de réinitialisation du mot de passe envoyé !",
+  "errorSendingPasswordResetEmail": "Erreur lors de l'envoi de l'email de réinitialisation du mot de passe",
+  "send": "Envoyer",
+  "password": "Mot de passe",
+  "settings": "Paramètres",
+  "transfers": "Transferts",
+  "files": "Fichiers",
+  "emailDomainNotAllowed": "Domaine email non autorisé",
+  "passwordMustBePasswordminlengthCharactersLong": "Le mot de passe doit comporter {length} caractères",
+  "@passwordMustBePasswordminlengthCharactersLong": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "signUp": "S''inscrire",
+  "failedLogingInAfterSignup": "Échec de la connexion après l''inscription",
+  "errorSendingRequest": "Erreur lors de l''envoi de la demande",
+  "requestSent": "Demande envoyée !",
+  "errorUpdatingUserPleaseTryAgain": "Erreur de mise à jour de l''utilisateur. Veuillez réessayer.",
+  "deleteFile": "Supprimer le fichier",
+  "areYouSureYouWantToDeleteThisFile": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
+  "downloadingGetfilenamefilekey": "Téléchargement de {filename}",
+  "@downloadingGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingFileGetfilenamefilekey": "Ouverture du fichier : {filename}",
+  "@openingFileGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "errorOpeningFileE": "Erreur lors de l''ouverture du fichier : {filename}",
+  "@errorOpeningFileE": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingInBrowser": "Ouverture dans le navigateur...",
+  "failedToOpenPleaseTrySavingTheFileFirst": "Échec de l'ouverture. Veuillez essayer de sauvegarder le fichier d'abord",
+  "fileGetfilenamefilekeyIsNotAvailableOffline": "Le fichier {filename} n''est pas disponible hors ligne",
+  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "shareFile": "Partager le fichier",
+  "linkCopiedToClipboard": "Lien copié dans le presse-papiers",
+  "share": "Partager",
+  "open": "Ouvrir",
+  "blazedExplorer": "Blazed Explorer",
+  "createFolder": "Créer un dossier",
+  "create": "Créer",
+  "deleteFolder": "Supprimer le dossier",
+  "confirmFolderDelete": "Êtes-vous sûr de vouloir supprimer ce dossier ? {foldername}",
+  "@confirmFolderDelete": {
+    "placeholders": {
+      "foldername": {}
+    }
+  },
+  "authenticationRequired": "Authentification requise",
+  "areYouSureYouWantToDeleteYourAccountThis": "Êtes-vous sûr de vouloir supprimer votre compte ? C''est irréversible. Veuillez noter que vous devrez annuler votre abonnement manuellement via le Play Store (si vous en avez un)",
+  "deleteAccount": "Supprimer le compte",
+  "accountDeleted": "Compte supprimé",
+  "yourAccountHasBeenDeleted": "Votre compte a été supprimé.",
+  "ok": "OK",
+  "failedToDeleteAccount": "Échec de la suppression du compte",
+  "changeDownloadLocation": "Changer l''emplacement de téléchargement",
+  "changeEmail": "Changer l''adresse email",
+  "willSendALinkToYourEmailToCompleteThe": "Enverra un lien à votre adresse email pour compléter le changement",
+  "viewBackendOnGithub": "Voir le backend sur Github",
+  "viewOnGithub": "Voir sur Github",
+  "autoDeleteAcount": "Supprimer automatiquement le compte",
+  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Supprimez votre compte après 90 jours d''inactivité. Toujours ignoré pour les utilisateurs avec des abonnements actifs.",
+  "signOut": "Déconnexion",
+  "areYouSureYouWantToSignOut": "Êtes-vous sûr de vouloir vous déconnecter ?",
+  "requireBiometricsToOpenApp": "Exiger la biométrie pour ouvrir l''application",
+  "changePassword": "Changer le mot de passe",
+  "willSendALinkToYourEmailToResetYour": "Enverra un lien à votre adresse email pour réinitialiser votre mot de passe",
+  "downloading": "Téléchargement en cours...",
+  "downloaded": "Téléchargé",
+  "selectDownloadDirectory": "Sélectionner le répertoire de téléchargement",
+  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Veuillez sélectionner un répertoire où vous souhaitez télécharger vos fichiers à l''écran suivant.",
+  "pickFolder": "Choisir le dossier",
+  "offlineFilesAreStoredAtSnapshotdata": "Les fichiers hors ligne sont stockés à {path}",
+  "@offlineFilesAreStoredAtSnapshotdata": {
+    "placeholders": {
+      "path": {}
+    }
+  },
+  "uploading": "Téléchargement en cours...",
+  "uploaded": "Téléchargé",
+  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Achetez 1 To avec la version du Play Store. Vous pouvez désinstaller cette version une fois terminée.",
+  "folderName": "Nom du dossier",
+  "storageUsage": "Utilisation du stockage",
+  "howLongToShare": "Combien de temps le fichier devrait-il être disponible pour le partage ?",
+  "createAnAccount": "Créer un compte",
+  "allowedEmails": "Adresses e-mail autorisées",
+  "close": "Fermer",
+  "viewAllowedEmailDomains": "Voir les domaines d''e-mail autorisés",
+  "welcomeBack": "Bienvenue de nouveau !",
+  "upgradeStorage": "Mise à niveau du stockage",
+  "failedToOpenPortal": "Échec de l''ouverture du portail",
+  "manageAccount": "Gérer le compte",
+  "subscribedThroughPlaystoreOrAppstore": "Abonné via le Playstore ou l''Appstore",
+  "shareEmailVerificationNeeded": "Email needs to be verified, or have active subscription to share files.",
+  "notVerified": "Email not verified",
+  "emailSent": "Email sent",
+  "sendEmail": "Send Email"
 }

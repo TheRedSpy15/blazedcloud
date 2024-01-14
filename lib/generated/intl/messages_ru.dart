@@ -87,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Эл. почта"),
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Домен электронной почты не разрешен"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Нет файлов или папок"),
         "errorErr": m2,
@@ -120,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Войти"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Управление учетной записью"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Открыть"),
@@ -146,10 +149,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Выберите директорию для загрузки"),
         "send": MessageLookupByLibrary.simpleMessage("Отправить"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Сервер находится на техническом обслуживании. Пожалуйста, попробуйте позже."),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "share": MessageLookupByLibrary.simpleMessage("Поделиться"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Поделиться файлом"),
         "signOut": MessageLookupByLibrary.simpleMessage("Выйти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),

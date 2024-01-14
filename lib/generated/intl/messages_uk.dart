@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Електронна пошта"),
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Домен електронної пошти не дозволений"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Немає файлів чи папок"),
         "errorErr": m2,
@@ -118,6 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Увійти"),
         "manageAccount": MessageLookupByLibrary.simpleMessage(
             "Управління обліковим записом"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Відкрити"),
@@ -143,10 +146,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Вибрати каталог для завантаження"),
         "send": MessageLookupByLibrary.simpleMessage("Відправити"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Сервер наразі перебуває на технічному обслуговуванні. Будь ласка, спробуйте знову пізніше."),
         "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
         "share": MessageLookupByLibrary.simpleMessage("Поділитися"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Поділитися файлом"),
         "signOut": MessageLookupByLibrary.simpleMessage("Вийти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зареєструватися"),

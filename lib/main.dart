@@ -82,7 +82,7 @@ final _router = GoRouter(
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
-    logger.d("Native called background task: $task");
+    logger.t("Native called background task: $task");
 
     if (task == "download") {
       return await DownloadController.startDownload(
@@ -92,14 +92,19 @@ void callbackDispatcher() {
           inputData?['exportDir'],
           inputData?['startDate']);
     } else if (task == "upload") {
-      return await UploadController.startUpload(
+      return await UploadController.processUploadQueue(
           inputData?['uid'],
-          inputData?['localPath'],
-          inputData?['localName'],
-          inputData?['size'],
+          (inputData?['localPaths'] as List)
+              .map((item) => item as String)
+              .toList(),
+          (inputData?['localNames'] as List)
+              .map((item) => item as String)
+              .toList(),
+          (inputData?['sizes'] as List).map((item) => item as int).toList(),
           inputData?['s3Directory'],
           inputData?['token'],
-          inputData?['startDate']);
+          inputData?['startDate'],
+          inputData?['queueName']);
     }
 
     return Future.value(true);

@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("ईमेल"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("ईमेल डोमेन अनुमत नहीं है"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("कोई फ़ाइल या फ़ोल्डर नहीं"),
         "errorErr": m2,
@@ -114,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("लॉगिन"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("खाता प्रबंधित करें"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("ठीक है"),
         "open": MessageLookupByLibrary.simpleMessage("खोलें"),
@@ -139,10 +142,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "डाउनलोड निर्दिष्ट करें डायरेक्टरी"),
         "send": MessageLookupByLibrary.simpleMessage("भेजें"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "सर्वर वर्तमान में मेनटेनेंस के तहत है। कृपया बाद में पुनः प्रयास करें।"),
         "settings": MessageLookupByLibrary.simpleMessage("सेटिंग्स"),
         "share": MessageLookupByLibrary.simpleMessage("साझा करें"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("फ़ाइल साझा करें"),
         "signOut": MessageLookupByLibrary.simpleMessage("साइन आउट"),
         "signUp": MessageLookupByLibrary.simpleMessage("साइन अप करें"),

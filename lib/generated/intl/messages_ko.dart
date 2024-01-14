@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("이메일"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("허용되지 않는 이메일 도메인"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("파일 또는 폴더가 없습니다"),
         "errorErr": m2,
@@ -104,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("링크가 클립보드에 복사되었습니다"),
         "login": MessageLookupByLibrary.simpleMessage("로그인"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("계정 관리"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("확인"),
         "open": MessageLookupByLibrary.simpleMessage("열기"),
@@ -129,10 +132,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("다운로드 디렉토리 선택"),
         "send": MessageLookupByLibrary.simpleMessage("보내기"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "서버가 현재 유지 보수 중입니다. 나중에 다시 시도해주세요."),
         "settings": MessageLookupByLibrary.simpleMessage("설정"),
         "share": MessageLookupByLibrary.simpleMessage("공유"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("파일 공유"),
         "signOut": MessageLookupByLibrary.simpleMessage("로그아웃"),
         "signUp": MessageLookupByLibrary.simpleMessage("가입"),

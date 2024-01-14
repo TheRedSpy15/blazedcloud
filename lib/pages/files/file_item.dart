@@ -2,7 +2,9 @@ import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
+import 'package:blazedcloud/models/pocketbase/user.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
+import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
@@ -139,8 +141,7 @@ void openItem(String fileKey, WidgetRef ref) {
   });
 }
 
-void shareItem(String fileKey, WidgetRef ref) {
-  // show dialog with slider with intervals from 15m to 144h
+void shareDialog(WidgetRef ref, String fileKey) {
   showDialog(
     context: ref.context,
     builder: (context) => StatefulBuilder(builder: (context, setState) {
@@ -202,6 +203,60 @@ void shareItem(String fileKey, WidgetRef ref) {
         ],
       );
     }),
+  );
+}
+
+void shareEmailVerificationDialog(WidgetRef ref, User data) {
+  showDialog(
+    context: ref.context,
+    builder: (context) => AlertDialog(
+      title: Text(S.of(context).notVerified),
+      content: Text(S.of(context).shareEmailVerificationNeeded),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(S.of(context).cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            logger.i('Resending verification email');
+            Navigator.of(context).pop();
+            pb
+                .collection('users')
+                .requestVerification(data.email)
+                .then((value) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).emailSent)));
+            }).onError((error, stackTrace) {
+              logger.e("Error sending password reset email: $error");
+              return null;
+            });
+          },
+          child: Text(S.of(context).sendEmail),
+        ),
+      ],
+    ),
+  );
+}
+
+void shareItem(String fileKey, WidgetRef ref) {
+  // get user information to check if verified
+  final userData = ref.watch(accountUserProvider(pb.authStore.model.id));
+  userData.when(
+    data: (data) {
+      if (data.verified || data.terabyte_active) {
+        shareDialog(ref, fileKey);
+      } else {
+        shareEmailVerificationDialog(ref, data);
+      }
+    },
+    loading: () => false,
+    error: (err, stack) {
+      logger.e('Error getting user data: $err');
+      return false;
+    },
   );
 }
 

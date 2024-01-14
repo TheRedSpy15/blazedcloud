@@ -122,5 +122,9 @@
   "upgradeStorage": "Upgrade Storage",
   "failedToOpenPortal": "Failed to open portal",
   "manageAccount": "Manage Account",
-  "subscribedThroughPlaystoreOrAppstore": "Subscribed through Playstore or Appstore"
+  "subscribedThroughPlaystoreOrAppstore": "Subscribed through Playstore or Appstore",
+  "shareEmailVerificationNeeded": "Email needs to be verified, or have active subscription to share files.",
+  "notVerified": "Email not verified",
+  "emailSent": "Email sent",
+  "sendEmail": "Send Email"
 }

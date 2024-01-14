@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("メールアドレス"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("許可されていないメールドメイン"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("ファイルやフォルダはありません"),
         "errorErr": m2,
@@ -107,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("リンクがクリップボードにコピーされました"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("アカウントの管理"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("開く"),
@@ -132,10 +135,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("ダウンロードディレクトリを選択"),
         "send": MessageLookupByLibrary.simpleMessage("送信"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "サーバーは現在メンテナンス中です。後でもう一度お試しください。"),
         "settings": MessageLookupByLibrary.simpleMessage("設定"),
         "share": MessageLookupByLibrary.simpleMessage("共有"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("ファイルを共有"),
         "signOut": MessageLookupByLibrary.simpleMessage("サインアウト"),
         "signUp": MessageLookupByLibrary.simpleMessage("サインアップ"),

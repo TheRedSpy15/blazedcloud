@@ -1,126 +1,130 @@
 {
-    "@@locale": "it",
-    "serverMaintenance": "Il server è attualmente in manutenzione. Riprova più tardi.",
-    "appName": "Blazed Cloud",
-    "save": "Salva",
-    "delete": "Elimina",
-    "emptyDirectory": "Nessun file o cartella",
-    "errorErr": "Errore: {err}",
-    "@errorErr": {
-        "placeholders": {
-            "err": {}
-        }
-    },
-    "invalidEmailOrPassword": "Email o password non valide",
-    "login": "Accedi",
-    "forgotPassword": "Password dimenticata?",
-    "resetPassword": "Ripristina password",
-    "email": "Email",
-    "cancel": "Annulla",
-    "passwordResetEmailSent": "Email di ripristino password inviata!",
-    "errorSendingPasswordResetEmail": "Errore nell'invio dell'email di ripristino password",
-    "send": "Invia",
-    "password": "Password",
-    "settings": "Impostazioni",
-    "transfers": "Trasferimenti",
-    "files": "File",
-    "emailDomainNotAllowed": "Dominio email non consentito",
-    "passwordMustBePasswordminlengthCharactersLong": "La password deve essere lunga {length} caratteri",
-    "@passwordMustBePasswordminlengthCharactersLong": {
-        "placeholders": {
-            "length": {}
-        }
-    },
-    "signUp": "Registrati",
-    "failedLogingInAfterSignup": "Accesso fallito dopo la registrazione",
-    "errorSendingRequest": "Errore nell''invio della richiesta",
-    "requestSent": "Richiesta inviata!",
-    "errorUpdatingUserPleaseTryAgain": "Errore nell'aggiornamento dell'utente. Riprova.",
-    "deleteFile": "Elimina file",
-    "areYouSureYouWantToDeleteThisFile": "Sei sicuro di voler eliminare questo file?",
-    "downloadingGetfilenamefilekey": "Scaricamento {filename}",
-    "@downloadingGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingFileGetfilenamefilekey": "Apertura file: {filename}",
-    "@openingFileGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "errorOpeningFileE": "Errore nell''apertura del file: {filename}",
-    "@errorOpeningFileE": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingInBrowser": "Apertura nel browser...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "Impossibile aprire. Prova a salvare il file prima",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "Il file {filename} non è disponibile offline",
-    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "shareFile": "Condividi file",
-    "linkCopiedToClipboard": "Link copiato negli appunti",
-    "share": "Condividi",
-    "open": "Apri",
-    "blazedExplorer": "Blazed Explorer",
-    "createFolder": "Crea cartella",
-    "create": "Crea",
-    "deleteFolder": "Elimina cartella",
-    "confirmFolderDelete": "Sei sicuro di voler eliminare questa cartella? {foldername}",
-    "@confirmFolderDelete": {
-        "placeholders": {
-            "foldername": {}
-        }
-    },
-    "authenticationRequired": "Autenticazione richiesta",
-    "areYouSureYouWantToDeleteYourAccountThis": "Sei sicuro di voler eliminare il tuo account? Questa operazione è irreversibile. Nota bene, dovrai cancellare manualmente la tua sottoscrizione attraverso il play store (se ne hai una)",
-    "deleteAccount": "Elimina account",
-    "accountDeleted": "Account eliminato",
-    "yourAccountHasBeenDeleted": "Il tuo account è stato eliminato.",
-    "ok": "OK",
-    "failedToDeleteAccount": "Eliminazione dell''account fallita",
-    "changeDownloadLocation": "Cambia posizione di download",
-    "changeEmail": "Cambia email",
-    "willSendALinkToYourEmailToCompleteThe": "Inviaremos un link alla tua email per completare il cambio",
-    "viewBackendOnGithub": "Visualizza il backend su Github",
-    "viewOnGithub": "Visualizza su Github",
-    "autoDeleteAcount": "Elimina account automaticamente",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Elimina il tuo account dopo 90 giorni di inattività. Sempre ignorato per gli utenti con sottoscrizioni attive.",
-    "signOut": "Esci",
-    "areYouSureYouWantToSignOut": "Sei sicuro di voler uscire?",
-    "requireBiometricsToOpenApp": "Richiedi biometria per aprire l''app",
-    "changePassword": "Cambia password",
-    "willSendALinkToYourEmailToResetYour": "Inviaremos un link alla tua email per resettare la password",
-    "downloading": "Scaricamento in corso...",
-    "downloaded": "Scaricato",
-    "selectDownloadDirectory": "Seleziona la cartella di download",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Seleziona una cartella dove desideri scaricare i tuoi file nella prossima schermata.",
-    "pickFolder": "Scegli cartella",
-    "offlineFilesAreStoredAtSnapshotdata": "I file offline sono memorizzati in {path}",
-    "@offlineFilesAreStoredAtSnapshotdata": {
-        "placeholders": {
-            "path": {}
-        }
-    },
-    "uploading": "Caricamento in corso...",
-    "uploaded": "Caricato",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Acquista 1TB utilizzando la versione Playstore. Puoi disinstallare quella versione una volta completato.",
-    "folderName": "Nome cartella",
-    "storageUsage": "Utilizzo dello spazio",
-    "howLongToShare": "Per quanto tempo il file deve essere disponibile per la condivisione?",
-    "createAnAccount": "Crea un Account",
-    "allowedEmails": "Email Consentite",
-    "close": "Chiudi",
-    "viewAllowedEmailDomains": "Visualizza Domini Email Consentiti",
-    "welcomeBack": "Benvenuto di nuovo!",
-    "upgradeStorage": "Aggiorna Archiviazione",
-    "failedToOpenPortal": "Apertura portale non riuscita",
-    "manageAccount": "Gestisci Account",
-    "subscribedThroughPlaystoreOrAppstore": "Sottoscritto tramite Playstore o Appstore"
+  "@@locale": "it",
+  "serverMaintenance": "Il server è attualmente in manutenzione. Riprova più tardi.",
+  "appName": "Blazed Cloud",
+  "save": "Salva",
+  "delete": "Elimina",
+  "emptyDirectory": "Nessun file o cartella",
+  "errorErr": "Errore: {err}",
+  "@errorErr": {
+    "placeholders": {
+      "err": {}
+    }
+  },
+  "invalidEmailOrPassword": "Email o password non valide",
+  "login": "Accedi",
+  "forgotPassword": "Password dimenticata?",
+  "resetPassword": "Ripristina password",
+  "email": "Email",
+  "cancel": "Annulla",
+  "passwordResetEmailSent": "Email di ripristino password inviata!",
+  "errorSendingPasswordResetEmail": "Errore nell'invio dell'email di ripristino password",
+  "send": "Invia",
+  "password": "Password",
+  "settings": "Impostazioni",
+  "transfers": "Trasferimenti",
+  "files": "File",
+  "emailDomainNotAllowed": "Dominio email non consentito",
+  "passwordMustBePasswordminlengthCharactersLong": "La password deve essere lunga {length} caratteri",
+  "@passwordMustBePasswordminlengthCharactersLong": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "signUp": "Registrati",
+  "failedLogingInAfterSignup": "Accesso fallito dopo la registrazione",
+  "errorSendingRequest": "Errore nell''invio della richiesta",
+  "requestSent": "Richiesta inviata!",
+  "errorUpdatingUserPleaseTryAgain": "Errore nell'aggiornamento dell'utente. Riprova.",
+  "deleteFile": "Elimina file",
+  "areYouSureYouWantToDeleteThisFile": "Sei sicuro di voler eliminare questo file?",
+  "downloadingGetfilenamefilekey": "Scaricamento {filename}",
+  "@downloadingGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingFileGetfilenamefilekey": "Apertura file: {filename}",
+  "@openingFileGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "errorOpeningFileE": "Errore nell''apertura del file: {filename}",
+  "@errorOpeningFileE": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingInBrowser": "Apertura nel browser...",
+  "failedToOpenPleaseTrySavingTheFileFirst": "Impossibile aprire. Prova a salvare il file prima",
+  "fileGetfilenamefilekeyIsNotAvailableOffline": "Il file {filename} non è disponibile offline",
+  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "shareFile": "Condividi file",
+  "linkCopiedToClipboard": "Link copiato negli appunti",
+  "share": "Condividi",
+  "open": "Apri",
+  "blazedExplorer": "Blazed Explorer",
+  "createFolder": "Crea cartella",
+  "create": "Crea",
+  "deleteFolder": "Elimina cartella",
+  "confirmFolderDelete": "Sei sicuro di voler eliminare questa cartella? {foldername}",
+  "@confirmFolderDelete": {
+    "placeholders": {
+      "foldername": {}
+    }
+  },
+  "authenticationRequired": "Autenticazione richiesta",
+  "areYouSureYouWantToDeleteYourAccountThis": "Sei sicuro di voler eliminare il tuo account? Questa operazione è irreversibile. Nota bene, dovrai cancellare manualmente la tua sottoscrizione attraverso il play store (se ne hai una)",
+  "deleteAccount": "Elimina account",
+  "accountDeleted": "Account eliminato",
+  "yourAccountHasBeenDeleted": "Il tuo account è stato eliminato.",
+  "ok": "OK",
+  "failedToDeleteAccount": "Eliminazione dell''account fallita",
+  "changeDownloadLocation": "Cambia posizione di download",
+  "changeEmail": "Cambia email",
+  "willSendALinkToYourEmailToCompleteThe": "Inviaremos un link alla tua email per completare il cambio",
+  "viewBackendOnGithub": "Visualizza il backend su Github",
+  "viewOnGithub": "Visualizza su Github",
+  "autoDeleteAcount": "Elimina account automaticamente",
+  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Elimina il tuo account dopo 90 giorni di inattività. Sempre ignorato per gli utenti con sottoscrizioni attive.",
+  "signOut": "Esci",
+  "areYouSureYouWantToSignOut": "Sei sicuro di voler uscire?",
+  "requireBiometricsToOpenApp": "Richiedi biometria per aprire l''app",
+  "changePassword": "Cambia password",
+  "willSendALinkToYourEmailToResetYour": "Inviaremos un link alla tua email per resettare la password",
+  "downloading": "Scaricamento in corso...",
+  "downloaded": "Scaricato",
+  "selectDownloadDirectory": "Seleziona la cartella di download",
+  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Seleziona una cartella dove desideri scaricare i tuoi file nella prossima schermata.",
+  "pickFolder": "Scegli cartella",
+  "offlineFilesAreStoredAtSnapshotdata": "I file offline sono memorizzati in {path}",
+  "@offlineFilesAreStoredAtSnapshotdata": {
+    "placeholders": {
+      "path": {}
+    }
+  },
+  "uploading": "Caricamento in corso...",
+  "uploaded": "Caricato",
+  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Acquista 1TB utilizzando la versione Playstore. Puoi disinstallare quella versione una volta completato.",
+  "folderName": "Nome cartella",
+  "storageUsage": "Utilizzo dello spazio",
+  "howLongToShare": "Per quanto tempo il file deve essere disponibile per la condivisione?",
+  "createAnAccount": "Crea un Account",
+  "allowedEmails": "Email Consentite",
+  "close": "Chiudi",
+  "viewAllowedEmailDomains": "Visualizza Domini Email Consentiti",
+  "welcomeBack": "Benvenuto di nuovo!",
+  "upgradeStorage": "Aggiorna Archiviazione",
+  "failedToOpenPortal": "Apertura portale non riuscita",
+  "manageAccount": "Gestisci Account",
+  "subscribedThroughPlaystoreOrAppstore": "Sottoscritto tramite Playstore o Appstore",
+  "shareEmailVerificationNeeded": "Email needs to be verified, or have active subscription to share files.",
+  "notVerified": "Email not verified",
+  "emailSent": "Email sent",
+  "sendEmail": "Send Email"
 }

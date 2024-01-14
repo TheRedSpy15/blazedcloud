@@ -83,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Domínio de email não permitido"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Nenhum arquivo ou pasta"),
         "errorErr": m2,
@@ -116,6 +117,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Entrar"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Gerenciar Conta"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Abrir"),
@@ -143,10 +146,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Selecionar diretório de download"),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "O servidor está passando por manutenção. Por favor, tente novamente mais tarde."),
         "settings": MessageLookupByLibrary.simpleMessage("Configurações"),
         "share": MessageLookupByLibrary.simpleMessage("Compartilhar"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile":
             MessageLookupByLibrary.simpleMessage("Compartilhar arquivo"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sair"),

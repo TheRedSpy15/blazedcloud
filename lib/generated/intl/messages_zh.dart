@@ -75,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("电子邮件"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("不允许的电子邮件域"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory": MessageLookupByLibrary.simpleMessage("没有文件或文件夹"),
         "errorErr": m2,
         "errorOpeningFileE": m3,
@@ -100,6 +101,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("链接已复制到剪贴板"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("管理帐户"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "open": MessageLookupByLibrary.simpleMessage("打开"),
@@ -123,10 +126,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("选择下载目录"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance":
             MessageLookupByLibrary.simpleMessage("服务器当前正在维护中。请稍后再试。"),
         "settings": MessageLookupByLibrary.simpleMessage("设置"),
         "share": MessageLookupByLibrary.simpleMessage("分享"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("分享文件"),
         "signOut": MessageLookupByLibrary.simpleMessage("退出登录"),
         "signUp": MessageLookupByLibrary.simpleMessage("注册"),
