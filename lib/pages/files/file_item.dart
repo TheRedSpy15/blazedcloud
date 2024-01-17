@@ -8,7 +8,7 @@ import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -292,13 +292,16 @@ class FileItem extends ConsumerWidget {
                     pb.authStore.model.id, fileKey, pb.authStore.token,
                     duration: "60m"),
                 builder: (context, snapshot) {
-                  return CachedNetworkImage(
-                    imageUrl: snapshot.data.toString(),
-                    cacheKey: fileKey,
-                    placeholder: (context, url) =>
-                        const Icon(Icons.video_library),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
+                  return ExtendedImage.network(
+                    snapshot.data.toString(),
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(10.0),
+                    compressionRatio: 0.1,
+                    cache: true,
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fill,
+                    cacheMaxAge: const Duration(hours: 1),
                   );
                 })
             : type == FileType.video
