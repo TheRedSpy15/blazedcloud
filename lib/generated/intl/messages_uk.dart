@@ -85,7 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Електронна пошта"),
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Домен електронної пошти не дозволений"),
-        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
+        "emailSent": MessageLookupByLibrary.simpleMessage(
+            "Електронна пошта відправлена"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Немає файлів чи папок"),
         "errorErr": m2,
@@ -119,8 +120,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Увійти"),
         "manageAccount": MessageLookupByLibrary.simpleMessage(
             "Управління обліковим записом"),
-        "notVerified":
-            MessageLookupByLibrary.simpleMessage("Email not verified"),
+        "notVerified": MessageLookupByLibrary.simpleMessage(
+            "Електронна пошта не підтверджена"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Відкрити"),
@@ -135,6 +136,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Будь ласка, виберіть каталог, куди ви хочете завантажити ваші файли на наступному екрані."),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Політика конфіденційності"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Придбайте 1 ТБ за допомогою збірки Playstore. Ви можете видалити цю версію після завершення."),
@@ -146,13 +149,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Вибрати каталог для завантаження"),
         "send": MessageLookupByLibrary.simpleMessage("Відправити"),
-        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage(
+            "Надіслати електронного листа"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Сервер наразі перебуває на технічному обслуговуванні. Будь ласка, спробуйте знову пізніше."),
         "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
         "share": MessageLookupByLibrary.simpleMessage("Поділитися"),
         "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
-            "Email needs to be verified, or have active subscription to share files."),
+            "Потрібна перевірка електронної пошти або активна підписка для обміну файлами."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Поділитися файлом"),
         "signOut": MessageLookupByLibrary.simpleMessage("Вийти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зареєструватися"),
@@ -161,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Підписано через Playstore або Appstore"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("Умови використання"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Оновлення сховища"),

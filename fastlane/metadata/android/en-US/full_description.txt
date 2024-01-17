@@ -1,19 +1,9 @@
-🌐 Welcome to Blazed Cloud, your go-to cloud storage solution for a seamless and secure file management experience! 🚀
+Blazed Cloud is a minimalistic cloud backup service that loves open sourced software
 
-Blazed Cloud is not just another cloud storage app; it's a commitment to simplicity, security, and transparency. Our mission is to provide users with a straightforward and efficient way to store their files in the cloud while ensuring the highest level of data protection.
-
-🔐 Top Tier Security with AES-256 Encryption:
-Rest easy knowing that your files are safeguarded with military-grade AES-256 encryption. Blazed Cloud takes your privacy seriously, ensuring that only you have access to your valuable data.
-
-🚀 Simple and Intuitive Design:
-Blazed Cloud is designed with simplicity in mind. No unnecessary frills, no confusing features—just a clean interface that gives you exactly what you need. Effortlessly upload, download, and manage your files with a few taps.
-
-📂 Your Cloud, Your Way:
-Customize your cloud storage experience to suit your needs. Organize your files, create folders, and access your data anytime, anywhere. Blazed Cloud puts you in control.
-
-🌐 Cross-Platform Compatibility:
-Access your files seamlessly across all your devices. Blazed Cloud is built with a cross platform design to help you feel confident in your ability to access your data
-
-Experience cloud storage the way it should be—simple, secure, and transparent. Download Blazed Cloud now and take control of your digital world.
-
-🔥 Blaze a trail in the cloud with Blazed Cloud! 🔥
+- All files are encrypted with AES-256  
+- UI is simple and not cluttered
+- The app itself is lightweight and won't take up much space
+- 15 Gigabyte free tier just by creating an account
+- Easy file sharing by urls with timed expirations
+- Biometric app locking
+- Optional account deletion if you stop using our service after 90 days

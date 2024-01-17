@@ -92,7 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("Domaine email non autorisé"),
-        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("E-mail envoyé"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Aucun fichier ou dossier"),
         "errorErr": m2,
@@ -127,7 +127,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Gérer le compte"),
         "notVerified":
-            MessageLookupByLibrary.simpleMessage("Email not verified"),
+            MessageLookupByLibrary.simpleMessage("E-mail non vérifié"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Ouvrir"),
@@ -143,6 +143,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Veuillez sélectionner un répertoire où vous souhaitez télécharger vos fichiers à l\'\'écran suivant."),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage(
+            "Politique de confidentialité"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Achetez 1 To avec la version du Play Store. Vous pouvez désinstaller cette version une fois terminée."),
@@ -156,13 +158,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Sélectionner le répertoire de téléchargement"),
         "send": MessageLookupByLibrary.simpleMessage("Envoyer"),
-        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Envoyer un e-mail"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Le serveur est actuellement en maintenance. Veuillez réessayer plus tard."),
         "settings": MessageLookupByLibrary.simpleMessage("Paramètres"),
         "share": MessageLookupByLibrary.simpleMessage("Partager"),
         "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
-            "Email needs to be verified, or have active subscription to share files."),
+            "L\'\'e-mail doit être vérifié ou avoir un abonnement actif pour partager des fichiers."),
         "shareFile":
             MessageLookupByLibrary.simpleMessage("Partager le fichier"),
         "signOut": MessageLookupByLibrary.simpleMessage("Déconnexion"),
@@ -172,6 +174,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Abonné via le Playstore ou l\'\'Appstore"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("Conditions d\'\'utilisation"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferts"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Mise à niveau du stockage"),

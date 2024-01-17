@@ -75,7 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("电子邮件"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("不允许的电子邮件域"),
-        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("邮件已发送"),
         "emptyDirectory": MessageLookupByLibrary.simpleMessage("没有文件或文件夹"),
         "errorErr": m2,
         "errorOpeningFileE": m3,
@@ -101,8 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("链接已复制到剪贴板"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("管理帐户"),
-        "notVerified":
-            MessageLookupByLibrary.simpleMessage("Email not verified"),
+        "notVerified": MessageLookupByLibrary.simpleMessage("电子邮件未验证"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("确定"),
         "open": MessageLookupByLibrary.simpleMessage("打开"),
@@ -115,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pickFolder": MessageLookupByLibrary.simpleMessage("选择文件夹"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage("请在下一个屏幕中选择您想要下载文件的目录。"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "使用Play商店版本购买1TB。完成后，您可以卸载该版本。"),
@@ -126,19 +126,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("选择下载目录"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
-        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("发送邮件"),
         "serverMaintenance":
             MessageLookupByLibrary.simpleMessage("服务器当前正在维护中。请稍后再试。"),
         "settings": MessageLookupByLibrary.simpleMessage("设置"),
         "share": MessageLookupByLibrary.simpleMessage("分享"),
-        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
-            "Email needs to be verified, or have active subscription to share files."),
+        "shareEmailVerificationNeeded":
+            MessageLookupByLibrary.simpleMessage("需要验证电子邮件或拥有活跃订阅以共享文件。"),
         "shareFile": MessageLookupByLibrary.simpleMessage("分享文件"),
         "signOut": MessageLookupByLibrary.simpleMessage("退出登录"),
         "signUp": MessageLookupByLibrary.simpleMessage("注册"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("存储使用"),
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage("通过Playstore或Appstore订阅"),
+        "termsOfService": MessageLookupByLibrary.simpleMessage("服务条款"),
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("升级存储"),
         "uploaded": MessageLookupByLibrary.simpleMessage("已上传"),

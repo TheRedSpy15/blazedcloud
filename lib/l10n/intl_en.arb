@@ -126,5 +126,7 @@
   "shareEmailVerificationNeeded": "Email needs to be verified, or have active subscription to share files.",
   "notVerified": "Email not verified",
   "emailSent": "Email sent",
-  "sendEmail": "Send Email"
+  "sendEmail": "Send Email",
+  "privacyPolicy": "Privacy Policy",
+  "termsOfService": "Terms of Service"
 }

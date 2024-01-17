@@ -1,19 +1,9 @@
-🌐 Bem-vindo ao Blazed Cloud, sua solução de armazenamento em nuvem ideal para uma experiência de gerenciamento de arquivos segura e integrada! 🚀
+Blazed Cloud é um serviço de backup na nuvem minimalista que ama software de código aberto.
 
-Blazed Cloud não é apenas mais um aplicativo de armazenamento em nuvem; é um compromisso com a simplicidade, segurança e transparência. Nossa missão é fornecer aos usuários uma maneira simples e eficiente de armazenar seus arquivos na nuvem, garantindo ao mesmo tempo o mais alto nível de proteção de dados.
-
-🔐 Segurança de nível superior com criptografia AES-256:
-Fique tranquilo sabendo que seus arquivos estão protegidos com criptografia AES-256 de nível militar. Blazed Cloud leva sua privacidade a sério, garantindo que somente você tenha acesso aos seus dados valiosos.
-
-🚀 Design simples e intuitivo:
-Blazed Cloud foi projetado com a simplicidade em mente. Sem frescuras desnecessárias, sem recursos confusos — apenas uma interface limpa que oferece exatamente o que você precisa. Carregue, baixe e gerencie seus arquivos sem esforço com apenas alguns toques.
-
-📂 Sua nuvem, do seu jeito:
-Personalize sua experiência de armazenamento em nuvem para atender às suas necessidades. Organize seus arquivos, crie pastas e acesse seus dados a qualquer hora e em qualquer lugar. Blazed Cloud coloca você no controle.
-
-🌐 Compatibilidade entre plataformas:
-Acesse seus arquivos perfeitamente em todos os seus dispositivos. Blazed Cloud foi desenvolvido com um design de plataforma cruzada para ajudar você a se sentir confiante em sua capacidade de acessar seus dados
-
-Experimente o armazenamento em nuvem como deveria ser: simples, seguro e transparente. Baixe Blazed Cloud agora e assuma o controle do seu mundo digital.
-
-🔥 Abra caminho na nuvem com Blazed Cloud! 🔥
+- Todos os arquivos são criptografados com AES-256
+- A interface é simples e não é confusa
+- O próprio aplicativo é leve e não ocupa muito espaço
+- 15 Gigabytes gratuitos apenas por criar uma conta
+- Compartilhamento fácil de arquivos por URLs com expiração programada
+- Bloqueio biométrico do aplicativo
+- Exclusão opcional da conta se você parar de usar nosso serviço após 90 dias.

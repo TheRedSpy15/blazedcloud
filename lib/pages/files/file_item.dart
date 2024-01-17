@@ -8,9 +8,11 @@ import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:url_launcher/url_launcher.dart';
 
 final isFileOffline =
@@ -262,12 +264,14 @@ void shareItem(String fileKey, WidgetRef ref) {
 
 class FileItem extends ConsumerWidget {
   final String fileKey;
-  final int expectedSize; // used for ensuring offline file is complete
+  final String uploaded;
+  final int size;
 
   const FileItem({
     super.key,
     required this.fileKey,
-    this.expectedSize = 0,
+    required this.size,
+    required this.uploaded,
   });
 
   @override
@@ -276,65 +280,77 @@ class FileItem extends ConsumerWidget {
     final isAvailableOffline = ref.watch(isFileOffline(fileKey));
     final downloadController = ref.watch(downloadControllerProvider);
 
-    return Card(
-      child: InkWell(
-        child: ListTile(
-          leading: Icon(
-            type == FileType.image
-                ? Icons.image
-                : type == FileType.video
-                    ? Icons.video_library
-                    : Icons.insert_drive_file,
-          ),
-          title: isAvailableOffline.when(
-            data: (offline) {
-              if (offline) {
-                return Text('${getFileName(fileKey)} ✓');
-              } else {
-                return Text(getFileName(fileKey));
-              }
-            },
-            loading: () => Text(getFileName(fileKey)),
-            error: (err, stack) {
-              logger.e('Error checking if $fileKey is available offline: $err');
-              return Text('${getFileName(fileKey)} (!)');
-            },
-          ),
-          trailing: PopupMenuButton<String>(
-            itemBuilder: (context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'open',
-                child: Text(S.of(context).open),
-              ),
-              PopupMenuItem<String>(
-                value: 'share',
-                child: Text(S.of(context).share),
-              ),
-              PopupMenuItem<String>(
-                value: 'save',
-                child: Text(S.of(context).save),
-              ),
-              PopupMenuItem<String>(
-                value: 'delete',
-                child: Text(S.of(context).delete),
-              ),
-            ],
-            onSelected: (value) {
-              if (value == 'open') {
-                openItem(fileKey, ref);
-              } else if (value == 'save') {
-                downloadItem(fileKey, downloadController, context);
-              } else if (value == 'delete') {
-                // ask for confirmation before deleting
-                deleteItem(fileKey, context, ref);
-              } else if (value == 'share') {
-                shareItem(fileKey, ref);
-              }
-            },
-          ),
+    // convert upload string from '2021-01-01T00:00:00.000Z' to local format with just date
+    final date = intl.DateFormat.yMd().format(DateTime.parse(uploaded));
+    final String subtitle = '${formatSize(size)} • $date';
+
+    return InkWell(
+      child: ListTile(
+        leading: type == FileType.image
+            ? FutureBuilder(
+                future: getFileLink(
+                    pb.authStore.model.id, fileKey, pb.authStore.token,
+                    duration: "60m"),
+                builder: (context, snapshot) {
+                  return CachedNetworkImage(
+                    imageUrl: snapshot.data.toString(),
+                    cacheKey: fileKey,
+                    placeholder: (context, url) =>
+                        const Icon(Icons.video_library),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  );
+                })
+            : type == FileType.video
+                ? const Icon(Icons.video_library)
+                : const Icon(Icons.insert_drive_file),
+        title: isAvailableOffline.when(
+          data: (offline) {
+            return offline
+                ? Text('${getFileName(fileKey)} ✓')
+                : Text(getFileName(fileKey));
+          },
+          loading: () => Text(getFileName(fileKey)),
+          error: (err, stack) {
+            logger.e('Error checking if $fileKey is available offline: $err');
+            return Text('${getFileName(fileKey)} (!)');
+          },
         ),
-        onTap: () => openItem(fileKey, ref),
+        subtitle: Text(subtitle),
+        trailing: PopupMenuButton<String>(
+          itemBuilder: (context) => <PopupMenuEntry<String>>[
+            PopupMenuItem<String>(
+              value: 'open',
+              child: Text(S.of(context).open),
+            ),
+            PopupMenuItem<String>(
+              value: 'share',
+              child: Text(S.of(context).share),
+            ),
+            PopupMenuItem<String>(
+              value: 'save',
+              child: Text(S.of(context).save),
+            ),
+            PopupMenuItem<String>(
+              value: 'delete',
+              child: Text(S.of(context).delete),
+            ),
+          ],
+          onSelected: (value) {
+            if (value == 'open') {
+              openItem(fileKey, ref);
+            } else if (value == 'save') {
+              downloadItem(fileKey, downloadController, context);
+            } else if (value == 'delete') {
+              // ask for confirmation before deleting
+              deleteItem(fileKey, context, ref);
+            } else if (value == 'share') {
+              shareItem(fileKey, ref);
+            }
+          },
+        ),
       ),
+      onTap: () => openItem(fileKey, ref),
     );
   }
 }

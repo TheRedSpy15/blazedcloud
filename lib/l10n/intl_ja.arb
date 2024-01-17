@@ -1,130 +1,132 @@
 {
-  "@@locale": "ja",
-  "serverMaintenance": "サーバーは現在メンテナンス中です。後でもう一度お試しください。",
-  "appName": "Blazed Cloud",
-  "save": "保存",
-  "delete": "削除",
-  "emptyDirectory": "ファイルやフォルダはありません",
-  "errorErr": "エラー：{err}",
-  "@errorErr": {
-    "placeholders": {
-      "err": {}
-    }
-  },
-  "invalidEmailOrPassword": "無効なメールアドレスまたはパスワード",
-  "login": "ログイン",
-  "forgotPassword": "パスワードを忘れましたか？",
-  "resetPassword": "パスワードをリセット",
-  "email": "メールアドレス",
-  "cancel": "キャンセル",
-  "passwordResetEmailSent": "パスワードリセットのメールが送信されました！",
-  "errorSendingPasswordResetEmail": "パスワードリセットメールの送信中にエラーが発生しました",
-  "send": "送信",
-  "password": "パスワード",
-  "settings": "設定",
-  "transfers": "転送",
-  "files": "ファイル",
-  "emailDomainNotAllowed": "許可されていないメールドメイン",
-  "passwordMustBePasswordminlengthCharactersLong": "パスワードは{length}文字以上である必要があります",
-  "@passwordMustBePasswordminlengthCharactersLong": {
-    "placeholders": {
-      "length": {}
-    }
-  },
-  "signUp": "サインアップ",
-  "failedLogingInAfterSignup": "サインアップ後のログインに失敗しました",
-  "errorSendingRequest": "リクエストの送信中にエラーが発生しました",
-  "requestSent": "リクエストが送信されました！",
-  "errorUpdatingUserPleaseTryAgain": "ユーザーの更新中にエラーが発生しました。もう一度お試しください。",
-  "deleteFile": "ファイルの削除",
-  "areYouSureYouWantToDeleteThisFile": "このファイルを削除してもよろしいですか？",
-  "downloadingGetfilenamefilekey": "{filename} のダウンロード中",
-  "@downloadingGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingFileGetfilenamefilekey": "ファイルを開いています：{filename}",
-  "@openingFileGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "errorOpeningFileE": "ファイルのオープンエラー：{filename}",
-  "@errorOpeningFileE": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingInBrowser": "ブラウザで開いています...",
-  "failedToOpenPleaseTrySavingTheFileFirst": "開くのに失敗しました。最初にファイルを保存してみてください。",
-  "fileGetfilenamefilekeyIsNotAvailableOffline": "ファイル {filename} はオフラインで利用できません",
-  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "shareFile": "ファイルを共有",
-  "linkCopiedToClipboard": "リンクがクリップボードにコピーされました",
-  "share": "共有",
-  "open": "開く",
-  "blazedExplorer": "Blazed Explorer",
-  "createFolder": "フォルダを作成",
-  "create": "作成",
-  "deleteFolder": "フォルダを削除",
-  "confirmFolderDelete": "このフォルダを削除してもよろしいですか？ {foldername}",
-  "@confirmFolderDelete": {
-    "placeholders": {
-      "foldername": {}
-    }
-  },
-  "authenticationRequired": "認証が必要です",
-  "areYouSureYouWantToDeleteYourAccountThis": "本当にアカウントを削除しますか？ これは取り消せません。注意：プレイストア経由でのサブスクリプションは手動でキャンセルする必要があります（存在する場合）",
-  "deleteAccount": "アカウントの削除",
-  "accountDeleted": "アカウントが削除されました",
-  "yourAccountHasBeenDeleted": "アカウントが削除されました。",
-  "ok": "OK",
-  "failedToDeleteAccount": "アカウントの削除に失敗しました",
-  "changeDownloadLocation": "ダウンロード場所の変更",
-  "changeEmail": "メールアドレスの変更",
-  "willSendALinkToYourEmailToCompleteThe": "変更を完了するためのリンクをメールで送信します",
-  "viewBackendOnGithub": "バックエンドをGithubで表示",
-  "viewOnGithub": "Githubで表示",
-  "autoDeleteAcount": "アカウントの自動削除",
-  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "90日間の非アクティブ状態後にアカウントを削除します。アクティブなサブスクリプションがあるユーザーには常に無視されます。",
-  "signOut": "サインアウト",
-  "areYouSureYouWantToSignOut": "本当にサインアウトしますか？",
-  "requireBiometricsToOpenApp": "アプリを開くために生体認証が必要です",
-  "changePassword": "パスワードの変更",
-  "willSendALinkToYourEmailToResetYour": "パスワードをリセットするためのリンクをメールで送信します",
-  "downloading": "ダウンロード中...",
-  "downloaded": "ダウンロード済み",
-  "selectDownloadDirectory": "ダウンロードディレクトリを選択",
-  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "次の画面でファイルをダウンロードするディレクトリを選択してください。",
-  "pickFolder": "フォルダを選択",
-  "offlineFilesAreStoredAtSnapshotdata": "オフラインファイルは{path}に保存されています",
-  "@offlineFilesAreStoredAtSnapshotdata": {
-    "placeholders": {
-      "path": {}
-    }
-  },
-  "uploading": "アップロード中...",
-  "uploaded": "アップロード済み",
-  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Playstoreビルドを使用して1TBを購入します。終了時にそのバージョンをアンインストールできます。",
-  "folderName": "フォルダ名",
-  "storageUsage": "ストレージ使用量",
-  "howLongToShare": "ファイルの共有期間はどれくらいでしょうか？",
-  "createAnAccount": "アカウントを作成",
-  "allowedEmails": "許可されたメール",
-  "close": "閉じる",
-  "viewAllowedEmailDomains": "許可されたメールドメインを表示",
-  "welcomeBack": "おかえりなさい！",
-  "upgradeStorage": "ストレージのアップグレード",
-  "failedToOpenPortal": "ポータルを開けませんでした",
-  "manageAccount": "アカウントの管理",
-  "subscribedThroughPlaystoreOrAppstore": "PlaystoreまたはAppstore経由で購読済み",
-  "shareEmailVerificationNeeded": "Email needs to be verified, or have active subscription to share files.",
-  "notVerified": "Email not verified",
-  "emailSent": "Email sent",
-  "sendEmail": "Send Email"
+    "@@locale": "ja",
+    "serverMaintenance": "サーバーは現在メンテナンス中です。後でもう一度お試しください。",
+    "appName": "Blazed Cloud",
+    "save": "保存",
+    "delete": "削除",
+    "emptyDirectory": "ファイルやフォルダはありません",
+    "errorErr": "エラー：{err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "無効なメールアドレスまたはパスワード",
+    "login": "ログイン",
+    "forgotPassword": "パスワードを忘れましたか？",
+    "resetPassword": "パスワードをリセット",
+    "email": "メールアドレス",
+    "cancel": "キャンセル",
+    "passwordResetEmailSent": "パスワードリセットのメールが送信されました！",
+    "errorSendingPasswordResetEmail": "パスワードリセットメールの送信中にエラーが発生しました",
+    "send": "送信",
+    "password": "パスワード",
+    "settings": "設定",
+    "transfers": "転送",
+    "files": "ファイル",
+    "emailDomainNotAllowed": "許可されていないメールドメイン",
+    "passwordMustBePasswordminlengthCharactersLong": "パスワードは{length}文字以上である必要があります",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "サインアップ",
+    "failedLogingInAfterSignup": "サインアップ後のログインに失敗しました",
+    "errorSendingRequest": "リクエストの送信中にエラーが発生しました",
+    "requestSent": "リクエストが送信されました！",
+    "errorUpdatingUserPleaseTryAgain": "ユーザーの更新中にエラーが発生しました。もう一度お試しください。",
+    "deleteFile": "ファイルの削除",
+    "areYouSureYouWantToDeleteThisFile": "このファイルを削除してもよろしいですか？",
+    "downloadingGetfilenamefilekey": "{filename} のダウンロード中",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "ファイルを開いています：{filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "ファイルのオープンエラー：{filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "ブラウザで開いています...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "開くのに失敗しました。最初にファイルを保存してみてください。",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "ファイル {filename} はオフラインで利用できません",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "ファイルを共有",
+    "linkCopiedToClipboard": "リンクがクリップボードにコピーされました",
+    "share": "共有",
+    "open": "開く",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "フォルダを作成",
+    "create": "作成",
+    "deleteFolder": "フォルダを削除",
+    "confirmFolderDelete": "このフォルダを削除してもよろしいですか？ {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "認証が必要です",
+    "areYouSureYouWantToDeleteYourAccountThis": "本当にアカウントを削除しますか？ これは取り消せません。注意：プレイストア経由でのサブスクリプションは手動でキャンセルする必要があります（存在する場合）",
+    "deleteAccount": "アカウントの削除",
+    "accountDeleted": "アカウントが削除されました",
+    "yourAccountHasBeenDeleted": "アカウントが削除されました。",
+    "ok": "OK",
+    "failedToDeleteAccount": "アカウントの削除に失敗しました",
+    "changeDownloadLocation": "ダウンロード場所の変更",
+    "changeEmail": "メールアドレスの変更",
+    "willSendALinkToYourEmailToCompleteThe": "変更を完了するためのリンクをメールで送信します",
+    "viewBackendOnGithub": "バックエンドをGithubで表示",
+    "viewOnGithub": "Githubで表示",
+    "autoDeleteAcount": "アカウントの自動削除",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "90日間の非アクティブ状態後にアカウントを削除します。アクティブなサブスクリプションがあるユーザーには常に無視されます。",
+    "signOut": "サインアウト",
+    "areYouSureYouWantToSignOut": "本当にサインアウトしますか？",
+    "requireBiometricsToOpenApp": "アプリを開くために生体認証が必要です",
+    "changePassword": "パスワードの変更",
+    "willSendALinkToYourEmailToResetYour": "パスワードをリセットするためのリンクをメールで送信します",
+    "downloading": "ダウンロード中...",
+    "downloaded": "ダウンロード済み",
+    "selectDownloadDirectory": "ダウンロードディレクトリを選択",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "次の画面でファイルをダウンロードするディレクトリを選択してください。",
+    "pickFolder": "フォルダを選択",
+    "offlineFilesAreStoredAtSnapshotdata": "オフラインファイルは{path}に保存されています",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "アップロード中...",
+    "uploaded": "アップロード済み",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Playstoreビルドを使用して1TBを購入します。終了時にそのバージョンをアンインストールできます。",
+    "folderName": "フォルダ名",
+    "storageUsage": "ストレージ使用量",
+    "howLongToShare": "ファイルの共有期間はどれくらいでしょうか？",
+    "createAnAccount": "アカウントを作成",
+    "allowedEmails": "許可されたメール",
+    "close": "閉じる",
+    "viewAllowedEmailDomains": "許可されたメールドメインを表示",
+    "welcomeBack": "おかえりなさい！",
+    "upgradeStorage": "ストレージのアップグレード",
+    "failedToOpenPortal": "ポータルを開けませんでした",
+    "manageAccount": "アカウントの管理",
+    "subscribedThroughPlaystoreOrAppstore": "PlaystoreまたはAppstore経由で購読済み",
+    "shareEmailVerificationNeeded": "ファイルを共有するには、メールを確認するかアクティブなサブスクリプションが必要です。",
+    "notVerified": "メールが確認されていません",
+    "emailSent": "メール送信済み",
+    "sendEmail": "メール送信",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfService": "利用規約"
 }

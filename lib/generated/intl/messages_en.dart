@@ -131,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Please select a directory where you would like to download your files in the next screen."),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Purchase 1TB using Playstore build. You can uninstall that version when done."),
@@ -156,6 +157,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Subscribed through Playstore or Appstore"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("Terms of Service"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transfers"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Upgrade Storage"),
