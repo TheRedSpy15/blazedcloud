@@ -11,18 +11,23 @@ import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:workmanager/workmanager.dart';
 
 import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 
   await Hive.initFlutter();
 
@@ -34,19 +39,6 @@ void main() async {
 
   runApp(const MyApp());
 }
-
-final Map<int, Color> colorWhite = {
-  50: const Color.fromRGBO(255, 255, 255, .1),
-  100: const Color.fromRGBO(255, 255, 255, .2),
-  200: const Color.fromRGBO(255, 255, 255, .3),
-  300: const Color.fromRGBO(255, 255, 255, .4),
-  400: const Color.fromRGBO(255, 255, 255, .5),
-  500: const Color.fromRGBO(255, 255, 255, .6),
-  600: const Color.fromRGBO(255, 255, 255, .7),
-  700: const Color.fromRGBO(255, 255, 255, .8),
-  800: const Color.fromRGBO(255, 255, 255, .9),
-  900: const Color.fromRGBO(255, 255, 255, 1),
-};
 
 // GoRouter configuration
 final _router = GoRouter(
@@ -82,7 +74,7 @@ final _router = GoRouter(
 @pragma('vm:entry-point')
 void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
-    logger.d("Native called background task: $task");
+    logger.t("Native called background task: $task");
 
     if (task == "download") {
       return await DownloadController.startDownload(
@@ -92,14 +84,19 @@ void callbackDispatcher() {
           inputData?['exportDir'],
           inputData?['startDate']);
     } else if (task == "upload") {
-      return await UploadController.startUpload(
+      return await UploadController.processUploadQueue(
           inputData?['uid'],
-          inputData?['localPath'],
-          inputData?['localName'],
-          inputData?['size'],
+          (inputData?['localPaths'] as List)
+              .map((item) => item as String)
+              .toList(),
+          (inputData?['localNames'] as List)
+              .map((item) => item as String)
+              .toList(),
+          (inputData?['sizes'] as List).map((item) => item as int).toList(),
           inputData?['s3Directory'],
           inputData?['token'],
-          inputData?['startDate']);
+          inputData?['startDate'],
+          inputData?['queueName']);
     }
 
     return Future.value(true);
@@ -140,6 +137,25 @@ class LandingContent extends StatelessWidget {
               S.of(context).signUp,
               style: const TextStyle(fontSize: 30),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                  onPressed: () {
+                    logger.d("Terms of Service");
+                    launchUrl(
+                        Uri.parse("https://blazedcloud.com/privacy-policy/"));
+                  },
+                  child: Text(S.of(context).privacyPolicy)),
+              TextButton(
+                  onPressed: () {
+                    logger.d("Terms of Service");
+                    launchUrl(
+                        Uri.parse("https://blazedcloud.com/terms-of-service/"));
+                  },
+                  child: Text(S.of(context).termsOfService)),
+            ],
           ),
         ],
       ),
@@ -260,21 +276,6 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         useMaterial3: true,
-        colorScheme: ColorScheme.dark(
-          primary: MaterialColor(0xFFFFFFFF, colorWhite),
-          secondary: Colors.orange,
-          tertiary: Colors.orange,
-        ),
-        tabBarTheme: TabBarTheme(
-          labelColor: MaterialColor(0xFFFFFFFF, colorWhite),
-        ),
-        appBarTheme: AppBarTheme(
-            iconTheme: IconThemeData(
-          color: MaterialColor(0xFFFFFFFF, colorWhite),
-        )),
-        primarySwatch: MaterialColor(0xFFFFFFFF, colorWhite),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        /* dark theme settings */
       ),
       localizationsDelegates: const [
         S.delegate,

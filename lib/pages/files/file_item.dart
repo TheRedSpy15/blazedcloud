@@ -2,13 +2,17 @@ import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
+import 'package:blazedcloud/models/pocketbase/user.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
+import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart' as intl;
 import 'package:url_launcher/url_launcher.dart';
 
 final isFileOffline =
@@ -139,8 +143,7 @@ void openItem(String fileKey, WidgetRef ref) {
   });
 }
 
-void shareItem(String fileKey, WidgetRef ref) {
-  // show dialog with slider with intervals from 15m to 144h
+void shareDialog(WidgetRef ref, String fileKey) {
   showDialog(
     context: ref.context,
     builder: (context) => StatefulBuilder(builder: (context, setState) {
@@ -205,14 +208,70 @@ void shareItem(String fileKey, WidgetRef ref) {
   );
 }
 
+void shareEmailVerificationDialog(WidgetRef ref, User data) {
+  showDialog(
+    context: ref.context,
+    builder: (context) => AlertDialog(
+      title: Text(S.of(context).notVerified),
+      content: Text(S.of(context).shareEmailVerificationNeeded),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(S.of(context).cancel),
+        ),
+        TextButton(
+          onPressed: () {
+            logger.i('Resending verification email');
+            Navigator.of(context).pop();
+            pb
+                .collection('users')
+                .requestVerification(data.email)
+                .then((value) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(S.of(context).emailSent)));
+            }).onError((error, stackTrace) {
+              logger.e("Error sending password reset email: $error");
+              return null;
+            });
+          },
+          child: Text(S.of(context).sendEmail),
+        ),
+      ],
+    ),
+  );
+}
+
+void shareItem(String fileKey, WidgetRef ref) {
+  // get user information to check if verified
+  final userData = ref.watch(accountUserProvider(pb.authStore.model.id));
+  userData.when(
+    data: (data) {
+      if (data.verified || data.terabyte_active) {
+        shareDialog(ref, fileKey);
+      } else {
+        shareEmailVerificationDialog(ref, data);
+      }
+    },
+    loading: () => false,
+    error: (err, stack) {
+      logger.e('Error getting user data: $err');
+      return false;
+    },
+  );
+}
+
 class FileItem extends ConsumerWidget {
   final String fileKey;
-  final int expectedSize; // used for ensuring offline file is complete
+  final String uploaded;
+  final int size;
 
   const FileItem({
     super.key,
     required this.fileKey,
-    this.expectedSize = 0,
+    required this.size,
+    required this.uploaded,
   });
 
   @override
@@ -221,65 +280,80 @@ class FileItem extends ConsumerWidget {
     final isAvailableOffline = ref.watch(isFileOffline(fileKey));
     final downloadController = ref.watch(downloadControllerProvider);
 
-    return Card(
-      child: InkWell(
-        child: ListTile(
-          leading: Icon(
-            type == FileType.image
-                ? Icons.image
-                : type == FileType.video
-                    ? Icons.video_library
-                    : Icons.insert_drive_file,
-          ),
-          title: isAvailableOffline.when(
-            data: (offline) {
-              if (offline) {
-                return Text('${getFileName(fileKey)} ✓');
-              } else {
-                return Text(getFileName(fileKey));
-              }
-            },
-            loading: () => Text(getFileName(fileKey)),
-            error: (err, stack) {
-              logger.e('Error checking if $fileKey is available offline: $err');
-              return Text('${getFileName(fileKey)} (!)');
-            },
-          ),
-          trailing: PopupMenuButton<String>(
-            itemBuilder: (context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'open',
-                child: Text(S.of(context).open),
-              ),
-              PopupMenuItem<String>(
-                value: 'share',
-                child: Text(S.of(context).share),
-              ),
-              PopupMenuItem<String>(
-                value: 'save',
-                child: Text(S.of(context).save),
-              ),
-              PopupMenuItem<String>(
-                value: 'delete',
-                child: Text(S.of(context).delete),
-              ),
-            ],
-            onSelected: (value) {
-              if (value == 'open') {
-                openItem(fileKey, ref);
-              } else if (value == 'save') {
-                downloadItem(fileKey, downloadController, context);
-              } else if (value == 'delete') {
-                // ask for confirmation before deleting
-                deleteItem(fileKey, context, ref);
-              } else if (value == 'share') {
-                shareItem(fileKey, ref);
-              }
-            },
-          ),
+    // convert upload string from '2021-01-01T00:00:00.000Z' to local format with just date
+    final date = intl.DateFormat.yMd().format(DateTime.parse(uploaded));
+    final String subtitle = '${formatSize(size)} • $date';
+
+    return InkWell(
+      child: ListTile(
+        leading: type == FileType.image
+            ? FutureBuilder(
+                future: getFileLink(
+                    pb.authStore.model.id, fileKey, pb.authStore.token,
+                    duration: "60m"),
+                builder: (context, snapshot) {
+                  return ExtendedImage.network(
+                    snapshot.data.toString(),
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(10.0),
+                    compressionRatio: 0.1,
+                    cache: true,
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.fill,
+                    cacheMaxAge: const Duration(hours: 1),
+                  );
+                })
+            : type == FileType.video
+                ? const Icon(Icons.video_library)
+                : const Icon(Icons.insert_drive_file),
+        title: isAvailableOffline.when(
+          data: (offline) {
+            return offline
+                ? Text('${getFileName(fileKey)} ✓')
+                : Text(getFileName(fileKey));
+          },
+          loading: () => Text(getFileName(fileKey)),
+          error: (err, stack) {
+            logger.e('Error checking if $fileKey is available offline: $err');
+            return Text('${getFileName(fileKey)} (!)');
+          },
         ),
-        onTap: () => openItem(fileKey, ref),
+        subtitle: Text(subtitle),
+        trailing: PopupMenuButton<String>(
+          itemBuilder: (context) => <PopupMenuEntry<String>>[
+            PopupMenuItem<String>(
+              value: 'open',
+              child: Text(S.of(context).open),
+            ),
+            PopupMenuItem<String>(
+              value: 'share',
+              child: Text(S.of(context).share),
+            ),
+            PopupMenuItem<String>(
+              value: 'save',
+              child: Text(S.of(context).save),
+            ),
+            PopupMenuItem<String>(
+              value: 'delete',
+              child: Text(S.of(context).delete),
+            ),
+          ],
+          onSelected: (value) {
+            if (value == 'open') {
+              openItem(fileKey, ref);
+            } else if (value == 'save') {
+              downloadItem(fileKey, downloadController, context);
+            } else if (value == 'delete') {
+              // ask for confirmation before deleting
+              deleteItem(fileKey, context, ref);
+            } else if (value == 'share') {
+              shareItem(fileKey, ref);
+            }
+          },
+        ),
       ),
+      onTap: () => openItem(fileKey, ref),
     );
   }
 }

@@ -1,19 +1,9 @@
-🌐 Bienvenue sur Blazed Cloud, votre solution de stockage cloud incontournable pour une expérience de gestion de fichiers transparente et sécurisée ! 🚀
+Blazed Cloud est un service de sauvegarde cloud minimaliste qui aime les logiciels open source.
 
-Blazed Cloud n'est pas simplement une autre application de stockage cloud ; c'est un engagement envers la simplicité, la sécurité et la transparence. Notre mission est de fournir aux utilisateurs un moyen simple et efficace de stocker leurs fichiers dans le cloud tout en garantissant le plus haut niveau de protection des données.
-
-🔐 Sécurité de haut niveau avec cryptage AES-256 :
-Soyez tranquille en sachant que vos fichiers sont protégés avec un cryptage AES-256 de niveau militaire. Blazed Cloud prend votre confidentialité au sérieux, garantissant que vous seul avez accès à vos précieuses données.
-
-🚀 Conception simple et intuitive :
-Blazed Cloud est conçu dans un souci de simplicité. Pas de fioritures inutiles, pas de fonctionnalités déroutantes : juste une interface claire qui vous offre exactement ce dont vous avez besoin. Téléchargez, téléchargez et gérez vos fichiers sans effort en quelques clics.
-
-📂 Votre Cloud, à votre façon :
-Personnalisez votre expérience de stockage cloud en fonction de vos besoins. Organisez vos fichiers, créez des dossiers et accédez à vos données à tout moment et en tout lieu. Blazed Cloud vous donne le contrôle.
-
-🌐 Compatibilité multiplateforme :
-Accédez à vos fichiers de manière transparente sur tous vos appareils. Blazed Cloud est construit avec une conception multiplateforme pour vous aider à avoir confiance dans votre capacité à accéder à vos données.
-
-Découvrez le stockage cloud tel qu'il devrait être : simple, sécurisé et transparent. Téléchargez Blazed Cloud maintenant et prenez le contrôle de votre monde numérique.
-
-🔥 Frayez-vous un chemin dans le cloud avec Blazed Cloud ! 🔥
+- Tous les fichiers sont cryptés avec AES-256
+- L'interface utilisateur est simple et non encombrée
+- L'application elle-même est légère et n'occupera pas beaucoup d'espace
+- 15 gigaoctets en tant que niveau gratuit simplement en créant un compte
+- Partage facile de fichiers par URL avec des expirations programmées
+- Verrouillage biométrique de l'application
+- Suppression facultative du compte si vous cessez d'utiliser notre service après 90 jours.

@@ -29,7 +29,6 @@ class UploadController {
         final uploadState = UploadState.fromJson(jsonDecode(data));
 
         final uploadNotifier = _ref.read(uploadStateProvider.notifier);
-
         uploadNotifier.updateUploadStateByKey(
             uploadState.uploadKey, uploadState);
 
@@ -49,38 +48,40 @@ class UploadController {
   }
 
   /// start an upload with workmanager
-  void queueUpload(String uid, String s3Directory, String localPath,
-      String localName, int size) async {
-    Workmanager().registerOneOffTask(localPath.hashCode.toString(), "upload",
-        constraints: Constraints(
-          networkType: NetworkType.unmetered,
-        ),
-        tag: localPath,
+  void scheduleUpload(UploadRequestQueue request) async {
+    Workmanager().registerOneOffTask(request.queueName, "upload",
         backoffPolicy: BackoffPolicy.exponential,
         outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
-        existingWorkPolicy: ExistingWorkPolicy.keep,
-        inputData: {
-          "uid": uid,
-          "token": pb.authStore.token,
-          "s3Directory": s3Directory,
-          "localPath": localPath,
-          "localName": localName,
-          "size": size,
-          "startDate": DateTime.now().toIso8601String(),
-        });
+        existingWorkPolicy: ExistingWorkPolicy.replace,
+        tag: request.queueName,
+        constraints: Constraints(networkType: NetworkType.connected),
+        inputData: request.toJson());
   }
 
-  void selectFilesToUpload(String directory) async {
+  /// prompt user for file selection, then schedule uploads
+  ///
+  /// [remoteDir] is the directory to upload to
+  void selectFilesToUpload(String remoteDir) async {
     final selection = await FilePicker.platform.pickFiles(
         allowMultiple: true, type: FileType.any, withReadStream: true);
 
     if (selection != null) {
       final uid = pb.authStore.model.id;
+      final randQueueName =
+          'uploadQueue${DateTime.now().millisecondsSinceEpoch}';
 
-      for (final fileToUpload in selection.files) {
-        queueUpload(uid, directory, fileToUpload.path!, fileToUpload.name,
-            fileToUpload.size);
-      }
+      // create queue of uploads
+      final queue = UploadRequestQueue(
+          uid,
+          pb.authStore.token,
+          remoteDir,
+          selection.paths.map((e) => e ?? '').toList(),
+          selection.files.map((e) => e.name).toList(),
+          selection.files.map((e) => e.size).toList(),
+          randQueueName);
+
+      logger.i('Creating queue: ${queue.toJson()}');
+      scheduleUpload(queue);
     }
   }
 
@@ -98,6 +99,52 @@ class UploadController {
     });
   }
 
+  /// goes through upload queue and starts uploads. if an upload fails, it will be reattempted. Otherwise, it will be removed from the queue
+  static Future<bool> processUploadQueue(
+      String uid,
+      List<String> localPaths,
+      List<String> localNames,
+      List<int> sizes,
+      String s3Directory,
+      String token,
+      String startDate,
+      String queueName) async {
+    logger.d("Processing upload queue: $localPaths");
+
+    // for each file, start an upload. if it succeeds, remove it from the queue
+    for (int i = 0; i < localNames.length; i++) {
+      var filename = localNames[i];
+      final isSuccess = await startUpload(uid, localPaths[i], filename,
+          sizes[i], s3Directory, token, startDate);
+
+      if (isSuccess) {
+        logger.i('Upload succeeded, removing from queue: $filename');
+        // remove from queue - don't need to reattempt
+        localPaths.removeAt(i);
+        localNames.removeAt(i);
+        sizes.removeAt(i);
+      } else {
+        logger.i('Upload failed, leaving in queue: $filename');
+      }
+    }
+
+    // if there are still files in the queue, recreate the worker with the new queue
+    logger.i('Upload queue size: ${localNames.length}');
+    if (localNames.isNotEmpty) {
+      final queue = UploadRequestQueue(
+          uid, token, s3Directory, localPaths, localNames, sizes, queueName);
+      Workmanager().registerOneOffTask(queueName, "upload",
+          backoffPolicy: BackoffPolicy.linear,
+          tag: queueName,
+          outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
+          existingWorkPolicy: ExistingWorkPolicy.replace,
+          constraints: Constraints(networkType: NetworkType.connected),
+          inputData: queue.toJson());
+    }
+
+    return true;
+  }
+
   /// returns true if the download was started, doesn't need to be started or can't be started
   static Future<bool> startUpload(
       String uid,
@@ -107,6 +154,8 @@ class UploadController {
       String s3Directory,
       String token,
       String startDate) async {
+    logger.i('Starting upload: $localPath');
+
     // return true if start date is more than 12 hours ago
     if (DateTime.now().difference(DateTime.parse(startDate)) >=
         const Duration(hours: 12)) {
@@ -226,4 +275,39 @@ class UploadController {
 
     return completer.future;
   }
+}
+
+class UploadRequestQueue {
+  String uid;
+  String token;
+  String s3Directory;
+  List<String> localPaths;
+  List<String> localNames;
+  List<int> sizes;
+  String startDate = DateTime.now().toUtc().toIso8601String();
+  String queueName;
+
+  UploadRequestQueue(this.uid, this.token, this.s3Directory, this.localPaths,
+      this.localNames, this.sizes, this.queueName);
+
+  UploadRequestQueue.fromJson(Map<String, dynamic> json)
+      : uid = json['uid'],
+        token = json['token'],
+        s3Directory = json['s3Directory'],
+        localPaths = json['localPaths'],
+        localNames = json['localNames'],
+        sizes = json['sizes'],
+        startDate = json['startDate'],
+        queueName = json['queueName'];
+
+  Map<String, dynamic> toJson() => {
+        'uid': uid,
+        'token': token,
+        's3Directory': s3Directory,
+        'localPaths': localPaths,
+        'localNames': localNames,
+        'sizes': sizes,
+        'startDate': startDate,
+        'queueName': queueName,
+      };
 }

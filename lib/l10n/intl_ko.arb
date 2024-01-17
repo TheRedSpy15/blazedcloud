@@ -122,5 +122,11 @@
     "upgradeStorage": "스토리지 업그레이드",
     "failedToOpenPortal": "포털 열기 실패",
     "manageAccount": "계정 관리",
-    "subscribedThroughPlaystoreOrAppstore": "Playstore 또는 Appstore를 통해 구독 중"
+    "subscribedThroughPlaystoreOrAppstore": "Playstore 또는 Appstore를 통해 구독 중",
+    "shareEmailVerificationNeeded": "파일을 공유하려면 이메일을 확인하거나 활성 구독이 필요합니다.",
+    "notVerified": "이메일 확인되지 않음",
+    "emailSent": "이메일 전송됨",
+    "sendEmail": "이메일 보내기",
+    "privacyPolicy": "개인정보 보호 정책",
+    "termsOfService": "서비스 이용 약관"
 }

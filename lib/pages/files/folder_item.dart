@@ -81,33 +81,34 @@ class FolderItem extends ConsumerWidget {
     final downloadController = ref.watch(downloadControllerProvider);
 
     return InkWell(
-      child: Card(
-        child: ListTile(
-          leading: const Icon(Icons.folder),
-          title: Text(getFolderName(folderKey)),
-          trailing: PopupMenuButton<String>(
-            itemBuilder: (context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'save',
-                child: Text(S.of(context).save),
-              ),
-              PopupMenuItem<String>(
-                value: 'delete',
-                child: Text(S.of(context).delete),
-              ),
-            ],
-            onSelected: (value) {
-              if (value == 'save') {
-                ref.read(fileListProvider(folderKey)).whenData((list) {
-                  logger.d(
-                      'test Saving $folderKey \n with $list \n size ${list.contents?.length}');
-                  downloadFolder(folderKey, list, downloadController, context);
-                });
-              } else if (value == 'delete') {
-                delete(folderKey, context, ref);
-              }
-            },
-          ),
+      child: ListTile(
+        leading: const Icon(Icons.folder),
+        title: Text(
+          getFolderName(folderKey),
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        trailing: PopupMenuButton<String>(
+          itemBuilder: (context) => <PopupMenuEntry<String>>[
+            PopupMenuItem<String>(
+              value: 'save',
+              child: Text(S.of(context).save),
+            ),
+            PopupMenuItem<String>(
+              value: 'delete',
+              child: Text(S.of(context).delete),
+            ),
+          ],
+          onSelected: (value) {
+            if (value == 'save') {
+              ref.read(fileListProvider(folderKey)).whenData((list) {
+                logger.d(
+                    'test Saving $folderKey \n with $list \n size ${list.contents?.length}');
+                downloadFolder(folderKey, list, downloadController, context);
+              });
+            } else if (value == 'delete') {
+              delete(folderKey, context, ref);
+            }
+          },
         ),
       ),
       onTapDown: (details) {

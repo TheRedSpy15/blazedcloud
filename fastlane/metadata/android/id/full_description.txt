@@ -1,19 +1,9 @@
-🌐 Selamat datang di Blazed Cloud, solusi penyimpanan cloud pilihan Anda untuk pengalaman pengelolaan file yang lancar dan aman! 🚀
+Blazed Cloud adalah layanan cloud backup minimalis yang menyukai perangkat lunak open source.
 
-Blazed Cloud bukan sekadar aplikasi penyimpanan cloud; ini adalah komitmen terhadap kesederhanaan, keamanan, dan transparansi. Misi kami adalah menyediakan cara yang mudah dan efisien bagi pengguna untuk menyimpan file mereka di cloud sekaligus memastikan tingkat perlindungan data tertinggi.
-
-🔐 Keamanan Tingkat Atas dengan Enkripsi AES-256:
-Tenang saja karena file Anda dilindungi dengan enkripsi AES-256 tingkat militer. Blazed Cloud menjaga privasi Anda dengan serius, memastikan bahwa hanya Anda yang memiliki akses ke data berharga Anda.
-
-🚀 Desain Sederhana dan Intuitif:
-Blazed Cloud dirancang dengan mempertimbangkan kesederhanaan. Tanpa embel-embel yang tidak perlu, tanpa fitur yang membingungkan—hanya antarmuka bersih yang memberikan apa yang Anda butuhkan. Unggah, unduh, dan kelola file Anda dengan mudah hanya dengan beberapa ketukan.
-
-📂 Awan Anda, Jalan Anda:
-Sesuaikan pengalaman penyimpanan cloud Anda dengan kebutuhan Anda. Atur file Anda, buat folder, dan akses data Anda kapan saja, di mana saja. Blazed Cloud memberi Anda kendali.
-
-🌐 Kompatibilitas Lintas Platform:
-Akses file Anda dengan lancar di seluruh perangkat Anda. Blazed Cloud dibangun dengan desain lintas platform untuk membantu Anda merasa yakin dengan kemampuan Anda mengakses data
-
-Nikmati penyimpanan cloud sebagaimana mestinya—sederhana, aman, dan transparan. Unduh Blazed Cloud sekarang dan kendalikan dunia digital Anda.
-
-🔥 Ciptakan jejak di awan dengan Blazed Cloud! 🔥
+- Semua file dienkripsi dengan AES-256
+- Antarmuka pengguna sederhana dan tidak berantakan
+- Aplikasi itu sendiri ringan dan tidak akan memakan banyak ruang
+- 15 Gigabyte gratis hanya dengan membuat akun
+- Berbagi file dengan mudah melalui URL dengan waktu kadaluarsa
+- Penguncian aplikasi dengan biometrik
+- Penghapusan akun opsional jika Anda berhenti menggunakan layanan kami setelah 90 hari.

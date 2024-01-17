@@ -1,19 +1,9 @@
-🌐 Benvenuto in Blazed Cloud, la tua soluzione di archiviazione cloud ideale per un'esperienza di gestione dei file fluida e sicura! 🚀
+Blazed Cloud è un servizio di backup cloud minimalista che ama il software open source.
 
-Blazed Cloud non è solo un'altra app di archiviazione cloud; è un impegno per la semplicità, la sicurezza e la trasparenza. La nostra missione è fornire agli utenti un modo semplice ed efficiente per archiviare i propri file nel cloud garantendo al contempo il massimo livello di protezione dei dati.
-
-🔐 Sicurezza di livello superiore con crittografia AES-256:
-Stai tranquillo sapendo che i tuoi file sono protetti con la crittografia AES-256 di livello militare. Blazed Cloud prende sul serio la tua privacy, assicurando che solo tu abbia accesso ai tuoi dati preziosi.
-
-🚀 Design semplice e intuitivo:
-Blazed Cloud è progettato pensando alla semplicità. Nessun fronzolo inutile, nessuna funzionalità confusa: solo un'interfaccia pulita che ti offre esattamente ciò di cui hai bisogno. Carica, scarica e gestisci facilmente i tuoi file con pochi tocchi.
-
-📂 Il tuo cloud, a modo tuo:
-Personalizza la tua esperienza di archiviazione nel cloud in base alle tue esigenze. Organizza i tuoi file, crea cartelle e accedi ai tuoi dati sempre e ovunque. Blazed Cloud ti dà il controllo.
-
-🌐 Compatibilità multipiattaforma:
-Accedi ai tuoi file senza problemi su tutti i tuoi dispositivi. Blazed Cloud è realizzato con un design multipiattaforma per aiutarti a sentirti sicuro della tua capacità di accedere ai tuoi dati
-
-Sperimenta il cloud storage come dovrebbe essere: semplice, sicuro e trasparente. Scarica subito Blazed Cloud e prendi il controllo del tuo mondo digitale.
-
-🔥 Traccia una scia nella nuvola con Blazed Cloud! 🔥
+- Tutti i file sono crittografati con AES-256
+- L'interfaccia utente è semplice e non ingombra
+- L'app stessa è leggera e non occuperà molto spazio
+- 15 Gigabyte di livello gratuito solo creando un account
+- Facile condivisione di file tramite URL con scadenze temporali
+- Blocco dell'app tramite biometria
+- Eliminazione opzionale dell'account se smetti di utilizzare il nostro servizio dopo 90 giorni.

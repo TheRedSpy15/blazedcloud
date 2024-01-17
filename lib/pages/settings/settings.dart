@@ -89,6 +89,8 @@ class SettingsScreen extends ConsumerWidget {
               CustomSettingsGroup(
                 items: [
                   githubSetting(context),
+                  termsSetting(context),
+                  privacyPolicySetting(context),
                   signOutSetting(context),
                   deleteAccountSetting(context),
                 ],
@@ -253,6 +255,25 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
+  CustomSettingsItem privacyPolicySetting(BuildContext context) {
+    return CustomSettingsItem(
+      onTap: () {
+        final url = Uri.parse("https://blazedcloud.com/privacy-policy/");
+        canLaunchUrl(url).then((canLaunch) {
+          if (canLaunch) {
+            launchUrl(url);
+          } else {
+            logger.e("Can't launch url: $url");
+          }
+        });
+      },
+      icons: CupertinoIcons.doc_text,
+      trailing: const SizedBox.shrink(),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(context).privacyPolicy,
+    );
+  }
+
   CustomSettingsItem? prunableSetting(
       AsyncValue<User> userData, BuildContext context, WidgetRef ref) {
     return userData.when(
@@ -340,6 +361,25 @@ class SettingsScreen extends ConsumerWidget {
       icons: Icons.exit_to_app_rounded,
       trailing: const SizedBox.shrink(),
       title: S.of(context).signOut,
+    );
+  }
+
+  CustomSettingsItem termsSetting(BuildContext context) {
+    return CustomSettingsItem(
+      onTap: () {
+        final url = Uri.parse("https://blazedcloud.com/terms-of-service/");
+        canLaunchUrl(url).then((canLaunch) {
+          if (canLaunch) {
+            launchUrl(url);
+          } else {
+            logger.e("Can't launch url: $url");
+          }
+        });
+      },
+      icons: CupertinoIcons.doc_text,
+      trailing: const SizedBox.shrink(),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(context).termsOfService,
     );
   }
 }

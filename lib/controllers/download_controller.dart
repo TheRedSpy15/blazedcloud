@@ -49,7 +49,7 @@ class DownloadController {
 
     Workmanager().registerOneOffTask(fileKey.hashCode.toString(), "download",
         constraints: Constraints(
-            networkType: NetworkType.unmetered, requiresStorageNotLow: true),
+            networkType: NetworkType.connected, requiresStorageNotLow: true),
         tag: fileKey,
         backoffPolicy: BackoffPolicy.linear,
         outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,

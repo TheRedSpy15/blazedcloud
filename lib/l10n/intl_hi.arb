@@ -122,5 +122,11 @@
     "upgradeStorage": "भंडारण अपग्रेड करें",
     "failedToOpenPortal": "पोर्टल खोलने में विफल",
     "manageAccount": "खाता प्रबंधित करें",
-    "subscribedThroughPlaystoreOrAppstore": "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"
+    "subscribedThroughPlaystoreOrAppstore": "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई",
+    "shareEmailVerificationNeeded": "फ़ाइलें साझा करने के लिए ईमेल को सत्यापित किया जाना चाहिए, या सक्रिय सब्सक्रिप्शन होना चाहिए।",
+    "notVerified": "ईमेल सत्यापित नहीं है",
+    "emailSent": "ईमेल भेजा गया",
+    "sendEmail": "ईमेल भेजें",
+    "privacyPolicy": "गोपनीयता नीति",
+    "termsOfService": "सेवा की शर्तें"
 }

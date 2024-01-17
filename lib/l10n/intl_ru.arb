@@ -122,5 +122,11 @@
     "upgradeStorage": "Повышение объема хранилища",
     "failedToOpenPortal": "Не удалось открыть портал",
     "manageAccount": "Управление учетной записью",
-    "subscribedThroughPlaystoreOrAppstore": "Подписано через Playstore или Appstore"
+    "subscribedThroughPlaystoreOrAppstore": "Подписано через Playstore или Appstore",
+    "shareEmailVerificationNeeded": "Необходима проверка электронной почты или активная подписка для передачи файлов.",
+    "notVerified": "Электронная почта не подтверждена",
+    "emailSent": "Отправлено электронное письмо",
+    "sendEmail": "Отправить электронное письмо",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsOfService": "Условия использования"
 }

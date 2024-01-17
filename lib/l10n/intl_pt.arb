@@ -122,5 +122,11 @@
     "upgradeStorage": "Atualizar Armazenamento",
     "failedToOpenPortal": "Falha ao abrir o portal",
     "manageAccount": "Gerenciar Conta",
-    "subscribedThroughPlaystoreOrAppstore": "Inscrito através da Play Store ou App Store"
+    "subscribedThroughPlaystoreOrAppstore": "Inscrito através da Play Store ou App Store",
+    "shareEmailVerificationNeeded": "E-mail precisa ser verificado, ou ter uma assinatura ativa para compartilhar arquivos.",
+    "notVerified": "E-mail não verificado",
+    "emailSent": "E-mail enviado",
+    "sendEmail": "Enviar E-mail",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço"
 }

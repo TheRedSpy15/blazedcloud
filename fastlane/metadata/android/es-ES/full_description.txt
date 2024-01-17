@@ -1,19 +1,9 @@
-🌐 ¡Bienvenido a Blazed Cloud, su solución de almacenamiento en la nube ideal para una experiencia de administración de archivos segura y sin problemas! 🚀
+Blazed Cloud es un servicio de copia de seguridad en la nube minimalista que adora el software de código abierto.
 
-Blazed Cloud no es sólo otra aplicación de almacenamiento en la nube; es un compromiso con la simplicidad, la seguridad y la transparencia. Nuestra misión es brindar a los usuarios una forma sencilla y eficiente de almacenar sus archivos en la nube y al mismo tiempo garantizar el más alto nivel de protección de datos.
-
-🔐 Seguridad de primer nivel con cifrado AES-256:
-Descanse tranquilo sabiendo que sus archivos están protegidos con cifrado AES-256 de grado militar. Blazed Cloud se toma en serio su privacidad y garantiza que solo usted tenga acceso a sus datos valiosos.
-
-🚀 Diseño simple e intuitivo:
-Blazed Cloud está diseñado pensando en la simplicidad. Sin lujos innecesarios ni funciones confusas: solo una interfaz limpia que le brinda exactamente lo que necesita. Cargue, descargue y administre sus archivos sin esfuerzo con unos pocos toques.
-
-📂 Tu nube, a tu manera:
-Personalice su experiencia de almacenamiento en la nube para adaptarla a sus necesidades. Organice sus archivos, cree carpetas y acceda a sus datos en cualquier momento y lugar. Blazed Cloud te da el control.
-
-🌐 Compatibilidad multiplataforma:
-Acceda a sus archivos sin problemas en todos sus dispositivos. Blazed Cloud está construido con un diseño multiplataforma para ayudarlo a sentirse seguro de su capacidad para acceder a sus datos.
-
-Experimente el almacenamiento en la nube como debería ser: simple, seguro y transparente. Descarga Blazed Cloud ahora y toma el control de tu mundo digital.
-
-🔥 ¡Abre un camino en la nube con Blazed Cloud! 🔥
+- Todos los archivos están cifrados con AES-256
+- La interfaz de usuario es sencilla y no está abarrotada
+- La propia aplicación es ligera y no ocupará mucho espacio
+- 15 gigabytes en el nivel gratuito solo con crear una cuenta
+- Fácil intercambio de archivos mediante URL con expiraciones programadas
+- Bloqueo biométrico de la aplicación
+- Eliminación opcional de la cuenta si deja de utilizar nuestro servicio después de 90 días.

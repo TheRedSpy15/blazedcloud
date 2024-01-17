@@ -879,6 +879,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Email needs to be verified, or have active subscription to share files.`
+  String get shareEmailVerificationNeeded {
+    return Intl.message(
+      'Email needs to be verified, or have active subscription to share files.',
+      name: 'shareEmailVerificationNeeded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email not verified`
+  String get notVerified {
+    return Intl.message(
+      'Email not verified',
+      name: 'notVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email sent`
+  String get emailSent {
+    return Intl.message(
+      'Email sent',
+      name: 'emailSent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Email`
+  String get sendEmail {
+    return Intl.message(
+      'Send Email',
+      name: 'sendEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms of Service`
+  String get termsOfService {
+    return Intl.message(
+      'Terms of Service',
+      name: 'termsOfService',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

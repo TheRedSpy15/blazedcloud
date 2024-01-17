@@ -87,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Эл. почта"),
         "emailDomainNotAllowed": MessageLookupByLibrary.simpleMessage(
             "Домен электронной почты не разрешен"),
+        "emailSent": MessageLookupByLibrary.simpleMessage(
+            "Отправлено электронное письмо"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Нет файлов или папок"),
         "errorErr": m2,
@@ -120,6 +122,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Войти"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Управление учетной записью"),
+        "notVerified": MessageLookupByLibrary.simpleMessage(
+            "Электронная почта не подтверждена"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Открыть"),
@@ -134,6 +138,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Выберите директорию, в которую вы хотели бы загрузить ваши файлы на следующем экране."),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Политика конфиденциальности"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Приобретите 1 ТБ, используя сборку из Play Store. Вы можете удалить эту версию после завершения."),
@@ -146,10 +152,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Выберите директорию для загрузки"),
         "send": MessageLookupByLibrary.simpleMessage("Отправить"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage(
+            "Отправить электронное письмо"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Сервер находится на техническом обслуживании. Пожалуйста, попробуйте позже."),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "share": MessageLookupByLibrary.simpleMessage("Поделиться"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Необходима проверка электронной почты или активная подписка для передачи файлов."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Поделиться файлом"),
         "signOut": MessageLookupByLibrary.simpleMessage("Выйти"),
         "signUp": MessageLookupByLibrary.simpleMessage("Зарегистрироваться"),
@@ -158,6 +168,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Подписано через Playstore или Appstore"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("Условия использования"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачи"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Повышение объема хранилища"),
