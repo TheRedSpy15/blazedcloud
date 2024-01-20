@@ -2,6 +2,7 @@ import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
 import 'package:blazedcloud/log.dart';
+import 'package:blazedcloud/models/pocketbase/authstore.dart';
 import 'package:blazedcloud/pages/dashboard.dart';
 import 'package:blazedcloud/pages/login/locked.dart';
 import 'package:blazedcloud/pages/login/login.dart';
@@ -9,14 +10,13 @@ import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:workmanager/workmanager.dart';
@@ -28,8 +28,6 @@ void main() async {
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-
-  await Hive.initFlutter();
 
   await Workmanager().initialize(
       callbackDispatcher, // The top level function, aka callbackDispatcher
@@ -97,6 +95,8 @@ void callbackDispatcher() {
           inputData?['token'],
           inputData?['startDate'],
           inputData?['queueName']);
+    } else if (task == "folderSync") {
+      return await syncFolders(inputData?['uid'], inputData?['token']);
     }
 
     return Future.value(true);
@@ -208,8 +208,7 @@ class LandingPage extends ConsumerWidget {
             logger.i("Error loading saved auth: $err");
 
             // clear saved auth
-            Hive.deleteBoxFromDisk('vaultBox');
-            const FlutterSecureStorage().delete(key: 'key');
+            getSecureStorage().deleteAll();
 
             return const LandingContent();
           },
@@ -225,7 +224,7 @@ class LandingPage extends ConsumerWidget {
       error: (err, stack) {
         logger.e("Server Health check failed: $err");
         return FutureBuilder(
-            future: getExportDirectoryFromHive(),
+            future: getExportDirectoryFromPrefs(),
             builder: (context, snapshot) {
               return Scaffold(
                 body: Center(

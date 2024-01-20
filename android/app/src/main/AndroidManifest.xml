@@ -12,6 +12,8 @@
     </queries>
     <application
         android:label="blazed cloud"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <meta-data

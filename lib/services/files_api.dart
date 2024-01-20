@@ -110,7 +110,6 @@ Future<String> getFileLink(String uid, String filename, String token,
   if (!sharing) {
     // check in memory list first
     if (fileLinks.containsKey(filename)) {
-      logger.d("Got link from memory $filename");
       return fileLinks[filename]!;
     }
 
@@ -131,7 +130,6 @@ Future<String> getFileLink(String uid, String filename, String token,
 
     // add link to in memory list if not sharing
     if (!sharing) {
-      logger.d("Adding link to memory $responseBody");
       fileLinks[filename] = responseBody;
     }
 
@@ -216,24 +214,6 @@ Future<List<String>> getSearchList(String uid, String token) async {
   } else {
     logger.e(response.reasonPhrase);
     throw Exception('Failed to load file list');
-  }
-}
-
-/// Only call this once. Gets token for githuh_snitch
-@Deprecated("Github snitch is too unreliable")
-Future<String> getSnitchToken() async {
-  // GET to /data/usage/{uid}
-  logger.d("Getting snitch token");
-  var request = http.Request('GET', Uri.parse('$backendUrl/snitch'));
-  http.StreamedResponse response = await httpClient.send(request);
-
-  if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
-    logger.d("Got snitch token");
-    return responseBody;
-  } else {
-    logger.e(response.reasonPhrase);
-    throw Exception('Failed to load snitch token');
   }
 }
 

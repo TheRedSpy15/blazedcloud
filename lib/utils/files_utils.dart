@@ -8,12 +8,12 @@ import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/models/transfers/download_state.dart';
 import 'package:file_picker/file_picker.dart' as fp;
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:open_filex/open_filex.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Check if the user has granted access to the download directory
 Future<bool> checkIfAccessToDownloadDirectoryIsGranted() async {
-  final downloadDirectory = await getExportDirectoryFromHive();
+  final downloadDirectory = await getExportDirectoryFromPrefs();
   final downloadFolder = File(downloadDirectory);
 
   if (downloadDirectory.isEmpty) {
@@ -116,13 +116,32 @@ List<String> fuzzySearch(String query, List<String> list) {
   return filteredResults;
 }
 
-/// Get the download directory from Hive
-Future<String> getExportDirectoryFromHive() async {
-  await Hive.initFlutter();
+/// prompt user to select a directory for downloads
+Future<String> getExportDirectoryFromPicker() async {
+  final result = await fp.FilePicker.platform.getDirectoryPath();
+  final prefs = await SharedPreferences.getInstance();
+
+  if (result != null) {
+    // User selected a directory
+    logger.i('User selected directory: $result');
+
+    // save the directory to shared preferences
+    await prefs.setString('downloadDirectory', result);
+
+    return result;
+  } else {
+    // User canceled the picker
+    logger.i('User canceled directory picker');
+    return '';
+  }
+}
+
+/// Get the download directory from shared preferences
+Future<String> getExportDirectoryFromPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
 
   // check if Hive has a download directory saved
-  final box = await Hive.openBox<String>('files');
-  final downloadDirectory = box.get('downloadDirectory');
+  final downloadDirectory = prefs.getString('downloadDirectory');
 
   if (downloadDirectory != null) {
     // check if the directory still exists or we still have access to it
@@ -134,26 +153,6 @@ Future<String> getExportDirectoryFromHive() async {
   }
 
   return '';
-}
-
-/// prompt user to select a directory for downloads
-Future<String> getExportDirectoryFromPicker() async {
-  final result = await fp.FilePicker.platform.getDirectoryPath();
-
-  if (result != null) {
-    // User selected a directory
-    logger.i('User selected directory: $result');
-
-    // Save the directory to Hive
-    final box = await Hive.openBox<String>('files');
-    box.put('downloadDirectory', result);
-
-    return result;
-  } else {
-    // User canceled the picker
-    logger.i('User canceled directory picker');
-    return '';
-  }
 }
 
 getFileDirectory(String key) {
@@ -322,7 +321,7 @@ List<String> getKeysInFolder(
 
 Future<File> getOfflineFile(String filename) async {
   // Get the directory for the app's internal storage
-  final directory = await getExportDirectoryFromHive();
+  final directory = await getExportDirectoryFromPrefs();
 
   // Construct the file path using the filename
   final filePath = File('$directory/$filename');
@@ -369,7 +368,7 @@ bool isFileBeingDownloaded(String file, List<DownloadState> downloads) {
 Future<bool> isFileSavedOffline(String filename) async {
   // Get the directory for the app's internal storage
   //final directory = await getApplicationDocumentsDirectory();
-  final directory = await getExportDirectoryFromHive();
+  final directory = await getExportDirectoryFromPrefs();
 
   // Construct the file path using the filename
   final filePath = File('$directory/$filename');

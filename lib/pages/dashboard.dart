@@ -2,6 +2,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/pages/files/file_page.dart';
 import 'package:blazedcloud/pages/settings/settings.dart';
+import 'package:blazedcloud/pages/sync/sync.dart';
 import 'package:blazedcloud/pages/transfers/transfers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,10 @@ class Dashboard extends ConsumerWidget {
                 child: const Icon(Icons.cloud_sync)),
             label: S.of(context).transfers,
           ),
+          const NavigationDestination(
+            icon: Icon(Icons.drive_folder_upload),
+            label: "Sync",
+          ),
           NavigationDestination(
             icon: const Icon(Icons.settings),
             label: S.of(context).settings,
@@ -55,6 +60,10 @@ class Dashboard extends ConsumerWidget {
         Container(
           alignment: Alignment.center,
           child: const TransfersPage(),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: const SyncPage(),
         ),
         Container(
           alignment: Alignment.center,

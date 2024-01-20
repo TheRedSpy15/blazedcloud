@@ -14,9 +14,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -129,9 +127,8 @@ class SettingsScreen extends ConsumerWidget {
           if (value != null) {
             // delete account
             try {
-              pb.collection('users').delete(pb.authStore.model.id);
-              Hive.deleteBoxFromDisk('vaultBox');
-              const FlutterSecureStorage().delete(key: 'key').then((value) {
+              pb.collection('users').delete(pb.authStore.model.id).then((_) {
+                logger.i('User Deleted - Signing out');
                 pb.authStore.clear();
                 context.go('/landing');
               });
@@ -349,12 +346,8 @@ class SettingsScreen extends ConsumerWidget {
         ).then((value) async {
           if (value != null) {
             logger.i('Signing out');
-            // sign out
-            await Hive.deleteBoxFromDisk('vaultBox');
-            await const FlutterSecureStorage().delete(key: 'key').then((value) {
-              pb.authStore.clear();
-              context.go('/landing');
-            });
+            pb.authStore.clear();
+            context.go('/landing');
           }
         });
       },

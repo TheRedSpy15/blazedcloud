@@ -57,7 +57,7 @@ class DownloadController {
         inputData: {
           "uid": uid,
           "fileKey": fileKey,
-          "exportDir": await getExportDirectoryFromHive(),
+          "exportDir": await getExportDirectoryFromPrefs(),
           "token": pb.authStore.token,
           "startDate": DateTime.now().toIso8601String(),
         });

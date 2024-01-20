@@ -3,65 +3,62 @@ import 'dart:convert';
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pocketbase/pocketbase.dart';
+
+FlutterSecureStorage? secureStorage;
+
+AndroidOptions getAndroidSecureOptions() => const AndroidOptions(
+      encryptedSharedPreferences: true,
+    );
+
+FlutterSecureStorage getSecureStorage() {
+  if (secureStorage == null) {
+    secureStorage = FlutterSecureStorage(aOptions: getAndroidSecureOptions());
+    return secureStorage!;
+  }
+  return secureStorage!;
+}
 
 class CustomAuthStore extends AuthStore {
   @override
   void clear() {
     super.clear();
 
-    Hive.deleteBoxFromDisk('vaultBox');
-    const FlutterSecureStorage().delete(key: 'key');
-    Hive.deleteBoxFromDisk('points');
-    Hive.deleteBoxFromDisk('history');
-  }
-
-  isAuthBoxPresent() async {
-    final box = await Hive.openBox('vaultBox');
-    return box.isNotEmpty;
+    getSecureStorage().deleteAll();
   }
 
   Future<CustomAuthStore?> loadAuth() async {
-    // Load the encryption key from secure storage
-    const secureStorage = FlutterSecureStorage();
-    final encryptionKeyString = await secureStorage.read(key: 'key');
-    if (encryptionKeyString == null) {
-      // Generate a new key if one does not exist
-      logger.d("generating new key");
-      final key = Hive.generateSecureKey();
-      await secureStorage.write(key: 'key', value: base64UrlEncode(key));
-    } else {
-      logger.d("key already exists");
-    }
+    try {
+      const storage = FlutterSecureStorage();
 
-    // Open the encrypted box
-    final key = await secureStorage.read(key: 'key');
-    final encryptionKeyUint8List = base64Url.decode(key!);
+      if (!await storage.containsKey(
+          key: "auth", aOptions: getAndroidSecureOptions())) {
+        logger.e("no auth record found");
+        return null;
+      }
 
-    // load data from hive
-    final encryptedBox = await Hive.openBox('vaultBox',
-        encryptionCipher: HiveAesCipher(encryptionKeyUint8List));
-
-    final data = encryptedBox.get('auth');
-    if (data != null) {
-      logger.d("loaded auth from hive");
+      String data = await storage.read(
+              key: "auth", aOptions: getAndroidSecureOptions()) ??
+          "";
+      if (data.isEmpty) {
+        logger.e("auth is empty");
+        return null;
+      }
 
       final decoded = jsonDecode(data);
+
       final token = (decoded as Map<String, dynamic>)["token"] as String? ?? "";
+      if (token.isEmpty) {
+        logger.e("token is empty");
+        storage.deleteAll();
+        return null;
+      }
+
       final model =
           RecordModel.fromJson(decoded["model"] as Map<String, dynamic>? ?? {});
 
       save(token, model);
-      logger.d("applied auth from hive");
-    } else {
-      logger.d("no auth in hive");
-    }
 
-    if (token.isEmpty) {
-      return null;
-    }
-    try {
       await pb
           .collection('users')
           .authRefresh(headers: {"Authorization": token});
@@ -70,12 +67,7 @@ class CustomAuthStore extends AuthStore {
 
       // clear auth
       clear();
-
-      // clear hive
-      Hive.deleteBoxFromDisk('vaultBox');
-
-      // clear secure storage
-      secureStorage.delete(key: 'key');
+      getSecureStorage().deleteAll();
 
       return null;
     }
@@ -90,40 +82,13 @@ class CustomAuthStore extends AuthStore {
   ) {
     super.save(newToken, newModel);
 
-    saveAuth(newToken, newModel);
-
-    return this;
-  }
-
-  saveAuth(
-    String newToken,
-    dynamic newModel,
-  ) async {
     final encoded =
         jsonEncode(<String, dynamic>{"token": newToken, "model": newModel});
-    logger.d("saving auth to hive");
+    logger.d("saving auth to secure storage");
 
-    // Load the encryption key from secure storage
-    const secureStorage = FlutterSecureStorage();
-    final encryptionKeyString = await secureStorage.read(key: 'key');
-    if (encryptionKeyString == null) {
-      // Generate a new key if one does not exist
-      logger.d("generating new key");
-      final key = Hive.generateSecureKey();
-      await secureStorage.write(key: 'key', value: base64UrlEncode(key));
-    } else {
-      logger.d("key already exists");
-    }
-
-    // Open the encrypted box
-    final key = await secureStorage.read(key: 'key');
-    final encryptionKeyUint8List = base64Url.decode(key!);
-
-    // save data to hive
-    final encryptedBox = await Hive.openBox('vaultBox',
-        encryptionCipher: HiveAesCipher(encryptionKeyUint8List));
-    encryptedBox.put('auth', encoded);
-    logger.d("saved auth to hive");
+    getSecureStorage().write(
+        key: "auth", value: encoded, aOptions: getAndroidSecureOptions());
+    logger.d("saved auth to secure storage\n$encoded");
 
     return this;
   }
