@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/sync/folder_to_watch.dart';
 import 'package:blazedcloud/providers/sync_providers.dart';
@@ -14,7 +16,7 @@ class WatcherFolderCard extends ConsumerWidget {
     return InkWell(
       child: Card(
         elevation: 2.0,
-        margin: const EdgeInsets.all(16.0),
+        margin: const EdgeInsets.all(4.0),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -24,8 +26,9 @@ class WatcherFolderCard extends ConsumerWidget {
                 style: const TextStyle(
                     fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
-              Text(folder.folderPath),
-              Text(folder.mode.toString()),
+              Text("Local: ${folder.folderPath}"),
+              Text("Remote: ${folder.remoteFolderKey}"),
+              Text("Mode: ${folder.mode}"),
               Text("Last Synced: ${folder.getLastSyncedIntl()}"),
             ],
           ),
@@ -50,9 +53,16 @@ class WatcherFolderCard extends ConsumerWidget {
                       onPressed: () {
                         // remove from shared prefs
                         SharedPreferences.getInstance().then((prefs) {
-                          final folders = prefs.getStringList("folders") ?? [];
-                          folders.remove(folder.folderPath);
-                          prefs.setStringList("folders", folders);
+                          final foldersToWatch =
+                              prefs.getStringList("foldersToWatch") ??
+                                  List.empty();
+                          foldersToWatch.removeWhere((element) =>
+                              FolderToWatch.fromJson(Map<String, dynamic>.from(
+                                      jsonDecode(element)))
+                                  .folderPath ==
+                              folder.folderPath);
+                          prefs.setStringList(
+                              "foldersToWatch", foldersToWatch.cast<String>());
                         });
 
                         // remove from the UI

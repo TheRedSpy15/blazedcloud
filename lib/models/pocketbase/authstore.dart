@@ -84,11 +84,9 @@ class CustomAuthStore extends AuthStore {
 
     final encoded =
         jsonEncode(<String, dynamic>{"token": newToken, "model": newModel});
-    logger.d("saving auth to secure storage");
 
     getSecureStorage().write(
         key: "auth", value: encoded, aOptions: getAndroidSecureOptions());
-    logger.d("saved auth to secure storage\n$encoded");
 
     return this;
   }

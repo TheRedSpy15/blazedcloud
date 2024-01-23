@@ -17,7 +17,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:workmanager/workmanager.dart';
 
@@ -117,7 +116,6 @@ class LandingContent extends StatelessWidget {
           Text(S.of(context).appName,
               style:
                   const TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
-          Lottie.asset("assets/lottie/fire.json", repeat: true),
           ElevatedButton(
             onPressed: () {
               context.pushNamed('login');

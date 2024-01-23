@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:lottie/lottie.dart';
 
 class LockedScreen extends ConsumerWidget {
   const LockedScreen({super.key});
@@ -27,7 +26,6 @@ class LockedScreen extends ConsumerWidget {
                 "Saved files are still visisble in export folder",
                 textAlign: TextAlign.center,
               ),
-              Lottie.asset("assets/lottie/locked.json", repeat: false),
               ElevatedButton(
                 onPressed: () {
                   try {

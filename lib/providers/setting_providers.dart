@@ -32,9 +32,9 @@ final isPrefsLoaded = FutureProvider.autoDispose<bool>((ref) async {
   ref.read(isBiometricEnabledProvider.notifier).state =
       prefs.getBool('biometric') ?? false;
   ref.read(watchEnabledProvider.notifier).state =
-      prefs.getBool('isWatching') ?? false;
+      prefs.getBool('isWatching') ?? true;
   ref.read(syncFrequencyProvider.notifier).state =
-      prefs.getInt('syncFrequency') ?? 0;
+      prefs.getInt('syncFrequency') ?? 30;
   ref.read(allowMeteredProvider.notifier).state =
       prefs.getBool('allowMetered') ?? false;
   ref.read(requireChargingProvider.notifier).state =

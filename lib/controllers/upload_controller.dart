@@ -18,6 +18,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 import 'package:workmanager/workmanager.dart';
 
+/// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {
   final ProviderRef<Object> _ref;
 

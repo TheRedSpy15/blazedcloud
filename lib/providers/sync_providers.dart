@@ -27,5 +27,5 @@ final syncFrequencyProvider = StateProvider<int>((ref) {
 });
 
 final watchEnabledProvider = StateProvider<bool>((ref) {
-  return false;
+  return true;
 });

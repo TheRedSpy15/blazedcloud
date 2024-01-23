@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/generated/l10n.dart';
@@ -146,6 +148,7 @@ class FolderItem extends ConsumerWidget {
               child: const Text("Cancel")),
           TextButton(
               onPressed: () {
+                // TODO: get required permissions to access files
                 Navigator.of(context).pop();
 
                 FilePicker.platform.getDirectoryPath().then((path) {
@@ -192,7 +195,7 @@ class FolderItem extends ConsumerWidget {
                     prefs.setStringList(
                         "foldersToWatch",
                         folders
-                            .map((folder) => folder.toJson())
+                            .map((folder) => jsonEncode(folder.toJson()))
                             .toList()
                             .cast<String>());
                     logger.d("Saved folders to watch");

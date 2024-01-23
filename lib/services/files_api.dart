@@ -103,7 +103,6 @@ Future<http.StreamedResponse> getFile(
 /// don't call directly to download files. This is used by getFile(). Unless you want to share the link
 Future<String> getFileLink(String uid, String filename, String token,
     {bool sharing = false, String duration = "15m"}) async {
-  logger.i("Getting file link for $filename");
   var request =
       http.MultipartRequest('POST', Uri.parse('$backendUrl/data/down/$uid'));
 
@@ -126,7 +125,6 @@ Future<String> getFileLink(String uid, String filename, String token,
 
   if (response.statusCode == 200) {
     final responseBody = await response.stream.bytesToString();
-    logger.d("Got link $responseBody");
 
     // add link to in memory list if not sharing
     if (!sharing) {
@@ -217,15 +215,15 @@ Future<List<String>> getSearchList(String uid, String token) async {
   }
 }
 
-/// don't call directly. use uploadFile
+/// uid is automatically added to key by back end, if not present
 Future<String> getUploadUrl(
-    String uid, String filename, String token, int length,
+    String uid, String fileKey, String token, int length,
     {String contentType = "application/octet-stream"}) async {
   var headers = {'Authorization': 'Bearer $token'};
   var request =
       http.MultipartRequest('POST', Uri.parse('$backendUrl/data/up/$uid'));
   request.fields.addAll({
-    'filename': filename,
+    'filename': fileKey,
     'contentType': contentType,
     'contentLength': length.toString()
   });
@@ -261,47 +259,5 @@ Future<int> getUsage(String uid, String token) async {
   } else {
     logger.e(response.reasonPhrase);
     throw Exception('Failed to load usage');
-  }
-}
-
-/// use this to upload files directly. it will get the upload url and upload the file.
-/// exclude the uid from the filename, it is added automatically
-Future<http.StreamedResponse> uploadFile(String uid, String fileKey,
-    http.ByteStream bytes, String token, int length) async {
-  logger.i("Uploading file $fileKey");
-
-  return await getUploadUrl(uid, fileKey, token, length)
-      .then((value) => uploadToUrl(value, fileKey, bytes, length));
-}
-
-/// don't call directly. use uploadFile
-Future<http.StreamedResponse> uploadToUrl(
-  String url,
-  String filename,
-  http.ByteStream bytes,
-  int length,
-) async {
-  logger.i("Uploading file $filename to $url");
-  try {
-    var request = http.MultipartRequest('PUT', Uri.parse(url));
-    request.files.add(http.MultipartFile(
-      'file',
-      bytes,
-      await bytes.length,
-      filename: filename,
-    ));
-
-    http.StreamedResponse response = await httpClient.send(request);
-
-    if (response.statusCode == 200) {
-      logger.d("Uploaded file $filename");
-      return response;
-    } else {
-      logger.e(response.reasonPhrase);
-      throw Exception('Failed to upload file');
-    }
-  } catch (e) {
-    logger.e("Error uploading file: $e");
-    throw Exception('Failed to upload file');
   }
 }

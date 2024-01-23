@@ -39,7 +39,6 @@ dependencies:
   pocketbase: ^0.17.0
   go_router: ^13.0.0
   flutter_secure_storage: ^9.0.0
-  lottie: ^3.0.0
   shared_preferences: ^2.2.1
   flutter_riverpod: ^2.4.0
   http: ^1.1.0
@@ -84,10 +83,6 @@ flutter_launcher_icons:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-  assets:
-    - assets/lottie/fire.json
-    - assets/lottie/locked.json
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

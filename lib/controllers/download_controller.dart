@@ -51,7 +51,7 @@ class DownloadController {
         constraints: Constraints(
             networkType: NetworkType.connected, requiresStorageNotLow: true),
         tag: fileKey,
-        backoffPolicy: BackoffPolicy.linear,
+        backoffPolicy: BackoffPolicy.exponential,
         outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
         existingWorkPolicy: ExistingWorkPolicy.keep,
         inputData: {
@@ -87,9 +87,10 @@ class DownloadController {
     }
 
     SendPort? sendPort = IsolateNameServer.lookupPortByName("downloader");
-    final filePath = '$appDocDir/$fileKey'; // Define the file path
+    final filePath =
+        '$appDocDir/${getFilePathFromKey(fileKey, uid)}'; // Define the file path
 
-    if (appDocDir.isEmpty) {
+    if (!Directory(appDocDir).existsSync()) {
       logger.e('Could not get appDocDir');
       return false;
     }
@@ -115,7 +116,7 @@ class DownloadController {
       // Initialize progress to 0
       double progress = 0.0;
 
-      final file = File(filePath);
+      final file = File('$filePath.part');
 
       if (!await file.exists()) {
         await file.create(recursive: true);
@@ -173,6 +174,9 @@ class DownloadController {
             logger.e('send port error ($fileKey): $error');
           }
         }
+
+        // rename the file
+        file.renameSync(filePath);
       }, cancelOnError: true);
     } catch (error) {
       logger.e('Download error: $error');

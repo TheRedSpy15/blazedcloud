@@ -165,6 +165,14 @@ String getFileName(String filename) {
   return filename.substring(filename.lastIndexOf('/') + 1);
 }
 
+String getFilePathFromKey(String key, String uid) {
+  // remove uid + / if the key starts with it
+  if (key.startsWith('$uid/')) {
+    return key = key.substring(uid.length + 1);
+  }
+  return key;
+}
+
 /// DO NOT USE AS FOR CONTENT-TYPE HEADER. This is purely for UI purposes
 FileType getFileType(String fileName) {
   if (fileName.endsWith('.jpg') ||
