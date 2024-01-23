@@ -60,72 +60,72 @@ class FilesPage extends ConsumerWidget {
                 icon: const Icon(Icons.search),
               )
             ]),
-        body: objectList.when(
-          data: (data) {
-            final folders = data.commonPrefixes ?? [];
-            final files = data.contents ?? [];
-            if ((data.contents?.isEmpty ?? true) &&
-                (data.commonPrefixes?.isEmpty ?? true)) {
-              return Center(
-                child: Text(S.of(context).emptyDirectory),
-              );
-            }
+        body: RefreshIndicator(
+          onRefresh: () async {
+            // Invalidate by refreshing the FutureProvider
+            ref.invalidate(fileListProvider(currentDirectory));
 
-            return Stack(children: [
-              RefreshIndicator(
-                onRefresh: () async {
-                  // Invalidate by refreshing the FutureProvider
-                  ref.invalidate(fileListProvider(currentDirectory));
+            // Wait for the new data to load
+            await ref.read(fileListProvider(currentDirectory).future);
+          },
+          child: objectList.when(
+            data: (data) {
+              final folders = data.commonPrefixes ?? [];
+              final files = data.contents ?? [];
+              if (folders.isEmpty && files.isEmpty) {
+                return Center(
+                  child: Text(S.of(context).emptyDirectory),
+                );
+              }
 
-                  // Wait for the new data to load
-                  await ref.read(fileListProvider(currentDirectory).future);
-                },
-                child: ListView.builder(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: folders.length + files.length,
-                  itemBuilder: (context, index) {
-                    if (index < folders.length) {
-                      // Render folder items
-                      String folderKey = folders[index].prefix ?? "";
+              return ListView.separated(
+                physics: const AlwaysScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: folders.length + files.length,
+                separatorBuilder: (context, index) => const Divider(),
+                itemBuilder: (context, index) {
+                  if (index < folders.length) {
+                    // Render folder items
+                    String folderKey = folders[index].prefix ?? "";
 
-                      if ("$folderKey/" != currentDirectory &&
-                          isKeyInDirectory(folderKey, true, currentDirectory)) {
-                        return FolderItem(
-                          folderKey: folderKey,
-                        );
-                      } else {
-                        return const SizedBox.shrink();
-                      }
-                    } else {
-                      // Render file items
-                      int fileIndex = index - folders.length;
-                      String fileKey = files[fileIndex].key ?? "";
-                      int fileSize = files[fileIndex].size ?? 0;
-                      if (fileKey.contains(".blazed-placeholder")) {
-                        return const SizedBox.shrink();
-                      }
-                      return FileItem(
-                        fileKey: fileKey,
-                        expectedSize: fileSize,
+                    if ("$folderKey/" != currentDirectory &&
+                        isKeyInDirectory(folderKey, true, currentDirectory)) {
+                      return FolderItem(
+                        folderKey: folderKey,
                       );
+                    } else {
+                      return const SizedBox.shrink();
                     }
-                  },
-                ),
-              ),
-            ]);
-          },
-          loading: () {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-          error: (err, stack) {
-            logger.e("Error loading file list: $err");
-            return Center(
-              child: Text(S.of(context).errorErr(err.toString())),
-            );
-          },
+                  } else {
+                    // Render file items
+                    int fileIndex = index - folders.length;
+                    String fileKey = files[fileIndex].key ?? "";
+                    int fileSize = files[fileIndex].size ?? 0;
+                    String uploaded = files[fileIndex].lastModified ?? "";
+                    if (fileKey.contains(".blazed-placeholder")) {
+                      return const SizedBox.shrink();
+                    }
+                    return FileItem(
+                      fileKey: fileKey,
+                      size: fileSize,
+                      uploaded: uploaded,
+                    );
+                  }
+                },
+              );
+            },
+            loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            },
+            error: (err, stack) {
+              logger.e("Error loading file list: $err");
+              return Center(
+                child: Text(S.of(context).errorErr(err.toString())),
+              );
+            },
+          ),
         ),
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,

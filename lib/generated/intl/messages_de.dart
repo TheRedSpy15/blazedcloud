@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("E-Mail"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("E-Mail-Domäne nicht erlaubt"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("E-Mail gesendet"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("Keine Dateien oder Ordner"),
         "errorErr": m2,
@@ -117,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Anmelden"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Konto verwalten"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("E-Mail nicht verifiziert"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Öffnen"),
@@ -131,6 +134,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Bitte wählen Sie ein Verzeichnis aus, in dem Sie Ihre Dateien im nächsten Bildschirm herunterladen möchten."),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Datenschutzrichtlinie"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Kaufe 1 TB mit der Playstore-Version. Sie können diese Version deinstallieren, wenn Sie fertig sind."),
@@ -144,10 +149,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Download-Verzeichnis auswählen"),
         "send": MessageLookupByLibrary.simpleMessage("Senden"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("E-Mail senden"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Server wird derzeit gewartet. Bitte versuchen Sie es später erneut."),
         "settings": MessageLookupByLibrary.simpleMessage("Einstellungen"),
         "share": MessageLookupByLibrary.simpleMessage("Teilen"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "E-Mail muss verifiziert werden oder es muss ein aktives Abonnement vorhanden sein, um Dateien zu teilen."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Datei teilen"),
         "signOut": MessageLookupByLibrary.simpleMessage("Abmelden"),
         "signUp": MessageLookupByLibrary.simpleMessage("Registrieren"),
@@ -155,6 +163,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Über Playstore oder Appstore abonniert"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("Nutzungsbedingungen"),
         "transfers": MessageLookupByLibrary.simpleMessage("Übertragungen"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Speicherplatz erweitern"),

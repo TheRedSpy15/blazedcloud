@@ -20,7 +20,7 @@ Simple, minimalistic file backup provider built with Flutter, Pocketbase and S3 
 
 Blazed Cloud aims to be a privacy friendly Google Drive, and be simpler to use.
 
-- **Free Tier:** 5 GB
+- **Free Tier:** 15 GB
 - **Encryption:** 256-bit
 - **Max Storage:** 1 Terabyte (for now)
 - **Platforms:** Mobile, Web (desktop WIP)
@@ -38,6 +38,7 @@ This mobile client has all it's basic features completed. However the following 
 **Completed Features outside of core functions**
 - [x] App locking with biometrics
 - [x] Timed file sharing via urls
+- [x] OPTIONAL automatic account deletion (unused over 90 days)
 
 # Download
 

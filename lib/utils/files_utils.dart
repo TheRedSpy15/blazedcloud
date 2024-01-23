@@ -64,6 +64,19 @@ String formatMinutes(int minutes) {
   }
 }
 
+String formatSize(int sizeBytes) {
+  // Format the size into a string using format 1.5GB or 1.5MB or 1.5KB or 1.5B
+  if (sizeBytes < 1000) {
+    return '${sizeBytes}B';
+  } else if (sizeBytes < 1000000) {
+    return '${(sizeBytes / 1000).toStringAsFixed(1)}KB';
+  } else if (sizeBytes < 1000000000) {
+    return '${(sizeBytes / 1000000).toStringAsFixed(1)}MB';
+  } else {
+    return '${(sizeBytes / 1000000000).toStringAsFixed(1)}GB';
+  }
+}
+
 List<String> fuzzySearch(String query, List<String> list) {
   // filter out empty strings and place holder files
   list = list

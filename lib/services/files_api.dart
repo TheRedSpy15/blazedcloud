@@ -7,6 +7,8 @@ import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:http/http.dart' as http;
 
+/// in memory list of file links. To prevent constantly getting links from the server for file page
+final fileLinks = <String, String>{};
 final httpClient = http.Client();
 
 /// Creates a folder with a placeholder file so that it is visible in the file list.
@@ -106,6 +108,12 @@ Future<String> getFileLink(String uid, String filename, String token,
       http.MultipartRequest('POST', Uri.parse('$backendUrl/data/down/$uid'));
 
   if (!sharing) {
+    // check in memory list first
+    if (fileLinks.containsKey(filename)) {
+      logger.d("Got link from memory $filename");
+      return fileLinks[filename]!;
+    }
+
     request.fields.addAll({'filename': filename});
   } else {
     request.fields.addAll(
@@ -120,6 +128,13 @@ Future<String> getFileLink(String uid, String filename, String token,
   if (response.statusCode == 200) {
     final responseBody = await response.stream.bytesToString();
     logger.d("Got link $responseBody");
+
+    // add link to in memory list if not sharing
+    if (!sharing) {
+      logger.d("Adding link to memory $responseBody");
+      fileLinks[filename] = responseBody;
+    }
+
     return responseBody;
   } else {
     logger.e(response.reasonPhrase);
@@ -161,6 +176,11 @@ Future<ListBucketResult> getFilelistByFolder(
   if (response.statusCode == 200) {
     final result = ListBucketResult.fromJson(jsonDecode(response.body));
     logger.d("Got file list. Size: ${result.contents?.length} Prefix: $prefix");
+
+    // remove place holder file
+    result.contents?.removeWhere((element) =>
+        element.key == "$prefix.blazed-placeholder" ||
+        element.key == "$prefix/.blazed-placeholder");
 
     return result;
   } else {

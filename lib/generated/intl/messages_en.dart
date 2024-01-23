@@ -82,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("Email Domain not allowed"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("Email sent"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("No files or folders"),
         "errorErr": m2,
@@ -114,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Link copied to clipboard"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("Manage Account"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("Email not verified"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("Open"),
@@ -128,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Please select a directory where you would like to download your files in the next screen."),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Purchase 1TB using Playstore build. You can uninstall that version when done."),
@@ -139,10 +143,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("Select download directory"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "Server is currently undergoing maintenance. Please try again later."),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "share": MessageLookupByLibrary.simpleMessage("Share"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "Email needs to be verified, or have active subscription to share files."),
         "shareFile": MessageLookupByLibrary.simpleMessage("Share file"),
         "signOut": MessageLookupByLibrary.simpleMessage("Sign Out"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign up"),
@@ -150,6 +157,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Subscribed through Playstore or Appstore"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("Terms of Service"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transfers"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Upgrade Storage"),

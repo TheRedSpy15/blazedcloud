@@ -123,5 +123,11 @@
     "upgradeStorage": "升级存储",
     "failedToOpenPortal": "无法打开门户",
     "manageAccount": "管理帐户",
-    "subscribedThroughPlaystoreOrAppstore": "通过Playstore或Appstore订阅"
+    "subscribedThroughPlaystoreOrAppstore": "通过Playstore或Appstore订阅",
+    "shareEmailVerificationNeeded": "需要验证电子邮件或拥有活跃订阅以共享文件。",
+    "notVerified": "电子邮件未验证",
+    "emailSent": "邮件已发送",
+    "sendEmail": "发送邮件",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款"
 }

@@ -1,19 +1,9 @@
-🌐 Willkommen bei Blazed Cloud, Ihrer Cloud-Speicherlösung der Wahl für ein nahtloses und sicheres Dateiverwaltungserlebnis! 🚀
+Blazed Cloud ist ein minimalistischer Cloud-Backup-Dienst, der Open Source Software liebt.
 
-Blazed Cloud ist nicht nur eine weitere Cloud-Speicher-App; Es ist ein Bekenntnis zu Einfachheit, Sicherheit und Transparenz. Unsere Mission ist es, Benutzern eine einfache und effiziente Möglichkeit zu bieten, ihre Dateien in der Cloud zu speichern und gleichzeitig ein Höchstmaß an Datenschutz zu gewährleisten.
-
-🔐 Erstklassige Sicherheit mit AES-256-Verschlüsselung:
-Seien Sie beruhigt mit dem Wissen, dass Ihre Dateien durch eine AES-256-Verschlüsselung nach Militärstandard geschützt sind. Blazed Cloud nimmt Ihre Privatsphäre ernst und stellt sicher, dass nur Sie Zugriff auf Ihre wertvollen Daten haben.
-
-🚀 Einfaches und intuitives Design:
-Blazed Cloud ist auf Einfachheit ausgelegt. Kein unnötiger Schnickschnack, keine verwirrenden Funktionen – nur eine übersichtliche Benutzeroberfläche, die Ihnen genau das bietet, was Sie brauchen. Mit nur wenigen Fingertipps können Sie Ihre Dateien mühelos hochladen, herunterladen und verwalten.
-
-📂 Ihre Cloud, Ihr Weg:
-Passen Sie Ihr Cloud-Speichererlebnis an Ihre Bedürfnisse an. Organisieren Sie Ihre Dateien, erstellen Sie Ordner und greifen Sie jederzeit und überall auf Ihre Daten zu. Blazed Cloud gibt Ihnen die Kontrolle.
-
-🌐 Plattformübergreifende Kompatibilität:
-Greifen Sie nahtlos auf allen Ihren Geräten auf Ihre Dateien zu. Blazed Cloud basiert auf einem plattformübergreifenden Design, damit Sie sicher auf Ihre Daten zugreifen können
-
-Erleben Sie Cloud-Speicher so, wie er sein sollte – einfach, sicher und transparent. Laden Sie Blazed Cloud jetzt herunter und übernehmen Sie die Kontrolle über Ihre digitale Welt.
-
-🔥 Bahnen Sie mit Blazed Cloud eine Spur in der Wolke! 🔥
+- Alle Dateien sind mit AES-256 verschlüsselt
+- Die Benutzeroberfläche ist einfach und nicht überladen
+- Die App selbst ist leichtgewichtig und nimmt nicht viel Platz ein
+- 15 Gigabyte kostenloser Tarif einfach durch Erstellung eines Kontos
+- Einfaches Freigeben von Dateien über URLs mit zeitlich begrenzten Ablaufdaten
+- Biometrische App-Sperrung
+- Optionale Kontolöschung, wenn Sie unseren Dienst nach 90 Tagen nicht mehr nutzen.

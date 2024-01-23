@@ -123,5 +123,11 @@
     "upgradeStorage": "Оновлення сховища",
     "failedToOpenPortal": "Не вдалося відкрити портал",
     "manageAccount": "Управління обліковим записом",
-    "subscribedThroughPlaystoreOrAppstore": "Підписано через Playstore або Appstore"
+    "subscribedThroughPlaystoreOrAppstore": "Підписано через Playstore або Appstore",
+    "shareEmailVerificationNeeded": "Потрібна перевірка електронної пошти або активна підписка для обміну файлами.",
+    "notVerified": "Електронна пошта не підтверджена",
+    "emailSent": "Електронна пошта відправлена",
+    "sendEmail": "Надіслати електронного листа",
+    "privacyPolicy": "Політика конфіденційності",
+    "termsOfService": "Умови використання"
 }

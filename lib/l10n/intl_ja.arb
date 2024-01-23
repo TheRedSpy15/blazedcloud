@@ -123,5 +123,11 @@
     "upgradeStorage": "ストレージのアップグレード",
     "failedToOpenPortal": "ポータルを開けませんでした",
     "manageAccount": "アカウントの管理",
-    "subscribedThroughPlaystoreOrAppstore": "PlaystoreまたはAppstore経由で購読済み"
+    "subscribedThroughPlaystoreOrAppstore": "PlaystoreまたはAppstore経由で購読済み",
+    "shareEmailVerificationNeeded": "ファイルを共有するには、メールを確認するかアクティブなサブスクリプションが必要です。",
+    "notVerified": "メールが確認されていません",
+    "emailSent": "メール送信済み",
+    "sendEmail": "メール送信",
+    "privacyPolicy": "プライバシーポリシー",
+    "termsOfService": "利用規約"
 }

@@ -81,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("ईमेल"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("ईमेल डोमेन अनुमत नहीं है"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("ईमेल भेजा गया"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("कोई फ़ाइल या फ़ोल्डर नहीं"),
         "errorErr": m2,
@@ -114,6 +115,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("लॉगिन"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("खाता प्रबंधित करें"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("ईमेल सत्यापित नहीं है"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("ठीक है"),
         "open": MessageLookupByLibrary.simpleMessage("खोलें"),
@@ -128,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "कृपया चुनें एक डायरेक्टरी जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("गोपनीयता नीति"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। आप उस संस्करण को स्थानांतरित कर सकते हैं जब काम हो जाए।"),
@@ -139,10 +143,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "डाउनलोड निर्दिष्ट करें डायरेक्टरी"),
         "send": MessageLookupByLibrary.simpleMessage("भेजें"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("ईमेल भेजें"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "सर्वर वर्तमान में मेनटेनेंस के तहत है। कृपया बाद में पुनः प्रयास करें।"),
         "settings": MessageLookupByLibrary.simpleMessage("सेटिंग्स"),
         "share": MessageLookupByLibrary.simpleMessage("साझा करें"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "फ़ाइलें साझा करने के लिए ईमेल को सत्यापित किया जाना चाहिए, या सक्रिय सब्सक्रिप्शन होना चाहिए।"),
         "shareFile": MessageLookupByLibrary.simpleMessage("फ़ाइल साझा करें"),
         "signOut": MessageLookupByLibrary.simpleMessage("साइन आउट"),
         "signUp": MessageLookupByLibrary.simpleMessage("साइन अप करें"),
@@ -150,6 +157,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"),
+        "termsOfService":
+            MessageLookupByLibrary.simpleMessage("सेवा की शर्तें"),
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("भंडारण अपग्रेड करें"),

@@ -123,5 +123,11 @@
     "upgradeStorage": "Mise à niveau du stockage",
     "failedToOpenPortal": "Échec de l''ouverture du portail",
     "manageAccount": "Gérer le compte",
-    "subscribedThroughPlaystoreOrAppstore": "Abonné via le Playstore ou l''Appstore"
+    "subscribedThroughPlaystoreOrAppstore": "Abonné via le Playstore ou l''Appstore",
+    "shareEmailVerificationNeeded": "L''e-mail doit être vérifié ou avoir un abonnement actif pour partager des fichiers.",
+    "notVerified": "E-mail non vérifié",
+    "emailSent": "E-mail envoyé",
+    "sendEmail": "Envoyer un e-mail",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d''utilisation"
 }

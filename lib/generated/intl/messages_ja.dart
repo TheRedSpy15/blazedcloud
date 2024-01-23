@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("メールアドレス"),
         "emailDomainNotAllowed":
             MessageLookupByLibrary.simpleMessage("許可されていないメールドメイン"),
+        "emailSent": MessageLookupByLibrary.simpleMessage("メール送信済み"),
         "emptyDirectory":
             MessageLookupByLibrary.simpleMessage("ファイルやフォルダはありません"),
         "errorErr": m2,
@@ -107,6 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("リンクがクリップボードにコピーされました"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("アカウントの管理"),
+        "notVerified": MessageLookupByLibrary.simpleMessage("メールが確認されていません"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "open": MessageLookupByLibrary.simpleMessage("開く"),
@@ -121,6 +123,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "次の画面でファイルをダウンロードするディレクトリを選択してください。"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("プライバシーポリシー"),
         "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion":
             MessageLookupByLibrary.simpleMessage(
                 "Playstoreビルドを使用して1TBを購入します。終了時にそのバージョンをアンインストールできます。"),
@@ -132,16 +135,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("ダウンロードディレクトリを選択"),
         "send": MessageLookupByLibrary.simpleMessage("送信"),
+        "sendEmail": MessageLookupByLibrary.simpleMessage("メール送信"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
             "サーバーは現在メンテナンス中です。後でもう一度お試しください。"),
         "settings": MessageLookupByLibrary.simpleMessage("設定"),
         "share": MessageLookupByLibrary.simpleMessage("共有"),
+        "shareEmailVerificationNeeded": MessageLookupByLibrary.simpleMessage(
+            "ファイルを共有するには、メールを確認するかアクティブなサブスクリプションが必要です。"),
         "shareFile": MessageLookupByLibrary.simpleMessage("ファイルを共有"),
         "signOut": MessageLookupByLibrary.simpleMessage("サインアウト"),
         "signUp": MessageLookupByLibrary.simpleMessage("サインアップ"),
         "storageUsage": MessageLookupByLibrary.simpleMessage("ストレージ使用量"),
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage("PlaystoreまたはAppstore経由で購読済み"),
+        "termsOfService": MessageLookupByLibrary.simpleMessage("利用規約"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("ストレージのアップグレード"),
         "upgradeStorage1Terabyte":

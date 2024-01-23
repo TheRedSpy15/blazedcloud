@@ -123,5 +123,11 @@
     "upgradeStorage": "Speicherplatz erweitern",
     "failedToOpenPortal": "Portal konnte nicht geöffnet werden",
     "manageAccount": "Konto verwalten",
-    "subscribedThroughPlaystoreOrAppstore": "Über Playstore oder Appstore abonniert"
+    "subscribedThroughPlaystoreOrAppstore": "Über Playstore oder Appstore abonniert",
+    "shareEmailVerificationNeeded": "E-Mail muss verifiziert werden oder es muss ein aktives Abonnement vorhanden sein, um Dateien zu teilen.",
+    "notVerified": "E-Mail nicht verifiziert",
+    "emailSent": "E-Mail gesendet",
+    "sendEmail": "E-Mail senden",
+    "privacyPolicy": "Datenschutzrichtlinie",
+    "termsOfService": "Nutzungsbedingungen"
 }
