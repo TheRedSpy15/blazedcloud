@@ -51,8 +51,6 @@ void main() async {
     logger.w("Glassfy failed to initialize: $e");
   }
 
-  await Hive.initFlutter();
-
   await Workmanager().initialize(
       callbackDispatcher, // The top level function, aka callbackDispatcher
       isInDebugMode:
