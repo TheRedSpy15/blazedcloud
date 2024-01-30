@@ -128,5 +128,14 @@
     "emailSent": "Correo electrónico enviado",
     "sendEmail": "Enviar correo electrónico",
     "privacyPolicy": "Política de privacidad",
-    "termsOfService": "Términos de servicio"
+    "termsOfService": "Términos de servicio",
+    "pleaseAuthenticateToAccessYourCloud": "Por favor, autentíquese para acceder a su nube",
+    "allowMeteredConnections": "Permitir conexiones con tarifa",
+    "requireCharging": "Requiere carga",
+    "syncEnabled": "Sincronización activada",
+    "syncSettings": "Configuración de sincronización",
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "general": "General",
+    "currentlyNestedFoldersAreNotSupported": "Actualmente no se admiten carpetas anidadas."
 }

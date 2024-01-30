@@ -1,7 +1,8 @@
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final newMode = StateProvider<String>((ref) {
+final newFolderWatchMode = StateProvider<String>((ref) {
   return "complete";
 });
 
@@ -16,18 +17,15 @@ class FolderWatchPickerDialogContent extends ConsumerWidget {
           children: [
             // dropdown for sync mode
             DropdownButton(
-              value: ref.watch(newMode),
+              value: ref.watch(newFolderWatchMode),
               onChanged: (String? value) {
-                ref.read(newMode.notifier).state = value ?? "complete";
+                ref.read(newFolderWatchMode.notifier).state =
+                    value ?? "complete";
               },
               items: const [
                 DropdownMenuItem(
                   value: "upload",
                   child: Text("Upload Only"),
-                ),
-                DropdownMenuItem(
-                  value: "uploadDelete",
-                  child: Text("Upload and Delete Local"),
                 ),
                 DropdownMenuItem(
                   value: "download",
@@ -38,7 +36,8 @@ class FolderWatchPickerDialogContent extends ConsumerWidget {
                   child: Text("Complete Sync"),
                 ),
               ],
-            )
+            ),
+            Text(S.of(context).currentlyNestedFoldersAreNotSupported)
           ],
         ),
       ],

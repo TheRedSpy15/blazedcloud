@@ -23,7 +23,7 @@ final requireChargingProvider = StateProvider<bool>((ref) {
 
 /// frequency in minutes
 final syncFrequencyProvider = StateProvider<int>((ref) {
-  return 0;
+  return 60;
 });
 
 final watchEnabledProvider = StateProvider<bool>((ref) {

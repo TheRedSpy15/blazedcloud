@@ -38,7 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("계정"),
         "accountDeleted": MessageLookupByLibrary.simpleMessage("계정이 삭제되었습니다"),
+        "allowMeteredConnections":
+            MessageLookupByLibrary.simpleMessage("계량 연결 허용"),
         "allowedEmails": MessageLookupByLibrary.simpleMessage("허용된 이메일"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
@@ -62,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "create": MessageLookupByLibrary.simpleMessage("생성"),
         "createAnAccount": MessageLookupByLibrary.simpleMessage("계정 만들기"),
         "createFolder": MessageLookupByLibrary.simpleMessage("폴더 생성"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage("현재 중첩된 폴더는 지원되지 않습니다."),
         "delete": MessageLookupByLibrary.simpleMessage("삭제"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("계정 삭제"),
         "deleteFile": MessageLookupByLibrary.simpleMessage("파일 삭제"),
@@ -97,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "files": MessageLookupByLibrary.simpleMessage("파일"),
         "folderName": MessageLookupByLibrary.simpleMessage("폴더 이름"),
         "forgotPassword": MessageLookupByLibrary.simpleMessage("비밀번호를 잊으셨나요?"),
+        "general": MessageLookupByLibrary.simpleMessage("일반"),
         "howLongToShare":
             MessageLookupByLibrary.simpleMessage("파일을 공유할 기간은 얼마나 되어야 합니까?"),
         "invalidEmailOrPassword":
@@ -117,6 +123,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("비밀번호 재설정 이메일이 전송되었습니다!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("폴더 선택"),
+        "pleaseAuthenticateToAccessYourCloud":
+            MessageLookupByLibrary.simpleMessage("클라우드에 액세스하려면 인증하세요"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "다음 화면에서 파일을 다운로드할 디렉토리를 선택하세요."),
@@ -127,8 +135,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestSent": MessageLookupByLibrary.simpleMessage("요청이 전송되었습니다!"),
         "requireBiometricsToOpenApp":
             MessageLookupByLibrary.simpleMessage("앱을 열 때 생체 인식이 필요합니다"),
+        "requireCharging": MessageLookupByLibrary.simpleMessage("충전 필요"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("비밀번호 재설정"),
         "save": MessageLookupByLibrary.simpleMessage("저장"),
+        "security": MessageLookupByLibrary.simpleMessage("보안"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("다운로드 디렉토리 선택"),
         "send": MessageLookupByLibrary.simpleMessage("보내기"),
@@ -146,6 +156,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Playstore 또는 Appstore를 통해 구독 중"),
+        "syncEnabled": MessageLookupByLibrary.simpleMessage("동기화 활성화"),
+        "syncSettings": MessageLookupByLibrary.simpleMessage("동기화 설정"),
         "termsOfService": MessageLookupByLibrary.simpleMessage("서비스 이용 약관"),
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("스토리지 업그레이드"),

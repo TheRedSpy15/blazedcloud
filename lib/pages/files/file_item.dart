@@ -8,6 +8,7 @@ import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -121,13 +122,22 @@ void openFromUrl(String fileKey, WidgetRef ref) {
   });
 }
 
-void openItem(String fileKey, WidgetRef ref) {
-  isFileSavedOffline(fileKey).then((isOffline) {
-    if (isOffline &&
+void openItem(
+  String fileKey,
+  WidgetRef ref,
+) {
+  isFileSavedOffline(fileKey).then((offlineFile) {
+    if (offlineFile &&
         !isFileBeingDownloaded(fileKey, ref.read(downloadStateProvider))) {
       openFromOffline(fileKey, ref);
-    } else if (getFileType(fileKey) == FileType.image ||
-        getFileType(fileKey) == FileType.video) {
+    } else if (getFileType(fileKey) == FileType.image) {
+      getFileLink(pb.authStore.model.id, fileKey, pb.authStore.token,
+              duration: "60m")
+          .then((link) {
+        final imageProvider = ExtendedNetworkImageProvider(link);
+        showImageViewer(ref.context, imageProvider);
+      });
+    } else if (getFileType(fileKey) == FileType.video) {
       openFromUrl(fileKey, ref);
     } else {
       logger.i('File $fileKey is not available offline');
@@ -294,6 +304,8 @@ class FileItem extends ConsumerWidget {
                 builder: (context, snapshot) {
                   return ExtendedImage.network(
                     snapshot.data.toString(),
+                    timeRetry: const Duration(seconds: 1),
+                    timeLimit: const Duration(seconds: 5),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(10.0),
                     compressionRatio: 0.1,

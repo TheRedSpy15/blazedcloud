@@ -105,8 +105,6 @@ class DownloadController {
     final downloadState = DownloadState.inProgress(fileKey);
     final completer = Completer<bool>();
     try {
-      final response = await getFile(uid, fileKey, token);
-
       // Ensure the directory exists
       final directory = Directory(appDocDir);
       if (!await directory.exists()) {
@@ -124,9 +122,10 @@ class DownloadController {
       final sink = file.openWrite();
 
       const Duration rateLimit =
-          Duration(seconds: 1); // Adjust the duration as needed
+          Duration(milliseconds: 300); // Adjust the duration as needed
       DateTime lastDataSentTime = DateTime.now();
 
+      final response = await getFile(uid, fileKey, token);
       response.stream.listen((data) async {
         final totalBytes = response.contentLength ?? 0;
         progress += data.length / totalBytes;

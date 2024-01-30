@@ -4,9 +4,9 @@ class FolderToWatch {
   String folderName;
   String folderPath;
   String remoteFolderKey;
-  DateTime? lastSynced;
+  String? lastSynced;
 
-  /// possible values: upload, uploadDelete, download, complete
+  /// possible values: upload, download, complete
   ///
   /// String instead of enum to allow serialization with shared_preferences
   String mode;
@@ -38,7 +38,8 @@ class FolderToWatch {
       return "Never";
     }
 
-    return lastSynced!.toLocal().toString();
+    final DateTime? lastSyncedDateTime = DateTime.tryParse(lastSynced!);
+    return lastSyncedDateTime!.toLocal().toString();
   }
 
   /// TODO: implement this

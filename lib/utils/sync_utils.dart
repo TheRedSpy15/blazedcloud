@@ -1,14 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/models/sync/folder_to_watch.dart';
+import 'package:blazedcloud/providers/sync_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 
@@ -16,21 +20,20 @@ Future<void> downloadFile(String fileKey, String uid, FolderToWatch folder,
     String token, String toPath) async {
   logger.d("Downloading file $fileKey");
 
-  final response = await getFile(uid, fileKey, token);
-
   // Ensure the directory exists
   final directory = Directory(folder.folderPath);
   if (!await directory.exists()) {
     await directory.create(recursive: true);
   }
 
-  final file = File('$toPath.part');
+  final file = File(toPath);
 
   if (!await file.exists()) {
     await file.create(recursive: true);
   }
   final sink = file.openWrite();
 
+  final response = await getFile(uid, fileKey, token);
   response.stream.listen((data) async {
     sink.add(data);
   }, onError: (error) {
@@ -90,7 +93,15 @@ Future<void> downloadFolderTask(
       logger.d("File is not synced - ${file.key}");
     }
 
-    await downloadFile(file.key!, uid, folder, token, path);
+    //await downloadFile(file.key!, uid, folder, token, path);
+
+    // nested directories are not yet supported
+    try {
+      await downloadFile(file.key!, uid, folder, token,
+          "${folder.folderPath}/${getFileName(file.key!)}");
+    } catch (e) {
+      logger.e("Download failed: $e");
+    }
   }
 }
 
@@ -114,6 +125,27 @@ String getRelativePath(String path, String folderPath) {
   return path.replaceAll(folderPath, '');
 }
 
+/// prompts for needed permissions, returns true if the user has granted all permissions, false otherwise
+Future<bool> getSyncPermissions() async {
+  if (!await Permission.photos.isGranted) {
+    if (!await Permission.photos.request().isGranted) {
+      return false;
+    }
+  }
+  if (!await Permission.audio.isGranted) {
+    if (!await Permission.audio.request().isGranted) {
+      return false;
+    }
+  }
+  if (!await Permission.videos.isGranted) {
+    if (!await Permission.videos.request().isGranted) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 bool isLocalNewer(FileSystemEntity local, Contents remote) {
   // uses format 2024-01-21 19:24:19.000
   final localStat = local.statSync();
@@ -129,6 +161,18 @@ bool isLocalSizeSame(FileSystemEntity local, Contents remote) {
   final remoteStat = remote.size ?? 0;
 
   return localStat.size == remoteStat;
+}
+
+Future<void> saveUpdatedFolderWatch(FolderToWatch folder) async {
+  final prefs = await SharedPreferences.getInstance();
+  final foldersToWatch = prefs.getStringList("foldersToWatch") ?? List.empty();
+  foldersToWatch.removeWhere((element) =>
+      FolderToWatch.fromJson(Map<String, dynamic>.from(jsonDecode(element)))
+          .folderPath ==
+      folder.folderPath);
+  foldersToWatch.add(jsonEncode(folder.toJson()));
+  prefs.setStringList("foldersToWatch", foldersToWatch.cast<String>());
+  logger.d("Saved folders to watch");
 }
 
 /// Syncs the folders with it's own upload code. Instead of using the upload controller class,
@@ -167,7 +211,15 @@ Future<bool> syncFolders(String uid, String token) async {
       case "upload":
         await uploadFolderTask(localFiles, remoteFiles, uid, folder, token);
         break;
+      case "complete":
+        await downloadFolderTask(localFiles, remoteFiles, uid, folder, token);
+        await uploadFolderTask(localFiles, remoteFiles, uid, folder, token);
+        break;
     }
+
+    // update the last synced time
+    folder.lastSynced = DateTime.now().toIso8601String();
+    await saveUpdatedFolderWatch(folder);
   }
 
   return true;
@@ -192,12 +244,41 @@ void updateSyncWorker(String uid, String token, bool allowMetered,
       requiresDeviceIdle: false,
       requiresStorageNotLow: true,
     ),
-    existingWorkPolicy: ExistingWorkPolicy.replace, // TODO: change to keep
-    //initialDelay: Duration(seconds: 10), TODO: uncomment
+    existingWorkPolicy: ExistingWorkPolicy.replace,
+    initialDelay: const Duration(minutes: 1),
     backoffPolicy: BackoffPolicy.linear,
     inputData: {
       "uid": uid,
       "token": token,
+    },
+  );
+}
+
+void updateSyncWorkerWithRef(WidgetRef ref) {
+  if (!ref.read(watchEnabledProvider)) {
+    Workmanager().cancelByUniqueName("folderSync");
+    return;
+  }
+
+  Workmanager().registerPeriodicTask(
+    "folderSync",
+    "folderSync",
+    frequency: Duration(minutes: ref.read(syncFrequencyProvider)),
+    constraints: Constraints(
+      networkType: ref.read(allowMeteredProvider)
+          ? NetworkType.connected
+          : NetworkType.unmetered,
+      requiresBatteryNotLow: true,
+      requiresCharging: ref.read(requireChargingProvider),
+      requiresDeviceIdle: false,
+      requiresStorageNotLow: true,
+    ),
+    existingWorkPolicy: ExistingWorkPolicy.replace,
+    initialDelay: const Duration(seconds: 1),
+    backoffPolicy: BackoffPolicy.linear,
+    inputData: {
+      "uid": pb.authStore.model.id,
+      "token": pb.authStore.token,
     },
   );
 }

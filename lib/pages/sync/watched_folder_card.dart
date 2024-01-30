@@ -26,10 +26,10 @@ class WatcherFolderCard extends ConsumerWidget {
                 style: const TextStyle(
                     fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
-              Text("Local: ${folder.folderPath}"),
-              Text("Remote: ${folder.remoteFolderKey}"),
               Text("Mode: ${folder.mode}"),
               Text("Last Synced: ${folder.getLastSyncedIntl()}"),
+              Text("Local: ${folder.folderPath}"),
+              Text("Remote: ${removeUid(folder.remoteFolderKey)}"),
             ],
           ),
         ),
@@ -67,10 +67,7 @@ class WatcherFolderCard extends ConsumerWidget {
 
                         // remove from the UI
                         try {
-                          final folders = ref.read(foldersToWatchProvider);
-                          folders.remove(folder);
-                          ref.read(foldersToWatchProvider.notifier).state =
-                              folders;
+                          ref.invalidate(foldersToWatchProvider);
                         } catch (e) {
                           // likely to through error if ref is disposed
                           logger.e("Error updating UI: $e");
@@ -83,5 +80,10 @@ class WatcherFolderCard extends ConsumerWidget {
             });
       },
     );
+  }
+
+  String removeUid(String path) {
+    final uid = path.split("/").first;
+    return path.replaceFirst("$uid/", "");
   }
 }

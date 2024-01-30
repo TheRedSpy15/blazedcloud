@@ -41,8 +41,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Cuenta"),
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Cuenta eliminada"),
+        "allowMeteredConnections": MessageLookupByLibrary.simpleMessage(
+            "Permitir conexiones con tarifa"),
         "allowedEmails": MessageLookupByLibrary.simpleMessage(
             "Correos electrónicos permitidos"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
@@ -73,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAnAccount":
             MessageLookupByLibrary.simpleMessage("Crear una cuenta"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Crear carpeta"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage(
+                "Actualmente no se admiten carpetas anidadas."),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "deleteAccount":
             MessageLookupByLibrary.simpleMessage("Eliminar cuenta"),
@@ -115,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nombre de la carpeta"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("¿Olvidaste la contraseña?"),
+        "general": MessageLookupByLibrary.simpleMessage("General"),
         "howLongToShare": MessageLookupByLibrary.simpleMessage(
             "¿Cuánto tiempo debería estar disponible el archivo para compartir?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
@@ -138,6 +145,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "¡Correo electrónico de restablecimiento de contraseña enviado!"),
         "pickFolder":
             MessageLookupByLibrary.simpleMessage("Seleccionar carpeta"),
+        "pleaseAuthenticateToAccessYourCloud":
+            MessageLookupByLibrary.simpleMessage(
+                "Por favor, autentíquese para acceder a su nube"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Por favor, selecciona un directorio donde te gustaría descargar tus archivos en la próxima pantalla."),
@@ -150,9 +160,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("¡Solicitud enviada!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
             "Requerir biometría para abrir la aplicación"),
+        "requireCharging":
+            MessageLookupByLibrary.simpleMessage("Requiere carga"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("Restablecer contraseña"),
         "save": MessageLookupByLibrary.simpleMessage("Guardar"),
+        "security": MessageLookupByLibrary.simpleMessage("Seguridad"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Seleccionar directorio de descarga"),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
@@ -172,6 +185,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Suscripto a través de Playstore o Appstore"),
+        "syncEnabled":
+            MessageLookupByLibrary.simpleMessage("Sincronización activada"),
+        "syncSettings": MessageLookupByLibrary.simpleMessage(
+            "Configuración de sincronización"),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Términos de servicio"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferencias"),

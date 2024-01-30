@@ -108,54 +108,66 @@ class LandingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(S.of(context).appName,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
-          ElevatedButton(
-            onPressed: () {
-              context.pushNamed('login');
-            },
-            style: const ButtonStyle(),
-            child: Text(
-              S.of(context).login,
-              style: const TextStyle(fontSize: 30),
+        body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: Wrap(
+          children: [
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(S.of(context).appName,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 50)),
+                    TextButton(
+                      onPressed: () {
+                        context.pushNamed('login');
+                      },
+                      style: const ButtonStyle(),
+                      child: Text(
+                        S.of(context).login,
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.pushNamed('signup');
+                      },
+                      style: const ButtonStyle(),
+                      child: Text(
+                        S.of(context).signUp,
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              logger.d("Terms of Service");
+                              launchUrl(Uri.parse(
+                                  "https://blazedcloud.com/privacy-policy/"));
+                            },
+                            child: Text(S.of(context).privacyPolicy)),
+                        TextButton(
+                            onPressed: () {
+                              logger.d("Terms of Service");
+                              launchUrl(Uri.parse(
+                                  "https://blazedcloud.com/terms-of-service/"));
+                            },
+                            child: Text(S.of(context).termsOfService)),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context.pushNamed('signup');
-            },
-            style: const ButtonStyle(),
-            child: Text(
-              S.of(context).signUp,
-              style: const TextStyle(fontSize: 30),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                  onPressed: () {
-                    logger.d("Terms of Service");
-                    launchUrl(
-                        Uri.parse("https://blazedcloud.com/privacy-policy/"));
-                  },
-                  child: Text(S.of(context).privacyPolicy)),
-              TextButton(
-                  onPressed: () {
-                    logger.d("Terms of Service");
-                    launchUrl(
-                        Uri.parse("https://blazedcloud.com/terms-of-service/"));
-                  },
-                  child: Text(S.of(context).termsOfService)),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     ));
   }
