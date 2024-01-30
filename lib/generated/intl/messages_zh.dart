@@ -38,7 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("帐户"),
         "accountDeleted": MessageLookupByLibrary.simpleMessage("帐户已删除"),
+        "allowMeteredConnections":
+            MessageLookupByLibrary.simpleMessage("允许计量连接"),
         "allowedEmails": MessageLookupByLibrary.simpleMessage("允许的电子邮件"),
         "appName": MessageLookupByLibrary.simpleMessage("烈火云"),
         "areYouSureYouWantToDeleteThisFile":
@@ -62,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "create": MessageLookupByLibrary.simpleMessage("创建"),
         "createAnAccount": MessageLookupByLibrary.simpleMessage("创建账户"),
         "createFolder": MessageLookupByLibrary.simpleMessage("创建文件夹"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage("目前不支持嵌套文件夹。"),
         "delete": MessageLookupByLibrary.simpleMessage("删除"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("删除帐户"),
         "deleteFile": MessageLookupByLibrary.simpleMessage("删除文件"),
@@ -94,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "files": MessageLookupByLibrary.simpleMessage("文件"),
         "folderName": MessageLookupByLibrary.simpleMessage("文件夹名称"),
         "forgotPassword": MessageLookupByLibrary.simpleMessage("忘记密码？"),
+        "general": MessageLookupByLibrary.simpleMessage("通用"),
         "howLongToShare": MessageLookupByLibrary.simpleMessage("这个文件应该分享多久"),
         "invalidEmailOrPassword":
             MessageLookupByLibrary.simpleMessage("无效的电子邮件或密码"),
@@ -112,6 +118,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("密码重置邮件已发送！"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("选择文件夹"),
+        "pleaseAuthenticateToAccessYourCloud":
+            MessageLookupByLibrary.simpleMessage("请进行身份验证以访问您的云"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage("请在下一个屏幕中选择您想要下载文件的目录。"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("隐私政策"),
@@ -121,8 +129,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestSent": MessageLookupByLibrary.simpleMessage("请求已发送！"),
         "requireBiometricsToOpenApp":
             MessageLookupByLibrary.simpleMessage("需要生物识别才能打开应用"),
+        "requireCharging": MessageLookupByLibrary.simpleMessage("需要充电"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("重设密码"),
         "save": MessageLookupByLibrary.simpleMessage("保存"),
+        "security": MessageLookupByLibrary.simpleMessage("安全"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("选择下载目录"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
@@ -139,6 +149,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "storageUsage": MessageLookupByLibrary.simpleMessage("存储使用"),
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage("通过Playstore或Appstore订阅"),
+        "syncEnabled": MessageLookupByLibrary.simpleMessage("启用同步"),
+        "syncSettings": MessageLookupByLibrary.simpleMessage("同步设置"),
         "termsOfService": MessageLookupByLibrary.simpleMessage("服务条款"),
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("升级存储"),

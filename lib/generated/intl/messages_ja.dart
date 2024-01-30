@@ -38,7 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("アカウント"),
         "accountDeleted": MessageLookupByLibrary.simpleMessage("アカウントが削除されました"),
+        "allowMeteredConnections":
+            MessageLookupByLibrary.simpleMessage("従量課金接続を許可する"),
         "allowedEmails": MessageLookupByLibrary.simpleMessage("許可されたメール"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
         "areYouSureYouWantToDeleteThisFile":
@@ -63,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "create": MessageLookupByLibrary.simpleMessage("作成"),
         "createAnAccount": MessageLookupByLibrary.simpleMessage("アカウントを作成"),
         "createFolder": MessageLookupByLibrary.simpleMessage("フォルダを作成"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage("現在、入れ子のフォルダはサポートされていません。"),
         "delete": MessageLookupByLibrary.simpleMessage("削除"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("アカウントの削除"),
         "deleteFile": MessageLookupByLibrary.simpleMessage("ファイルの削除"),
@@ -100,6 +105,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "files": MessageLookupByLibrary.simpleMessage("ファイル"),
         "folderName": MessageLookupByLibrary.simpleMessage("フォルダ名"),
         "forgotPassword": MessageLookupByLibrary.simpleMessage("パスワードを忘れましたか？"),
+        "general": MessageLookupByLibrary.simpleMessage("一般"),
         "howLongToShare":
             MessageLookupByLibrary.simpleMessage("ファイルの共有期間はどれくらいでしょうか？"),
         "invalidEmailOrPassword":
@@ -120,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("パスワードリセットのメールが送信されました！"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("フォルダを選択"),
+        "pleaseAuthenticateToAccessYourCloud":
+            MessageLookupByLibrary.simpleMessage("クラウドにアクセスするには認証してください"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "次の画面でファイルをダウンロードするディレクトリを選択してください。"),
@@ -130,8 +138,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestSent": MessageLookupByLibrary.simpleMessage("リクエストが送信されました！"),
         "requireBiometricsToOpenApp":
             MessageLookupByLibrary.simpleMessage("アプリを開くために生体認証が必要です"),
+        "requireCharging": MessageLookupByLibrary.simpleMessage("充電が必要です"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("パスワードをリセット"),
         "save": MessageLookupByLibrary.simpleMessage("保存"),
+        "security": MessageLookupByLibrary.simpleMessage("セキュリティ"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("ダウンロードディレクトリを選択"),
         "send": MessageLookupByLibrary.simpleMessage("送信"),
@@ -148,6 +158,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "storageUsage": MessageLookupByLibrary.simpleMessage("ストレージ使用量"),
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage("PlaystoreまたはAppstore経由で購読済み"),
+        "syncEnabled": MessageLookupByLibrary.simpleMessage("同期が有効"),
+        "syncSettings": MessageLookupByLibrary.simpleMessage("同期設定"),
         "termsOfService": MessageLookupByLibrary.simpleMessage("利用規約"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("ストレージのアップグレード"),

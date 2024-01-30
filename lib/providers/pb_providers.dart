@@ -11,7 +11,6 @@ final accountUserProvider =
 });
 
 final healthCheckProvider = FutureProvider.autoDispose<bool>((ref) async {
-  logger.i("Checking health");
   final health = await pb.health.check();
   logger.i("Health check result: $health");
   return health.code == 200;
@@ -22,7 +21,6 @@ final savedAuthProvider = FutureProvider.autoDispose<bool>((ref) async {
 
   final auth = await customAuth.loadAuth();
   if (auth != null) {
-    logger.i("Loaded auth: $auth");
     pb = PocketBase(backendUrl, authStore: auth);
     if (pb.authStore.isValid) {
       logger.i("Token is valid. User: ${pb.authStore.model.id}");

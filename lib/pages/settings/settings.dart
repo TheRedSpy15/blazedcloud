@@ -9,14 +9,14 @@ import 'package:blazedcloud/pages/settings/custom_babstrap/settingsGroup.dart';
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsItem.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
+import 'package:blazedcloud/providers/sync_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive/hive.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -35,7 +35,7 @@ class SettingsScreen extends ConsumerWidget {
             await buttonPrefs.setBool(
                 'biometric', !ref.read(isBiometricEnabledProvider));
           },
-          icons: CupertinoIcons.lock_shield_fill,
+          icons: Icons.fingerprint,
           trailing: Switch(
             value: ref.watch(isBiometricEnabledProvider),
             onChanged: (value) async {
@@ -74,16 +74,34 @@ class SettingsScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomSettingsGroup(
+                settingsGroupTitle: S.of(context).general,
                 items: [
                   downloadLocationChangeSetting(context),
-                  biometricSetting(ref),
-                  prunableSetting(userData, context, ref),
                 ],
               ),
               CustomSettingsGroup(
+                settingsGroupTitle: S.of(context).security,
                 items: [
+                  biometricSetting(ref),
                   passwordResetSetting(userData, context),
                   emailChangeSetting(userData, context),
+                ],
+              ),
+              //CustomSettingsGroup(
+              //  settingsGroupTitle: S.of(context).syncSettings,
+              //  items: [
+              //    syncEnabledSetting(ref),
+              //    syncAllowMeteredSetting(ref),
+              //    syncChargingOnlySetting(ref),
+              //    //syncFreqSetting(ref),
+              //  ],
+              //),
+              CustomSettingsGroup(
+                settingsGroupTitle: S.of(context).account,
+                items: [
+                  prunableSetting(userData, context, ref),
+                  signOutSetting(context),
+                  deleteAccountSetting(context),
                 ],
               ),
               CustomSettingsGroup(
@@ -91,8 +109,6 @@ class SettingsScreen extends ConsumerWidget {
                   githubSetting(context),
                   termsSetting(context),
                   privacyPolicySetting(context),
-                  signOutSetting(context),
-                  deleteAccountSetting(context),
                 ],
               ),
             ],
@@ -129,9 +145,8 @@ class SettingsScreen extends ConsumerWidget {
           if (value != null) {
             // delete account
             try {
-              pb.collection('users').delete(pb.authStore.model.id);
-              Hive.deleteBoxFromDisk('vaultBox');
-              const FlutterSecureStorage().delete(key: 'key').then((value) {
+              pb.collection('users').delete(pb.authStore.model.id).then((_) {
+                logger.i('User Deleted - Signing out');
                 pb.authStore.clear();
                 context.go('/landing');
               });
@@ -349,18 +364,131 @@ class SettingsScreen extends ConsumerWidget {
         ).then((value) async {
           if (value != null) {
             logger.i('Signing out');
-            // sign out
-            await Hive.deleteBoxFromDisk('vaultBox');
-            await const FlutterSecureStorage().delete(key: 'key').then((value) {
-              pb.authStore.clear();
-              context.go('/landing');
-            });
+            pb.authStore.clear();
+            context.go('/landing');
           }
         });
       },
       icons: Icons.exit_to_app_rounded,
       trailing: const SizedBox.shrink(),
       title: S.of(context).signOut,
+    );
+  }
+
+  CustomSettingsItem syncAllowMeteredSetting(WidgetRef ref) {
+    return CustomSettingsItem(
+      onTap: () async {
+        ref.read(allowMeteredProvider.notifier).state =
+            !ref.read(allowMeteredProvider);
+        final SharedPreferences buttonPrefs =
+            await SharedPreferences.getInstance();
+        await buttonPrefs.setBool(
+            'allowMetered', !ref.read(allowMeteredProvider));
+
+        updateSyncWorkerWithRef(ref);
+      },
+      icons: Icons.cell_tower,
+      trailing: Switch(
+        value: ref.watch(allowMeteredProvider),
+        onChanged: (value) async {
+          ref.read(allowMeteredProvider.notifier).state = value;
+          final SharedPreferences buttonPrefs =
+              await SharedPreferences.getInstance();
+          await buttonPrefs.setBool('allowMetered', value);
+
+          updateSyncWorkerWithRef(ref);
+        },
+      ),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(ref.context).allowMeteredConnections,
+    );
+  }
+
+  CustomSettingsItem? syncChargingOnlySetting(WidgetRef ref) {
+    return CustomSettingsItem(
+      onTap: () async {
+        ref.read(requireChargingProvider.notifier).state =
+            !ref.read(requireChargingProvider);
+        final SharedPreferences buttonPrefs =
+            await SharedPreferences.getInstance();
+        await buttonPrefs.setBool(
+            'requireCharging', !ref.read(requireChargingProvider));
+
+        updateSyncWorkerWithRef(ref);
+      },
+      icons: Icons.power,
+      trailing: Switch(
+        value: ref.watch(requireChargingProvider),
+        onChanged: (value) async {
+          ref.read(requireChargingProvider.notifier).state = value;
+          final SharedPreferences buttonPrefs =
+              await SharedPreferences.getInstance();
+          await buttonPrefs.setBool('requireCharging', value);
+
+          updateSyncWorkerWithRef(ref);
+        },
+      ),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(ref.context).requireCharging,
+    );
+  }
+
+  CustomSettingsItem? syncEnabledSetting(WidgetRef ref) {
+    return CustomSettingsItem(
+      onTap: () async {
+        ref.read(watchEnabledProvider.notifier).state =
+            !ref.read(watchEnabledProvider);
+        final SharedPreferences buttonPrefs =
+            await SharedPreferences.getInstance();
+        await buttonPrefs.setBool(
+            'isWatching', !ref.read(allowMeteredProvider));
+
+        updateSyncWorkerWithRef(ref);
+      },
+      icons: Icons.cloud_sync,
+      trailing: Switch(
+        value: ref.watch(watchEnabledProvider),
+        onChanged: (value) async {
+          ref.read(watchEnabledProvider.notifier).state = value;
+          final SharedPreferences buttonPrefs =
+              await SharedPreferences.getInstance();
+          await buttonPrefs.setBool('isWatching', value);
+
+          updateSyncWorkerWithRef(ref);
+        },
+      ),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(ref.context).syncEnabled,
+    );
+  }
+
+  CustomSettingsItem? syncFreqSetting(WidgetRef ref) {
+    throw UnimplementedError(); // wait for next release
+    return CustomSettingsItem(
+      onTap: () async {
+        ref.read(allowMeteredProvider.notifier).state =
+            !ref.read(allowMeteredProvider);
+        final SharedPreferences buttonPrefs =
+            await SharedPreferences.getInstance();
+        await buttonPrefs.setBool(
+            'allowMetered', !ref.read(allowMeteredProvider));
+
+        updateSyncWorkerWithRef(ref);
+      },
+      icons: Icons.cell_tower,
+      trailing: Switch(
+        value: ref.watch(allowMeteredProvider),
+        onChanged: (value) async {
+          ref.read(allowMeteredProvider.notifier).state = value;
+          final SharedPreferences buttonPrefs =
+              await SharedPreferences.getInstance();
+          await buttonPrefs.setBool('allowMetered', value);
+
+          updateSyncWorkerWithRef(ref);
+        },
+      ),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(ref.context).allowMeteredConnections,
     );
   }
 

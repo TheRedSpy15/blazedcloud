@@ -128,5 +128,14 @@
     "emailSent": "E-Mail gesendet",
     "sendEmail": "E-Mail senden",
     "privacyPolicy": "Datenschutzrichtlinie",
-    "termsOfService": "Nutzungsbedingungen"
+    "termsOfService": "Nutzungsbedingungen",
+    "pleaseAuthenticateToAccessYourCloud": "Bitte authentifizieren Sie sich, um auf Ihre Cloud zuzugreifen",
+    "allowMeteredConnections": "Gebührenpflichtige Verbindungen zulassen",
+    "requireCharging": "Laden erforderlich",
+    "syncEnabled": "Synchronisierung aktiviert",
+    "syncSettings": "Synchronisationseinstellungen",
+    "account": "Konto",
+    "security": "Sicherheit",
+    "general": "Allgemein",
+    "currentlyNestedFoldersAreNotSupported": "Aktuell werden verschachtelte Ordner nicht unterstützt."
 }

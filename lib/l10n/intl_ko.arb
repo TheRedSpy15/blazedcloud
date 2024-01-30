@@ -128,5 +128,14 @@
     "emailSent": "이메일 전송됨",
     "sendEmail": "이메일 보내기",
     "privacyPolicy": "개인정보 보호 정책",
-    "termsOfService": "서비스 이용 약관"
+    "termsOfService": "서비스 이용 약관",
+    "pleaseAuthenticateToAccessYourCloud": "클라우드에 액세스하려면 인증하세요",
+    "allowMeteredConnections": "계량 연결 허용",
+    "requireCharging": "충전 필요",
+    "syncEnabled": "동기화 활성화",
+    "syncSettings": "동기화 설정",
+    "account": "계정",
+    "security": "보안",
+    "general": "일반",
+    "currentlyNestedFoldersAreNotSupported": "현재 중첩된 폴더는 지원되지 않습니다."
 }

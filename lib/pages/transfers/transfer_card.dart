@@ -22,7 +22,7 @@ class TransferCard extends StatelessWidget {
         themeBrightness == Brightness.dark ? Colors.white : Colors.black;
 
     return Card(
-      elevation: 4.0,
+      elevation: 2.0,
       margin: const EdgeInsets.all(16.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),

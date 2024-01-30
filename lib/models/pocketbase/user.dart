@@ -1,9 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'dart:convert';
-
 import 'package:blazedcloud/constants.dart';
-import 'package:blazedcloud/log.dart';
 
 class User {
   String id;
@@ -47,7 +44,6 @@ class User {
   // get single user
   Future<User> getUser(String id) async {
     final result = await pb.collection('users').getOne(id);
-    logger.i("Get user: ${jsonEncode(result)}");
 
     return User(
       id: result.id,

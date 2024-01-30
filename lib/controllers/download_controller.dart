@@ -51,13 +51,13 @@ class DownloadController {
         constraints: Constraints(
             networkType: NetworkType.connected, requiresStorageNotLow: true),
         tag: fileKey,
-        backoffPolicy: BackoffPolicy.linear,
+        backoffPolicy: BackoffPolicy.exponential,
         outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
         existingWorkPolicy: ExistingWorkPolicy.keep,
         inputData: {
           "uid": uid,
           "fileKey": fileKey,
-          "exportDir": await getExportDirectoryFromHive(),
+          "exportDir": await getExportDirectoryFromPrefs(),
           "token": pb.authStore.token,
           "startDate": DateTime.now().toIso8601String(),
         });
@@ -87,9 +87,10 @@ class DownloadController {
     }
 
     SendPort? sendPort = IsolateNameServer.lookupPortByName("downloader");
-    final filePath = '$appDocDir/$fileKey'; // Define the file path
+    final filePath =
+        '$appDocDir/${getFilePathFromKey(fileKey, uid)}'; // Define the file path
 
-    if (appDocDir.isEmpty) {
+    if (!Directory(appDocDir).existsSync()) {
       logger.e('Could not get appDocDir');
       return false;
     }
@@ -104,8 +105,6 @@ class DownloadController {
     final downloadState = DownloadState.inProgress(fileKey);
     final completer = Completer<bool>();
     try {
-      final response = await getFile(uid, fileKey, token);
-
       // Ensure the directory exists
       final directory = Directory(appDocDir);
       if (!await directory.exists()) {
@@ -115,7 +114,7 @@ class DownloadController {
       // Initialize progress to 0
       double progress = 0.0;
 
-      final file = File(filePath);
+      final file = File('$filePath.part');
 
       if (!await file.exists()) {
         await file.create(recursive: true);
@@ -123,9 +122,10 @@ class DownloadController {
       final sink = file.openWrite();
 
       const Duration rateLimit =
-          Duration(seconds: 1); // Adjust the duration as needed
+          Duration(milliseconds: 300); // Adjust the duration as needed
       DateTime lastDataSentTime = DateTime.now();
 
+      final response = await getFile(uid, fileKey, token);
       response.stream.listen((data) async {
         final totalBytes = response.contentLength ?? 0;
         progress += data.length / totalBytes;
@@ -173,6 +173,9 @@ class DownloadController {
             logger.e('send port error ($fileKey): $error');
           }
         }
+
+        // rename the file
+        file.renameSync(filePath);
       }, cancelOnError: true);
     } catch (error) {
       logger.e('Download error: $error');

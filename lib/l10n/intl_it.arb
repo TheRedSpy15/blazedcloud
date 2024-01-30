@@ -128,5 +128,14 @@
     "emailSent": "Email inviata",
     "sendEmail": "Invia email",
     "privacyPolicy": "Informativa sulla privacy",
-    "termsOfService": "Termini di servizio"
+    "termsOfService": "Termini di servizio",
+    "pleaseAuthenticateToAccessYourCloud": "Si prega di autenticarsi per accedere al proprio cloud",
+    "allowMeteredConnections": "Consenti connessioni a consumo",
+    "requireCharging": "Richiede la ricarica",
+    "syncEnabled": "Sincronizzazione abilitata",
+    "syncSettings": "Impostazioni di sincronizzazione",
+    "account": "Account",
+    "security": "Sicurezza",
+    "general": "Generale",
+    "currentlyNestedFoldersAreNotSupported": "Attualmente le cartelle nidificate non sono supportate."
 }
