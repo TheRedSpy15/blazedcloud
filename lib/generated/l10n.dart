@@ -949,6 +949,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Please authenticate to access your cloud`
+  String get pleaseAuthenticateToAccessYourCloud {
+    return Intl.message(
+      'Please authenticate to access your cloud',
+      name: 'pleaseAuthenticateToAccessYourCloud',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Allow Metered Connections`
+  String get allowMeteredConnections {
+    return Intl.message(
+      'Allow Metered Connections',
+      name: 'allowMeteredConnections',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Require Charging`
+  String get requireCharging {
+    return Intl.message(
+      'Require Charging',
+      name: 'requireCharging',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sync Enabled`
+  String get syncEnabled {
+    return Intl.message(
+      'Sync Enabled',
+      name: 'syncEnabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sync Settings`
+  String get syncSettings {
+    return Intl.message(
+      'Sync Settings',
+      name: 'syncSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security`
+  String get security {
+    return Intl.message(
+      'Security',
+      name: 'security',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General`
+  String get general {
+    return Intl.message(
+      'General',
+      name: 'general',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currently nested folders are not supported.`
+  String get currentlyNestedFoldersAreNotSupported {
+    return Intl.message(
+      'Currently nested folders are not supported.',
+      name: 'currentlyNestedFoldersAreNotSupported',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

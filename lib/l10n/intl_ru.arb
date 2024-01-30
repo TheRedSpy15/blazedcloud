@@ -129,5 +129,14 @@
     "emailSent": "Отправлено электронное письмо",
     "sendEmail": "Отправить электронное письмо",
     "privacyPolicy": "Политика конфиденциальности",
-    "termsOfService": "Условия использования"
+    "termsOfService": "Условия использования",
+    "pleaseAuthenticateToAccessYourCloud": "Пожалуйста, прошедшите аутентификацию, чтобы получить доступ к вашему облаку",
+    "allowMeteredConnections": "Разрешить тарифицированные подключения",
+    "requireCharging": "Требуется подключение к зарядке",
+    "syncEnabled": "Синхронизация включена",
+    "syncSettings": "Настройки синхронизации",
+    "account": "Аккаунт",
+    "security": "Безопасность",
+    "general": "Общие",
+    "currentlyNestedFoldersAreNotSupported": "В настоящее время вложенные папки не поддерживаются."
 }

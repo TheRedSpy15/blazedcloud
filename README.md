@@ -53,6 +53,8 @@ Releases are also available directly via GitHub
 
 Dont forget to take advantage of our [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
 
+**Play store users: The playstore varient of the app has Firebase Crashlytics bundled (as of 1.3.3). This is to have some level of error reporting for us to fix crashes. You can avoid this by downloading from Github directly, or through FDroid!**
+
 # Contributing
 
 The project is always open to pull requests. However, pleae note that all changes must first go through the development branch before they are merged into main

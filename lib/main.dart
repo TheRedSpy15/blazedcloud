@@ -3,6 +3,7 @@ import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
 import 'package:blazedcloud/firebase_options.dart';
 import 'package:blazedcloud/log.dart';
+import 'package:blazedcloud/models/pocketbase/authstore.dart';
 import 'package:blazedcloud/pages/dashboard.dart';
 import 'package:blazedcloud/pages/login/locked.dart';
 import 'package:blazedcloud/pages/login/login.dart';
@@ -10,6 +11,7 @@ import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -17,11 +19,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:workmanager/workmanager.dart';
 
@@ -120,6 +119,8 @@ void callbackDispatcher() {
           inputData?['token'],
           inputData?['startDate'],
           inputData?['queueName']);
+    } else if (task == "folderSync") {
+      return await syncFolders(inputData?['uid'], inputData?['token']);
     }
 
     return Future.value(true);
@@ -132,55 +133,66 @@ class LandingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(S.of(context).appName,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 50)),
-          Lottie.asset("assets/lottie/fire.json", repeat: true),
-          ElevatedButton(
-            onPressed: () {
-              context.pushNamed('login');
-            },
-            style: const ButtonStyle(),
-            child: Text(
-              S.of(context).login,
-              style: const TextStyle(fontSize: 30),
+        body: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: Wrap(
+          children: [
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(S.of(context).appName,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 50)),
+                    TextButton(
+                      onPressed: () {
+                        context.pushNamed('login');
+                      },
+                      style: const ButtonStyle(),
+                      child: Text(
+                        S.of(context).login,
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.pushNamed('signup');
+                      },
+                      style: const ButtonStyle(),
+                      child: Text(
+                        S.of(context).signUp,
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              logger.d("Terms of Service");
+                              launchUrl(Uri.parse(
+                                  "https://blazedcloud.com/privacy-policy/"));
+                            },
+                            child: Text(S.of(context).privacyPolicy)),
+                        TextButton(
+                            onPressed: () {
+                              logger.d("Terms of Service");
+                              launchUrl(Uri.parse(
+                                  "https://blazedcloud.com/terms-of-service/"));
+                            },
+                            child: Text(S.of(context).termsOfService)),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context.pushNamed('signup');
-            },
-            style: const ButtonStyle(),
-            child: Text(
-              S.of(context).signUp,
-              style: const TextStyle(fontSize: 30),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton(
-                  onPressed: () {
-                    logger.d("Terms of Service");
-                    launchUrl(
-                        Uri.parse("https://blazedcloud.com/privacy-policy/"));
-                  },
-                  child: Text(S.of(context).privacyPolicy)),
-              TextButton(
-                  onPressed: () {
-                    logger.d("Terms of Service");
-                    launchUrl(
-                        Uri.parse("https://blazedcloud.com/terms-of-service/"));
-                  },
-                  child: Text(S.of(context).termsOfService)),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     ));
   }
@@ -231,8 +243,7 @@ class LandingPage extends ConsumerWidget {
             logger.i("Error loading saved auth: $err");
 
             // clear saved auth
-            Hive.deleteBoxFromDisk('vaultBox');
-            const FlutterSecureStorage().delete(key: 'key');
+            getSecureStorage().deleteAll();
 
             return const LandingContent();
           },
@@ -248,7 +259,7 @@ class LandingPage extends ConsumerWidget {
       error: (err, stack) {
         logger.e("Server Health check failed: $err");
         return FutureBuilder(
-            future: getExportDirectoryFromHive(),
+            future: getExportDirectoryFromPrefs(),
             builder: (context, snapshot) {
               return Scaffold(
                 body: Center(

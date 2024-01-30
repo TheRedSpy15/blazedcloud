@@ -129,5 +129,14 @@
     "emailSent": "メール送信済み",
     "sendEmail": "メール送信",
     "privacyPolicy": "プライバシーポリシー",
-    "termsOfService": "利用規約"
+    "termsOfService": "利用規約",
+    "pleaseAuthenticateToAccessYourCloud": "クラウドにアクセスするには認証してください",
+    "allowMeteredConnections": "従量課金接続を許可する",
+    "requireCharging": "充電が必要です",
+    "syncEnabled": "同期が有効",
+    "syncSettings": "同期設定",
+    "account": "アカウント",
+    "security": "セキュリティ",
+    "general": "一般",
+    "currentlyNestedFoldersAreNotSupported": "現在、入れ子のフォルダはサポートされていません。"
 }

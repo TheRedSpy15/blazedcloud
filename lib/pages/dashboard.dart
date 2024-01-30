@@ -41,6 +41,10 @@ class Dashboard extends ConsumerWidget {
                 child: const Icon(Icons.cloud_sync)),
             label: S.of(context).transfers,
           ),
+          //const NavigationDestination(
+          //  icon: Icon(Icons.drive_folder_upload),
+          //  label: "Sync",
+          //),
           NavigationDestination(
             icon: const Icon(Icons.settings),
             label: S.of(context).settings,
@@ -56,6 +60,10 @@ class Dashboard extends ConsumerWidget {
           alignment: Alignment.center,
           child: const TransfersPage(),
         ),
+        //Container(
+        //  alignment: Alignment.center,
+        //  child: const SyncPage(),
+        //),
         Container(
           alignment: Alignment.center,
           child: const SettingsScreen(),

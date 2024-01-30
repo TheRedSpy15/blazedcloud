@@ -129,5 +129,14 @@
     "emailSent": "E-mail enviado",
     "sendEmail": "Enviar E-mail",
     "privacyPolicy": "Política de Privacidade",
-    "termsOfService": "Termos de Serviço"
+    "termsOfService": "Termos de Serviço",
+    "pleaseAuthenticateToAccessYourCloud": "Por favor, autentique-se para acessar sua nuvem",
+    "allowMeteredConnections": "Permitir conexões com medição",
+    "requireCharging": "Requer carregamento",
+    "syncEnabled": "Sincronização ativada",
+    "syncSettings": "Configurações de sincronização",
+    "account": "Conta",
+    "security": "Segurança",
+    "general": "Geral",
+    "currentlyNestedFoldersAreNotSupported": "Atualmente, pastas aninhadas não são suportadas."
 }

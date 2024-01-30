@@ -129,5 +129,14 @@
     "emailSent": "ईमेल भेजा गया",
     "sendEmail": "ईमेल भेजें",
     "privacyPolicy": "गोपनीयता नीति",
-    "termsOfService": "सेवा की शर्तें"
+    "termsOfService": "सेवा की शर्तें",
+    "pleaseAuthenticateToAccessYourCloud": "कृपया अपने क्लाउड तक पहुँचने के लिए प्रमाणीकृत करें",
+    "allowMeteredConnections": "मीटरड कनेक्शन की अनुमति दें",
+    "requireCharging": "चार्जिंग आवश्यक है",
+    "syncEnabled": "सिंक सक्षम है",
+    "syncSettings": "सिंक सेटिंग्स",
+    "account": "खाता",
+    "security": "सुरक्षा",
+    "general": "सामान्य",
+    "currentlyNestedFoldersAreNotSupported": "वर्तमान में नेस्टेड फ़ोल्डर समर्थित नहीं हैं।"
 }

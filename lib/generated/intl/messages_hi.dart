@@ -39,8 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("खाता"),
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("खाता हटा दिया गया है"),
+        "allowMeteredConnections":
+            MessageLookupByLibrary.simpleMessage("मीटरड कनेक्शन की अनुमति दें"),
         "allowedEmails": MessageLookupByLibrary.simpleMessage("अनुमत ईमेल"),
         "appName": MessageLookupByLibrary.simpleMessage("ब्लेज्ड क्लाउड"),
         "areYouSureYouWantToDeleteThisFile":
@@ -67,6 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "create": MessageLookupByLibrary.simpleMessage("बनाएं"),
         "createAnAccount": MessageLookupByLibrary.simpleMessage("खाता बनाएं"),
         "createFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर बनाएं"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage(
+                "वर्तमान में नेस्टेड फ़ोल्डर समर्थित नहीं हैं।"),
         "delete": MessageLookupByLibrary.simpleMessage("हटाएं"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("खाता हटाएं"),
         "deleteFile": MessageLookupByLibrary.simpleMessage("फ़ाइल हटाएं"),
@@ -106,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "folderName": MessageLookupByLibrary.simpleMessage("फ़ोल्डर का नाम"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("पासवर्ड भूल गए?"),
+        "general": MessageLookupByLibrary.simpleMessage("सामान्य"),
         "howLongToShare": MessageLookupByLibrary.simpleMessage(
             "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?"),
         "invalidEmailOrPassword":
@@ -128,6 +135,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "पासवर्ड रीसेट ईमेल भेजा गया है!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर चुनें"),
+        "pleaseAuthenticateToAccessYourCloud":
+            MessageLookupByLibrary.simpleMessage(
+                "कृपया अपने क्लाउड तक पहुँचने के लिए प्रमाणीकृत करें"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "कृपया चुनें एक डायरेक्टरी जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।"),
@@ -138,8 +148,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestSent": MessageLookupByLibrary.simpleMessage("अनुरोध भेजा गया!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
             "ऐप खोलने के लिए बायोमेट्रिक्स की आवश्यकता है"),
+        "requireCharging":
+            MessageLookupByLibrary.simpleMessage("चार्जिंग आवश्यक है"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("पासवर्ड रीसेट"),
         "save": MessageLookupByLibrary.simpleMessage("सहेजें"),
+        "security": MessageLookupByLibrary.simpleMessage("सुरक्षा"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "डाउनलोड निर्दिष्ट करें डायरेक्टरी"),
         "send": MessageLookupByLibrary.simpleMessage("भेजें"),
@@ -157,6 +170,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"),
+        "syncEnabled": MessageLookupByLibrary.simpleMessage("सिंक सक्षम है"),
+        "syncSettings": MessageLookupByLibrary.simpleMessage("सिंक सेटिंग्स"),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("सेवा की शर्तें"),
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),

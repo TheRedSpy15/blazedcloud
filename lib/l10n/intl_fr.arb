@@ -129,5 +129,14 @@
     "emailSent": "E-mail envoyé",
     "sendEmail": "Envoyer un e-mail",
     "privacyPolicy": "Politique de confidentialité",
-    "termsOfService": "Conditions d''utilisation"
+    "termsOfService": "Conditions d''utilisation",
+    "pleaseAuthenticateToAccessYourCloud": "Veuillez vous authentifier pour accéder à votre cloud",
+    "allowMeteredConnections": "Autoriser les connexions tarifées",
+    "requireCharging": "Requiert la charge",
+    "syncEnabled": "Synchronisation activée",
+    "syncSettings": "Paramètres de synchronisation",
+    "account": "Compte",
+    "security": "Sécurité",
+    "general": "Général",
+    "currentlyNestedFoldersAreNotSupported": "Actuellement, les dossiers imbriqués ne sont pas pris en charge."
 }

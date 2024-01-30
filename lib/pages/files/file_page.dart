@@ -62,10 +62,7 @@ class FilesPage extends ConsumerWidget {
             ]),
         body: RefreshIndicator(
           onRefresh: () async {
-            // Invalidate by refreshing the FutureProvider
             ref.invalidate(fileListProvider(currentDirectory));
-
-            // Wait for the new data to load
             await ref.read(fileListProvider(currentDirectory).future);
           },
           child: objectList.when(

@@ -129,5 +129,14 @@
     "emailSent": "邮件已发送",
     "sendEmail": "发送邮件",
     "privacyPolicy": "隐私政策",
-    "termsOfService": "服务条款"
+    "termsOfService": "服务条款",
+    "pleaseAuthenticateToAccessYourCloud": "请进行身份验证以访问您的云",
+    "allowMeteredConnections": "允许计量连接",
+    "requireCharging": "需要充电",
+    "syncEnabled": "启用同步",
+    "syncSettings": "同步设置",
+    "account": "帐户",
+    "security": "安全",
+    "general": "通用",
+    "currentlyNestedFoldersAreNotSupported": "目前不支持嵌套文件夹。"
 }

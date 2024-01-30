@@ -39,8 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Обліковий запис"),
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Обліковий запис видалено"),
+        "allowMeteredConnections": MessageLookupByLibrary.simpleMessage(
+            "Дозволити тарифіковані підключення"),
         "allowedEmails":
             MessageLookupByLibrary.simpleMessage("Дозволені електронні адреси"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
@@ -71,6 +74,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAnAccount":
             MessageLookupByLibrary.simpleMessage("Створити обліковий запис"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Створити папку"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage(
+                "На даний момент вкладені папки не підтримуються."),
         "delete": MessageLookupByLibrary.simpleMessage("Видалити"),
         "deleteAccount":
             MessageLookupByLibrary.simpleMessage("Видалити обліковий запис"),
@@ -111,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "folderName": MessageLookupByLibrary.simpleMessage("Назва папки"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Забули пароль?"),
+        "general": MessageLookupByLibrary.simpleMessage("Загальні"),
         "howLongToShare": MessageLookupByLibrary.simpleMessage(
             "На який термін файл повинен бути доступний для спільного використання?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
@@ -133,6 +140,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Електронний лист для скидання пароля відправлено!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Вибрати папку"),
+        "pleaseAuthenticateToAccessYourCloud": MessageLookupByLibrary.simpleMessage(
+            "Будь ласка, аутентифікуйтеся, щоб отримати доступ до вашого хмарного сховища"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Будь ласка, виберіть каталог, куди ви хочете завантажити ваші файли на наступному екрані."),
@@ -144,8 +153,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestSent": MessageLookupByLibrary.simpleMessage("Запит надіслано!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
             "Вимагати біометрії для відкриття додатка"),
+        "requireCharging": MessageLookupByLibrary.simpleMessage(
+            "Вимагає підключення до заряджання"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Скинути пароль"),
         "save": MessageLookupByLibrary.simpleMessage("Зберегти"),
+        "security": MessageLookupByLibrary.simpleMessage("Безпека"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Вибрати каталог для завантаження"),
         "send": MessageLookupByLibrary.simpleMessage("Відправити"),
@@ -165,6 +177,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Підписано через Playstore або Appstore"),
+        "syncEnabled":
+            MessageLookupByLibrary.simpleMessage("Синхронізація увімкнена"),
+        "syncSettings":
+            MessageLookupByLibrary.simpleMessage("Налаштування синхронізації"),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Умови використання"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),

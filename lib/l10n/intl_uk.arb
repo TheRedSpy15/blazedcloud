@@ -129,5 +129,14 @@
     "emailSent": "Електронна пошта відправлена",
     "sendEmail": "Надіслати електронного листа",
     "privacyPolicy": "Політика конфіденційності",
-    "termsOfService": "Умови використання"
+    "termsOfService": "Умови використання",
+    "pleaseAuthenticateToAccessYourCloud": "Будь ласка, аутентифікуйтеся, щоб отримати доступ до вашого хмарного сховища",
+    "allowMeteredConnections": "Дозволити тарифіковані підключення",
+    "requireCharging": "Вимагає підключення до заряджання",
+    "syncEnabled": "Синхронізація увімкнена",
+    "syncSettings": "Налаштування синхронізації",
+    "account": "Обліковий запис",
+    "security": "Безпека",
+    "general": "Загальні",
+    "currentlyNestedFoldersAreNotSupported": "На даний момент вкладені папки не підтримуються."
 }

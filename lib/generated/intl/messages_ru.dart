@@ -41,8 +41,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("Аккаунт"),
         "accountDeleted":
             MessageLookupByLibrary.simpleMessage("Аккаунт удален"),
+        "allowMeteredConnections": MessageLookupByLibrary.simpleMessage(
+            "Разрешить тарифицированные подключения"),
         "allowedEmails": MessageLookupByLibrary.simpleMessage(
             "Разрешенные электронные почты"),
         "appName": MessageLookupByLibrary.simpleMessage("Blazed Cloud"),
@@ -73,6 +76,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "createAnAccount":
             MessageLookupByLibrary.simpleMessage("Создать аккаунт"),
         "createFolder": MessageLookupByLibrary.simpleMessage("Создать папку"),
+        "currentlyNestedFoldersAreNotSupported":
+            MessageLookupByLibrary.simpleMessage(
+                "В настоящее время вложенные папки не поддерживаются."),
         "delete": MessageLookupByLibrary.simpleMessage("Удалить"),
         "deleteAccount":
             MessageLookupByLibrary.simpleMessage("Удалить аккаунт"),
@@ -113,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "folderName": MessageLookupByLibrary.simpleMessage("Имя папки"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Забыли пароль?"),
+        "general": MessageLookupByLibrary.simpleMessage("Общие"),
         "howLongToShare": MessageLookupByLibrary.simpleMessage(
             "На какой срок файл должен быть доступен для общего доступа?"),
         "invalidEmailOrPassword": MessageLookupByLibrary.simpleMessage(
@@ -135,6 +142,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Письмо для сброса пароля отправлено!"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Выбрать папку"),
+        "pleaseAuthenticateToAccessYourCloud": MessageLookupByLibrary.simpleMessage(
+            "Пожалуйста, прошедшите аутентификацию, чтобы получить доступ к вашему облаку"),
         "pleaseSelectADirectoryWhereYouWouldLikeToDownload":
             MessageLookupByLibrary.simpleMessage(
                 "Выберите директорию, в которую вы хотели бы загрузить ваши файлы на следующем экране."),
@@ -147,8 +156,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Запрос отправлен!"),
         "requireBiometricsToOpenApp": MessageLookupByLibrary.simpleMessage(
             "Требовать биометрию для открытия приложения"),
+        "requireCharging": MessageLookupByLibrary.simpleMessage(
+            "Требуется подключение к зарядке"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Сброс пароля"),
         "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
+        "security": MessageLookupByLibrary.simpleMessage("Безопасность"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Выберите директорию для загрузки"),
         "send": MessageLookupByLibrary.simpleMessage("Отправить"),
@@ -168,6 +180,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage(
                 "Подписано через Playstore или Appstore"),
+        "syncEnabled":
+            MessageLookupByLibrary.simpleMessage("Синхронизация включена"),
+        "syncSettings":
+            MessageLookupByLibrary.simpleMessage("Настройки синхронизации"),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Условия использования"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачи"),

@@ -8,12 +8,13 @@ import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/models/transfers/download_state.dart';
 import 'package:file_picker/file_picker.dart' as fp;
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Check if the user has granted access to the download directory
 Future<bool> checkIfAccessToDownloadDirectoryIsGranted() async {
-  final downloadDirectory = await getExportDirectoryFromHive();
+  final downloadDirectory = await getExportDirectoryFromPrefs();
   final downloadFolder = File(downloadDirectory);
 
   if (downloadDirectory.isEmpty) {
@@ -116,13 +117,28 @@ List<String> fuzzySearch(String query, List<String> list) {
   return filteredResults;
 }
 
-/// Get the download directory from Hive
-Future<String> getExportDirectoryFromHive() async {
-  await Hive.initFlutter();
+/// prompt user to select a directory for downloads
+Future<String> getExportDirectoryFromPicker() async {
+  final path = await fp.FilePicker.platform.getDirectoryPath();
+  final prefs = await SharedPreferences.getInstance();
+
+  if (path != null) {
+    logger.i('User selected directory: $path');
+    await prefs.setString('downloadDirectory', path);
+    return path;
+  } else {
+    // User canceled the picker
+    logger.i('User canceled directory picker');
+    return '';
+  }
+}
+
+/// Get the download directory from shared preferences
+Future<String> getExportDirectoryFromPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
 
   // check if Hive has a download directory saved
-  final box = await Hive.openBox<String>('files');
-  final downloadDirectory = box.get('downloadDirectory');
+  final downloadDirectory = prefs.getString('downloadDirectory');
 
   if (downloadDirectory != null) {
     // check if the directory still exists or we still have access to it
@@ -136,26 +152,6 @@ Future<String> getExportDirectoryFromHive() async {
   return '';
 }
 
-/// prompt user to select a directory for downloads
-Future<String> getExportDirectoryFromPicker() async {
-  final result = await fp.FilePicker.platform.getDirectoryPath();
-
-  if (result != null) {
-    // User selected a directory
-    logger.i('User selected directory: $result');
-
-    // Save the directory to Hive
-    final box = await Hive.openBox<String>('files');
-    box.put('downloadDirectory', result);
-
-    return result;
-  } else {
-    // User canceled the picker
-    logger.i('User canceled directory picker');
-    return '';
-  }
-}
-
 getFileDirectory(String key) {
   // remove the file name from the key
   return key.substring(0, key.lastIndexOf('/') + 1);
@@ -166,83 +162,31 @@ String getFileName(String filename) {
   return filename.substring(filename.lastIndexOf('/') + 1);
 }
 
+String getFilePathFromKey(String key, String uid) {
+  // remove uid + / if the key starts with it
+  if (key.startsWith('$uid/')) {
+    return key = key.substring(uid.length + 1);
+  }
+  return key;
+}
+
 /// DO NOT USE AS FOR CONTENT-TYPE HEADER. This is purely for UI purposes
 FileType getFileType(String fileName) {
-  if (fileName.endsWith('.jpg') ||
-      fileName.endsWith('.jpeg') ||
-      fileName.endsWith('.png') ||
-      fileName.endsWith('.hevc') ||
-      fileName.endsWith('.heif') ||
-      fileName.endsWith('.webp') ||
-      fileName.endsWith('.bmp') ||
-      fileName.endsWith('.svg') ||
-      fileName.endsWith('.ico') ||
-      fileName.endsWith('.tif') ||
-      fileName.endsWith('.tiff') ||
-      fileName.endsWith('.jfif') ||
-      fileName.endsWith('.gif')) {
-    return FileType.image;
-  } else if (fileName.endsWith('.mp4') ||
-      fileName.endsWith('.avi') ||
-      fileName.endsWith('.mov') ||
-      fileName.endsWith('.wmv') ||
-      fileName.endsWith('.flv') ||
-      fileName.endsWith('.webm') ||
-      fileName.endsWith('.mpeg') ||
-      fileName.endsWith('.mpg') ||
-      fileName.endsWith('.m4v') ||
-      fileName.endsWith('.3gp') ||
-      fileName.endsWith('.3g2') ||
-      fileName.endsWith('.mkv')) {
-    return FileType.video;
-  } else if (fileName.endsWith('.mp3') ||
-      fileName.endsWith('.wav') ||
-      fileName.endsWith('.flac') ||
-      fileName.endsWith('.m4a') ||
-      fileName.endsWith('.ogg') ||
-      fileName.endsWith('.oga') ||
-      fileName.endsWith('.wma') ||
-      fileName.endsWith('.opus') ||
-      fileName.endsWith('.weba') ||
-      fileName.endsWith('.mka') ||
-      fileName.endsWith('.ape') ||
-      fileName.endsWith('.aiff') ||
-      fileName.endsWith('.aif') ||
-      fileName.endsWith('.aifc') ||
-      fileName.endsWith('.aac')) {
+  final type = lookupMimeType(fileName) ?? 'application/octet-stream';
+  if (type.contains("audio")) {
     return FileType.audio;
-  } else if (fileName.endsWith('.doc') ||
-      fileName.endsWith('.docx') ||
-      fileName.endsWith('.xls') ||
-      fileName.endsWith('.xlsx') ||
-      fileName.endsWith('.ppt') ||
-      fileName.endsWith('.pptx') ||
-      fileName.endsWith('.txt') ||
-      fileName.endsWith('.rtf') ||
-      fileName.endsWith('.csv') ||
-      fileName.endsWith('.xml') ||
-      fileName.endsWith('.json') ||
-      fileName.endsWith('.html') ||
-      fileName.endsWith('.htm') ||
-      fileName.endsWith('.log') ||
-      fileName.endsWith('.md') ||
-      fileName.endsWith('.odt') ||
-      fileName.endsWith('.ods') ||
-      fileName.endsWith('.odp') ||
-      fileName.endsWith('.odg') ||
-      fileName.endsWith('.odf') ||
-      fileName.endsWith('.epub') ||
-      fileName.endsWith('.mobi') ||
-      fileName.endsWith('.azw') ||
-      fileName.endsWith('.azw3') ||
-      fileName.endsWith('.djvu') ||
-      fileName.endsWith('.fb2') ||
-      fileName.endsWith('.xps') ||
-      fileName.endsWith('.ps') ||
-      fileName.endsWith('.pdf')) {
+  } else if (type.contains("video")) {
+    return FileType.video;
+  } else if (type.contains("image")) {
+    return FileType.image;
+  } else if (type.contains("text")) {
     return FileType.doc;
-  } else if (fileName.endsWith('/')) {
+  } else if (type.contains("pdf")) {
+    return FileType.doc;
+  } else if (type.contains("zip")) {
     return FileType.other;
+  } else if (type.contains("folder")) {
+    return FileType.folder;
   } else {
     return FileType.other;
   }
@@ -320,12 +264,15 @@ List<String> getKeysInFolder(
   return keys;
 }
 
-Future<File> getOfflineFile(String filename) async {
+Future<File> getOfflineFile(String fileKey) async {
   // Get the directory for the app's internal storage
-  final directory = await getExportDirectoryFromHive();
+  final directory = await getExportDirectoryFromPrefs();
+
+  // remove the uid from the key
+  fileKey = fileKey.substring(pb.authStore.model.id.length + 1);
 
   // Construct the file path using the filename
-  final filePath = File('$directory/$filename');
+  final filePath = File('$directory/$fileKey');
 
   return filePath;
 }
@@ -366,13 +313,14 @@ bool isFileBeingDownloaded(String file, List<DownloadState> downloads) {
   return false;
 }
 
-Future<bool> isFileSavedOffline(String filename) async {
-  // Get the directory for the app's internal storage
-  //final directory = await getApplicationDocumentsDirectory();
-  final directory = await getExportDirectoryFromHive();
+Future<bool> isFileSavedOffline(String fileKey) async {
+  final directory = await getExportDirectoryFromPrefs();
 
   // Construct the file path using the filename
-  final filePath = File('$directory/$filename');
+  String relativePath = fileKey.replaceAll(directory, "");
+  relativePath = relativePath.substring(relativePath.indexOf('/') + 1);
+
+  final filePath = File('$directory/$relativePath');
 
   // Check if the file exists
   return filePath.exists();
