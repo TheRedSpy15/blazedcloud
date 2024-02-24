@@ -50,13 +50,16 @@ class UploadController {
 
   /// start an upload with workmanager
   void scheduleUpload(UploadRequestQueue request) async {
-    Workmanager().registerOneOffTask(request.queueName, "upload",
-        backoffPolicy: BackoffPolicy.exponential,
-        outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
-        existingWorkPolicy: ExistingWorkPolicy.replace,
-        tag: request.queueName,
-        constraints: Constraints(networkType: NetworkType.connected),
-        inputData: request.toJson());
+    Workmanager()
+        .registerOneOffTask("upload-task", "upload-task",
+            backoffPolicy: BackoffPolicy.exponential,
+            outOfQuotaPolicy:
+                OutOfQuotaPolicy.run_as_non_expedited_work_request,
+            existingWorkPolicy: ExistingWorkPolicy.keep,
+            tag: request.queueName,
+            constraints: Constraints(networkType: NetworkType.connected),
+            inputData: request.toJson())
+        .then((value) => logger.d("Upload scheduled"));
   }
 
   /// prompt user for file selection, then schedule uploads

@@ -73,14 +73,14 @@ void callbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
     logger.t("Native called background task: $task");
 
-    if (task == "download") {
+    if (task == "download-task") {
       return await DownloadController.startDownload(
           inputData?['uid'],
           inputData?['fileKey'],
           inputData?['token'],
           inputData?['exportDir'],
           inputData?['startDate']);
-    } else if (task == "upload") {
+    } else if (task == "upload-task") {
       return await UploadController.processUploadQueue(
           inputData?['uid'],
           (inputData?['localPaths'] as List)

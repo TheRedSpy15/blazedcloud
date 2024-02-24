@@ -47,7 +47,7 @@ class DownloadController {
       }
     });
 
-    Workmanager().registerOneOffTask(fileKey.hashCode.toString(), "download",
+    Workmanager().registerOneOffTask("download-task", "download-task",
         constraints: Constraints(
             networkType: NetworkType.connected, requiresStorageNotLow: true),
         tag: fileKey,

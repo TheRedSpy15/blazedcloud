@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
 
 /// Check if the user has granted access to the download directory
 Future<bool> checkIfAccessToDownloadDirectoryIsGranted() async {
@@ -119,6 +120,16 @@ List<String> fuzzySearch(String query, List<String> list) {
 
 /// prompt user to select a directory for downloads
 Future<String> getExportDirectoryFromPicker() async {
+  // IOS has different file permissions
+  if (Platform.isIOS) {
+    final directory = await getDownloadsDirectory();
+    if (directory != null) {
+      return directory.path;
+    } else {
+      return '';
+    }
+  }
+
   final path = await fp.FilePicker.platform.getDirectoryPath();
   final prefs = await SharedPreferences.getInstance();
 
@@ -135,6 +146,13 @@ Future<String> getExportDirectoryFromPicker() async {
 
 /// Get the download directory from shared preferences
 Future<String> getExportDirectoryFromPrefs() async {
+  // IOS has different file permissions
+  if (Platform.isIOS) {
+    final directory = await getApplicationDocumentsDirectory();
+    logger.i('Download directory (IOS): ${directory.path}');
+    return directory.path;
+  }
+
   final prefs = await SharedPreferences.getInstance();
 
   // check if Hive has a download directory saved

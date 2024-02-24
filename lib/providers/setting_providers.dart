@@ -41,14 +41,14 @@ final isPrefsLoaded = FutureProvider.autoDispose<bool>((ref) async {
       prefs.getBool('requireCharging') ?? false;
 
   // we load the folders to watch here to consolidate the logic
-  ref.read(foldersToWatchProvider.notifier).state = await getFoldersForSync();
-  updateSyncWorker(
-      pb.authStore.model.id,
-      pb.authStore.token,
-      ref.read(allowMeteredProvider),
-      ref.read(requireChargingProvider),
-      ref.read(syncFrequencyProvider),
-      ref.read(watchEnabledProvider));
+  //ref.read(foldersToWatchProvider.notifier).state = await getFoldersForSync();
+  //updateSyncWorker(
+  //    pb.authStore.model.id,
+  //    pb.authStore.token,
+  //    ref.read(allowMeteredProvider),
+  //    ref.read(requireChargingProvider),
+  //    ref.read(syncFrequencyProvider),
+  //    ref.read(watchEnabledProvider));
 
   return true;
 });
