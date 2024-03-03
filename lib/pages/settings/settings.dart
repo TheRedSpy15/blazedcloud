@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
@@ -73,12 +75,13 @@ class SettingsScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomSettingsGroup(
-                settingsGroupTitle: S.of(context).general,
-                items: [
-                  downloadLocationChangeSetting(context),
-                ],
-              ),
+              if (!Platform.isIOS)
+                CustomSettingsGroup(
+                  settingsGroupTitle: S.of(context).general,
+                  items: [
+                    downloadLocationChangeSetting(context),
+                  ],
+                ),
               CustomSettingsGroup(
                 settingsGroupTitle: S.of(context).security,
                 items: [

@@ -10,6 +10,7 @@ import 'package:file_picker/file_picker.dart' as fp;
 import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Check if the user has granted access to the download directory
@@ -119,6 +120,16 @@ List<String> fuzzySearch(String query, List<String> list) {
 
 /// prompt user to select a directory for downloads
 Future<String> getExportDirectoryFromPicker() async {
+  // IOS has different file permissions
+  if (Platform.isIOS) {
+    final directory = await getDownloadsDirectory();
+    if (directory != null) {
+      return directory.path;
+    } else {
+      return '';
+    }
+  }
+
   final path = await fp.FilePicker.platform.getDirectoryPath();
   final prefs = await SharedPreferences.getInstance();
 
@@ -135,6 +146,13 @@ Future<String> getExportDirectoryFromPicker() async {
 
 /// Get the download directory from shared preferences
 Future<String> getExportDirectoryFromPrefs() async {
+  // IOS has different file permissions
+  if (Platform.isIOS) {
+    final directory = await getApplicationDocumentsDirectory();
+    logger.i('Download directory (IOS): ${directory.path}');
+    return directory.path;
+  }
+
   final prefs = await SharedPreferences.getInstance();
 
   // check if Hive has a download directory saved
@@ -264,12 +282,12 @@ List<String> getKeysInFolder(
   return keys;
 }
 
-Future<File> getOfflineFile(String fileKey) async {
+Future<File> getOfflineFile(String fileKey, String uid) async {
   // Get the directory for the app's internal storage
   final directory = await getExportDirectoryFromPrefs();
 
   // remove the uid from the key
-  fileKey = fileKey.substring(pb.authStore.model.id.length + 1);
+  fileKey = fileKey.substring(uid.length + 1);
 
   // Construct the file path using the filename
   final filePath = File('$directory/$fileKey');

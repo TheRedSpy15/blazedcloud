@@ -74,7 +74,7 @@ void downloadItem(String fileKey, DownloadController downloadController,
 }
 
 void openFromOffline(String fileKey, WidgetRef ref) {
-  getOfflineFile(fileKey).then((file) {
+  getOfflineFile(fileKey, pb.authStore.model.id).then((file) {
     try {
       logger.i('Opening file: ${file.path}');
       ScaffoldMessenger.of(ref.context).showSnackBar(
