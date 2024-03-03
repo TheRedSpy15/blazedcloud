@@ -10,8 +10,8 @@ import 'package:file_picker/file_picker.dart' as fp;
 import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
 import 'package:open_filex/open_filex.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// Check if the user has granted access to the download directory
 Future<bool> checkIfAccessToDownloadDirectoryIsGranted() async {
@@ -282,12 +282,12 @@ List<String> getKeysInFolder(
   return keys;
 }
 
-Future<File> getOfflineFile(String fileKey) async {
+Future<File> getOfflineFile(String fileKey, String uid) async {
   // Get the directory for the app's internal storage
   final directory = await getExportDirectoryFromPrefs();
 
   // remove the uid from the key
-  fileKey = fileKey.substring(pb.authStore.model.id.length + 1);
+  fileKey = fileKey.substring(uid.length + 1);
 
   // Construct the file path using the filename
   final filePath = File('$directory/$fileKey');

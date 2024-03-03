@@ -12,6 +12,7 @@ import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/services/notifications.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 
 class DownloadController {
@@ -38,28 +39,40 @@ class DownloadController {
     });
   }
 
+  void addDownloadToOfflineQueue(String fileKey) {
+    SharedPreferences.getInstance().then((prefs) {
+      final offlineQueue = prefs.getStringList('offlineQueue') ?? [];
+      offlineQueue.add(jsonEncode({
+        'fileKey': fileKey,
+        'date': DateTime.now().millisecondsSinceEpoch,
+      }));
+      prefs.setStringList('offlineQueue', offlineQueue);
+    });
+  }
+
   /// start a download with workmanager
   void queueDownload(String uid, String fileKey) async {
-    getOfflineFile(fileKey).then((value) {
+    getOfflineFile(fileKey, pb.authStore.model.id).then((value) {
       if (value.existsSync()) {
         logger.i('File already exists: ${value.path}');
         return false;
       }
     });
 
+    // UID, exportDir, token are passed to the worker directly so they can be replaced if needed
+    addDownloadToOfflineQueue(fileKey);
     Workmanager().registerOneOffTask("download-task", "download-task",
         constraints: Constraints(
             networkType: NetworkType.connected, requiresStorageNotLow: true),
         tag: fileKey,
         backoffPolicy: BackoffPolicy.exponential,
         outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
-        existingWorkPolicy: ExistingWorkPolicy.keep,
+        existingWorkPolicy: ExistingWorkPolicy.replace,
         inputData: {
           "uid": uid,
-          "fileKey": fileKey,
           "exportDir": await getExportDirectoryFromPrefs(),
           "token": pb.authStore.token,
-          "startDate": DateTime.now().toIso8601String(),
+          "fileKey": fileKey,
         });
   }
 
@@ -74,35 +87,74 @@ class DownloadController {
     });
   }
 
+  static Future<DownloadItem?> getOldestPlannedDownload() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final offlineQueue = prefs.getStringList('offlineQueue') ?? [];
+    if (offlineQueue.isEmpty) {
+      return null;
+    }
+
+    final oldest = offlineQueue
+        .map((e) => jsonDecode(e))
+        .cast<Map<String, dynamic>>()
+        .toList()
+      ..sort((a, b) => a['date'].compareTo(b['date']));
+    return DownloadItem(oldest.first['fileKey'], oldest.first['date']);
+  }
+
+  static Future<bool> isDownloadsRemaining() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final offlineQueue = prefs.getStringList('offlineQueue') ?? [];
+    return offlineQueue.isNotEmpty;
+  }
+
+  static void removePlannedDownload(String fileKey) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final offlineQueue = prefs.getStringList('offlineQueue') ?? [];
+    final newQueue = offlineQueue
+        .where((element) => jsonDecode(element)['fileKey'] != fileKey)
+        .toList();
+    prefs.setStringList('offlineQueue', newQueue);
+  }
+
   /// returns true if the download was started or doesn't need to be started
   ///
-  /// Call this directly to bypass using workmanager
-  static Future<bool> startDownload(String uid, String fileKey, String token,
-      String appDocDir, String startDate) async {
+  /// Intended to be called from a worker
+  static Future<bool> startQueuedDownload(
+      String uid, String token, String appDocDir) async {
+    // get the oldest planned download
+    final download = await getOldestPlannedDownload();
+    if (download == null) {
+      logger.i('No planned downloads');
+      return true;
+    }
+
     // if start date was more than 12 hours ago, return true
-    if (DateTime.now().difference(DateTime.parse(startDate)) >=
+    if (DateTime.now().difference(
+            DateTime.fromMillisecondsSinceEpoch(download.unixTime)) >=
         const Duration(hours: 12)) {
       logger.i('Upload started more than 12 hours ago, killing worker.');
-      return true;
+      removePlannedDownload(download.fileKey);
+      return startQueuedDownload(uid, token, appDocDir);
     }
 
     SendPort? sendPort = IsolateNameServer.lookupPortByName("downloader");
     final filePath =
-        '$appDocDir/${getFilePathFromKey(fileKey, uid)}'; // Define the file path
+        '$appDocDir/${getFilePathFromKey(download.fileKey, uid)}'; // Define the file path
 
     if (!Directory(appDocDir).existsSync()) {
       logger.e('Could not get appDocDir');
       return false;
     }
 
-    getOfflineFile(fileKey).then((value) {
+    getOfflineFile(download.fileKey, uid).then((value) {
       if (value.existsSync()) {
         logger.i('File already exists: ${value.path}');
         return true;
       }
     });
 
-    final downloadState = DownloadState.inProgress(fileKey);
+    final downloadState = DownloadState.inProgress(download.fileKey);
     final completer = Completer<bool>();
     try {
       // Ensure the directory exists
@@ -125,7 +177,7 @@ class DownloadController {
           Duration(milliseconds: 300); // Adjust the duration as needed
       DateTime lastDataSentTime = DateTime.now();
 
-      final response = await getFile(uid, fileKey, token);
+      final response = await getFile(uid, download.fileKey, token);
       response.stream.listen((data) async {
         final totalBytes = response.contentLength ?? 0;
         progress += data.length / totalBytes;
@@ -140,7 +192,7 @@ class DownloadController {
             try {
               sendPort!.send(jsonEncode(downloadState.toJson()));
             } catch (error) {
-              logger.e('send port error ($fileKey): $error');
+              logger.e('send port error (${download.fileKey}): $error');
             }
             lastDataSentTime = DateTime.now();
           }
@@ -157,7 +209,7 @@ class DownloadController {
           try {
             sendPort!.send(jsonEncode(downloadState.toJson()));
           } catch (error) {
-            logger.e('send port error ($fileKey): $error');
+            logger.e('send port error (${download.fileKey}): $error');
           }
         }
       }, onDone: () {
@@ -170,7 +222,7 @@ class DownloadController {
           try {
             sendPort!.send(jsonEncode(downloadState.toJson()));
           } catch (error) {
-            logger.e('send port error ($fileKey): $error');
+            logger.e('send port error (${download.fileKey}): $error');
           }
         }
 
@@ -186,11 +238,24 @@ class DownloadController {
         try {
           sendPort!.send(jsonEncode(downloadState.toJson()));
         } catch (error) {
-          logger.e('send port error ($fileKey): $error');
+          logger.e('send port error (${download.fileKey}): $error');
         }
       }
     }
 
+    // remove the planned download & start next
+    removePlannedDownload(download.fileKey);
+    if (await isDownloadsRemaining()) {
+      startQueuedDownload(uid, token, appDocDir);
+    }
+
     return completer.future;
   }
+}
+
+class DownloadItem {
+  String fileKey;
+  int unixTime;
+
+  DownloadItem(this.fileKey, this.unixTime);
 }

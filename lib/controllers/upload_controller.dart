@@ -49,13 +49,20 @@ class UploadController {
   }
 
   /// start an upload with workmanager
+  ///
+  /// If on Android, the queue name is used to identify the worker. On iOS, we have to use a generic name from info.plist
   void scheduleUpload(UploadRequestQueue request) async {
+    if (Platform.isIOS) {
+      request.queueName = "upload-task";
+    }
     Workmanager()
-        .registerOneOffTask("upload-task", "upload-task",
+        .registerOneOffTask(request.queueName, "upload-task",
             backoffPolicy: BackoffPolicy.exponential,
             outOfQuotaPolicy:
                 OutOfQuotaPolicy.run_as_non_expedited_work_request,
-            existingWorkPolicy: ExistingWorkPolicy.keep,
+            existingWorkPolicy: Platform.isAndroid
+                ? ExistingWorkPolicy.replace
+                : ExistingWorkPolicy.keep,
             tag: request.queueName,
             constraints: Constraints(networkType: NetworkType.connected),
             inputData: request.toJson())
@@ -115,35 +122,25 @@ class UploadController {
       String queueName) async {
     logger.d("Processing upload queue: $localPaths");
 
-    // for each file, start an upload. if it succeeds, remove it from the queue
-    for (int i = 0; i < localNames.length; i++) {
+    // for each file, start an upload. if any fail, reschedule the worker
+    for (int i = 0; i < localPaths.length; i++) {
       var filename = localNames[i];
       final isSuccess = await startUpload(uid, localPaths[i], filename,
           sizes[i], s3Directory, token, startDate);
 
-      if (isSuccess) {
-        logger.i('Upload succeeded, removing from queue: $filename');
-        // remove from queue - don't need to reattempt
-        localPaths.removeAt(i);
-        localNames.removeAt(i);
-        sizes.removeAt(i);
-      } else {
-        logger.i('Upload failed, leaving in queue: $filename');
+      if (!isSuccess) {
+        logger.e('Upload queue failed: $queueName');
+        final queue = UploadRequestQueue(
+            uid, token, s3Directory, localPaths, localNames, sizes, queueName);
+        await Workmanager().registerOneOffTask(queueName, "upload",
+            backoffPolicy: BackoffPolicy.linear,
+            tag: queueName,
+            outOfQuotaPolicy:
+                OutOfQuotaPolicy.run_as_non_expedited_work_request,
+            existingWorkPolicy: ExistingWorkPolicy.replace,
+            constraints: Constraints(networkType: NetworkType.connected),
+            inputData: queue.toJson());
       }
-    }
-
-    // if there are still files in the queue, recreate the worker with the new queue
-    logger.i('Upload queue size: ${localNames.length}');
-    if (localNames.isNotEmpty) {
-      final queue = UploadRequestQueue(
-          uid, token, s3Directory, localPaths, localNames, sizes, queueName);
-      Workmanager().registerOneOffTask(queueName, "upload",
-          backoffPolicy: BackoffPolicy.linear,
-          tag: queueName,
-          outOfQuotaPolicy: OutOfQuotaPolicy.run_as_non_expedited_work_request,
-          existingWorkPolicy: ExistingWorkPolicy.replace,
-          constraints: Constraints(networkType: NetworkType.connected),
-          inputData: queue.toJson());
     }
 
     return true;

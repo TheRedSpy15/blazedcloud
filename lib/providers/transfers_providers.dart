@@ -81,9 +81,6 @@ class UploadStateNotifier extends StateNotifier<List<UploadState>> {
     if (index != -1) {
       updateUploadState(index, uploadState);
     } else {
-      logger.i('Upload state not found: $key');
-
-      // Add the upload state if it doesn't exist
       addUpload(uploadState);
     }
   }

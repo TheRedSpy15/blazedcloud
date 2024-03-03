@@ -177,14 +177,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.1"
-  flat_buffers:
-    dependency: transitive
-    description:
-      name: flat_buffers
-      sha256: "23e2ced0d8e8ecdffbd9f267f49a668c74438393b9acaeac1c724123e3764263"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -549,14 +541,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  objectbox:
-    dependency: "direct main"
-    description:
-      name: objectbox
-      sha256: "141092d397b100542dda74edb4da85e179fb48bbda1ec36d64fef93cc4189cc7"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.0"
   open_filex:
     dependency: "direct main"
     description:
@@ -870,10 +854,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_ios
-      sha256: "75bb6fe3f60070407704282a2d295630cab232991eb52542b18347a8a941df03"
+      sha256: "9149d493b075ed740901f3ee844a38a00b33116c7c5c10d7fb27df8987fb51d5"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.4"
+    version: "6.2.5"
   url_launcher_linux:
     dependency: transitive
     description:
