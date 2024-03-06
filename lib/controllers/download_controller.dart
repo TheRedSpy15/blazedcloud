@@ -39,7 +39,7 @@ class DownloadController {
     });
   }
 
-  void addDownloadToOfflineQueue(String fileKey) {
+  static void addDownloadToOfflineQueue(String fileKey) {
     SharedPreferences.getInstance().then((prefs) {
       final offlineQueue = prefs.getStringList('offlineQueue') ?? [];
       offlineQueue.add(jsonEncode({
@@ -47,6 +47,7 @@ class DownloadController {
         'date': DateTime.now().millisecondsSinceEpoch,
       }));
       prefs.setStringList('offlineQueue', offlineQueue);
+      logger.i('Added download to offline queue: $fileKey ($offlineQueue)');
     });
   }
 
@@ -88,17 +89,27 @@ class DownloadController {
   }
 
   static Future<DownloadItem?> getOldestPlannedDownload() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final offlineQueue = prefs.getStringList('offlineQueue') ?? [];
+    List<String> offlineQueue = [];
+    SharedPreferences prefs;
+    try {
+      prefs = await SharedPreferences.getInstance();
+      offlineQueue = prefs.getStringList('offlineQueue') ?? [];
+    } catch (error) {
+      logger.e('Error getting SharedPreferences: $error');
+    }
+
     if (offlineQueue.isEmpty) {
+      logger.i('No planned downloads');
       return null;
     }
+    logger.i('Planned downloads: $offlineQueue');
 
     final oldest = offlineQueue
         .map((e) => jsonDecode(e))
         .cast<Map<String, dynamic>>()
         .toList()
       ..sort((a, b) => a['date'].compareTo(b['date']));
+    logger.i('Oldest planned download: ${oldest.first}');
     return DownloadItem(oldest.first['fileKey'], oldest.first['date']);
   }
 

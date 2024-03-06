@@ -54,7 +54,7 @@ dependencies:
   workmanager:
     git:
       url: https://github.com/absar/flutter_workmanager.git
-      ref: 73cc539cd2f1b992b468e6c44f5d0a7919d7ffda
+      ref: f3e717b0d875296e8bec619965dd73283a54c6e5
   local_auth: ^2.1.7
   intl: ^0.18.1
   flutter_localizations:
