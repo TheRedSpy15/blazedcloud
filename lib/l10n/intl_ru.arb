@@ -114,6 +114,7 @@
     "folderName": "Имя папки",
     "storageUsage": "Использование хранилища",
     "howLongToShare": "На какой срок файл должен быть доступен для общего доступа?",
+    "upgradeStorage1Terabyte": "Покупка 1 терабайта",
     "createAnAccount": "Создать аккаунт",
     "allowedEmails": "Разрешенные электронные почты",
     "close": "Закрыть",
