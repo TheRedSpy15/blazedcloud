@@ -74,8 +74,13 @@ void callbackDispatcher() {
     logger.t("Native called background task: $task");
 
     if (task == "download-task") {
-      return await DownloadController.startQueuedDownload(
-          inputData?['uid'], inputData?['token'], inputData?['exportDir']);
+      try {
+        return await DownloadController.startQueuedDownload(
+            inputData?['uid'], inputData?['token'], inputData?['exportDir']);
+      } catch (e) {
+        logger.e("Error starting download: $e");
+        return Future.value(false);
+      }
     } else if (task == "upload-task") {
       return await UploadController.processUploadQueue(
           inputData?['uid'],

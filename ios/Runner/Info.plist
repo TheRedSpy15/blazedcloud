@@ -67,5 +67,7 @@
 	</array>
 	<key>UISupportsDocumentBrowser</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allows access to your photos for uploading</string>
 </dict>
 </plist>
