@@ -17,7 +17,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
 # format: x.x.x+x0x0x
-version: 1.3.6+10306
+version: 1.3.7+10307
 
 environment:
   sdk: '>=3.1.2 <4.0.0'
@@ -55,7 +55,7 @@ dependencies:
   workmanager:
     git:
       url: https://github.com/absar/flutter_workmanager.git
-      ref: 73cc539cd2f1b992b468e6c44f5d0a7919d7ffda
+      ref: f3e717b0d875296e8bec619965dd73283a54c6e5
   local_auth: ^2.1.7
   intl: ^0.18.1
   flutter_localizations:
@@ -83,7 +83,7 @@ flutter_launcher_icons:
   android: "launcher_icon"
   adaptive_icon_background: "#000000"
   adaptive_icon_foreground: "assets/icon/icon.png"
-  ios: false
+  ios: true
   image_path: "assets/icon/icon.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
 
