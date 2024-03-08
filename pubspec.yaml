@@ -64,8 +64,6 @@ dependencies:
   extended_image: ^8.2.0
   easy_image_viewer: ^1.4.0
   path_provider: ^2.1.2
-  firebase_core: ^2.24.2
-  firebase_crashlytics: ^3.4.9
 
 dev_dependencies:
   flutter_test:
