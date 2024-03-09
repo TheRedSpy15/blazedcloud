@@ -55,6 +55,7 @@ final _router = GoRouter(
   initialLocation: '/landing',
   routes: [
     GoRoute(
+      name: "landing",
       path: '/landing',
       builder: (context, state) => const LandingPage(),
     ),
