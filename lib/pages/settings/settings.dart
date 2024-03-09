@@ -105,8 +105,8 @@ class SettingsScreen extends ConsumerWidget {
                 settingsGroupTitle: S.of(context).account,
                 items: [
                   prunableSetting(userData, context, ref),
-                  signOutSetting(context),
-                  deleteAccountSetting(context, isPremium),
+                  signOutSetting(ref.context),
+                  deleteAccountSetting(context),
                 ],
               ),
               CustomSettingsGroup(
@@ -367,11 +367,16 @@ class SettingsScreen extends ConsumerWidget {
               ],
             );
           },
-        ).then((value) async {
+        ).then((value) {
           if (value != null) {
             logger.i('Signing out');
-            pb.authStore.clear();
-            context.go('/landing');
+            try {
+              pb.authStore.clear();
+              SharedPreferences.getInstance().then(
+                  (p) => p.clear().then((_) => context.goNamed("landing")));
+            } catch (e) {
+              logger.e('Error signing out: $e');
+            }
           }
         });
       },
