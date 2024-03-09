@@ -357,6 +357,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  glassfy_flutter:
+    dependency: "direct main"
+    description:
+      name: glassfy_flutter
+      sha256: afa7bb99cf57bc07e8e956b096515ca47a2e0a64ff400659f3f7af1b8ac9990d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.2"
   go_router:
     dependency: "direct main"
     description:

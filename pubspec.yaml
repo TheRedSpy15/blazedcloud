@@ -46,6 +46,7 @@ dependencies:
   flutter_local_notifications: ^16.1.0
   open_filex: ^4.3.2
   permission_handler: ^11.0.0
+  glassfy_flutter: ^1.6.2
   http_parser: ^4.0.2
   mime: ^1.0.4
   dio: ^5.3.3

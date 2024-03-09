@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
@@ -10,12 +12,14 @@ import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/generic_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:glassfy_flutter/glassfy_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:workmanager/workmanager.dart';
@@ -27,6 +31,15 @@ void main() async {
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
+  try {
+    logger.i("Initializing Glassfy");
+    await Glassfy.initialize('e7e4e5d11b2f48169f26e930a660862b',
+        watcherMode: false);
+    logger.i("Glassfy initialized");
+  } catch (e) {
+    logger.w("Glassfy failed to initialize: $e");
+  }
 
   await Workmanager().initialize(
       callbackDispatcher, // The top level function, aka callbackDispatcher
@@ -156,11 +169,7 @@ class LandingContent extends StatelessWidget {
                             },
                             child: Text(S.of(context).privacyPolicy)),
                         TextButton(
-                            onPressed: () {
-                              logger.d("Terms of Service");
-                              launchUrl(Uri.parse(
-                                  "https://blazedcloud.com/terms-of-service/"));
-                            },
+                            onPressed: () => viewToS(),
                             child: Text(S.of(context).termsOfService)),
                       ],
                     ),

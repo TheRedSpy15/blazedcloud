@@ -9,10 +9,12 @@ import 'package:blazedcloud/pages/settings/custom_babstrap/icon_style.dart'
     as babstrap;
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsGroup.dart';
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsItem.dart';
+import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/providers/sync_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/generic_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +65,7 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userData = ref.watch(accountUserProvider(pb.authStore.model.id));
+    final isPremium = ref.watch(premiumProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -121,7 +124,8 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  CustomSettingsItem deleteAccountSetting(BuildContext context) {
+  CustomSettingsItem deleteAccountSetting(
+      BuildContext context, bool isPremium) {
     return CustomSettingsItem(
       onTap: () {
         // ask the user to confirm
@@ -502,16 +506,7 @@ class SettingsScreen extends ConsumerWidget {
 
   CustomSettingsItem termsSetting(BuildContext context) {
     return CustomSettingsItem(
-      onTap: () {
-        final url = Uri.parse("https://blazedcloud.com/terms-of-service/");
-        canLaunchUrl(url).then((canLaunch) {
-          if (canLaunch) {
-            launchUrl(url);
-          } else {
-            logger.e("Can't launch url: $url");
-          }
-        });
-      },
+      onTap: () => viewToS(),
       icons: CupertinoIcons.doc_text,
       trailing: const SizedBox.shrink(),
       iconStyle: babstrap.IconStyle(),
