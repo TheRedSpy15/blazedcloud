@@ -790,6 +790,16 @@ class S {
     );
   }
 
+  /// `Upgrade Storage (1 Terabyte)`
+  String get upgradeStorage1Terabyte {
+    return Intl.message(
+      'Upgrade Storage (1 Terabyte)',
+      name: 'upgradeStorage1Terabyte',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Create an Account`
   String get createAnAccount {
     return Intl.message(

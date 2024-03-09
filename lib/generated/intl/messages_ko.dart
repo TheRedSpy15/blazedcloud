@@ -161,6 +161,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsOfService": MessageLookupByLibrary.simpleMessage("서비스 이용 약관"),
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("스토리지 업그레이드"),
+        "upgradeStorage1Terabyte":
+            MessageLookupByLibrary.simpleMessage("1 테라바이트 구매"),
         "uploaded": MessageLookupByLibrary.simpleMessage("업로드 완료"),
         "uploading": MessageLookupByLibrary.simpleMessage("업로드 중..."),
         "viewAllowedEmailDomains":
