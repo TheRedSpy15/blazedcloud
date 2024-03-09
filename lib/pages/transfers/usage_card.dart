@@ -5,9 +5,11 @@ import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
+import 'package:blazedcloud/utils/generic_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
+import 'package:glassfy_flutter/models.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
@@ -78,48 +80,55 @@ class UsageCard extends ConsumerWidget {
                       ref.watch(premiumOfferingsProvider).when(
                           data: (offerings) {
                             return OutlinedButton(
-                                onPressed: () async {
-                                  try {
-                                    if (ref.read(loadingPurchaseProvider)) {
-                                      return;
-                                    }
+                              onPressed: ref.read(loadingPurchaseProvider)
+                                  ? null
+                                  : () async {
+                                      try {
+                                        if (ref.read(loadingPurchaseProvider) ||
+                                            offerings == null) {
+                                          return;
+                                        }
+                                        ref
+                                            .read(loadingPurchaseProvider
+                                                .notifier)
+                                            .state = true;
 
-                                    Glassfy.connectCustomSubscriber(
-                                        pb.authStore.model.id);
-                                    final transaction =
-                                        await Glassfy.purchaseSku(
-                                            offerings!.all!.first.skus!.first);
-                                    var p = transaction.permissions?.all
-                                        ?.singleWhere((permission) =>
-                                            permission.permissionId ==
-                                            'terabyte');
-                                    if (p?.isValid == true) {
-                                      ref.read(premiumProvider.notifier).state =
-                                          true;
-                                      ref
-                                          .read(accountUserProvider(
-                                              pb.authStore.model.id))
-                                          .whenData((user) {
-                                        // subscription is active
-                                        user.terabyte_active = true;
-                                        ref.invalidate(combinedDataProvider(
-                                            pb.authStore.model.id));
-                                      });
-                                    } else {
-                                      ref
-                                          .read(
-                                              loadingPurchaseProvider.notifier)
-                                          .state = false;
-                                    }
-                                  } catch (e) {
-                                    logger.w("Glassfy failed to purchase: $e");
-                                    ref
-                                        .read(loadingPurchaseProvider.notifier)
-                                        .state = false;
-                                  }
-                                },
-                                child: Text(
-                                    S.of(context).upgradeStorage1Terabyte));
+                                        startPurchaseFlow(
+                                                offerings, ref.context)
+                                            .then((isSuccuss) {
+                                          if (isSuccuss) {
+                                            ref
+                                                .read(premiumProvider.notifier)
+                                                .state = true;
+                                            ref
+                                                .read(accountUserProvider(
+                                                    pb.authStore.model.id))
+                                                .whenData((user) {
+                                              // subscription is active
+                                              user.terabyte_active = true;
+                                              ref.invalidate(
+                                                  combinedDataProvider(
+                                                      pb.authStore.model.id));
+                                            });
+                                          } else {
+                                            ref
+                                                .read(loadingPurchaseProvider
+                                                    .notifier)
+                                                .state = false;
+                                          }
+                                        });
+                                      } catch (e) {
+                                        logger.w(
+                                            "Glassfy failed to purchase: $e");
+                                        ref
+                                            .read(loadingPurchaseProvider
+                                                .notifier)
+                                            .state = false;
+                                      }
+                                    },
+                              child:
+                                  Text(S.of(context).upgradeStorage1Terabyte),
+                            );
                           },
                           error: (e, s) {
                             logger.e(e);
@@ -162,5 +171,60 @@ class UsageCard extends ConsumerWidget {
         ),
       ),
     );
+  }
+
+  // TODO add localizations
+  Future<bool> startPurchaseFlow(
+      GlassfyOfferings offerings, BuildContext context) async {
+    // display dialog with subscription information
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Blazed Cloud 1TB"),
+          content: Wrap(
+            children: [
+              Column(
+                children: [
+                  Text(
+                      "Upgrade to 1TB for ${offerings.all?.first.skus?.first.product?.price?.toStringAsFixed(2)} monthly"),
+                  TextButton(
+                      onPressed: () => viewToS(),
+                      child: Text(S.of(context).termsOfService))
+                ],
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+              child: Text(S.of(context).cancel),
+            ),
+            TextButton(
+              onPressed: () {
+                // being checkout
+                Glassfy.connectCustomSubscriber(pb.authStore.model.id);
+                Navigator.of(context)
+                    .pop(Glassfy.purchaseSku(offerings.all!.first.skus!.first));
+              },
+              child: const Text("Subscribe"),
+            ),
+          ],
+        );
+      },
+    ).then((transaction) async {
+      if (transaction == null) {
+        return false;
+      } else if (transaction is Future<GlassfyTransaction>) {
+        transaction.then((result) {
+          var p = result.permissions?.all?.singleWhere(
+              (permission) => permission.permissionId == 'terabyte');
+          return p?.isValid == true;
+        });
+      }
+      return false;
+    });
   }
 }

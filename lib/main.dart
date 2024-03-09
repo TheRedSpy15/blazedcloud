@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
@@ -10,6 +12,7 @@ import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/generic_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -165,11 +168,7 @@ class LandingContent extends StatelessWidget {
                             },
                             child: Text(S.of(context).privacyPolicy)),
                         TextButton(
-                            onPressed: () {
-                              logger.d("Terms of Service");
-                              launchUrl(Uri.parse(
-                                  "https://blazedcloud.com/terms-of-service/"));
-                            },
+                            onPressed: () => viewToS(),
                             child: Text(S.of(context).termsOfService)),
                       ],
                     ),
