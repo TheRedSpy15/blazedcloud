@@ -2,6 +2,7 @@ import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
+import 'package:blazedcloud/services/files_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -82,42 +83,46 @@ class UsageCard extends ConsumerWidget {
                     if (!data['isTerabyteActive'])
                       OutlinedButton(
                           onPressed: () {
-                            final browser = RefChromeSafariBrowser(ref: ref);
-                            browser
-                                .open(
-                                    url: WebUri(
-                                        "https://portal.blazedcloud.com/auth/subscribe"))
-                                .then((value) {
-                              logger.d('Invalidating combinedDataProvider');
-                              ref.invalidate(
-                                  combinedDataProvider(pb.authStore.model.id));
-                            });
-                          },
-                          child: Text(S.of(context).upgradeStorage))
-                    else if (data['stripeActive'])
-                      OutlinedButton(
-                          onPressed: () {
-                            const link =
-                                "https://portal.blazedcloud.com/dashboard/account";
-                            canLaunchUrl(Uri.parse(link)).then((canLaunch) {
-                              if (canLaunch) {
-                                ScaffoldMessenger.of(ref.context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        S.of(ref.context).openingInBrowser),
-                                  ),
-                                );
-                                launchUrl(Uri.parse(link));
-                              } else {
-                                logger.e('Could not launch url: $link');
+                            // snackbar to show loading
+                            ScaffoldMessenger.of(ref.context).showSnackBar(
+                              SnackBar(
+                                content:
+                                    Text(S.of(ref.context).openingInBrowser),
+                              ),
+                            );
+
+                            getStripeCheckout(pb.authStore.model.id,
+                                    stripe1tbPriceId, pb.authStore.token)
+                                .then((url) {
+                              logger.d('Opening stripe checkout $url');
+                              final browser = RefChromeSafariBrowser(ref: ref);
+                              browser.open(url: WebUri(url)).then((value) {
+                                logger.d('Invalidating combinedDataProvider');
+                                ref.invalidate(combinedDataProvider(
+                                    pb.authStore.model.id));
+                              }).catchError((e) {
                                 ScaffoldMessenger.of(ref.context).showSnackBar(
                                   SnackBar(
                                     content:
                                         Text(S.of(context).failedToOpenPortal),
                                   ),
                                 );
-                              }
+                              });
+                            }).catchError((e) {
+                              logger.e(e);
                             });
+                          },
+                          child: Text(S.of(context).upgradeStorage))
+                    else if (data['stripeActive'])
+                      OutlinedButton(
+                          onPressed: () {
+                            ScaffoldMessenger.of(ref.context).showSnackBar(
+                              SnackBar(
+                                content:
+                                    Text(S.of(ref.context).openingInBrowser),
+                              ),
+                            );
+                            launchUrl(Uri.parse(stripePortalUrl));
                           },
                           child: Text(S.of(context).manageAccount))
                     else if (!data['stripeActive'] && data['isTerabyteActive'])
