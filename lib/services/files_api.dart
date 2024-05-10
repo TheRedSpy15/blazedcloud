@@ -215,6 +215,26 @@ Future<List<String>> getSearchList(String uid, String token) async {
   }
 }
 
+Future<String> getStripeCheckout(
+    String uid, String priceId, String token) async {
+  var headers = {'Authorization': 'Bearer $token'};
+  var request =
+      http.Request('POST', Uri.parse('$backendUrl/stripe/checkout/$uid'));
+  request.bodyFields = {'priceId': priceId};
+  request.headers.addAll(headers);
+
+  http.StreamedResponse response = await httpClient.send(request);
+
+  if (response.statusCode == 200) {
+    final responseBody = await response.stream.bytesToString();
+    logger.d("Got stripe checkout $responseBody");
+    return jsonDecode(responseBody)['url'];
+  } else {
+    logger.e(response.reasonPhrase);
+    throw Exception('Failed to get stripe checkout');
+  }
+}
+
 /// uid is automatically added to key by back end, if not present
 Future<String> getUploadUrl(
     String uid, String fileKey, String token, int length,
