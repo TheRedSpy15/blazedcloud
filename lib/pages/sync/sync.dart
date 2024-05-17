@@ -13,7 +13,11 @@ final syncForcedProvider = StateProvider<bool>((ref) {
   return false;
 });
 
-void setCameraRoll(WidgetRef ref) {
+void setCameraRoll(WidgetRef ref) async {
+  if (!await getSyncPermissions()) {
+    return;
+  }
+
   final dir = FilePicker.platform.getDirectoryPath();
   dir.then((value) {
     if (value != null) {
