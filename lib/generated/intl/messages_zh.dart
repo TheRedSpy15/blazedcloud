@@ -55,11 +55,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("需要身份验证"),
         "autoDeleteAcount": MessageLookupByLibrary.simpleMessage("自动删除帐户"),
         "blazedExplorer": MessageLookupByLibrary.simpleMessage("烈火资源管理器"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "选择设备上您的相机应用程序保存照片和视频的文件夹。不递归搜索文件。大约每 6 小时同步一次。"),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage("相册同步"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("更改下载位置"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("更改电子邮件"),
         "changePassword": MessageLookupByLibrary.simpleMessage("更改密码"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("更改路径"),
         "close": MessageLookupByLibrary.simpleMessage("关闭"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("创建"),
@@ -117,6 +121,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("密码重置邮件已发送！"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage("定期备份所选文件夹"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("选择文件夹"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage("请进行身份验证以访问您的云"),
@@ -135,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("安全"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("选择下载目录"),
+        "selectSyncLocation": MessageLookupByLibrary.simpleMessage("选择位置"),
         "send": MessageLookupByLibrary.simpleMessage("发送"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("发送邮件"),
         "serverMaintenance":
@@ -150,7 +157,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage("通过Playstore或Appstore订阅"),
         "syncEnabled": MessageLookupByLibrary.simpleMessage("启用同步"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("立即同步"),
         "syncSettings": MessageLookupByLibrary.simpleMessage("同步设置"),
+        "syncing": MessageLookupByLibrary.simpleMessage("同步中..."),
         "termsOfService": MessageLookupByLibrary.simpleMessage("服务条款"),
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("升级存储"),

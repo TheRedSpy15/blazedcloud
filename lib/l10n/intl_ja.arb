@@ -137,5 +137,12 @@
     "account": "アカウント",
     "security": "セキュリティ",
     "general": "一般",
-    "currentlyNestedFoldersAreNotSupported": "現在、入れ子のフォルダはサポートされていません。"
+    "currentlyNestedFoldersAreNotSupported": "現在、入れ子のフォルダはサポートされていません。",
+    "cameraRollSync": "カメラロール同期",
+    "camSyncDesc": "写真や動画を保存するデバイス上のフォルダーを選択します。ファイルを再帰的に検索しません。約6時間ごとに同期します。",
+    "selectSyncLocation": "場所を選択",
+    "changeSyncPath": "パスを変更",
+    "syncing": "同期中...",
+    "periodicallyBackingUpSelectedFolder": "選択したフォルダーを定期的にバックアップしています",
+    "syncNow": "今すぐ同期"
 }

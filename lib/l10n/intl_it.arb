@@ -137,5 +137,12 @@
     "account": "Account",
     "security": "Sicurezza",
     "general": "Generale",
-    "currentlyNestedFoldersAreNotSupported": "Attualmente le cartelle nidificate non sono supportate."
+    "currentlyNestedFoldersAreNotSupported": "Attualmente le cartelle nidificate non sono supportate.",
+    "cameraRollSync": "Sincronizzazione del rullino fotografico",
+    "camSyncDesc": "Seleziona la cartella sul tuo dispositivo in cui l''app della fotocamera salva foto e video. Non cerca ricorsivamente i file. Sincronizza approssimativamente ogni 6 ore.",
+    "selectSyncLocation": "Seleziona posizione",
+    "changeSyncPath": "Cambia percorso",
+    "syncing": "Sincronizzazione in corso...",
+    "periodicallyBackingUpSelectedFolder": "Backup periodico della cartella selezionata",
+    "syncNow": "Sincronizza ora"
 }

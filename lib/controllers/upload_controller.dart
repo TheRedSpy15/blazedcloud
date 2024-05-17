@@ -18,6 +18,8 @@ import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 import 'package:workmanager/workmanager.dart';
 
+final dio = Dio();
+
 /// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {
   final ProviderRef<Object> _ref;
@@ -192,7 +194,6 @@ class UploadController {
       );
       logger.i('Upload url: $uploadUrl');
 
-      final dio = Dio();
       bytes() async* {
         yield* file.openRead();
       }
