@@ -63,6 +63,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Eliminar cuenta automáticamente"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "Seleccione la carpeta en su dispositivo donde su aplicación de cámara guarda fotos y videos. No busca de forma recursiva archivos. Sincroniza aproximadamente cada 6 horas."),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage(
+            "Sincronización de rollo de cámara"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "changeDownloadLocation": MessageLookupByLibrary.simpleMessage(
             "Cambiar ubicación de descarga"),
@@ -70,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Cambiar correo electrónico"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Cambiar contraseña"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("Cambiar ruta"),
         "close": MessageLookupByLibrary.simpleMessage("Cerrar"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Crear"),
@@ -143,6 +148,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "¡Correo electrónico de restablecimiento de contraseña enviado!"),
+        "periodicallyBackingUpSelectedFolder": MessageLookupByLibrary.simpleMessage(
+            "Haciendo copia de seguridad periódicamente de la carpeta seleccionada"),
         "pickFolder":
             MessageLookupByLibrary.simpleMessage("Seleccionar carpeta"),
         "pleaseAuthenticateToAccessYourCloud":
@@ -168,6 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("Seguridad"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Seleccionar directorio de descarga"),
+        "selectSyncLocation":
+            MessageLookupByLibrary.simpleMessage("Seleccionar ubicación"),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
         "sendEmail":
             MessageLookupByLibrary.simpleMessage("Enviar correo electrónico"),
@@ -187,8 +196,10 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Suscripto a través de Playstore o Appstore"),
         "syncEnabled":
             MessageLookupByLibrary.simpleMessage("Sincronización activada"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("Sincronizar ahora"),
         "syncSettings": MessageLookupByLibrary.simpleMessage(
             "Configuración de sincronización"),
+        "syncing": MessageLookupByLibrary.simpleMessage("Sincronizando..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Términos de servicio"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferencias"),

@@ -1,16 +1,26 @@
-import 'package:blazedcloud/models/sync/folder_to_watch.dart';
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final allowMeteredProvider = StateProvider<bool>((ref) {
   return false;
 });
 
-final foldersToWatchProvider = StateProvider<List<FolderToWatch>>((ref) {
-  return [];
+final cameraFolderProvider = StateProvider<Directory?>((ref) {
+  return null;
+});
+
+//final cameraListProvider =
+//    FutureProvider.autoDispose.family<List<String>, int>((ref, page) async {
+//  return getCameraSyncList(pb.authStore.model.id, pb.authStore.token);
+//});
+
+final cameraRollPageProvider = StateProvider<int>((ref) {
+  return 0;
 });
 
 final lastSyncProvider = StateProvider<DateTime>((ref) {
-  return DateTime.now();
+  return DateTime(0);
 });
 
 final nextSyncProvider = StateProvider<DateTime>((ref) {
@@ -22,9 +32,9 @@ final requireChargingProvider = StateProvider<bool>((ref) {
 });
 
 /// frequency in minutes
-final syncFrequencyProvider = StateProvider<int>((ref) {
-  return 60;
-});
+//final syncFrequencyProvider = StateProvider<int>((ref) {
+//  return 360;
+//});
 
 final watchEnabledProvider = StateProvider<bool>((ref) {
   return true;

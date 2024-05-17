@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:blazedcloud/constants.dart';
@@ -10,6 +11,26 @@ import 'package:http/http.dart' as http;
 /// in memory list of file links. To prevent constantly getting links from the server for file page
 final fileLinks = <String, String>{};
 final httpClient = http.Client();
+
+Future<void> changeObjectKey(
+    String uid, String oldKey, String newKey, String token) async {
+  var headers = {'Authorization': 'Bearer $token'};
+  var request =
+      http.MultipartRequest('POST', Uri.parse('$backendUrl/data/rename/$uid'));
+  request.fields.addAll({'oldKey': oldKey, 'newKey': newKey});
+
+  request.headers.addAll(headers);
+
+  http.StreamedResponse response = await httpClient.send(request);
+
+  if (response.statusCode == 200) {
+    logger.d("Renamed object $oldKey to $newKey");
+  } else {
+    logger.e(
+        "Failed to rename object $oldKey to $newKey. ${response.reasonPhrase}\n${await response.stream.bytesToString()}");
+    throw Exception('Failed to rename object');
+  }
+}
 
 /// Creates a folder with a placeholder file so that it is visible in the file list.
 Future<bool> createFolder(String folderKey) async {
@@ -76,6 +97,43 @@ Future<List<String>> getAllowedEmailDomains() async {
 
     // fallback to protonmail and gmail
     return ["protonmail.com", "gmail.com"];
+  }
+}
+
+/// gets all objects in camera-backup folder. Rate limited to 1 request per second by api.
+/// Returns only the string after the last / in the key
+Future<List<String>> getCameraSyncList(String uid, String token) async {
+  var headers = {'Authorization': 'Bearer $token', 'redirect': 'follow'};
+  var request = http.Request(
+      'GET', Uri.parse('$backendUrl/data/listall/camerasync/$uid'));
+
+  request.headers.addAll(headers);
+
+  // data is returned as array of Contents objects
+  final response = await httpClient.send(request);
+
+  if (response.statusCode == HttpStatus.insufficientStorage) {
+    throw Exception('folderSync cancelled - Not enough storage');
+  }
+
+  if (response.statusCode == 200) {
+    List<String> keys = List.empty(growable: true);
+    final responseBody = await response.stream.bytesToString();
+
+    try {
+      final json = jsonDecode(responseBody);
+      for (var item in json) {
+        keys.add(item['Key'].split('/').last);
+      }
+    } catch (e) {
+      logger.e("Error parsing camera sync list: $e");
+      logger.e(responseBody);
+    }
+
+    return keys;
+  } else {
+    logger.e(response.reasonPhrase);
+    throw Exception('Failed to camera sync list');
   }
 }
 
@@ -185,7 +243,7 @@ Future<ListBucketResult> getFilelistByFolder(
   }
 }
 
-/// gets all objects for a user. Rate limited to 1 request per second by api
+/// gets all objects for a user. Rate limited to 1 request per second by api. Returns only keys
 Future<List<String>> getSearchList(String uid, String token) async {
   var headers = {'Authorization': 'Bearer $token', 'redirect': 'follow'};
   var request = http.Request('GET', Uri.parse('$backendUrl/data/listall/$uid'));
@@ -241,11 +299,11 @@ Future<String> getUploadUrl(
     {String contentType = "application/octet-stream"}) async {
   var headers = {'Authorization': 'Bearer $token'};
   var request =
-      http.MultipartRequest('POST', Uri.parse('$backendUrl/data/up/$uid'));
+      http.MultipartRequest('POST', Uri.parse('$backendUrl/data/v2/up/$uid'));
   request.fields.addAll({
     'filename': fileKey,
     'contentType': contentType,
-    'contentLength': length.toString()
+    'contentSize': length.toString()
   });
 
   request.headers.addAll(headers);
@@ -256,7 +314,8 @@ Future<String> getUploadUrl(
     final responseBody = await response.stream.bytesToString();
     return (responseBody);
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(
+        "Upload Failed: ${response.reasonPhrase} ${response.statusCode}\n${await response.stream.bytesToString()}");
     throw Exception('Failed to get upload url');
   }
 }

@@ -21,6 +21,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:workmanager/workmanager.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -90,15 +91,15 @@ class SettingsScreen extends ConsumerWidget {
                   emailChangeSetting(userData, context),
                 ],
               ),
-              //CustomSettingsGroup(
-              //  settingsGroupTitle: S.of(context).syncSettings,
-              //  items: [
-              //    syncEnabledSetting(ref),
-              //    syncAllowMeteredSetting(ref),
-              //    syncChargingOnlySetting(ref),
-              //    //syncFreqSetting(ref),
-              //  ],
-              //),
+              CustomSettingsGroup(
+                settingsGroupTitle: S.of(context).syncSettings,
+                items: [
+                  syncEnabledSetting(ref),
+                  syncAllowMeteredSetting(ref),
+                  syncChargingOnlySetting(ref),
+                  //syncFreqSetting(ref),
+                ],
+              ),
               CustomSettingsGroup(
                 settingsGroupTitle: S.of(context).account,
                 items: [
@@ -148,7 +149,9 @@ class SettingsScreen extends ConsumerWidget {
           if (value != null) {
             // delete account
             try {
+              Workmanager().cancelByUniqueName("folderSync");
               pb.collection('users').delete(pb.authStore.model.id).then((_) {
+                SharedPreferences.getInstance().then((p) => p.clear());
                 logger.i('User Deleted - Signing out');
                 pb.authStore.clear();
                 context.go('/landing');
@@ -368,9 +371,10 @@ class SettingsScreen extends ConsumerWidget {
           if (value != null) {
             logger.i('Signing out');
             try {
+              Workmanager().cancelByUniqueName("folderSync");
               pb.authStore.clear();
-              SharedPreferences.getInstance().then(
-                  (p) => p.clear().then((_) => context.goNamed("landing")));
+              SharedPreferences.getInstance()
+                  .then((p) => p.clear().then((_) => context.go('/landing')));
             } catch (e) {
               logger.e('Error signing out: $e');
             }
@@ -472,32 +476,6 @@ class SettingsScreen extends ConsumerWidget {
 
   CustomSettingsItem? syncFreqSetting(WidgetRef ref) {
     throw UnimplementedError(); // wait for next release
-    return CustomSettingsItem(
-      onTap: () async {
-        ref.read(allowMeteredProvider.notifier).state =
-            !ref.read(allowMeteredProvider);
-        final SharedPreferences buttonPrefs =
-            await SharedPreferences.getInstance();
-        await buttonPrefs.setBool(
-            'allowMetered', !ref.read(allowMeteredProvider));
-
-        updateSyncWorkerWithRef(ref);
-      },
-      icons: Icons.cell_tower,
-      trailing: Switch(
-        value: ref.watch(allowMeteredProvider),
-        onChanged: (value) async {
-          ref.read(allowMeteredProvider.notifier).state = value;
-          final SharedPreferences buttonPrefs =
-              await SharedPreferences.getInstance();
-          await buttonPrefs.setBool('allowMetered', value);
-
-          updateSyncWorkerWithRef(ref);
-        },
-      ),
-      iconStyle: babstrap.IconStyle(),
-      title: S.of(ref.context).allowMeteredConnections,
-    );
   }
 
   CustomSettingsItem termsSetting(BuildContext context) {

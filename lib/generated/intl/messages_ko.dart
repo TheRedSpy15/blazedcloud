@@ -55,11 +55,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoDeleteAcount": MessageLookupByLibrary.simpleMessage("자동 계정 삭제"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "카메라 앱이 사진과 비디오를 저장하는 기기의 폴더를 선택합니다. 파일을 재귀적으로 검색하지 않습니다. 대략 6시간마다 동기화됩니다."),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage("카메라 롤 동기화"),
         "cancel": MessageLookupByLibrary.simpleMessage("취소"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("다운로드 위치 변경"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("이메일 변경"),
         "changePassword": MessageLookupByLibrary.simpleMessage("비밀번호 변경"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("경로 변경"),
         "close": MessageLookupByLibrary.simpleMessage("닫기"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("생성"),
@@ -122,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("비밀번호 재설정 이메일이 전송되었습니다!"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage("선택한 폴더 주기적으로 백업"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("폴더 선택"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage("클라우드에 액세스하려면 인증하세요"),
@@ -141,6 +147,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("보안"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("다운로드 디렉토리 선택"),
+        "selectSyncLocation": MessageLookupByLibrary.simpleMessage("위치 선택"),
         "send": MessageLookupByLibrary.simpleMessage("보내기"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("이메일 보내기"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -157,7 +164,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Playstore 또는 Appstore를 통해 구독 중"),
         "syncEnabled": MessageLookupByLibrary.simpleMessage("동기화 활성화"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("지금 동기화"),
         "syncSettings": MessageLookupByLibrary.simpleMessage("동기화 설정"),
+        "syncing": MessageLookupByLibrary.simpleMessage("동기화 중..."),
         "termsOfService": MessageLookupByLibrary.simpleMessage("서비스 이용 약관"),
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("스토리지 업그레이드"),
