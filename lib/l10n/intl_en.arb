@@ -144,5 +144,6 @@
   "changeSyncPath": "Change Path",
   "syncing": "Syncing...",
   "periodicallyBackingUpSelectedFolder": "Periodically backing up selected folder",
-  "syncNow": "Sync Now"
+  "syncNow": "Sync Now",
+  "cameraSync": "Camera Sync"
 }

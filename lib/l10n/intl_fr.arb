@@ -144,5 +144,6 @@
     "changeSyncPath": "Changer le chemin",
     "syncing": "Synchronisation en cours...",
     "periodicallyBackingUpSelectedFolder": "Sauvegarde périodique du dossier sélectionné",
-    "syncNow": "Synchroniser maintenant"
+    "syncNow": "Synchroniser maintenant",
+    "cameraSync": "Synchronisation de caméra"
 }

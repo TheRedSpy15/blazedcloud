@@ -144,5 +144,6 @@
     "changeSyncPath": "Змінити шлях",
     "syncing": "Синхронізація...",
     "periodicallyBackingUpSelectedFolder": "Періодично створюється резервна копія обраної теки",
-    "syncNow": "Синхронізувати зараз"
+    "syncNow": "Синхронізувати зараз",
+    "cameraSync": "Синхронізація камери"
 }

@@ -144,5 +144,6 @@
     "changeSyncPath": "更改路径",
     "syncing": "同步中...",
     "periodicallyBackingUpSelectedFolder": "定期备份所选文件夹",
-    "syncNow": "立即同步"
+    "syncNow": "立即同步",
+    "cameraSync": "相机同步"
 }

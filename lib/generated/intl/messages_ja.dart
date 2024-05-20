@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "camSyncDesc": MessageLookupByLibrary.simpleMessage(
             "写真や動画を保存するデバイス上のフォルダーを選択します。ファイルを再帰的に検索しません。約6時間ごとに同期します。"),
         "cameraRollSync": MessageLookupByLibrary.simpleMessage("カメラロール同期"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("カメラ同期"),
         "cancel": MessageLookupByLibrary.simpleMessage("キャンセル"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("ダウンロード場所の変更"),
