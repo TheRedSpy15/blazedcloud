@@ -62,12 +62,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "Elimina account automaticamente"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "Seleziona la cartella sul tuo dispositivo in cui l\'\'app della fotocamera salva foto e video. Non cerca ricorsivamente i file. Sincronizza approssimativamente ogni 6 ore."),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage(
+            "Sincronizzazione del rullino fotografico"),
+        "cameraSync":
+            MessageLookupByLibrary.simpleMessage("Sincronizzazione fotocamera"),
         "cancel": MessageLookupByLibrary.simpleMessage("Annulla"),
         "changeDownloadLocation": MessageLookupByLibrary.simpleMessage(
             "Cambia posizione di download"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("Cambia email"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Cambia password"),
+        "changeSyncPath":
+            MessageLookupByLibrary.simpleMessage("Cambia percorso"),
         "close": MessageLookupByLibrary.simpleMessage("Chiudi"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Crea"),
@@ -140,6 +148,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Email di ripristino password inviata!"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage(
+                "Backup periodico della cartella selezionata"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Scegli cartella"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage(
@@ -164,6 +175,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("Sicurezza"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Seleziona la cartella di download"),
+        "selectSyncLocation":
+            MessageLookupByLibrary.simpleMessage("Seleziona posizione"),
         "send": MessageLookupByLibrary.simpleMessage("Invia"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("Invia email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -182,8 +195,11 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Sottoscritto tramite Playstore o Appstore"),
         "syncEnabled":
             MessageLookupByLibrary.simpleMessage("Sincronizzazione abilitata"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("Sincronizza ora"),
         "syncSettings": MessageLookupByLibrary.simpleMessage(
             "Impostazioni di sincronizzazione"),
+        "syncing": MessageLookupByLibrary.simpleMessage(
+            "Sincronizzazione in corso..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Termini di servizio"),
         "transfers": MessageLookupByLibrary.simpleMessage("Trasferimenti"),

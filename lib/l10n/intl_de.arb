@@ -138,5 +138,13 @@
     "account": "Konto",
     "security": "Sicherheit",
     "general": "Allgemein",
-    "currentlyNestedFoldersAreNotSupported": "Aktuell werden verschachtelte Ordner nicht unterstützt."
+    "currentlyNestedFoldersAreNotSupported": "Aktuell werden verschachtelte Ordner nicht unterstützt.",
+    "cameraRollSync": "Kamerarollen-Synchronisierung",
+    "camSyncDesc": "Wählen Sie den Ordner auf Ihrem Gerät aus, in dem Ihre Kamera-App Fotos und Videos speichert. Sucht nicht rekursiv nach Dateien. Synchronisiert ungefähr alle 6 Stunden.",
+    "selectSyncLocation": "Standort auswählen",
+    "changeSyncPath": "Pfad ändern",
+    "syncing": "Synchronisierung...",
+    "periodicallyBackingUpSelectedFolder": "Ausgewählten Ordner regelmäßig sichern",
+    "syncNow": "Jetzt synchronisieren",
+    "cameraSync": "Kamerasync"
 }

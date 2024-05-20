@@ -60,12 +60,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Auto Delete Acount"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "Select the folder on your device that your camera app saves photos and videos to. Does not recursively search for files. Syncs approximately every 6 hours"),
+        "cameraRollSync":
+            MessageLookupByLibrary.simpleMessage("Camera Roll Sync"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("Camera Sync"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("Change Download Location"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("Change Email"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("Change Path"),
         "close": MessageLookupByLibrary.simpleMessage("Close"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Create"),
@@ -134,6 +140,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("Password reset email sent!"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage(
+                "Periodically backing up selected folder"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Pick Folder"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage(
@@ -155,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("Security"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("Select download directory"),
+        "selectSyncLocation":
+            MessageLookupByLibrary.simpleMessage("Select Location"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("Send Email"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -171,7 +182,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Subscribed through Playstore or Appstore"),
         "syncEnabled": MessageLookupByLibrary.simpleMessage("Sync Enabled"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("Sync Now"),
         "syncSettings": MessageLookupByLibrary.simpleMessage("Sync Settings"),
+        "syncing": MessageLookupByLibrary.simpleMessage("Syncing..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Terms of Service"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transfers"),

@@ -60,11 +60,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("स्वतः हटाएं खाता"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("ब्लेज्ड एक्सप्लोरर"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "अपनी डिवाइस पर फोटो और वीडियो सहेजने वाले आपके कैमरा ऐप के फ़ोल्डर का चयन करें। फ़ाइलों को अनुक्रमणिक ढंग से खोजता नहीं है। लगभग हर 6 घंटे में सिंक्रनाइज़ करता है।"),
+        "cameraRollSync":
+            MessageLookupByLibrary.simpleMessage("कैमरा रोल सिंक्रनाइज़ेशन"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("कैमरा सिंक"),
         "cancel": MessageLookupByLibrary.simpleMessage("रद्द करें"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("डाउनलोड स्थान बदलें"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("ईमेल बदलें"),
         "changePassword": MessageLookupByLibrary.simpleMessage("पासवर्ड बदलें"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("पथ बदलें"),
         "close": MessageLookupByLibrary.simpleMessage("बंद करें"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("बनाएं"),
@@ -134,6 +140,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "पासवर्ड रीसेट ईमेल भेजा गया है!"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage(
+                "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("फ़ोल्डर चुनें"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage(
@@ -155,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("सुरक्षा"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "डाउनलोड निर्दिष्ट करें डायरेक्टरी"),
+        "selectSyncLocation":
+            MessageLookupByLibrary.simpleMessage("स्थान चुनें"),
         "send": MessageLookupByLibrary.simpleMessage("भेजें"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("ईमेल भेजें"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -171,7 +182,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई"),
         "syncEnabled": MessageLookupByLibrary.simpleMessage("सिंक सक्षम है"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("अब सिंक्रनाइज़ करें"),
         "syncSettings": MessageLookupByLibrary.simpleMessage("सिंक सेटिंग्स"),
+        "syncing": MessageLookupByLibrary.simpleMessage(
+            "सिंक्रनाइज़ किया जा रहा है..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("सेवा की शर्तें"),
         "transfers": MessageLookupByLibrary.simpleMessage("ट्रांसफर्स"),

@@ -1,7 +1,5 @@
 # blazedcloud
 
-![logo](https://github.com/TheRedSpy15/blazedcloud/blob/development/assets/icon-192.png)
-
 [![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
 
 ![Alt](https://repobeats.axiom.co/api/embed/ed8f2fa1e7b0d3aa5e3ef7d1c174533ef59e32e3.svg "Repobeats analytics image")

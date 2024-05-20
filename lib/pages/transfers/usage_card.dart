@@ -148,8 +148,22 @@ class UsageCard extends ConsumerWidget {
                                         Text(S.of(context).failedToOpenPortal),
                                   ),
                                 );
-                              }
+                              });
+                            }).catchError((e) {
+                              logger.e(e);
                             });
+                          },
+                          child: Text(S.of(context).upgradeStorage))
+                    else if (data['stripeActive'])
+                      OutlinedButton(
+                          onPressed: () {
+                            ScaffoldMessenger.of(ref.context).showSnackBar(
+                              SnackBar(
+                                content:
+                                    Text(S.of(ref.context).openingInBrowser),
+                              ),
+                            );
+                            launchUrl(Uri.parse(stripePortalUrl));
                           },
                           child: Text(S.of(context).manageAccount))
                   ],

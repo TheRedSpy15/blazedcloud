@@ -1039,6 +1039,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Camera Roll Sync`
+  String get cameraRollSync {
+    return Intl.message(
+      'Camera Roll Sync',
+      name: 'cameraRollSync',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select the folder on your device that your camera app saves photos and videos to. Does not recursively search for files. Syncs approximately every 6 hours`
+  String get camSyncDesc {
+    return Intl.message(
+      'Select the folder on your device that your camera app saves photos and videos to. Does not recursively search for files. Syncs approximately every 6 hours',
+      name: 'camSyncDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Location`
+  String get selectSyncLocation {
+    return Intl.message(
+      'Select Location',
+      name: 'selectSyncLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Path`
+  String get changeSyncPath {
+    return Intl.message(
+      'Change Path',
+      name: 'changeSyncPath',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Syncing...`
+  String get syncing {
+    return Intl.message(
+      'Syncing...',
+      name: 'syncing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Periodically backing up selected folder`
+  String get periodicallyBackingUpSelectedFolder {
+    return Intl.message(
+      'Periodically backing up selected folder',
+      name: 'periodicallyBackingUpSelectedFolder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sync Now`
+  String get syncNow {
+    return Intl.message(
+      'Sync Now',
+      name: 'syncNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Camera Sync`
+  String get cameraSync {
+    return Intl.message(
+      'Camera Sync',
+      name: 'cameraSync',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

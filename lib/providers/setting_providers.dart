@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/providers/sync_providers.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
@@ -33,22 +35,26 @@ final isPrefsLoaded = FutureProvider.autoDispose<bool>((ref) async {
       prefs.getBool('biometric') ?? false;
   ref.read(watchEnabledProvider.notifier).state =
       prefs.getBool('isWatching') ?? true;
-  ref.read(syncFrequencyProvider.notifier).state =
-      prefs.getInt('syncFrequency') ?? 30;
+  //ref.read(syncFrequencyProvider.notifier).state =
+  //    prefs.getInt('syncFrequency') ?? 360;
   ref.read(allowMeteredProvider.notifier).state =
       prefs.getBool('allowMetered') ?? false;
   ref.read(requireChargingProvider.notifier).state =
       prefs.getBool('requireCharging') ?? false;
 
-  // we load the folders to watch here to consolidate the logic
-  //ref.read(foldersToWatchProvider.notifier).state = await getFoldersForSync();
-  //updateSyncWorker(
-  //    pb.authStore.model.id,
-  //    pb.authStore.token,
-  //    ref.read(allowMeteredProvider),
-  //    ref.read(requireChargingProvider),
-  //    ref.read(syncFrequencyProvider),
-  //    ref.read(watchEnabledProvider));
+  // we load the sync settings here to load all the settings at once
+  final cameraPath = prefs.getString('cameraFolder');
+  if (cameraPath != null) {
+    ref.read(cameraFolderProvider.notifier).state = Directory(cameraPath);
+    updateSyncWorker(
+        pb.authStore.model.id,
+        pb.authStore.token,
+        ref.read(allowMeteredProvider),
+        ref.read(requireChargingProvider),
+        //ref.read(syncFrequencyProvider),
+        360,
+        ref.read(watchEnabledProvider));
+  }
 
   return true;
 });
