@@ -114,6 +114,7 @@
     "folderName": "フォルダ名",
     "storageUsage": "ストレージ使用量",
     "howLongToShare": "ファイルの共有期間はどれくらいでしょうか？",
+    "upgradeStorage1Terabyte": "1テラバイトを購入する",
     "createAnAccount": "アカウントを作成",
     "allowedEmails": "許可されたメール",
     "close": "閉じる",

@@ -114,6 +114,7 @@
     "folderName": "Nom du dossier",
     "storageUsage": "Utilisation du stockage",
     "howLongToShare": "Combien de temps le fichier devrait-il être disponible pour le partage ?",
+    "upgradeStorage1Terabyte": "Améliorer le stockage (1 téraoctet)",
     "createAnAccount": "Créer un compte",
     "allowedEmails": "Adresses e-mail autorisées",
     "close": "Fermer",

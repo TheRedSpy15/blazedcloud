@@ -201,6 +201,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "transfers": MessageLookupByLibrary.simpleMessage("Transferências"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Atualizar Armazenamento"),
+        "upgradeStorage1Terabyte":
+            MessageLookupByLibrary.simpleMessage("Compre 1 Terabyte"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Enviado"),
         "uploading": MessageLookupByLibrary.simpleMessage("Enviando..."),
         "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(

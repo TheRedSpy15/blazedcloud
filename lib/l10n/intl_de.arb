@@ -114,6 +114,7 @@
     "folderName": "Ordnername",
     "storageUsage": "Speichernutzung",
     "howLongToShare": "Wie lange soll die Datei für die Freigabe verfügbar sein?",
+    "upgradeStorage1Terabyte": "Speicherplatz erweitern (1 Terabyte)",
     "createAnAccount": "Benutzerkonto erstellen",
     "allowedEmails": "Erlaubte E-Mails",
     "close": "Schließen",
