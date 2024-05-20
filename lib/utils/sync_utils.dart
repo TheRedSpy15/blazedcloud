@@ -132,7 +132,7 @@ void updateSyncWorker(String uid, String token, bool allowMetered,
     "folderSync",
     "folderSync",
     //frequency: Duration(minutes: syncFrequency),
-    frequency: const Duration(minutes: 360),
+    frequency: const Duration(hours: 6),
     constraints: Constraints(
       networkType: allowMetered ? NetworkType.connected : NetworkType.unmetered,
       requiresBatteryNotLow: true,
@@ -150,7 +150,13 @@ void updateSyncWorker(String uid, String token, bool allowMetered,
   );
 }
 
-void updateSyncWorkerWithRef(WidgetRef ref) {
+void updateSyncWorkerWithRef(WidgetRef ref) async {
+  final prefs = await SharedPreferences.getInstance();
+  if (prefs.getBool("syncEnabled") == false) {
+    Workmanager().cancelByUniqueName("folderSync");
+    return;
+  }
+
   if (!ref.read(watchEnabledProvider)) {
     Workmanager().cancelByUniqueName("folderSync");
     return;
@@ -160,7 +166,7 @@ void updateSyncWorkerWithRef(WidgetRef ref) {
     "folderSync",
     "folderSync",
     //frequency: Duration(minutes: ref.read(syncFrequencyProvider)),
-    frequency: const Duration(minutes: 360),
+    frequency: const Duration(hours: 6),
     constraints: Constraints(
       networkType: ref.read(allowMeteredProvider)
           ? NetworkType.connected
