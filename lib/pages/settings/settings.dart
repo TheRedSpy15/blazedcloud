@@ -107,7 +107,7 @@ class SettingsScreen extends ConsumerWidget {
                 items: [
                   prunableSetting(userData, context, ref),
                   signOutSetting(ref.context),
-                  deleteAccountSetting(context),
+                  deleteAccountSetting(context, isPremium),
                 ],
               ),
               CustomSettingsGroup(

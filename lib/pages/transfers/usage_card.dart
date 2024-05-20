@@ -8,7 +8,6 @@ import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
 
@@ -51,7 +50,7 @@ class UsageCard extends ConsumerWidget {
 
                 // Define the colors based on usage and theme brightness
                 Color progressBarColor =
-                    percentage > 100 ? Colors.red : Colors.purple;
+                    percentage > 100 ? Colors.red : Colors.blue;
                 Color textColor = percentage > 100
                     ? Colors.red
                     : themeBrightness == Brightness.dark
@@ -74,7 +73,7 @@ class UsageCard extends ConsumerWidget {
                         color: textColor,
                       ),
                     ),
-                    if (!data['isTerabyteActive'])
+                    if (!ref.watch(premiumProvider))
                       ref.watch(premiumOfferingsProvider).when(
                           data: (offerings) {
                             return OutlinedButton(
@@ -126,46 +125,6 @@ class UsageCard extends ConsumerWidget {
                             return const SizedBox.shrink();
                           },
                           loading: () => const SizedBox.shrink())
-                    else if (data['stripeActive'] && data['isTerabyteActive'])
-                      OutlinedButton(
-                          onPressed: () {
-                            const link =
-                                "https://portal.blazedcloud.com/dashboard/account";
-                            canLaunchUrl(Uri.parse(link)).then((canLaunch) {
-                              if (canLaunch) {
-                                ScaffoldMessenger.of(ref.context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                        S.of(ref.context).openingInBrowser),
-                                  ),
-                                );
-                                launchUrl(Uri.parse(link));
-                              } else {
-                                logger.e('Could not launch url: $link');
-                                ScaffoldMessenger.of(ref.context).showSnackBar(
-                                  SnackBar(
-                                    content:
-                                        Text(S.of(context).failedToOpenPortal),
-                                  ),
-                                );
-                              });
-                            }).catchError((e) {
-                              logger.e(e);
-                            });
-                          },
-                          child: Text(S.of(context).upgradeStorage))
-                    else if (data['stripeActive'])
-                      OutlinedButton(
-                          onPressed: () {
-                            ScaffoldMessenger.of(ref.context).showSnackBar(
-                              SnackBar(
-                                content:
-                                    Text(S.of(ref.context).openingInBrowser),
-                              ),
-                            );
-                            launchUrl(Uri.parse(stripePortalUrl));
-                          },
-                          child: Text(S.of(context).manageAccount))
                   ],
                 );
               },
