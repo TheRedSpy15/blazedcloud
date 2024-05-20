@@ -1099,6 +1099,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Camera Sync`
+  String get cameraSync {
+    return Intl.message(
+      'Camera Sync',
+      name: 'cameraSync',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

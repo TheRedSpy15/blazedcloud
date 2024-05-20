@@ -58,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "camSyncDesc": MessageLookupByLibrary.simpleMessage(
             "选择设备上您的相机应用程序保存照片和视频的文件夹。不递归搜索文件。大约每 6 小时同步一次。"),
         "cameraRollSync": MessageLookupByLibrary.simpleMessage("相册同步"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("相机同步"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("更改下载位置"),

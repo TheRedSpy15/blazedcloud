@@ -64,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "अपनी डिवाइस पर फोटो और वीडियो सहेजने वाले आपके कैमरा ऐप के फ़ोल्डर का चयन करें। फ़ाइलों को अनुक्रमणिक ढंग से खोजता नहीं है। लगभग हर 6 घंटे में सिंक्रनाइज़ करता है।"),
         "cameraRollSync":
             MessageLookupByLibrary.simpleMessage("कैमरा रोल सिंक्रनाइज़ेशन"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("कैमरा सिंक"),
         "cancel": MessageLookupByLibrary.simpleMessage("रद्द करें"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("डाउनलोड स्थान बदलें"),

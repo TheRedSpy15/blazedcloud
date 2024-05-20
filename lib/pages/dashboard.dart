@@ -42,9 +42,9 @@ class Dashboard extends ConsumerWidget {
                 child: const Icon(Icons.cloud_sync)),
             label: S.of(context).transfers,
           ),
-          const NavigationDestination(
-            icon: Icon(Icons.camera_alt),
-            label: "Camera Sync",
+          NavigationDestination(
+            icon: const Icon(Icons.camera_alt),
+            label: S.of(context).cameraSync,
           ),
           NavigationDestination(
             icon: const Icon(Icons.settings),

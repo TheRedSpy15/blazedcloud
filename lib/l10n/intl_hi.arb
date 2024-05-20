@@ -144,5 +144,6 @@
     "changeSyncPath": "पथ बदलें",
     "syncing": "सिंक्रनाइज़ किया जा रहा है...",
     "periodicallyBackingUpSelectedFolder": "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना",
-    "syncNow": "अब सिंक्रनाइज़ करें"
+    "syncNow": "अब सिंक्रनाइज़ करें",
+    "cameraSync": "कैमरा सिंक"
 }

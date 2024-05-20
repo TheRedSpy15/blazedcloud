@@ -64,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Select the folder on your device that your camera app saves photos and videos to. Does not recursively search for files. Syncs approximately every 6 hours"),
         "cameraRollSync":
             MessageLookupByLibrary.simpleMessage("Camera Roll Sync"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("Camera Sync"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("Change Download Location"),
