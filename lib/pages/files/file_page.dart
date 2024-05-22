@@ -27,11 +27,15 @@ class FilesPage extends ConsumerWidget {
     final currentDirectory = ref.watch(currentDirectoryProvider);
     final objectList = ref.watch(fileListProvider(currentDirectory));
 
-    return PopScope(
-      onPopInvoked: (canPop) {
-        if (!canPop) backOutOfCurrentFolder(ref);
+    return BackButtonListener(
+      onBackButtonPressed: () {
+        if (ref.read(currentDirectoryProvider) == getStartingDirectory()) {
+          return Future.value(false);
+        } else {
+          backOutOfCurrentFolder(ref);
+          return Future.value(true);
+        }
       },
-      canPop: ref.read(currentDirectoryProvider) == getStartingDirectory(),
       child: Scaffold(
         appBar: AppBar(
             title: ref.watch(currentDirectoryProvider) != getStartingDirectory()
