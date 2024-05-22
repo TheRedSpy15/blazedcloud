@@ -27,13 +27,8 @@ Blazed Cloud aims to be a privacy friendly Google Drive, and be simpler to use.
 
 This repository is for the mobile application to access Blazed Cloud. It's designed with Flutter and is currently only on Android. Once it's a bit more feature complete it'll go on IOS. This is to focus on developing the core features, before testing and adapting the code to work on both platforms
 
-This mobile client has all it's basic features completed. However the following are still in development:
-- [ ] Automatic Camera uploads
-- [ ] Automatic folder syncing
-- [ ] Files can be downloaded for offline use, but no current in-app viewing
-- [ ] Oauth Sign in
-
-**Completed Features outside of core functions**
+This mobile client has quite a few features worth highlighting:
+- [x] Automatic Camera uploads
 - [x] App locking with biometrics
 - [x] Timed file sharing via urls
 - [x] OPTIONAL automatic account deletion (unused over 90 days)
