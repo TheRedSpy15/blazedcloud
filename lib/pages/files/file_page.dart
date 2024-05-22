@@ -27,11 +27,15 @@ class FilesPage extends ConsumerWidget {
     final currentDirectory = ref.watch(currentDirectoryProvider);
     final objectList = ref.watch(fileListProvider(currentDirectory));
 
-    return PopScope(
-      onPopInvoked: (canPop) {
-        if (!canPop) backOutOfCurrentFolder(ref);
+    return BackButtonListener(
+      onBackButtonPressed: () {
+        if (ref.read(currentDirectoryProvider) == getStartingDirectory()) {
+          return Future.value(false);
+        } else {
+          backOutOfCurrentFolder(ref);
+          return Future.value(true);
+        }
       },
-      canPop: ref.read(currentDirectoryProvider) == getStartingDirectory(),
       child: Scaffold(
         appBar: AppBar(
             title: ref.watch(currentDirectoryProvider) != getStartingDirectory()
@@ -100,6 +104,9 @@ class FilesPage extends ConsumerWidget {
                     int fileSize = files[fileIndex].size ?? 0;
                     String uploaded = files[fileIndex].lastModified ?? "";
                     if (fileKey.contains(".blazed-placeholder")) {
+                      return const SizedBox.shrink();
+                    }
+                    if (fileKey.endsWith(".part")) {
                       return const SizedBox.shrink();
                     }
                     return FileItem(
