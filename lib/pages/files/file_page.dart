@@ -106,6 +106,9 @@ class FilesPage extends ConsumerWidget {
                     if (fileKey.contains(".blazed-placeholder")) {
                       return const SizedBox.shrink();
                     }
+                    if (fileKey.endsWith(".part")) {
+                      return const SizedBox.shrink();
+                    }
                     return FileItem(
                       fileKey: fileKey,
                       size: fileSize,
