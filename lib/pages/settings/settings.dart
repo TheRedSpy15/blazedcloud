@@ -70,52 +70,56 @@ class SettingsScreen extends ConsumerWidget {
         title: Text(S.of(context).settings),
       ),
       backgroundColor: context.isDarkMode ? Colors.black : Colors.blueGrey[50],
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (!Platform.isIOS)
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (!Platform.isIOS)
+                  CustomSettingsGroup(
+                    settingsGroupTitle: S.of(context).general,
+                    items: [
+                      downloadLocationChangeSetting(context),
+                    ],
+                  ),
                 CustomSettingsGroup(
-                  settingsGroupTitle: S.of(context).general,
+                  settingsGroupTitle: S.of(context).security,
                   items: [
-                    downloadLocationChangeSetting(context),
+                    biometricSetting(ref),
+                    passwordResetSetting(userData, context),
+                    emailChangeSetting(userData, context),
                   ],
                 ),
-              CustomSettingsGroup(
-                settingsGroupTitle: S.of(context).security,
-                items: [
-                  biometricSetting(ref),
-                  passwordResetSetting(userData, context),
-                  emailChangeSetting(userData, context),
-                ],
-              ),
-              CustomSettingsGroup(
-                settingsGroupTitle: S.of(context).syncSettings,
-                items: [
-                  syncEnabledSetting(ref),
-                  syncAllowMeteredSetting(ref),
-                  syncChargingOnlySetting(ref),
-                  //syncFreqSetting(ref),
-                ],
-              ),
-              CustomSettingsGroup(
-                settingsGroupTitle: S.of(context).account,
-                items: [
-                  prunableSetting(userData, context, ref),
-                  signOutSetting(ref.context),
-                  deleteAccountSetting(context),
-                ],
-              ),
-              CustomSettingsGroup(
-                items: [
-                  githubSetting(context),
-                  termsSetting(context),
-                  privacyPolicySetting(context),
-                ],
-              ),
-            ],
+                if (Platform.isAndroid)
+                  CustomSettingsGroup(
+                    settingsGroupTitle: S.of(context).syncSettings,
+                    items: [
+                      syncEnabledSetting(ref),
+                      syncAllowMeteredSetting(ref),
+                      syncChargingOnlySetting(ref),
+                      //syncFreqSetting(ref),
+                    ],
+                  ),
+                CustomSettingsGroup(
+                  settingsGroupTitle: S.of(context).account,
+                  items: [
+                    prunableSetting(userData, context, ref),
+                    signOutSetting(ref.context),
+                    deleteAccountSetting(context),
+                  ],
+                ),
+                CustomSettingsGroup(
+                  items: [
+                    githubSetting(context),
+                    termsSetting(context),
+                    privacyPolicySetting(context),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

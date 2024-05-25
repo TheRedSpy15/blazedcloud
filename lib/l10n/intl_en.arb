@@ -145,5 +145,6 @@
   "syncing": "Syncing...",
   "periodicallyBackingUpSelectedFolder": "Periodically backing up selected folder",
   "syncNow": "Sync Now",
-  "cameraSync": "Camera Sync"
+  "cameraSync": "Camera Sync",
+  "noTransfers": "No transfers"
 }

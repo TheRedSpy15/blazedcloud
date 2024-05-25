@@ -1,149 +1,150 @@
 {
-    "@@locale": "pt",
-    "serverMaintenance": "O servidor está passando por manutenção. Por favor, tente novamente mais tarde.",
-    "appName": "Blazed Cloud",
-    "save": "Salvar",
-    "delete": "Excluir",
-    "emptyDirectory": "Nenhum arquivo ou pasta",
-    "errorErr": "Erro: {err}",
-    "@errorErr": {
-        "placeholders": {
-            "err": {}
-        }
-    },
-    "invalidEmailOrPassword": "Email ou senha inválidos",
-    "login": "Entrar",
-    "forgotPassword": "Esqueceu a senha?",
-    "resetPassword": "Redefinir senha",
-    "email": "Email",
-    "cancel": "Cancelar",
-    "passwordResetEmailSent": "Email de redefinição de senha enviado!",
-    "errorSendingPasswordResetEmail": "Erro ao enviar email de redefinição de senha",
-    "send": "Enviar",
-    "password": "Senha",
-    "settings": "Configurações",
-    "transfers": "Transferências",
-    "files": "Arquivos",
-    "emailDomainNotAllowed": "Domínio de email não permitido",
-    "passwordMustBePasswordminlengthCharactersLong": "A senha deve ter {length} caracteres",
-    "@passwordMustBePasswordminlengthCharactersLong": {
-        "placeholders": {
-            "length": {}
-        }
-    },
-    "signUp": "Cadastrar",
-    "failedLogingInAfterSignup": "Falha no login após o cadastro",
-    "errorSendingRequest": "Erro ao enviar solicitação",
-    "requestSent": "Solicitação enviada!",
-    "errorUpdatingUserPleaseTryAgain": "Erro ao atualizar usuário. Por favor, tente novamente.",
-    "deleteFile": "Excluir arquivo",
-    "areYouSureYouWantToDeleteThisFile": "Tem certeza de que deseja excluir este arquivo?",
-    "downloadingGetfilenamefilekey": "Baixando {filename}",
-    "@downloadingGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingFileGetfilenamefilekey": "Abrindo arquivo: {filename}",
-    "@openingFileGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "errorOpeningFileE": "Erro ao abrir arquivo: {filename}",
-    "@errorOpeningFileE": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingInBrowser": "Abrindo no navegador...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "Falha ao abrir. Por favor, tente salvar o arquivo primeiro",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "Arquivo {filename} não está disponível offline",
-    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "shareFile": "Compartilhar arquivo",
-    "linkCopiedToClipboard": "Link copiado para a área de transferência",
-    "share": "Compartilhar",
-    "open": "Abrir",
-    "blazedExplorer": "Blazed Explorer",
-    "createFolder": "Criar pasta",
-    "create": "Criar",
-    "deleteFolder": "Excluir pasta",
-    "confirmFolderDelete": "Tem certeza de que deseja excluir esta pasta? {foldername}",
-    "@confirmFolderDelete": {
-        "placeholders": {
-            "foldername": {}
-        }
-    },
-    "authenticationRequired": "Autenticação necessária",
-    "areYouSureYouWantToDeleteYourAccountThis": "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente pela loja de aplicativos (se tiver uma)",
-    "deleteAccount": "Excluir conta",
-    "accountDeleted": "Conta excluída",
-    "yourAccountHasBeenDeleted": "Sua conta foi excluída.",
-    "ok": "OK",
-    "failedToDeleteAccount": "Falha ao excluir conta",
-    "changeDownloadLocation": "Alterar local de download",
-    "changeEmail": "Alterar Email",
-    "willSendALinkToYourEmailToCompleteThe": "Enviaremos um link para o seu email para concluir a alteração",
-    "viewBackendOnGithub": "Visualizar backend no Github",
-    "viewOnGithub": "Visualizar no Github",
-    "autoDeleteAcount": "Excluir conta automaticamente",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Excluir sua conta após 90 dias de inatividade. Sempre ignorado para usuários com assinaturas ativas.",
-    "signOut": "Sair",
-    "areYouSureYouWantToSignOut": "Tem certeza de que deseja sair?",
-    "requireBiometricsToOpenApp": "Exigir biometria para abrir o aplicativo",
-    "changePassword": "Alterar senha",
-    "willSendALinkToYourEmailToResetYour": "Enviaremos um link para o seu email para redefinir sua senha",
-    "downloading": "Baixando...",
-    "downloaded": "Baixado",
-    "selectDownloadDirectory": "Selecionar diretório de download",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Por favor, selecione um diretório onde deseja baixar seus arquivos na próxima tela.",
-    "pickFolder": "Escolher Pasta",
-    "offlineFilesAreStoredAtSnapshotdata": "Os arquivos offline são armazenados em {path}",
-    "@offlineFilesAreStoredAtSnapshotdata": {
-        "placeholders": {
-            "path": {}
-        }
-    },
-    "uploading": "Enviando...",
-    "uploaded": "Enviado",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compre 1TB usando a versão da Playstore. Você pode desinstalar essa versão quando terminar.",
-    "folderName": "Nome da pasta",
-    "storageUsage": "Uso de armazenamento",
-    "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?",
-    "createAnAccount": "Criar uma Conta",
-    "allowedEmails": "Emails Permitidos",
-    "close": "Fechar",
-    "viewAllowedEmailDomains": "Ver Domínios de Email Permitidos",
-    "welcomeBack": "Bem-Vindo de Volta!",
-    "upgradeStorage": "Atualizar Armazenamento",
-    "failedToOpenPortal": "Falha ao abrir o portal",
-    "manageAccount": "Gerenciar Conta",
-    "subscribedThroughPlaystoreOrAppstore": "Inscrito através da Play Store ou App Store",
-    "shareEmailVerificationNeeded": "E-mail precisa ser verificado, ou ter uma assinatura ativa para compartilhar arquivos.",
-    "notVerified": "E-mail não verificado",
-    "emailSent": "E-mail enviado",
-    "sendEmail": "Enviar E-mail",
-    "privacyPolicy": "Política de Privacidade",
-    "termsOfService": "Termos de Serviço",
-    "pleaseAuthenticateToAccessYourCloud": "Por favor, autentique-se para acessar sua nuvem",
-    "allowMeteredConnections": "Permitir conexões com medição",
-    "requireCharging": "Requer carregamento",
-    "syncEnabled": "Sincronização ativada",
-    "syncSettings": "Configurações de sincronização",
-    "account": "Conta",
-    "security": "Segurança",
-    "general": "Geral",
-    "currentlyNestedFoldersAreNotSupported": "Atualmente, pastas aninhadas não são suportadas.",
-    "cameraRollSync": "Sincronização de rolo de câmera",
-    "camSyncDesc": "Selecione a pasta em seu dispositivo onde seu aplicativo de câmera salva fotos e vídeos. Não pesquisa de forma recursiva os arquivos. Sincroniza aproximadamente a cada 6 horas.",
-    "selectSyncLocation": "Selecionar localização",
-    "changeSyncPath": "Alterar caminho",
-    "syncing": "Sincronizando...",
-    "periodicallyBackingUpSelectedFolder": "Fazendo backup periodicamente da pasta selecionada",
-    "syncNow": "Sincronizar agora",
-    "cameraSync": "Sincronização da câmera"
+  "@@locale": "pt",
+  "serverMaintenance": "O servidor está passando por manutenção. Por favor, tente novamente mais tarde.",
+  "appName": "Blazed Cloud",
+  "save": "Salvar",
+  "delete": "Excluir",
+  "emptyDirectory": "Nenhum arquivo ou pasta",
+  "errorErr": "Erro: {err}",
+  "@errorErr": {
+    "placeholders": {
+      "err": {}
+    }
+  },
+  "invalidEmailOrPassword": "Email ou senha inválidos",
+  "login": "Entrar",
+  "forgotPassword": "Esqueceu a senha?",
+  "resetPassword": "Redefinir senha",
+  "email": "Email",
+  "cancel": "Cancelar",
+  "passwordResetEmailSent": "Email de redefinição de senha enviado!",
+  "errorSendingPasswordResetEmail": "Erro ao enviar email de redefinição de senha",
+  "send": "Enviar",
+  "password": "Senha",
+  "settings": "Configurações",
+  "transfers": "Transferências",
+  "files": "Arquivos",
+  "emailDomainNotAllowed": "Domínio de email não permitido",
+  "passwordMustBePasswordminlengthCharactersLong": "A senha deve ter {length} caracteres",
+  "@passwordMustBePasswordminlengthCharactersLong": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "signUp": "Cadastrar",
+  "failedLogingInAfterSignup": "Falha no login após o cadastro",
+  "errorSendingRequest": "Erro ao enviar solicitação",
+  "requestSent": "Solicitação enviada!",
+  "errorUpdatingUserPleaseTryAgain": "Erro ao atualizar usuário. Por favor, tente novamente.",
+  "deleteFile": "Excluir arquivo",
+  "areYouSureYouWantToDeleteThisFile": "Tem certeza de que deseja excluir este arquivo?",
+  "downloadingGetfilenamefilekey": "Baixando {filename}",
+  "@downloadingGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingFileGetfilenamefilekey": "Abrindo arquivo: {filename}",
+  "@openingFileGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "errorOpeningFileE": "Erro ao abrir arquivo: {filename}",
+  "@errorOpeningFileE": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingInBrowser": "Abrindo no navegador...",
+  "failedToOpenPleaseTrySavingTheFileFirst": "Falha ao abrir. Por favor, tente salvar o arquivo primeiro",
+  "fileGetfilenamefilekeyIsNotAvailableOffline": "Arquivo {filename} não está disponível offline",
+  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "shareFile": "Compartilhar arquivo",
+  "linkCopiedToClipboard": "Link copiado para a área de transferência",
+  "share": "Compartilhar",
+  "open": "Abrir",
+  "blazedExplorer": "Blazed Explorer",
+  "createFolder": "Criar pasta",
+  "create": "Criar",
+  "deleteFolder": "Excluir pasta",
+  "confirmFolderDelete": "Tem certeza de que deseja excluir esta pasta? {foldername}",
+  "@confirmFolderDelete": {
+    "placeholders": {
+      "foldername": {}
+    }
+  },
+  "authenticationRequired": "Autenticação necessária",
+  "areYouSureYouWantToDeleteYourAccountThis": "Tem certeza de que deseja excluir sua conta? Isso é irreversível. Por favor, observe que você precisará cancelar sua assinatura manualmente pela loja de aplicativos (se tiver uma)",
+  "deleteAccount": "Excluir conta",
+  "accountDeleted": "Conta excluída",
+  "yourAccountHasBeenDeleted": "Sua conta foi excluída.",
+  "ok": "OK",
+  "failedToDeleteAccount": "Falha ao excluir conta",
+  "changeDownloadLocation": "Alterar local de download",
+  "changeEmail": "Alterar Email",
+  "willSendALinkToYourEmailToCompleteThe": "Enviaremos um link para o seu email para concluir a alteração",
+  "viewBackendOnGithub": "Visualizar backend no Github",
+  "viewOnGithub": "Visualizar no Github",
+  "autoDeleteAcount": "Excluir conta automaticamente",
+  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Excluir sua conta após 90 dias de inatividade. Sempre ignorado para usuários com assinaturas ativas.",
+  "signOut": "Sair",
+  "areYouSureYouWantToSignOut": "Tem certeza de que deseja sair?",
+  "requireBiometricsToOpenApp": "Exigir biometria para abrir o aplicativo",
+  "changePassword": "Alterar senha",
+  "willSendALinkToYourEmailToResetYour": "Enviaremos um link para o seu email para redefinir sua senha",
+  "downloading": "Baixando...",
+  "downloaded": "Baixado",
+  "selectDownloadDirectory": "Selecionar diretório de download",
+  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Por favor, selecione um diretório onde deseja baixar seus arquivos na próxima tela.",
+  "pickFolder": "Escolher Pasta",
+  "offlineFilesAreStoredAtSnapshotdata": "Os arquivos offline são armazenados em {path}",
+  "@offlineFilesAreStoredAtSnapshotdata": {
+    "placeholders": {
+      "path": {}
+    }
+  },
+  "uploading": "Enviando...",
+  "uploaded": "Enviado",
+  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compre 1TB usando a versão da Playstore. Você pode desinstalar essa versão quando terminar.",
+  "folderName": "Nome da pasta",
+  "storageUsage": "Uso de armazenamento",
+  "howLongToShare": "Por quanto tempo o arquivo deve ficar disponível para compartilhamento?",
+  "createAnAccount": "Criar uma Conta",
+  "allowedEmails": "Emails Permitidos",
+  "close": "Fechar",
+  "viewAllowedEmailDomains": "Ver Domínios de Email Permitidos",
+  "welcomeBack": "Bem-Vindo de Volta!",
+  "upgradeStorage": "Atualizar Armazenamento",
+  "failedToOpenPortal": "Falha ao abrir o portal",
+  "manageAccount": "Gerenciar Conta",
+  "subscribedThroughPlaystoreOrAppstore": "Inscrito através da Play Store ou App Store",
+  "shareEmailVerificationNeeded": "E-mail precisa ser verificado, ou ter uma assinatura ativa para compartilhar arquivos.",
+  "notVerified": "E-mail não verificado",
+  "emailSent": "E-mail enviado",
+  "sendEmail": "Enviar E-mail",
+  "privacyPolicy": "Política de Privacidade",
+  "termsOfService": "Termos de Serviço",
+  "pleaseAuthenticateToAccessYourCloud": "Por favor, autentique-se para acessar sua nuvem",
+  "allowMeteredConnections": "Permitir conexões com medição",
+  "requireCharging": "Requer carregamento",
+  "syncEnabled": "Sincronização ativada",
+  "syncSettings": "Configurações de sincronização",
+  "account": "Conta",
+  "security": "Segurança",
+  "general": "Geral",
+  "currentlyNestedFoldersAreNotSupported": "Atualmente, pastas aninhadas não são suportadas.",
+  "cameraRollSync": "Sincronização de rolo de câmera",
+  "camSyncDesc": "Selecione a pasta em seu dispositivo onde seu aplicativo de câmera salva fotos e vídeos. Não pesquisa de forma recursiva os arquivos. Sincroniza aproximadamente a cada 6 horas.",
+  "selectSyncLocation": "Selecionar localização",
+  "changeSyncPath": "Alterar caminho",
+  "syncing": "Sincronizando...",
+  "periodicallyBackingUpSelectedFolder": "Fazendo backup periodicamente da pasta selecionada",
+  "syncNow": "Sincronizar agora",
+  "cameraSync": "Sincronização da câmera",
+  "noTransfers": "No transfers"
 }

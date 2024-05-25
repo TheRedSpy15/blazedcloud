@@ -13,7 +13,6 @@ import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -24,15 +23,14 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
 
-  await Workmanager().initialize(
-      callbackDispatcher, // The top level function, aka callbackDispatcher
-      isInDebugMode:
-          kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
-      );
+  if (isMobile) {
+    await Workmanager().initialize(
+        callbackDispatcher, // The top level function, aka callbackDispatcher
+        isInDebugMode:
+            kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+        );
+  }
 
   runApp(const MyApp());
 }
@@ -64,7 +62,7 @@ final _router = GoRouter(
     GoRoute(
       name: "dashboard",
       path: '/dashboard',
-      builder: (context, state) => const Dashboard(),
+      builder: (context, state) => Dashboard(),
     ),
   ],
 );
@@ -190,14 +188,14 @@ class LandingPage extends ConsumerWidget {
                 if (isLoaded) {
                   return ref.read(isBiometricEnabledProvider)
                       ? ref.read(isAuthenticatedProvider)
-                          ? const Dashboard()
+                          ? Dashboard()
                           : const LockedScreen()
-                      : const Dashboard();
+                      : Dashboard();
                 }
-                return const Dashboard();
+                return Dashboard();
               }, error: (err, stack) {
                 logger.e("Error loading prefs: $err");
-                return const Dashboard();
+                return Dashboard();
               }, loading: () {
                 return const Scaffold(
                   body: Center(
