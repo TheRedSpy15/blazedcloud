@@ -9,13 +9,12 @@ class PurchaseApi {
     PurchaseApi.fetchOffers().then((value) async {
       try {
         var permission = await Glassfy.permissions();
-        permission.all?.forEach((p) => {
-              logger.i("Permission: ${p.toJson()}"),
-              if (p.permissionId == "terabyte" && p.isValid == true)
-                {
-                  ref.read(premiumProvider.notifier).state = true,
-                }
-            });
+        permission.all?.forEach((p) {
+          logger.i("Permission: ${p.toJson()}");
+          if (p.permissionId == "terabyte" && p.isValid == true) {
+            ref.read(premiumProvider.notifier).state = true;
+          }
+        });
       } catch (e) {
         logger.w("Glassfy failed to fetch permissions: $e");
       }
