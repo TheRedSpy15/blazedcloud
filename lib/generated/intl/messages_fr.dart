@@ -141,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Connexion"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Gérer le compte"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified":
             MessageLookupByLibrary.simpleMessage("E-mail non vérifié"),
         "offlineFilesAreStoredAtSnapshotdata": m5,

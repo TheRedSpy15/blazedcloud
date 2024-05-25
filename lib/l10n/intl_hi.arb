@@ -1,149 +1,150 @@
 {
-    "@@locale": "hi",
-    "serverMaintenance": "सर्वर वर्तमान में मेनटेनेंस के तहत है। कृपया बाद में पुनः प्रयास करें।",
-    "appName": "ब्लेज्ड क्लाउड",
-    "save": "सहेजें",
-    "delete": "हटाएं",
-    "emptyDirectory": "कोई फ़ाइल या फ़ोल्डर नहीं",
-    "errorErr": "त्रुटि: {err}",
-    "@errorErr": {
-        "placeholders": {
-            "err": {}
-        }
-    },
-    "invalidEmailOrPassword": "अमान्य ईमेल या पासवर्ड",
-    "login": "लॉगिन",
-    "forgotPassword": "पासवर्ड भूल गए?",
-    "resetPassword": "पासवर्ड रीसेट",
-    "email": "ईमेल",
-    "cancel": "रद्द करें",
-    "passwordResetEmailSent": "पासवर्ड रीसेट ईमेल भेजा गया है!",
-    "errorSendingPasswordResetEmail": "पासवर्ड रीसेट ईमेल भेजने में त्रुटि",
-    "send": "भेजें",
-    "password": "पासवर्ड",
-    "settings": "सेटिंग्स",
-    "transfers": "ट्रांसफर्स",
-    "files": "फ़ाइलें",
-    "emailDomainNotAllowed": "ईमेल डोमेन अनुमत नहीं है",
-    "passwordMustBePasswordminlengthCharactersLong": "पासवर्ड {length} अक्षरों का होना चाहिए",
-    "@passwordMustBePasswordminlengthCharactersLong": {
-        "placeholders": {
-            "length": {}
-        }
-    },
-    "signUp": "साइन अप करें",
-    "failedLogingInAfterSignup": "साइन अप के बाद लॉगिन में असफल",
-    "errorSendingRequest": "अनुरोध भेजने में त्रुटि",
-    "requestSent": "अनुरोध भेजा गया!",
-    "errorUpdatingUserPleaseTryAgain": "उपयोगकर्ता को अपडेट करने में त्रुटि. कृपया पुनः प्रयास करें।",
-    "deleteFile": "फ़ाइल हटाएं",
-    "areYouSureYouWantToDeleteThisFile": "क्या आप इस फ़ाइल को हटाना चाहते हैं?",
-    "downloadingGetfilenamefilekey": "{filename} डाउनलोड हो रहा है",
-    "@downloadingGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingFileGetfilenamefilekey": "फ़ाइल खोल रहा है: {filename}",
-    "@openingFileGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "errorOpeningFileE": "त्रुटि फ़ाइल खोलते समय: {filename}",
-    "@errorOpeningFileE": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingInBrowser": "ब्राउज़र में खोला जा रहा है...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "खोलने में असफल हुआ। कृपया पहले फ़ाइल को सहेजने का प्रयास करें",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "फ़ाइल {filename} ऑफ़लाइन उपलब्ध नहीं है",
-    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "shareFile": "फ़ाइल साझा करें",
-    "linkCopiedToClipboard": "लिंक क्लिपबोर्ड पर कॉपी किया गया है",
-    "share": "साझा करें",
-    "open": "खोलें",
-    "blazedExplorer": "ब्लेज्ड एक्सप्लोरर",
-    "createFolder": "फ़ोल्डर बनाएं",
-    "create": "बनाएं",
-    "deleteFolder": "फ़ोल्डर हटाएं",
-    "confirmFolderDelete": "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? {foldername}",
-    "@confirmFolderDelete": {
-        "placeholders": {
-            "foldername": {}
-        }
-    },
-    "authenticationRequired": "प्रमाणीकरण आवश्यक है",
-    "areYouSureYouWantToDeleteYourAccountThis": "क्या आप वाकई अपने खाता को हटाना चाहते हैं? यह अनपुनरावृत्ती है। कृपया ध्यान दें, आपको अगर है तो आपको अपनी सदस्यता को प्ले स्टोर से मैन्युअली रद्द करना होगा।",
-    "deleteAccount": "खाता हटाएं",
-    "accountDeleted": "खाता हटा दिया गया है",
-    "yourAccountHasBeenDeleted": "आपका खाता हटा दिया गया है।",
-    "ok": "ठीक है",
-    "failedToDeleteAccount": "खाता हटाने में असफल",
-    "changeDownloadLocation": "डाउनलोड स्थान बदलें",
-    "changeEmail": "ईमेल बदलें",
-    "willSendALinkToYourEmailToCompleteThe": "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप परिवर्तन को पूरा कर सकें",
-    "viewBackendOnGithub": "जितह पर देखें",
-    "viewOnGithub": "जितह पर देखें",
-    "autoDeleteAcount": "स्वतः हटाएं खाता",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "निष्क्रियता के बाद 90 दिनों में अपने खाता को हटाएं। हमेशा ऐक्टिव सब्सक्रिप्शन वाले उपयोगकर्ताओं के लिए हमेशा अनदेखा किया जाता है।",
-    "signOut": "साइन आउट",
-    "areYouSureYouWantToSignOut": "क्या आप सचमुच साइन आउट करना चाहते हैं?",
-    "requireBiometricsToOpenApp": "ऐप खोलने के लिए बायोमेट्रिक्स की आवश्यकता है",
-    "changePassword": "पासवर्ड बदलें",
-    "willSendALinkToYourEmailToResetYour": "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप अपना पासवर्ड रीसेट कर सकें",
-    "downloading": "डाउनलोड हो रहा है...",
-    "downloaded": "डाउनलोड हो गया",
-    "selectDownloadDirectory": "डाउनलोड निर्दिष्ट करें डायरेक्टरी",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "कृपया चुनें एक डायरेक्टरी जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।",
-    "pickFolder": "फ़ोल्डर चुनें",
-    "offlineFilesAreStoredAtSnapshotdata": "ऑफ़लाइन फ़ाइलें {path} पर संग्रहित हैं",
-    "@offlineFilesAreStoredAtSnapshotdata": {
-        "placeholders": {
-            "path": {}
-        }
-    },
-    "uploading": "अपलोड हो रहा है...",
-    "uploaded": "अपलोड हो गया",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। आप उस संस्करण को स्थानांतरित कर सकते हैं जब काम हो जाए।",
-    "folderName": "फ़ोल्डर का नाम",
-    "storageUsage": "स्टोरेज उपयोग",
-    "howLongToShare": "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?",
-    "createAnAccount": "खाता बनाएं",
-    "allowedEmails": "अनुमत ईमेल",
-    "close": "बंद करें",
-    "viewAllowedEmailDomains": "अनुमत ईमेल डोमेन देखें",
-    "welcomeBack": "फिर से स्वागत है!",
-    "upgradeStorage": "भंडारण अपग्रेड करें",
-    "failedToOpenPortal": "पोर्टल खोलने में विफल",
-    "manageAccount": "खाता प्रबंधित करें",
-    "subscribedThroughPlaystoreOrAppstore": "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई",
-    "shareEmailVerificationNeeded": "फ़ाइलें साझा करने के लिए ईमेल को सत्यापित किया जाना चाहिए, या सक्रिय सब्सक्रिप्शन होना चाहिए।",
-    "notVerified": "ईमेल सत्यापित नहीं है",
-    "emailSent": "ईमेल भेजा गया",
-    "sendEmail": "ईमेल भेजें",
-    "privacyPolicy": "गोपनीयता नीति",
-    "termsOfService": "सेवा की शर्तें",
-    "pleaseAuthenticateToAccessYourCloud": "कृपया अपने क्लाउड तक पहुँचने के लिए प्रमाणीकृत करें",
-    "allowMeteredConnections": "मीटरड कनेक्शन की अनुमति दें",
-    "requireCharging": "चार्जिंग आवश्यक है",
-    "syncEnabled": "सिंक सक्षम है",
-    "syncSettings": "सिंक सेटिंग्स",
-    "account": "खाता",
-    "security": "सुरक्षा",
-    "general": "सामान्य",
-    "currentlyNestedFoldersAreNotSupported": "वर्तमान में नेस्टेड फ़ोल्डर समर्थित नहीं हैं।",
-    "cameraRollSync": "कैमरा रोल सिंक्रनाइज़ेशन",
-    "camSyncDesc": "अपनी डिवाइस पर फोटो और वीडियो सहेजने वाले आपके कैमरा ऐप के फ़ोल्डर का चयन करें। फ़ाइलों को अनुक्रमणिक ढंग से खोजता नहीं है। लगभग हर 6 घंटे में सिंक्रनाइज़ करता है।",
-    "selectSyncLocation": "स्थान चुनें",
-    "changeSyncPath": "पथ बदलें",
-    "syncing": "सिंक्रनाइज़ किया जा रहा है...",
-    "periodicallyBackingUpSelectedFolder": "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना",
-    "syncNow": "अब सिंक्रनाइज़ करें",
-    "cameraSync": "कैमरा सिंक"
+  "@@locale": "hi",
+  "serverMaintenance": "सर्वर वर्तमान में मेनटेनेंस के तहत है। कृपया बाद में पुनः प्रयास करें।",
+  "appName": "ब्लेज्ड क्लाउड",
+  "save": "सहेजें",
+  "delete": "हटाएं",
+  "emptyDirectory": "कोई फ़ाइल या फ़ोल्डर नहीं",
+  "errorErr": "त्रुटि: {err}",
+  "@errorErr": {
+    "placeholders": {
+      "err": {}
+    }
+  },
+  "invalidEmailOrPassword": "अमान्य ईमेल या पासवर्ड",
+  "login": "लॉगिन",
+  "forgotPassword": "पासवर्ड भूल गए?",
+  "resetPassword": "पासवर्ड रीसेट",
+  "email": "ईमेल",
+  "cancel": "रद्द करें",
+  "passwordResetEmailSent": "पासवर्ड रीसेट ईमेल भेजा गया है!",
+  "errorSendingPasswordResetEmail": "पासवर्ड रीसेट ईमेल भेजने में त्रुटि",
+  "send": "भेजें",
+  "password": "पासवर्ड",
+  "settings": "सेटिंग्स",
+  "transfers": "ट्रांसफर्स",
+  "files": "फ़ाइलें",
+  "emailDomainNotAllowed": "ईमेल डोमेन अनुमत नहीं है",
+  "passwordMustBePasswordminlengthCharactersLong": "पासवर्ड {length} अक्षरों का होना चाहिए",
+  "@passwordMustBePasswordminlengthCharactersLong": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "signUp": "साइन अप करें",
+  "failedLogingInAfterSignup": "साइन अप के बाद लॉगिन में असफल",
+  "errorSendingRequest": "अनुरोध भेजने में त्रुटि",
+  "requestSent": "अनुरोध भेजा गया!",
+  "errorUpdatingUserPleaseTryAgain": "उपयोगकर्ता को अपडेट करने में त्रुटि. कृपया पुनः प्रयास करें।",
+  "deleteFile": "फ़ाइल हटाएं",
+  "areYouSureYouWantToDeleteThisFile": "क्या आप इस फ़ाइल को हटाना चाहते हैं?",
+  "downloadingGetfilenamefilekey": "{filename} डाउनलोड हो रहा है",
+  "@downloadingGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingFileGetfilenamefilekey": "फ़ाइल खोल रहा है: {filename}",
+  "@openingFileGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "errorOpeningFileE": "त्रुटि फ़ाइल खोलते समय: {filename}",
+  "@errorOpeningFileE": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingInBrowser": "ब्राउज़र में खोला जा रहा है...",
+  "failedToOpenPleaseTrySavingTheFileFirst": "खोलने में असफल हुआ। कृपया पहले फ़ाइल को सहेजने का प्रयास करें",
+  "fileGetfilenamefilekeyIsNotAvailableOffline": "फ़ाइल {filename} ऑफ़लाइन उपलब्ध नहीं है",
+  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "shareFile": "फ़ाइल साझा करें",
+  "linkCopiedToClipboard": "लिंक क्लिपबोर्ड पर कॉपी किया गया है",
+  "share": "साझा करें",
+  "open": "खोलें",
+  "blazedExplorer": "ब्लेज्ड एक्सप्लोरर",
+  "createFolder": "फ़ोल्डर बनाएं",
+  "create": "बनाएं",
+  "deleteFolder": "फ़ोल्डर हटाएं",
+  "confirmFolderDelete": "क्या आप इस फ़ोल्डर को हटाना चाहते हैं? {foldername}",
+  "@confirmFolderDelete": {
+    "placeholders": {
+      "foldername": {}
+    }
+  },
+  "authenticationRequired": "प्रमाणीकरण आवश्यक है",
+  "areYouSureYouWantToDeleteYourAccountThis": "क्या आप वाकई अपने खाता को हटाना चाहते हैं? यह अनपुनरावृत्ती है। कृपया ध्यान दें, आपको अगर है तो आपको अपनी सदस्यता को प्ले स्टोर से मैन्युअली रद्द करना होगा।",
+  "deleteAccount": "खाता हटाएं",
+  "accountDeleted": "खाता हटा दिया गया है",
+  "yourAccountHasBeenDeleted": "आपका खाता हटा दिया गया है।",
+  "ok": "ठीक है",
+  "failedToDeleteAccount": "खाता हटाने में असफल",
+  "changeDownloadLocation": "डाउनलोड स्थान बदलें",
+  "changeEmail": "ईमेल बदलें",
+  "willSendALinkToYourEmailToCompleteThe": "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप परिवर्तन को पूरा कर सकें",
+  "viewBackendOnGithub": "जितह पर देखें",
+  "viewOnGithub": "जितह पर देखें",
+  "autoDeleteAcount": "स्वतः हटाएं खाता",
+  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "निष्क्रियता के बाद 90 दिनों में अपने खाता को हटाएं। हमेशा ऐक्टिव सब्सक्रिप्शन वाले उपयोगकर्ताओं के लिए हमेशा अनदेखा किया जाता है।",
+  "signOut": "साइन आउट",
+  "areYouSureYouWantToSignOut": "क्या आप सचमुच साइन आउट करना चाहते हैं?",
+  "requireBiometricsToOpenApp": "ऐप खोलने के लिए बायोमेट्रिक्स की आवश्यकता है",
+  "changePassword": "पासवर्ड बदलें",
+  "willSendALinkToYourEmailToResetYour": "आपके ईमेल पर एक लिंक भेजा जाएगा ताकि आप अपना पासवर्ड रीसेट कर सकें",
+  "downloading": "डाउनलोड हो रहा है...",
+  "downloaded": "डाउनलोड हो गया",
+  "selectDownloadDirectory": "डाउनलोड निर्दिष्ट करें डायरेक्टरी",
+  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "कृपया चुनें एक डायरेक्टरी जहां आप अगले स्क्रीन में अपनी फ़ाइलें डाउनलोड करना चाहेंगे।",
+  "pickFolder": "फ़ोल्डर चुनें",
+  "offlineFilesAreStoredAtSnapshotdata": "ऑफ़लाइन फ़ाइलें {path} पर संग्रहित हैं",
+  "@offlineFilesAreStoredAtSnapshotdata": {
+    "placeholders": {
+      "path": {}
+    }
+  },
+  "uploading": "अपलोड हो रहा है...",
+  "uploaded": "अपलोड हो गया",
+  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "प्ले स्टोर बिल्ड का उपयोग करके 1TB खरीदें। आप उस संस्करण को स्थानांतरित कर सकते हैं जब काम हो जाए।",
+  "folderName": "फ़ोल्डर का नाम",
+  "storageUsage": "स्टोरेज उपयोग",
+  "howLongToShare": "फ़ाइल को साझा करने के लिए कितनी देर तक उपलब्ध रखा जाना चाहिए?",
+  "createAnAccount": "खाता बनाएं",
+  "allowedEmails": "अनुमत ईमेल",
+  "close": "बंद करें",
+  "viewAllowedEmailDomains": "अनुमत ईमेल डोमेन देखें",
+  "welcomeBack": "फिर से स्वागत है!",
+  "upgradeStorage": "भंडारण अपग्रेड करें",
+  "failedToOpenPortal": "पोर्टल खोलने में विफल",
+  "manageAccount": "खाता प्रबंधित करें",
+  "subscribedThroughPlaystoreOrAppstore": "प्लेस्टोर या एप्पस्टोर के माध्यम से सदस्यता ली गई",
+  "shareEmailVerificationNeeded": "फ़ाइलें साझा करने के लिए ईमेल को सत्यापित किया जाना चाहिए, या सक्रिय सब्सक्रिप्शन होना चाहिए।",
+  "notVerified": "ईमेल सत्यापित नहीं है",
+  "emailSent": "ईमेल भेजा गया",
+  "sendEmail": "ईमेल भेजें",
+  "privacyPolicy": "गोपनीयता नीति",
+  "termsOfService": "सेवा की शर्तें",
+  "pleaseAuthenticateToAccessYourCloud": "कृपया अपने क्लाउड तक पहुँचने के लिए प्रमाणीकृत करें",
+  "allowMeteredConnections": "मीटरड कनेक्शन की अनुमति दें",
+  "requireCharging": "चार्जिंग आवश्यक है",
+  "syncEnabled": "सिंक सक्षम है",
+  "syncSettings": "सिंक सेटिंग्स",
+  "account": "खाता",
+  "security": "सुरक्षा",
+  "general": "सामान्य",
+  "currentlyNestedFoldersAreNotSupported": "वर्तमान में नेस्टेड फ़ोल्डर समर्थित नहीं हैं।",
+  "cameraRollSync": "कैमरा रोल सिंक्रनाइज़ेशन",
+  "camSyncDesc": "अपनी डिवाइस पर फोटो और वीडियो सहेजने वाले आपके कैमरा ऐप के फ़ोल्डर का चयन करें। फ़ाइलों को अनुक्रमणिक ढंग से खोजता नहीं है। लगभग हर 6 घंटे में सिंक्रनाइज़ करता है।",
+  "selectSyncLocation": "स्थान चुनें",
+  "changeSyncPath": "पथ बदलें",
+  "syncing": "सिंक्रनाइज़ किया जा रहा है...",
+  "periodicallyBackingUpSelectedFolder": "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना",
+  "syncNow": "अब सिंक्रनाइज़ करें",
+  "cameraSync": "कैमरा सिंक",
+  "noTransfers": "No transfers"
 }

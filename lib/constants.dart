@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blazedcloud/models/pocketbase/authstore.dart';
 import 'package:pocketbase/pocketbase.dart';
 
@@ -10,4 +12,5 @@ const stripePortalUrl = 'https://billing.stripe.com/p/login/fZeaI4a7Teoycuc5kk';
 const syncPageIndex = 2;
 const transferPageIndex = 1;
 
+final isMobile = !Platform.isWindows && !Platform.isLinux && !Platform.isMacOS;
 var pb = PocketBase(backendUrl, authStore: CustomAuthStore());

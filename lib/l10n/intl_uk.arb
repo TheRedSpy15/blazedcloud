@@ -1,149 +1,150 @@
 {
-    "@@locale": "uk",
-    "serverMaintenance": "Сервер наразі перебуває на технічному обслуговуванні. Будь ласка, спробуйте знову пізніше.",
-    "appName": "Blazed Cloud",
-    "save": "Зберегти",
-    "delete": "Видалити",
-    "emptyDirectory": "Немає файлів чи папок",
-    "errorErr": "Помилка: {err}",
-    "@errorErr": {
-        "placeholders": {
-            "err": {}
-        }
-    },
-    "invalidEmailOrPassword": "Невірний електронний лист або пароль",
-    "login": "Увійти",
-    "forgotPassword": "Забули пароль?",
-    "resetPassword": "Скинути пароль",
-    "email": "Електронна пошта",
-    "cancel": "Скасувати",
-    "passwordResetEmailSent": "Електронний лист для скидання пароля відправлено!",
-    "errorSendingPasswordResetEmail": "Помилка відправлення електронного листа для скидання пароля",
-    "send": "Відправити",
-    "password": "Пароль",
-    "settings": "Налаштування",
-    "transfers": "Передачі",
-    "files": "Файли",
-    "emailDomainNotAllowed": "Домен електронної пошти не дозволений",
-    "passwordMustBePasswordminlengthCharactersLong": "Пароль повинен бути довжиною {length} символів",
-    "@passwordMustBePasswordminlengthCharactersLong": {
-        "placeholders": {
-            "length": {}
-        }
-    },
-    "signUp": "Зареєструватися",
-    "failedLogingInAfterSignup": "Не вдалося увійти після реєстрації",
-    "errorSendingRequest": "Помилка відправлення запиту",
-    "requestSent": "Запит надіслано!",
-    "errorUpdatingUserPleaseTryAgain": "Помилка оновлення користувача. Будь ласка, спробуйте знову.",
-    "deleteFile": "Видалити файл",
-    "areYouSureYouWantToDeleteThisFile": "Ви впевнені, що хочете видалити цей файл?",
-    "downloadingGetfilenamefilekey": "Завантаження {filename}",
-    "@downloadingGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingFileGetfilenamefilekey": "Відкриття файлу: {filename}",
-    "@openingFileGetfilenamefilekey": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "errorOpeningFileE": "Помилка відкриття файлу: {filename}",
-    "@errorOpeningFileE": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "openingInBrowser": "Відкриття у браузері...",
-    "failedToOpenPleaseTrySavingTheFileFirst": "Не вдалося відкрити. Будь ласка, спробуйте спочатку зберегти файл.",
-    "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступний офлайн",
-    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-        "placeholders": {
-            "filename": {}
-        }
-    },
-    "shareFile": "Поділитися файлом",
-    "linkCopiedToClipboard": "Посилання скопійовано в буфер обміну",
-    "share": "Поділитися",
-    "open": "Відкрити",
-    "blazedExplorer": "Blazed Explorer",
-    "createFolder": "Створити папку",
-    "create": "Створити",
-    "deleteFolder": "Видалити папку",
-    "confirmFolderDelete": "Ви впевнені, що хочете видалити цю папку? {foldername}",
-    "@confirmFolderDelete": {
-        "placeholders": {
-            "foldername": {}
-        }
-    },
-    "authenticationRequired": "Потрібна аутентифікація",
-    "areYouSureYouWantToDeleteYourAccountThis": "Ви впевнені, що хочете видалити свій обліковий запис? Це невідворотнє. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин Play (якщо ви маєте одну).",
-    "deleteAccount": "Видалити обліковий запис",
-    "accountDeleted": "Обліковий запис видалено",
-    "yourAccountHasBeenDeleted": "Ваш обліковий запис видалено.",
-    "ok": "OK",
-    "failedToDeleteAccount": "Не вдалося видалити обліковий запис",
-    "changeDownloadLocation": "Змінити місце завантаження",
-    "changeEmail": "Змінити електронну пошту",
-    "willSendALinkToYourEmailToCompleteThe": "Відправимо посилання на вашу електронну пошту для завершення зміни",
-    "viewBackendOnGithub": "Переглянути backend на Github",
-    "viewOnGithub": "Перегляд на Github",
-    "autoDeleteAcount": "Автоматично видаляти обліковий запис",
-    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Видаляти обліковий запис після 90 днів бездіяльності. Завжди ігнорується для користувачів із активними підписками.",
-    "signOut": "Вийти",
-    "areYouSureYouWantToSignOut": "Ви впевнені, що хочете вийти?",
-    "requireBiometricsToOpenApp": "Вимагати біометрії для відкриття додатка",
-    "changePassword": "Змінити пароль",
-    "willSendALinkToYourEmailToResetYour": "Відправимо посилання на вашу електронну пошту для скидання пароля",
-    "downloading": "Завантаження...",
-    "downloaded": "Завантажено",
-    "selectDownloadDirectory": "Вибрати каталог для завантаження",
-    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Будь ласка, виберіть каталог, куди ви хочете завантажити ваші файли на наступному екрані.",
-    "pickFolder": "Вибрати папку",
-    "offlineFilesAreStoredAtSnapshotdata": "Офлайн-файли зберігаються за адресою {path}",
-    "@offlineFilesAreStoredAtSnapshotdata": {
-        "placeholders": {
-            "path": {}
-        }
-    },
-    "uploading": "Відправлення...",
-    "uploaded": "Відправлено",
-    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Придбайте 1 ТБ за допомогою збірки Playstore. Ви можете видалити цю версію після завершення.",
-    "folderName": "Назва папки",
-    "storageUsage": "Використання сховища",
-    "howLongToShare": "На який термін файл повинен бути доступний для спільного використання?",
-    "createAnAccount": "Створити обліковий запис",
-    "allowedEmails": "Дозволені електронні адреси",
-    "close": "Закрити",
-    "viewAllowedEmailDomains": "Переглянути дозволені домени електронної пошти",
-    "welcomeBack": "Ласкаво просимо назад!",
-    "upgradeStorage": "Оновлення сховища",
-    "failedToOpenPortal": "Не вдалося відкрити портал",
-    "manageAccount": "Управління обліковим записом",
-    "subscribedThroughPlaystoreOrAppstore": "Підписано через Playstore або Appstore",
-    "shareEmailVerificationNeeded": "Потрібна перевірка електронної пошти або активна підписка для обміну файлами.",
-    "notVerified": "Електронна пошта не підтверджена",
-    "emailSent": "Електронна пошта відправлена",
-    "sendEmail": "Надіслати електронного листа",
-    "privacyPolicy": "Політика конфіденційності",
-    "termsOfService": "Умови використання",
-    "pleaseAuthenticateToAccessYourCloud": "Будь ласка, аутентифікуйтеся, щоб отримати доступ до вашого хмарного сховища",
-    "allowMeteredConnections": "Дозволити тарифіковані підключення",
-    "requireCharging": "Вимагає підключення до заряджання",
-    "syncEnabled": "Синхронізація увімкнена",
-    "syncSettings": "Налаштування синхронізації",
-    "account": "Обліковий запис",
-    "security": "Безпека",
-    "general": "Загальні",
-    "currentlyNestedFoldersAreNotSupported": "На даний момент вкладені папки не підтримуються.",
-    "cameraRollSync": "Синхронізація ролі камери",
-    "camSyncDesc": "Виберіть теку на вашому пристрої, куди ваше камерне додаток зберігає фотографії та відео. Не рекурсивно шукає файли. Синхронізує приблизно кожні 6 годин.",
-    "selectSyncLocation": "Виберіть місце",
-    "changeSyncPath": "Змінити шлях",
-    "syncing": "Синхронізація...",
-    "periodicallyBackingUpSelectedFolder": "Періодично створюється резервна копія обраної теки",
-    "syncNow": "Синхронізувати зараз",
-    "cameraSync": "Синхронізація камери"
+  "@@locale": "uk",
+  "serverMaintenance": "Сервер наразі перебуває на технічному обслуговуванні. Будь ласка, спробуйте знову пізніше.",
+  "appName": "Blazed Cloud",
+  "save": "Зберегти",
+  "delete": "Видалити",
+  "emptyDirectory": "Немає файлів чи папок",
+  "errorErr": "Помилка: {err}",
+  "@errorErr": {
+    "placeholders": {
+      "err": {}
+    }
+  },
+  "invalidEmailOrPassword": "Невірний електронний лист або пароль",
+  "login": "Увійти",
+  "forgotPassword": "Забули пароль?",
+  "resetPassword": "Скинути пароль",
+  "email": "Електронна пошта",
+  "cancel": "Скасувати",
+  "passwordResetEmailSent": "Електронний лист для скидання пароля відправлено!",
+  "errorSendingPasswordResetEmail": "Помилка відправлення електронного листа для скидання пароля",
+  "send": "Відправити",
+  "password": "Пароль",
+  "settings": "Налаштування",
+  "transfers": "Передачі",
+  "files": "Файли",
+  "emailDomainNotAllowed": "Домен електронної пошти не дозволений",
+  "passwordMustBePasswordminlengthCharactersLong": "Пароль повинен бути довжиною {length} символів",
+  "@passwordMustBePasswordminlengthCharactersLong": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "signUp": "Зареєструватися",
+  "failedLogingInAfterSignup": "Не вдалося увійти після реєстрації",
+  "errorSendingRequest": "Помилка відправлення запиту",
+  "requestSent": "Запит надіслано!",
+  "errorUpdatingUserPleaseTryAgain": "Помилка оновлення користувача. Будь ласка, спробуйте знову.",
+  "deleteFile": "Видалити файл",
+  "areYouSureYouWantToDeleteThisFile": "Ви впевнені, що хочете видалити цей файл?",
+  "downloadingGetfilenamefilekey": "Завантаження {filename}",
+  "@downloadingGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingFileGetfilenamefilekey": "Відкриття файлу: {filename}",
+  "@openingFileGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "errorOpeningFileE": "Помилка відкриття файлу: {filename}",
+  "@errorOpeningFileE": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingInBrowser": "Відкриття у браузері...",
+  "failedToOpenPleaseTrySavingTheFileFirst": "Не вдалося відкрити. Будь ласка, спробуйте спочатку зберегти файл.",
+  "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступний офлайн",
+  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "shareFile": "Поділитися файлом",
+  "linkCopiedToClipboard": "Посилання скопійовано в буфер обміну",
+  "share": "Поділитися",
+  "open": "Відкрити",
+  "blazedExplorer": "Blazed Explorer",
+  "createFolder": "Створити папку",
+  "create": "Створити",
+  "deleteFolder": "Видалити папку",
+  "confirmFolderDelete": "Ви впевнені, що хочете видалити цю папку? {foldername}",
+  "@confirmFolderDelete": {
+    "placeholders": {
+      "foldername": {}
+    }
+  },
+  "authenticationRequired": "Потрібна аутентифікація",
+  "areYouSureYouWantToDeleteYourAccountThis": "Ви впевнені, що хочете видалити свій обліковий запис? Це невідворотнє. Зверніть увагу, що вам потрібно буде вручну скасувати підписку через магазин Play (якщо ви маєте одну).",
+  "deleteAccount": "Видалити обліковий запис",
+  "accountDeleted": "Обліковий запис видалено",
+  "yourAccountHasBeenDeleted": "Ваш обліковий запис видалено.",
+  "ok": "OK",
+  "failedToDeleteAccount": "Не вдалося видалити обліковий запис",
+  "changeDownloadLocation": "Змінити місце завантаження",
+  "changeEmail": "Змінити електронну пошту",
+  "willSendALinkToYourEmailToCompleteThe": "Відправимо посилання на вашу електронну пошту для завершення зміни",
+  "viewBackendOnGithub": "Переглянути backend на Github",
+  "viewOnGithub": "Перегляд на Github",
+  "autoDeleteAcount": "Автоматично видаляти обліковий запис",
+  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Видаляти обліковий запис після 90 днів бездіяльності. Завжди ігнорується для користувачів із активними підписками.",
+  "signOut": "Вийти",
+  "areYouSureYouWantToSignOut": "Ви впевнені, що хочете вийти?",
+  "requireBiometricsToOpenApp": "Вимагати біометрії для відкриття додатка",
+  "changePassword": "Змінити пароль",
+  "willSendALinkToYourEmailToResetYour": "Відправимо посилання на вашу електронну пошту для скидання пароля",
+  "downloading": "Завантаження...",
+  "downloaded": "Завантажено",
+  "selectDownloadDirectory": "Вибрати каталог для завантаження",
+  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Будь ласка, виберіть каталог, куди ви хочете завантажити ваші файли на наступному екрані.",
+  "pickFolder": "Вибрати папку",
+  "offlineFilesAreStoredAtSnapshotdata": "Офлайн-файли зберігаються за адресою {path}",
+  "@offlineFilesAreStoredAtSnapshotdata": {
+    "placeholders": {
+      "path": {}
+    }
+  },
+  "uploading": "Відправлення...",
+  "uploaded": "Відправлено",
+  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Придбайте 1 ТБ за допомогою збірки Playstore. Ви можете видалити цю версію після завершення.",
+  "folderName": "Назва папки",
+  "storageUsage": "Використання сховища",
+  "howLongToShare": "На який термін файл повинен бути доступний для спільного використання?",
+  "createAnAccount": "Створити обліковий запис",
+  "allowedEmails": "Дозволені електронні адреси",
+  "close": "Закрити",
+  "viewAllowedEmailDomains": "Переглянути дозволені домени електронної пошти",
+  "welcomeBack": "Ласкаво просимо назад!",
+  "upgradeStorage": "Оновлення сховища",
+  "failedToOpenPortal": "Не вдалося відкрити портал",
+  "manageAccount": "Управління обліковим записом",
+  "subscribedThroughPlaystoreOrAppstore": "Підписано через Playstore або Appstore",
+  "shareEmailVerificationNeeded": "Потрібна перевірка електронної пошти або активна підписка для обміну файлами.",
+  "notVerified": "Електронна пошта не підтверджена",
+  "emailSent": "Електронна пошта відправлена",
+  "sendEmail": "Надіслати електронного листа",
+  "privacyPolicy": "Політика конфіденційності",
+  "termsOfService": "Умови використання",
+  "pleaseAuthenticateToAccessYourCloud": "Будь ласка, аутентифікуйтеся, щоб отримати доступ до вашого хмарного сховища",
+  "allowMeteredConnections": "Дозволити тарифіковані підключення",
+  "requireCharging": "Вимагає підключення до заряджання",
+  "syncEnabled": "Синхронізація увімкнена",
+  "syncSettings": "Налаштування синхронізації",
+  "account": "Обліковий запис",
+  "security": "Безпека",
+  "general": "Загальні",
+  "currentlyNestedFoldersAreNotSupported": "На даний момент вкладені папки не підтримуються.",
+  "cameraRollSync": "Синхронізація ролі камери",
+  "camSyncDesc": "Виберіть теку на вашому пристрої, куди ваше камерне додаток зберігає фотографії та відео. Не рекурсивно шукає файли. Синхронізує приблизно кожні 6 годин.",
+  "selectSyncLocation": "Виберіть місце",
+  "changeSyncPath": "Змінити шлях",
+  "syncing": "Синхронізація...",
+  "periodicallyBackingUpSelectedFolder": "Періодично створюється резервна копія обраної теки",
+  "syncNow": "Синхронізувати зараз",
+  "cameraSync": "Синхронізація камери",
+  "noTransfers": "No transfers"
 }

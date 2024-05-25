@@ -112,6 +112,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("链接已复制到剪贴板"),
         "login": MessageLookupByLibrary.simpleMessage("登录"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("管理帐户"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified": MessageLookupByLibrary.simpleMessage("电子邮件未验证"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("确定"),

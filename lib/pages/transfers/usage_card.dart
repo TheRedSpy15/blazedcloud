@@ -80,7 +80,7 @@ class UsageCard extends ConsumerWidget {
                         color: textColor,
                       ),
                     ),
-                    if (!data['isTerabyteActive'])
+                    if (!data['isTerabyteActive'] && isMobile)
                       OutlinedButton(
                           onPressed: () {
                             // snackbar to show loading
@@ -113,7 +113,7 @@ class UsageCard extends ConsumerWidget {
                             });
                           },
                           child: Text(S.of(context).upgradeStorage))
-                    else if (data['stripeActive'])
+                    else if (data['stripeActive'] && isMobile)
                       OutlinedButton(
                           onPressed: () {
                             ScaffoldMessenger.of(ref.context).showSnackBar(
