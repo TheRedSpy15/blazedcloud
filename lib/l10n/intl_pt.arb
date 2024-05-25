@@ -146,5 +146,6 @@
     "syncing": "Sincronizando...",
     "periodicallyBackingUpSelectedFolder": "Fazendo backup periodicamente da pasta selecionada",
     "syncNow": "Sincronizar agora",
-    "cameraSync": "Sincronização da câmera"
+    "cameraSync": "Sincronização da câmera",
+    "noTransfers": "No transfers"
 }

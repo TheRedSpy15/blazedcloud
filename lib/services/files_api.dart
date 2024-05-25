@@ -231,6 +231,9 @@ Future<ListBucketResult> getFilelistByFolder(
     final result = ListBucketResult.fromJson(jsonDecode(response.body));
     logger.d("Got file list. Size: ${result.contents?.length} Prefix: $prefix");
 
+    // sort by creation date
+    result.contents?.sort((a, b) => b.lastModified!.compareTo(a.lastModified!));
+
     // remove place holder file
     result.contents?.removeWhere((element) =>
         element.key == "$prefix.blazed-placeholder" ||

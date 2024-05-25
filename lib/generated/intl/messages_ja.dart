@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("リンクがクリップボードにコピーされました"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("アカウントの管理"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified": MessageLookupByLibrary.simpleMessage("メールが確認されていません"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),

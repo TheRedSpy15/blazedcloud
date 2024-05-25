@@ -134,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Увійти"),
         "manageAccount": MessageLookupByLibrary.simpleMessage(
             "Управління обліковим записом"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified": MessageLookupByLibrary.simpleMessage(
             "Електронна пошта не підтверджена"),
         "offlineFilesAreStoredAtSnapshotdata": m5,

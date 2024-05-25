@@ -146,5 +146,6 @@
     "syncing": "सिंक्रनाइज़ किया जा रहा है...",
     "periodicallyBackingUpSelectedFolder": "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना",
     "syncNow": "अब सिंक्रनाइज़ करें",
-    "cameraSync": "कैमरा सिंक"
+    "cameraSync": "कैमरा सिंक",
+    "noTransfers": "No transfers"
 }

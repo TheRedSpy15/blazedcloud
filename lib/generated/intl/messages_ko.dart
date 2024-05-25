@@ -116,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("링크가 클립보드에 복사되었습니다"),
         "login": MessageLookupByLibrary.simpleMessage("로그인"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("계정 관리"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified": MessageLookupByLibrary.simpleMessage("이메일 확인되지 않음"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("확인"),

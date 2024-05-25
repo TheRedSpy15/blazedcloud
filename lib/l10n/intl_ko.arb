@@ -146,5 +146,6 @@
     "syncing": "동기화 중...",
     "periodicallyBackingUpSelectedFolder": "선택한 폴더 주기적으로 백업",
     "syncNow": "지금 동기화",
-    "cameraSync": "카메라 동기화"
+    "cameraSync": "카메라 동기화",
+    "noTransfers": "No transfers"
 }

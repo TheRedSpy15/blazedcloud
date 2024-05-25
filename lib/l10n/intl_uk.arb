@@ -146,5 +146,6 @@
     "syncing": "Синхронізація...",
     "periodicallyBackingUpSelectedFolder": "Періодично створюється резервна копія обраної теки",
     "syncNow": "Синхронізувати зараз",
-    "cameraSync": "Синхронізація камери"
+    "cameraSync": "Синхронізація камери",
+    "noTransfers": "No transfers"
 }

@@ -82,7 +82,8 @@ class FolderItem extends ConsumerWidget {
 
     return InkWell(
       child: ListTile(
-        leading: const Icon(Icons.folder),
+        leading:
+            Icon(Icons.folder, color: Theme.of(context).colorScheme.tertiary),
         title: Text(
           getFolderName(folderKey),
           style: const TextStyle(fontWeight: FontWeight.bold),
