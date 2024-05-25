@@ -49,6 +49,8 @@ Releases are also available directly via GitHub
 
 **Windows: https://github.com/TheRedSpy15/blazedcloud/blob/main/how-to-windows.md**
 
+**Linux & Mac pending more testing**
+
 ## Access from the web
 
 Dont forget to take advantage of our [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
