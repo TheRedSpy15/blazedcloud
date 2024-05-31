@@ -6,10 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+final allowedEmailDomainsProvider = FutureProvider<List<String>>((ref) async {
+  final allowedDomains = await getAllowedEmailDomains();
+  return allowedDomains;
+});
 final emailController = TextEditingController();
 final isAttemptingSignupProvider = StateProvider<bool>((ref) => false);
-
 final passwordController = TextEditingController();
+final showClearPasword = StateProvider<bool>((ref) => false);
 
 class SignUpScreen extends ConsumerWidget {
   final passwordMinLength = 8;
@@ -41,8 +45,9 @@ class SignUpScreen extends ConsumerWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: TextFormField(
                           controller: emailController,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            labelText: S.of(context).email,
+                            hintText: S.of(context).email,
                           ),
                         ),
                       ),
@@ -52,9 +57,18 @@ class SignUpScreen extends ConsumerWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: TextFormField(
                           controller: passwordController,
-                          obscureText: true,
+                          obscureText: !ref.watch(showClearPasword),
+                          enableSuggestions: false,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            labelText: S.of(context).password,
+                            hintText: S.of(context).password,
+                            suffixIcon: IconButton(
+                              icon: const Icon(Icons.remove_red_eye),
+                              onPressed: () {
+                                ref.read(showClearPasword.notifier).state =
+                                    !ref.read(showClearPasword);
+                              },
+                            ),
                           ),
                         ),
                       ),
@@ -62,7 +76,7 @@ class SignUpScreen extends ConsumerWidget {
                       // signup Button
                       ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
+                          backgroundColor: WidgetStateProperty.all<Color>(
                               Theme.of(context).splashColor),
                         ),
                         onPressed: ref.watch(isAttemptingSignupProvider)
@@ -75,7 +89,9 @@ class SignUpScreen extends ConsumerWidget {
                                     .read(isAttemptingSignupProvider.notifier)
                                     .state = true;
 
-                                getAllowedEmailDomains().then((domains) {
+                                ref
+                                    .watch(allowedEmailDomainsProvider)
+                                    .whenData((domains) {
                                   if (!isValidEmail(
                                       emailController.text, domains)) {
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -113,36 +129,48 @@ class SignUpScreen extends ConsumerWidget {
                         child: Text(S.of(context).signUp),
                       ),
 
-                      TextButton(
-                        onPressed: () {
-                          getAllowedEmailDomains().then((value) {
-                            // show dialog
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title: Text(S.of(context).allowedEmails),
-                                    content: SingleChildScrollView(
-                                      child: Column(
-                                        children: [
-                                          Text(value.join("\n")),
-                                        ],
-                                      ),
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text(S.of(context).close),
-                                      ),
-                                    ],
-                                  );
-                                });
-                          });
-                        },
-                        child: Text(S.of(context).viewAllowedEmailDomains),
-                      ),
+                      ref.watch(allowedEmailDomainsProvider).when(
+                            data: (allowedDomains) {
+                              if (allowedDomains.isEmpty) {
+                                return const SizedBox.shrink();
+                              }
+                              return TextButton(
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          title:
+                                              Text(S.of(context).allowedEmails),
+                                          content: SingleChildScrollView(
+                                            child: Column(
+                                              children: [
+                                                Text(allowedDomains.join("\n")),
+                                              ],
+                                            ),
+                                          ),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: Text(S.of(context).close),
+                                            ),
+                                          ],
+                                        );
+                                      });
+                                },
+                                child:
+                                    Text(S.of(context).viewAllowedEmailDomains),
+                              );
+                            },
+                            loading: () => const SizedBox.shrink(),
+                            error: (error, stackTrace) {
+                              logger.e(error);
+                              return const Text(
+                                  "Error loading allowed domains");
+                            },
+                          )
                     ],
                   ),
                 ),
@@ -200,6 +228,10 @@ class SignUpScreen extends ConsumerWidget {
       return false;
     }
 
+    // if no allowed domains, then any domain is allowed
+    if (allowedDomains.isEmpty) {
+      return true;
+    }
     for (var domain in allowedDomains) {
       if (email.endsWith(domain)) {
         return true;
