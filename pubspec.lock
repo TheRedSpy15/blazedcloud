@@ -121,6 +121,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.3+1"
+  dio_http2_adapter:
+    dependency: "direct main"
+    description:
+      name: dio_http2_adapter
+      sha256: ea2f5e7906a157cb049abce95f89a693459f82e5b376be4636086368e3a350f1
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.2"
   easy_image_viewer:
     dependency: "direct main"
     description:
@@ -373,6 +381,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  http2:
+    dependency: transitive
+    description:
+      name: http2
+      sha256: "9ced024a160b77aba8fb8674e38f70875e321d319e6f303ec18e87bd5a4b0c1d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   http_client_helper:
     dependency: transitive
     description:
