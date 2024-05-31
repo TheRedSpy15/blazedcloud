@@ -175,6 +175,14 @@ class UploadController {
             existingWorkPolicy: ExistingWorkPolicy.replace,
             constraints: Constraints(networkType: NetworkType.connected),
             inputData: queue.toJson());
+      } else {
+        // remove the files from cache.
+        // should only be done on mobile,
+        // and we know the queue for mobile only
+        final file = File(localPaths[i]);
+        if (file.existsSync()) {
+          file.deleteSync();
+        }
       }
     }
 

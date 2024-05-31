@@ -134,7 +134,11 @@ void openItem(
       getFileLink(pb.authStore.model.id, fileKey, pb.authStore.token,
               duration: "60m")
           .then((link) {
-        final imageProvider = ExtendedNetworkImageProvider(link);
+        final imageProvider = ExtendedNetworkImageProvider(link,
+            cache: true,
+            cacheKey: fileKey.hashCode.toString(),
+            imageCacheName: 'image-cache',
+            cacheMaxAge: const Duration(days: 7));
         showImageViewer(ref.context, imageProvider);
       });
     } else if (getFileType(fileKey) == FileType.video) {
@@ -310,6 +314,9 @@ class FileItem extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     compressionRatio: 0.1,
                     cache: true,
+                    cacheKey: fileKey.hashCode.toString(),
+                    imageCacheName: 'image-cache',
+                    cacheMaxAge: const Duration(days: 7),
                     width: 50,
                     height: 50,
                     fit: BoxFit.fill,
