@@ -21,7 +21,7 @@ final isFileOffline =
   return isFileSavedOffline(filename);
 });
 
-final shareDurationProvider = StateProvider<int>((ref) => 60);
+final shareDurationProvider = StateProvider<int>((ref) => 1);
 
 void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
   showDialog(
@@ -171,10 +171,10 @@ void shareDialog(WidgetRef ref, String fileKey) {
                 const SizedBox(height: 8.0),
                 Slider(
                   value: ref.watch(shareDurationProvider).toDouble(),
-                  min: 15,
-                  max: 8640,
-                  divisions: 11,
-                  label: formatMinutes(ref.watch(shareDurationProvider)),
+                  min: 1,
+                  max: 7,
+                  divisions: 7,
+                  label: formatDays(ref.watch(shareDurationProvider)),
                   onChanged: (value) {
                     setState(() {
                       ref.read(shareDurationProvider.notifier).state =
@@ -201,7 +201,7 @@ void shareDialog(WidgetRef ref, String fileKey) {
 
               getFileLink(pb.authStore.model.id, fileKey, pb.authStore.token,
                       sharing: true,
-                      duration: formatMinutes(ref.watch(shareDurationProvider)))
+                      duration: '${24 * ref.watch(shareDurationProvider)}h')
                   .then((link) {
                 Clipboard.setData(
                   ClipboardData(text: link),
