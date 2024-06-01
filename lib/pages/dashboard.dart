@@ -8,7 +8,6 @@ import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/pages/files/file_page.dart';
 import 'package:blazedcloud/pages/settings/settings.dart';
-import 'package:blazedcloud/pages/sync/sync.dart';
 import 'package:blazedcloud/pages/transfers/transfers.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
@@ -48,11 +47,6 @@ class Dashboard extends ConsumerWidget {
                   child: const Icon(Icons.cloud_sync)),
               label: S.of(context).transfers,
             ),
-            if (Platform.isAndroid)
-              NavigationDestination(
-                icon: const Icon(Icons.camera_alt),
-                label: S.of(context).cameraSync,
-              ),
             NavigationDestination(
               icon: const Icon(Icons.settings),
               label: S.of(context).settings,
@@ -177,7 +171,7 @@ class Dashboard extends ConsumerWidget {
 
   PageView selectedPageView(BuildContext context, WidgetRef ref) {
     return PageView.builder(
-        itemCount: Platform.isAndroid ? 4 : 3,
+        itemCount: 3,
         onPageChanged: (index) {
           ref.read(currentPageIndexProvider.notifier).state = index;
         },
@@ -187,8 +181,6 @@ class Dashboard extends ConsumerWidget {
             return const FilesPage();
           } else if (index == 1) {
             return const TransfersPage();
-          } else if (index == 2 && Platform.isAndroid) {
-            return const SyncPage();
           } else {
             return const SettingsScreen();
           }

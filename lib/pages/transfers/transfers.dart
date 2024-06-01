@@ -21,7 +21,13 @@ class TransfersPage extends ConsumerWidget {
           title: Text(S.of(context).transfers),
         ),
         body: transfers.isEmpty
-            ? Center(child: Text(S.of(context).noTransfers))
+            ? Center(
+                child: Column(
+                children: [
+                  const UsageCard(),
+                  Text(S.of(context).noTransfers),
+                ],
+              ))
             : ListView.builder(
                 itemCount: transfers.length + 1,
                 shrinkWrap: true,
