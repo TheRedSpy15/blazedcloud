@@ -12,6 +12,7 @@ import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/services/notifications.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_http2_adapter/dio_http2_adapter.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,7 +20,11 @@ import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 import 'package:workmanager/workmanager.dart';
 
-final dio = Dio();
+final dio = Dio()
+  ..interceptors.add(LogInterceptor())
+  ..httpClientAdapter = Http2Adapter(
+    ConnectionManager(idleTimeout: const Duration(seconds: 10)),
+  );
 
 /// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {
@@ -170,6 +175,14 @@ class UploadController {
             existingWorkPolicy: ExistingWorkPolicy.replace,
             constraints: Constraints(networkType: NetworkType.connected),
             inputData: queue.toJson());
+      } else {
+        // remove the files from cache.
+        // should only be done on mobile,
+        // and we know the queue for mobile only
+        final file = File(localPaths[i]);
+        if (file.existsSync()) {
+          file.deleteSync();
+        }
       }
     }
 

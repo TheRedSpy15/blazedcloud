@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/generated/l10n.dart';
@@ -21,7 +23,7 @@ final isFileOffline =
   return isFileSavedOffline(filename);
 });
 
-final shareDurationProvider = StateProvider<int>((ref) => 60);
+final shareDurationProvider = StateProvider<int>((ref) => 1);
 
 void deleteItem(String fileKey, BuildContext context, WidgetRef ref) {
   showDialog(
@@ -132,9 +134,14 @@ void openItem(
       openFromOffline(fileKey, ref);
     } else if (getFileType(fileKey) == FileType.image) {
       getFileLink(pb.authStore.model.id, fileKey, pb.authStore.token,
-              duration: "60m")
+              duration:
+                  "15m") // TODO: we don't need to get a new link every time
           .then((link) {
-        final imageProvider = ExtendedNetworkImageProvider(link);
+        final imageProvider = ExtendedNetworkImageProvider(link,
+            cache: true,
+            cacheKey: base64Encode(fileKey.codeUnits),
+            imageCacheName: 'image-cache',
+            cacheMaxAge: const Duration(days: 7));
         showImageViewer(ref.context, imageProvider);
       });
     } else if (getFileType(fileKey) == FileType.video) {
@@ -167,10 +174,10 @@ void shareDialog(WidgetRef ref, String fileKey) {
                 const SizedBox(height: 8.0),
                 Slider(
                   value: ref.watch(shareDurationProvider).toDouble(),
-                  min: 15,
-                  max: 8640,
-                  divisions: 11,
-                  label: formatMinutes(ref.watch(shareDurationProvider)),
+                  min: 1,
+                  max: 7,
+                  divisions: 7,
+                  label: formatDays(ref.watch(shareDurationProvider)),
                   onChanged: (value) {
                     setState(() {
                       ref.read(shareDurationProvider.notifier).state =
@@ -197,7 +204,7 @@ void shareDialog(WidgetRef ref, String fileKey) {
 
               getFileLink(pb.authStore.model.id, fileKey, pb.authStore.token,
                       sharing: true,
-                      duration: formatMinutes(ref.watch(shareDurationProvider)))
+                      duration: '${24 * ref.watch(shareDurationProvider)}h')
                   .then((link) {
                 Clipboard.setData(
                   ClipboardData(text: link),
@@ -310,6 +317,9 @@ class FileItem extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     compressionRatio: 0.1,
                     cache: true,
+                    cacheKey: base64Encode(fileKey.codeUnits),
+                    imageCacheName: 'image-cache',
+                    cacheMaxAge: const Duration(days: 7),
                     width: 50,
                     height: 50,
                     fit: BoxFit.fill,

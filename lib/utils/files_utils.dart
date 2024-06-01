@@ -51,18 +51,24 @@ String filterUidFromKey(String key) {
   }
 }
 
-String formatMinutes(int minutes) {
-  // Format the minutes into a string using format 15m or 1h45m or 24h10m
-  if (minutes < 60) {
-    return '${minutes}m';
-  } else {
-    final hours = minutes ~/ 60;
-    final remainingMinutes = minutes % 60;
-    if (remainingMinutes == 0) {
-      return '${hours}h';
-    } else {
-      return '${hours}h${remainingMinutes}m';
-    }
+String formatDays(int days) {
+  switch (days) {
+    case 1:
+      return '1 Day';
+    case 2:
+      return '2 Days';
+    case 3:
+      return '3 Days';
+    case 4:
+      return '4 Days';
+    case 5:
+      return '5 Days';
+    case 6:
+      return '6 Days';
+    case 7:
+      return '1 Week';
+    default:
+      return '$days Days';
   }
 }
 

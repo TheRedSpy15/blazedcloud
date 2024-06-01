@@ -9,6 +9,7 @@ import 'package:blazedcloud/pages/settings/custom_babstrap/icon_style.dart'
     as babstrap;
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsGroup.dart';
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsItem.dart';
+import 'package:blazedcloud/pages/sync/sync.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/providers/sync_providers.dart';
@@ -97,9 +98,13 @@ class SettingsScreen extends ConsumerWidget {
                   CustomSettingsGroup(
                     settingsGroupTitle: S.of(context).syncSettings,
                     items: [
-                      syncEnabledSetting(ref),
-                      syncAllowMeteredSetting(ref),
-                      syncChargingOnlySetting(ref),
+                      syncPathSetting(ref, context),
+                      if (ref.watch(cameraFolderProvider) != null)
+                        syncEnabledSetting(ref),
+                      if (ref.watch(cameraFolderProvider) != null)
+                        syncAllowMeteredSetting(ref),
+                      if (ref.watch(cameraFolderProvider) != null)
+                        syncChargingOnlySetting(ref),
                       //syncFreqSetting(ref),
                     ],
                   ),
@@ -480,6 +485,47 @@ class SettingsScreen extends ConsumerWidget {
 
   CustomSettingsItem? syncFreqSetting(WidgetRef ref) {
     throw UnimplementedError(); // wait for next release
+  }
+
+  CustomSettingsItem? syncPathSetting(WidgetRef ref, BuildContext context) {
+    final cameraRoll = ref.watch(cameraFolderProvider);
+    return CustomSettingsItem(
+      onTap: () async {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text(S.of(context).cameraRollSync),
+                content: Wrap(
+                  children: [
+                    Text(S.of(context).camSyncDesc),
+                    if (cameraRoll != null) Text(cameraRoll.path),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(S.of(context).cancel),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      setCameraRoll(ref);
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(S.of(context).selectSyncLocation),
+                  ),
+                ],
+              );
+            });
+      },
+      icons: Icons.camera_alt,
+      trailing: const Icon(Icons.arrow_forward_ios),
+      iconStyle: babstrap.IconStyle(),
+      title: S.of(ref.context).cameraRollSync,
+      subtitle: cameraRoll?.path,
+    );
   }
 
   CustomSettingsItem termsSetting(BuildContext context) {

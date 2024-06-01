@@ -88,8 +88,8 @@
     "changeDownloadLocation": "İndirme Konumunu Değiştir",
     "changeEmail": "E-postayı Değiştir",
     "willSendALinkToYourEmailToCompleteThe": "Değişikliği tamamlamak için e-postanıza bir bağlantı gönderilecek",
-    "viewBackendOnGithub": "Github'da arka ucu görüntüleyin",
-    "viewOnGithub": "Github'da görüntüle",
+    "viewBackendOnGithub": "Github''da arka ucu görüntüleyin",
+    "viewOnGithub": "Github''da görüntüle",
     "autoDeleteAcount": "Hesabı Otomatik Sil",
     "deleteYourAccountAfter90DaysOfInactivityUsersWith": "90 gün boyunca işlem yapılmadığında hesabınızı silin. Aktif aboneliği olan kullanıcılar için her zaman göz ardı edilir.",
     "signOut": "Oturumu Kapat",
@@ -137,5 +137,14 @@
     "account": "Hesap",
     "security": "Güvenlik",
     "general": "Genel",
-    "currentlyNestedFoldersAreNotSupported": "Şu anda iç içe klasörler desteklenmiyor."
+    "currentlyNestedFoldersAreNotSupported": "Şu anda iç içe klasörler desteklenmiyor.",
+    "cameraRollSync": "Kamera Rulosu Senkronizasyonu",
+    "camSyncDesc": "Cihazınızda kamera uygulamanızın fotoğraf ve videoları kaydettiği klasörü seçin. Dosyaları özyineli olarak aramaz. Yaklaşık olarak her 6 saatte bir senkronize edilir.",
+    "selectSyncLocation": "Senkronizasyon Konumunu Seç",
+    "changeSyncPath": "Yolu Değiştir",
+    "syncing": "Senkronize Ediliyor...",
+    "periodicallyBackingUpSelectedFolder": "Seçilen klasörün periyodik olarak yedeklenmesi",
+    "syncNow": "Şimdi Senkronize Et",
+    "cameraSync": "Kamera Senkronizasyonu",
+    "noTransfers": "Transfer Yok"
 }

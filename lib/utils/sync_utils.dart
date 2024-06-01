@@ -6,6 +6,7 @@ import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/providers/sync_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_http2_adapter/dio_http2_adapter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
@@ -13,7 +14,11 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:workmanager/workmanager.dart';
 
-final dio = Dio();
+final dio = Dio()
+  ..interceptors.add(LogInterceptor())
+  ..httpClientAdapter = Http2Adapter(
+    ConnectionManager(idleTimeout: const Duration(seconds: 10)),
+  );
 
 /// prompts for needed permissions, returns true if the user has granted all permissions, false otherwise
 Future<bool> getSyncPermissions() async {
@@ -233,5 +238,8 @@ Future<void> uploadFolderTask(
     final type = lookupMimeType(file.path) ?? 'application/octet-stream';
 
     await uploadFile(file, uid, name, token, size, type);
+
+    // sleep for a bit to avoid rate limiting
+    await Future.delayed(const Duration(seconds: 1));
   }
 }
