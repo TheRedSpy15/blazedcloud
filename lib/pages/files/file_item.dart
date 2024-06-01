@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/generated/l10n.dart';
@@ -136,7 +138,7 @@ void openItem(
           .then((link) {
         final imageProvider = ExtendedNetworkImageProvider(link,
             cache: true,
-            cacheKey: fileKey.hashCode.toString(),
+            cacheKey: base64Encode(fileKey.codeUnits),
             imageCacheName: 'image-cache',
             cacheMaxAge: const Duration(days: 7));
         showImageViewer(ref.context, imageProvider);
@@ -314,7 +316,7 @@ class FileItem extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(10.0),
                     compressionRatio: 0.1,
                     cache: true,
-                    cacheKey: fileKey.hashCode.toString(),
+                    cacheKey: base64Encode(fileKey.codeUnits),
                     imageCacheName: 'image-cache',
                     cacheMaxAge: const Duration(days: 7),
                     width: 50,
