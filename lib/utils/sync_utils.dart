@@ -233,5 +233,8 @@ Future<void> uploadFolderTask(
     final type = lookupMimeType(file.path) ?? 'application/octet-stream';
 
     await uploadFile(file, uid, name, token, size, type);
+
+    // sleep for a bit to avoid rate limiting
+    await Future.delayed(const Duration(seconds: 1));
   }
 }
