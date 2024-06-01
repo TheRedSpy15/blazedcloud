@@ -11,4 +11,4 @@ Because of this, to make it easy to launch the application, it is recommended to
 
 ## Warning
 
-At this time, there is no built in update function for the desktop client. We are currently in the process of publishing the client on the official Windows app store to simplify installion and provide an way for users to update their client
+At this time, there is no built in update function for the desktop client. We are currently in the process of publishing the client on the official Windows app store to simplify installion and provide a way for users to update their client
