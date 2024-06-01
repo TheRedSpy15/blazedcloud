@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:badges/badges.dart' as badges;
@@ -211,11 +210,6 @@ class Dashboard extends ConsumerWidget {
                     child: const Icon(Icons.cloud_sync)),
                 label: Text(S.of(context).transfers),
               ),
-              if (Platform.isAndroid)
-                NavigationRailDestination(
-                  icon: const Icon(Icons.camera_alt),
-                  label: Text(S.of(context).cameraSync),
-                ),
               NavigationRailDestination(
                 icon: const Icon(Icons.settings),
                 label: Text(S.of(context).settings),

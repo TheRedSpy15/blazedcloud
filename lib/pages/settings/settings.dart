@@ -98,7 +98,7 @@ class SettingsScreen extends ConsumerWidget {
                   CustomSettingsGroup(
                     settingsGroupTitle: S.of(context).syncSettings,
                     items: [
-                      syncPathSetting(ref, context),
+                      if (Platform.isAndroid) syncPathSetting(ref, context),
                       if (ref.watch(cameraFolderProvider) != null)
                         syncEnabledSetting(ref),
                       if (ref.watch(cameraFolderProvider) != null)
