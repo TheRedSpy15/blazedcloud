@@ -134,7 +134,8 @@ void openItem(
       openFromOffline(fileKey, ref);
     } else if (getFileType(fileKey) == FileType.image) {
       getFileLink(pb.authStore.model.id, fileKey, pb.authStore.token,
-              duration: "60m")
+              duration:
+                  "15m") // TODO: we don't need to get a new link every time
           .then((link) {
         final imageProvider = ExtendedNetworkImageProvider(link,
             cache: true,
