@@ -64,7 +64,7 @@ class TransfersPage extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                                'Progress: ${(transfer.progress * 100).toStringAsFixed(2)}%'),
+                                'Progress: ${(transfer.progress * 100).clamp(0, 100).toStringAsFixed(2)}%'),
                             transfer.isError
                                 ? Text('Error: ${transfer.errorMessage}')
                                 : transfer.isUploading
@@ -77,13 +77,6 @@ class TransfersPage extends ConsumerWidget {
                   }
                   return null;
                 },
-              )
-        //body: Column(
-        //  children: [
-        //    ,
-        //    if (transfers.isEmpty) Center(child: Text(S.of(context).noTransfers))
-        //  ],
-        //),
-        );
+              ));
   }
 }

@@ -21,7 +21,6 @@ import 'package:mime/mime.dart';
 import 'package:workmanager/workmanager.dart';
 
 final dio = Dio()
-  ..interceptors.add(LogInterceptor())
   ..httpClientAdapter = Http2Adapter(
     ConnectionManager(idleTimeout: const Duration(seconds: 10)),
   );
@@ -36,14 +35,13 @@ class UploadController {
     port.listen((dynamic data) async {
       try {
         final uploadState = UploadState.fromJson(jsonDecode(data));
+        logger.i('Received upload state: ${uploadState.toJson()}');
 
         final uploadNotifier = _ref.read(uploadStateProvider.notifier);
         uploadNotifier.updateUploadStateByKey(
             uploadState.uploadKey, uploadState);
 
-        if (!isRequestingNotificationPermission) {
-          updateUploadNotification();
-        }
+        updateUploadNotification();
 
         if (!uploadState.isUploading) {
           _ref.invalidate(
@@ -130,7 +128,7 @@ class UploadController {
   }
 
   void updateUploadNotification() {
-    if (!isMobile) return;
+    if (!isMobile || isRequestingNotificationPermission) return;
 
     isRequestingNotificationPermission = true;
     NotificationService().initNotification().then((_) {
@@ -207,7 +205,13 @@ class UploadController {
       return true;
     }
 
-    final uploadState = UploadState.inProgress(localPath);
+    final uploadState = UploadState(
+      isUploading: true,
+      isError: false,
+      uploadKey: localPath,
+      size: size,
+      sent: 0,
+    );
     SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
     const Duration rateLimit =
         Duration(seconds: 1); // Adjust the duration as needed
@@ -252,9 +256,7 @@ class UploadController {
         options:
             Options(headers: {"Content-Type": type, "Content-Length": size}),
         onSendProgress: (int sent, int total) {
-          uploadState.addTotalSent(total);
-          final progress = total / size;
-          uploadState.updateProgress(progress);
+          uploadState.updateTotalSent(sent);
 
           // send progress to the UI
           // The port might be null if the main isolate is not running.
@@ -323,7 +325,13 @@ class UploadController {
       String localName, int size, String s3Directory, String token) async {
     logger.i('Starting upload: $localPath');
 
-    final uploadState = UploadState.inProgress(localPath);
+    final uploadState = UploadState(
+      isUploading: true,
+      isError: false,
+      uploadKey: localPath,
+      size: size,
+      sent: 0,
+    );
     SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
     const Duration rateLimit =
         Duration(seconds: 1); // Adjust the duration as needed
@@ -368,9 +376,7 @@ class UploadController {
         options:
             Options(headers: {"Content-Type": type, "Content-Length": size}),
         onSendProgress: (int sent, int total) {
-          uploadState.addTotalSent(total);
-          final progress = total / size;
-          uploadState.updateProgress(progress);
+          uploadState.updateTotalSent(sent);
 
           // send progress to the UI
           // The port might be null if the main isolate is not running.
