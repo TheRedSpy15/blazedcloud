@@ -4,7 +4,8 @@ class UploadState {
   String? errorMessage;
   double progress;
   String uploadKey;
-  double sent = 0.0;
+  int sent = 0;
+  int size = 0;
 
   UploadState({
     required this.isUploading,
@@ -12,6 +13,8 @@ class UploadState {
     this.errorMessage,
     this.progress = 0.0,
     required this.uploadKey,
+    required this.sent,
+    required this.size,
   });
 
   factory UploadState.error(String errorMessage) => UploadState(
@@ -19,6 +22,8 @@ class UploadState {
         isError: true,
         errorMessage: errorMessage,
         uploadKey: '',
+        size: 0,
+        sent: 0,
       );
   factory UploadState.fromJson(Map<String, dynamic> json) {
     return UploadState(
@@ -27,24 +32,16 @@ class UploadState {
       errorMessage: json['errorMessage'],
       progress: json['progress'] ?? 0.0,
       uploadKey: json['uploadKey'] ?? '',
+      sent: json['sent'] ?? 0,
+      size: json['size'] ?? 0,
     );
   }
-  factory UploadState.idle() => UploadState(
-        isUploading: false,
-        isError: false,
-        uploadKey: '',
-      );
-  factory UploadState.inProgress(String name) => UploadState(
-        isUploading: true,
-        isError: false,
-        uploadKey: name,
-      );
 
-  void addTotalSent(int sent) {
-    this.sent += sent;
+  void completed() {
+    isUploading = false;
+    isError = false;
+    progress = 1.0;
   }
-
-  void completed() => isUploading = false;
 
   void setError(String errorMessage) {
     isError = true;
@@ -59,10 +56,13 @@ class UploadState {
       'errorMessage': errorMessage,
       'progress': progress,
       'uploadKey': uploadKey,
+      'sent': sent,
+      'size': size,
     };
   }
 
-  void updateProgress(double newProgress) {
-    progress = newProgress;
+  void updateTotalSent(int totalSent) {
+    sent = totalSent;
+    progress = sent / size;
   }
 }
