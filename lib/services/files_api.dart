@@ -96,7 +96,13 @@ Future<List<String>> getAllowedEmailDomains() async {
     logger.e(response.reasonPhrase);
 
     // fallback to protonmail and gmail
-    return ["protonmail.com", "gmail.com"];
+    return [
+      "protonmail.com",
+      "gmail.com",
+      "hotmail.com",
+      "outlook.com",
+      "yahoo.com"
+    ];
   }
 }
 

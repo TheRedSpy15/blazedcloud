@@ -1,8 +1,12 @@
-# blazedcloud
+# Blazed Cloud
+![Mastodon Follow](https://img.shields.io/mastodon/follow/112482060159629920)
 
-[![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
+![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/blazed_cloud)
+
 
 ![Alt](https://repobeats.axiom.co/api/embed/ed8f2fa1e7b0d3aa5e3ef7d1c174533ef59e32e3.svg "Repobeats analytics image")
+
+[![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
 
 ## TLDR
 

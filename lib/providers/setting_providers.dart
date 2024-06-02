@@ -28,7 +28,7 @@ final isBiometricEnabledProvider = StateProvider<bool>((ref) {
   return false;
 });
 
-final isPrefsLoaded = FutureProvider.autoDispose<bool>((ref) async {
+final isPrefsLoaded = FutureProvider<bool>((ref) async {
   final prefs = await SharedPreferences.getInstance();
 
   ref.read(isBiometricEnabledProvider.notifier).state =

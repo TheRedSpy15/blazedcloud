@@ -12,6 +12,7 @@ import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/services/notifications.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_http2_adapter/dio_http2_adapter.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,7 +20,10 @@ import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 import 'package:workmanager/workmanager.dart';
 
-final dio = Dio();
+final dio = Dio()
+  ..httpClientAdapter = Http2Adapter(
+    ConnectionManager(idleTimeout: const Duration(seconds: 10)),
+  );
 
 /// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {
@@ -31,14 +35,13 @@ class UploadController {
     port.listen((dynamic data) async {
       try {
         final uploadState = UploadState.fromJson(jsonDecode(data));
+        logger.i('Received upload state: ${uploadState.toJson()}');
 
         final uploadNotifier = _ref.read(uploadStateProvider.notifier);
         uploadNotifier.updateUploadStateByKey(
             uploadState.uploadKey, uploadState);
 
-        if (!isRequestingNotificationPermission) {
-          updateUploadNotification();
-        }
+        updateUploadNotification();
 
         if (!uploadState.isUploading) {
           _ref.invalidate(
@@ -125,7 +128,7 @@ class UploadController {
   }
 
   void updateUploadNotification() {
-    if (!isMobile) return;
+    if (!isMobile || isRequestingNotificationPermission) return;
 
     isRequestingNotificationPermission = true;
     NotificationService().initNotification().then((_) {
@@ -170,6 +173,14 @@ class UploadController {
             existingWorkPolicy: ExistingWorkPolicy.replace,
             constraints: Constraints(networkType: NetworkType.connected),
             inputData: queue.toJson());
+      } else {
+        // remove the files from cache.
+        // should only be done on mobile,
+        // and we know the queue for mobile only
+        final file = File(localPaths[i]);
+        if (file.existsSync()) {
+          file.deleteSync();
+        }
       }
     }
 
@@ -194,7 +205,13 @@ class UploadController {
       return true;
     }
 
-    final uploadState = UploadState.inProgress(localPath);
+    final uploadState = UploadState(
+      isUploading: true,
+      isError: false,
+      uploadKey: localPath,
+      size: size,
+      sent: 0,
+    );
     SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
     const Duration rateLimit =
         Duration(seconds: 1); // Adjust the duration as needed
@@ -239,9 +256,7 @@ class UploadController {
         options:
             Options(headers: {"Content-Type": type, "Content-Length": size}),
         onSendProgress: (int sent, int total) {
-          uploadState.addTotalSent(total);
-          final progress = total / size;
-          uploadState.updateProgress(progress);
+          uploadState.updateTotalSent(sent);
 
           // send progress to the UI
           // The port might be null if the main isolate is not running.
@@ -310,7 +325,13 @@ class UploadController {
       String localName, int size, String s3Directory, String token) async {
     logger.i('Starting upload: $localPath');
 
-    final uploadState = UploadState.inProgress(localPath);
+    final uploadState = UploadState(
+      isUploading: true,
+      isError: false,
+      uploadKey: localPath,
+      size: size,
+      sent: 0,
+    );
     SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
     const Duration rateLimit =
         Duration(seconds: 1); // Adjust the duration as needed
@@ -355,9 +376,7 @@ class UploadController {
         options:
             Options(headers: {"Content-Type": type, "Content-Length": size}),
         onSendProgress: (int sent, int total) {
-          uploadState.addTotalSent(total);
-          final progress = total / size;
-          uploadState.updateProgress(progress);
+          uploadState.updateTotalSent(sent);
 
           // send progress to the UI
           // The port might be null if the main isolate is not running.

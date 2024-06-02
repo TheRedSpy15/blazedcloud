@@ -55,7 +55,7 @@
         "placeholders": {
             "filename": {}
         }
-    },or
+    },
     "openingInBrowser": "Deschidere in browser...",
     "failedToOpenPleaseTrySavingTheFileFirst": "Eroare deschidere fisier.Incercati sa salvati fisierul prima oara",
     "fileGetfilenamefilekeyIsNotAvailableOffline": "Fisierul {filename} nu este valabil offline",
@@ -90,7 +90,7 @@
     "willSendALinkToYourEmailToCompleteThe": "Se trimite un mail cu linkul pentru completarea",
     "viewBackendOnGithub": "Vedeti backend-ul pe Github",
     "viewOnGithub": "Vedeti pe Github",
-    "autoDeleteAcount": Stergere automata a contului",
+    "autoDeleteAcount": "Stergere automata a contului",
     "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Stergeti contul automat dupa 90 de zile de inactivitate.Mereu ignorat pentru utilizatorii cu abonament.",
     "signOut": "Deconectare",
     "areYouSureYouWantToSignOut": "Sunteti sigur ca doriti sa va deconectati?",
@@ -130,12 +130,21 @@
     "privacyPolicy": "Poltica de confidentialitate",
     "termsOfService": "Termenii serviciului",
     "pleaseAuthenticateToAccessYourCloud": "Va rugam autentificativa pentru a intra in cloud.",
-    "allowMeteredConnections": "Permiteti conexiune masurata.,
+    "allowMeteredConnections": "Permiteti conexiune masurata.",
     "requireCharging": "Necesita schimbare",
     "syncEnabled": "Sincronizare pornita",
     "syncSettings": "Setari de sincronizare",
     "account": "Cont",
     "security": "Securitate",
     "general": "General",
-    "currentlyNestedFoldersAreNotSupported": "Fisierele curente nested nu sunt disponibile."
+    "currentlyNestedFoldersAreNotSupported": "Fisierele curente nested nu sunt disponibile.",
+    "cameraRollSync": "Sincronizare Rulou Aparat de Fotografiat",
+    "camSyncDesc": "Selectați folderul de pe dispozitivul dvs. în care aplicația dvs. de cameră salvează fotografii și videoclipuri. Nu caută recursiv fișierele. Se sincronizează aproximativ la fiecare 6 ore",
+    "selectSyncLocation": "Selectați Locația",
+    "changeSyncPath": "Schimbați Calea",
+    "syncing": "Se Sincronizează...",
+    "periodicallyBackingUpSelectedFolder": "Efectuând periodic backup pentru folderul selectat",
+    "syncNow": "Sincronizați Acum",
+    "cameraSync": "Sincronizare Aparat de Fotografiat",
+    "noTransfers": "Fără Transferuri"
 }
