@@ -1,150 +1,151 @@
 {
-  "@@locale": "zh",
-  "serverMaintenance": "服务器当前正在维护中。请稍后再试。",
-  "appName": "烈火云",
-  "save": "保存",
-  "delete": "删除",
-  "emptyDirectory": "没有文件或文件夹",
-  "errorErr": "错误：{err}",
-  "@errorErr": {
-    "placeholders": {
-      "err": {}
-    }
-  },
-  "invalidEmailOrPassword": "无效的电子邮件或密码",
-  "login": "登录",
-  "forgotPassword": "忘记密码？",
-  "resetPassword": "重设密码",
-  "email": "电子邮件",
-  "cancel": "取消",
-  "passwordResetEmailSent": "密码重置邮件已发送！",
-  "errorSendingPasswordResetEmail": "发送密码重置邮件时出错",
-  "send": "发送",
-  "password": "密码",
-  "settings": "设置",
-  "transfers": "传输",
-  "files": "文件",
-  "emailDomainNotAllowed": "不允许的电子邮件域",
-  "passwordMustBePasswordminlengthCharactersLong": "密码必须为{length}个字符长",
-  "@passwordMustBePasswordminlengthCharactersLong": {
-    "placeholders": {
-      "length": {}
-    }
-  },
-  "signUp": "注册",
-  "failedLogingInAfterSignup": "注册后登录失败",
-  "errorSendingRequest": "发送请求时出错",
-  "requestSent": "请求已发送！",
-  "errorUpdatingUserPleaseTryAgain": "更新用户时出错。请重试。",
-  "deleteFile": "删除文件",
-  "areYouSureYouWantToDeleteThisFile": "您确定要删除此文件吗？",
-  "downloadingGetfilenamefilekey": "下载中 {filename}",
-  "@downloadingGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingFileGetfilenamefilekey": "正在打开文件：{filename}",
-  "@openingFileGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "errorOpeningFileE": "打开文件时出错：{filename}",
-  "@errorOpeningFileE": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingInBrowser": "在浏览器中打开...",
-  "failedToOpenPleaseTrySavingTheFileFirst": "无法打开。请先尝试保存文件",
-  "fileGetfilenamefilekeyIsNotAvailableOffline": "文件{filename}在离线时不可用",
-  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "shareFile": "分享文件",
-  "linkCopiedToClipboard": "链接已复制到剪贴板",
-  "share": "分享",
-  "open": "打开",
-  "blazedExplorer": "烈火资源管理器",
-  "createFolder": "创建文件夹",
-  "create": "创建",
-  "deleteFolder": "删除文件夹",
-  "confirmFolderDelete": "您确定要删除此文件夹吗？ {foldername}",
-  "@confirmFolderDelete": {
-    "placeholders": {
-      "foldername": {}
-    }
-  },
-  "authenticationRequired": "需要身份验证",
-  "areYouSureYouWantToDeleteYourAccountThis": "您确定要删除您的帐户吗？这是不可逆转的。请注意，您将需要手动通过Play商店取消订阅（如果有的话）",
-  "deleteAccount": "删除帐户",
-  "accountDeleted": "帐户已删除",
-  "yourAccountHasBeenDeleted": "您的帐户已被删除。",
-  "ok": "确定",
-  "failedToDeleteAccount": "删除帐户失败",
-  "changeDownloadLocation": "更改下载位置",
-  "changeEmail": "更改电子邮件",
-  "willSendALinkToYourEmailToCompleteThe": "将通过电子邮件发送链接以完成更改",
-  "viewBackendOnGithub": "在Github上查看后端",
-  "viewOnGithub": "在Github上查看",
-  "autoDeleteAcount": "自动删除帐户",
-  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "在90天的不活动后删除您的帐户。对于有活动订阅的用户，此项始终被忽略。",
-  "signOut": "退出登录",
-  "areYouSureYouWantToSignOut": "您确定要退出登录吗？",
-  "requireBiometricsToOpenApp": "需要生物识别才能打开应用",
-  "changePassword": "更改密码",
-  "willSendALinkToYourEmailToResetYour": "将通过电子邮件发送链接以重置您的密码",
-  "downloading": "正在下载...",
-  "downloaded": "已下载",
-  "selectDownloadDirectory": "选择下载目录",
-  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "请在下一个屏幕中选择您想要下载文件的目录。",
-  "pickFolder": "选择文件夹",
-  "offlineFilesAreStoredAtSnapshotdata": "离线文件存储在 {path}",
-  "@offlineFilesAreStoredAtSnapshotdata": {
-    "placeholders": {
-      "path": {}
-    }
-  },
-  "uploading": "正在上传...",
-  "uploaded": "已上传",
-  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "使用Play商店版本购买1TB。完成后，您可以卸载该版本。",
-  "folderName": "文件夹名称",
-  "storageUsage": "存储使用",
-  "howLongToShare": "这个文件应该分享多久",
-  "createAnAccount": "创建账户",
-  "allowedEmails": "允许的电子邮件",
-  "close": "关闭",
-  "viewAllowedEmailDomains": "查看允许的电子邮件域",
-  "welcomeBack": "欢迎回来！",
-  "upgradeStorage": "升级存储",
-  "failedToOpenPortal": "无法打开门户",
-  "manageAccount": "管理帐户",
-  "subscribedThroughPlaystoreOrAppstore": "通过Playstore或Appstore订阅",
-  "shareEmailVerificationNeeded": "需要验证电子邮件或拥有活跃订阅以共享文件。",
-  "notVerified": "电子邮件未验证",
-  "emailSent": "邮件已发送",
-  "sendEmail": "发送邮件",
-  "privacyPolicy": "隐私政策",
-  "termsOfService": "服务条款",
-  "pleaseAuthenticateToAccessYourCloud": "请进行身份验证以访问您的云",
-  "allowMeteredConnections": "允许计量连接",
-  "requireCharging": "需要充电",
-  "syncEnabled": "启用同步",
-  "syncSettings": "同步设置",
-  "account": "帐户",
-  "security": "安全",
-  "general": "通用",
-  "currentlyNestedFoldersAreNotSupported": "目前不支持嵌套文件夹。",
-  "cameraRollSync": "相册同步",
-  "camSyncDesc": "选择设备上您的相机应用程序保存照片和视频的文件夹。不递归搜索文件。大约每 6 小时同步一次。",
-  "selectSyncLocation": "选择位置",
-  "changeSyncPath": "更改路径",
-  "syncing": "同步中...",
-  "periodicallyBackingUpSelectedFolder": "定期备份所选文件夹",
-  "syncNow": "立即同步",
-  "cameraSync": "相机同步",
-  "noTransfers": "No transfers"
+    "@@locale": "zh",
+    "serverMaintenance": "服务器当前正在维护中。请稍后再试。",
+    "appName": "烈火云",
+    "save": "保存",
+    "delete": "删除",
+    "emptyDirectory": "没有文件或文件夹",
+    "errorErr": "错误：{err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "无效的电子邮件或密码",
+    "login": "登录",
+    "forgotPassword": "忘记密码？",
+    "resetPassword": "重设密码",
+    "email": "电子邮件",
+    "cancel": "取消",
+    "passwordResetEmailSent": "密码重置邮件已发送！",
+    "errorSendingPasswordResetEmail": "发送密码重置邮件时出错",
+    "send": "发送",
+    "password": "密码",
+    "settings": "设置",
+    "transfers": "传输",
+    "files": "文件",
+    "emailDomainNotAllowed": "不允许的电子邮件域",
+    "passwordMustBePasswordminlengthCharactersLong": "密码必须为{length}个字符长",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "注册",
+    "failedLogingInAfterSignup": "注册后登录失败",
+    "errorSendingRequest": "发送请求时出错",
+    "requestSent": "请求已发送！",
+    "errorUpdatingUserPleaseTryAgain": "更新用户时出错。请重试。",
+    "deleteFile": "删除文件",
+    "areYouSureYouWantToDeleteThisFile": "您确定要删除此文件吗？",
+    "downloadingGetfilenamefilekey": "下载中 {filename}",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "正在打开文件：{filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "打开文件时出错：{filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "在浏览器中打开...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "无法打开。请先尝试保存文件",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "文件{filename}在离线时不可用",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "分享文件",
+    "linkCopiedToClipboard": "链接已复制到剪贴板",
+    "share": "分享",
+    "open": "打开",
+    "blazedExplorer": "烈火资源管理器",
+    "createFolder": "创建文件夹",
+    "create": "创建",
+    "deleteFolder": "删除文件夹",
+    "confirmFolderDelete": "您确定要删除此文件夹吗？ {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "需要身份验证",
+    "areYouSureYouWantToDeleteYourAccountThis": "您确定要删除您的帐户吗？这是不可逆转的。请注意，您将需要手动通过Play商店取消订阅（如果有的话）",
+    "deleteAccount": "删除帐户",
+    "accountDeleted": "帐户已删除",
+    "yourAccountHasBeenDeleted": "您的帐户已被删除。",
+    "ok": "确定",
+    "failedToDeleteAccount": "删除帐户失败",
+    "changeDownloadLocation": "更改下载位置",
+    "changeEmail": "更改电子邮件",
+    "willSendALinkToYourEmailToCompleteThe": "将通过电子邮件发送链接以完成更改",
+    "viewBackendOnGithub": "在Github上查看后端",
+    "viewOnGithub": "在Github上查看",
+    "autoDeleteAcount": "自动删除帐户",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "在90天的不活动后删除您的帐户。对于有活动订阅的用户，此项始终被忽略。",
+    "signOut": "退出登录",
+    "areYouSureYouWantToSignOut": "您确定要退出登录吗？",
+    "requireBiometricsToOpenApp": "需要生物识别才能打开应用",
+    "changePassword": "更改密码",
+    "willSendALinkToYourEmailToResetYour": "将通过电子邮件发送链接以重置您的密码",
+    "downloading": "正在下载...",
+    "downloaded": "已下载",
+    "selectDownloadDirectory": "选择下载目录",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "请在下一个屏幕中选择您想要下载文件的目录。",
+    "pickFolder": "选择文件夹",
+    "offlineFilesAreStoredAtSnapshotdata": "离线文件存储在 {path}",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "正在上传...",
+    "uploaded": "已上传",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "使用Play商店版本购买1TB。完成后，您可以卸载该版本。",
+    "folderName": "文件夹名称",
+    "storageUsage": "存储使用",
+    "howLongToShare": "这个文件应该分享多久",
+    "upgradeStorage1Terabyte": "购买1TB",
+    "createAnAccount": "创建账户",
+    "allowedEmails": "允许的电子邮件",
+    "close": "关闭",
+    "viewAllowedEmailDomains": "查看允许的电子邮件域",
+    "welcomeBack": "欢迎回来！",
+    "upgradeStorage": "升级存储",
+    "failedToOpenPortal": "无法打开门户",
+    "manageAccount": "管理帐户",
+    "subscribedThroughPlaystoreOrAppstore": "通过Playstore或Appstore订阅",
+    "shareEmailVerificationNeeded": "需要验证电子邮件或拥有活跃订阅以共享文件。",
+    "notVerified": "电子邮件未验证",
+    "emailSent": "邮件已发送",
+    "sendEmail": "发送邮件",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "pleaseAuthenticateToAccessYourCloud": "请进行身份验证以访问您的云",
+    "allowMeteredConnections": "允许计量连接",
+    "requireCharging": "需要充电",
+    "syncEnabled": "启用同步",
+    "syncSettings": "同步设置",
+    "account": "帐户",
+    "security": "安全",
+    "general": "通用",
+    "currentlyNestedFoldersAreNotSupported": "目前不支持嵌套文件夹。",
+    "cameraRollSync": "相册同步",
+    "camSyncDesc": "选择设备上您的相机应用程序保存照片和视频的文件夹。不递归搜索文件。大约每 6 小时同步一次。",
+    "selectSyncLocation": "选择位置",
+    "changeSyncPath": "更改路径",
+    "syncing": "同步中...",
+    "periodicallyBackingUpSelectedFolder": "定期备份所选文件夹",
+    "syncNow": "立即同步",
+    "cameraSync": "相机同步",
+    "noTransfers": "No transfers"
 }

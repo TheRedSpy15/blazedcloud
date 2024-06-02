@@ -46,6 +46,7 @@ dependencies:
   flutter_local_notifications: ^17.1.0
   open_filex: ^4.3.2
   permission_handler: ^11.0.0
+  glassfy_flutter: ^1.6.2
   http_parser: ^4.0.2
   mime: ^1.0.4
   dio: ^5.3.3
@@ -64,6 +65,8 @@ dependencies:
   easy_image_viewer: ^1.4.0
   path_provider: ^2.1.2
   dio_http2_adapter: ^2.5.2
+  firebase_core: ^2.24.2
+  firebase_crashlytics: ^3.4.9
 
 dev_dependencies:
   flutter_test:
