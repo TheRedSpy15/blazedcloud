@@ -173,9 +173,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "syncing": MessageLookupByLibrary.simpleMessage("同期中..."),
         "termsOfService": MessageLookupByLibrary.simpleMessage("利用規約"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("アップグレード"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("ストレージのアップグレード"),
-        "upgradeStorage1Terabyte":
-            MessageLookupByLibrary.simpleMessage("1テラバイトを購入する"),
         "uploaded": MessageLookupByLibrary.simpleMessage("アップロード済み"),
         "uploading": MessageLookupByLibrary.simpleMessage("アップロード中..."),
         "viewAllowedEmailDomains":

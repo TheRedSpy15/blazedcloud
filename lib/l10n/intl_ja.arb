@@ -147,5 +147,6 @@
     "periodicallyBackingUpSelectedFolder": "選択したフォルダーを定期的にバックアップしています",
     "syncNow": "今すぐ同期",
     "cameraSync": "カメラ同期",
-    "noTransfers": "No transfers"
+    "noTransfers": "No transfers",
+    "upgrade": "アップグレード"
 }

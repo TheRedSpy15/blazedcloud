@@ -1,4 +1,5 @@
 import 'package:blazedcloud/constants.dart';
+import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
 import 'package:blazedcloud/providers/glassfy_providers.dart';
@@ -18,7 +19,7 @@ class GlassfyPaywallPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Increase Capacity'),
+          title: Text(S.of(context).upgradeStorage),
         ),
         body: ref.watch(premiumOfferingsProvider).when(data: (offerings) {
           return ListView.builder(

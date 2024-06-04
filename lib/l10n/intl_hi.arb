@@ -147,5 +147,6 @@
     "periodicallyBackingUpSelectedFolder": "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना",
     "syncNow": "अब सिंक्रनाइज़ करें",
     "cameraSync": "कैमरा सिंक",
-    "noTransfers": "No transfers"
+    "noTransfers": "No transfers",
+    "upgrade": "अपग्रेड"
 }

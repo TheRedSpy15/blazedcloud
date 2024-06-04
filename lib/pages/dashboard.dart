@@ -50,9 +50,9 @@ class Dashboard extends ConsumerWidget {
               label: S.of(context).transfers,
             ),
             if (!ref.watch(premiumProvider))
-              const NavigationDestination(
-                icon: Icon(Icons.add_box),
-                label: "Upgrade",
+              NavigationDestination(
+                icon: const Icon(Icons.add_box),
+                label: S.of(context).upgrade,
               ),
             NavigationDestination(
               icon: const Icon(Icons.settings),
@@ -223,9 +223,9 @@ class Dashboard extends ConsumerWidget {
                 label: Text(S.of(context).transfers),
               ),
               if (!ref.watch(premiumProvider))
-                const NavigationRailDestination(
-                  icon: Icon(Icons.add_box),
-                  label: Text("Upgrade"),
+                NavigationRailDestination(
+                  icon: const Icon(Icons.add_box),
+                  label: Text(S.of(context).upgrade),
                 ),
               NavigationRailDestination(
                 icon: const Icon(Icons.settings),

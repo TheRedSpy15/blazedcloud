@@ -147,5 +147,6 @@
     "periodicallyBackingUpSelectedFolder": "Периодически создается резервная копия выбранной папки",
     "syncNow": "Синхронизировать сейчас",
     "cameraSync": "Синхронизация камеры",
-    "noTransfers": "No transfers"
+    "noTransfers": "No transfers",
+    "upgrade": "Обновление"
 }

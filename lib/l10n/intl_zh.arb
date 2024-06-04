@@ -147,5 +147,6 @@
     "periodicallyBackingUpSelectedFolder": "定期备份所选文件夹",
     "syncNow": "立即同步",
     "cameraSync": "相机同步",
-    "noTransfers": "No transfers"
+    "noTransfers": "No transfers",
+    "upgrade": "升级"
 }
