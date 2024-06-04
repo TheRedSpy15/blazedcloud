@@ -1,18 +1,9 @@
-import 'dart:io';
-
-import 'package:blazedcloud/PurchaseApi.dart';
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
-import 'package:blazedcloud/providers/glassfy_providers.dart';
-import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:glassfy_flutter/glassfy_flutter.dart';
-import 'package:intl/intl.dart';
-
-final loadingPurchaseProvider = StateProvider<bool>((ref) => false);
 
 class UsageCard extends ConsumerWidget {
   const UsageCard({super.key});
@@ -20,8 +11,6 @@ class UsageCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final usageData = ref.watch(combinedDataProvider(pb.authStore.model.id));
-
-    PurchaseApi.checkSubscription(ref);
 
     return Card(
       elevation: 4.0,
@@ -76,70 +65,6 @@ class UsageCard extends ConsumerWidget {
                         color: textColor,
                       ),
                     ),
-                    if (!ref.watch(premiumProvider))
-                      ref.watch(premiumOfferingsProvider).when(
-                          data: (offerings) {
-                            return Column(
-                              children: [
-                                OutlinedButton(
-                                    onPressed: () async {
-                                      try {
-                                        if (ref.read(loadingPurchaseProvider)) {
-                                          return;
-                                        }
-
-                                        Glassfy.connectCustomSubscriber(
-                                            pb.authStore.model.id);
-                                        final transaction =
-                                            await Glassfy.purchaseSku(offerings!
-                                                .all!.first.skus!
-                                                .firstWhere((s) =>
-                                                    s.skuId ==
-                                                    'monthly_subscription'));
-                                        var p = transaction.permissions?.all
-                                            ?.singleWhere((permission) =>
-                                                permission.permissionId ==
-                                                'terabyte');
-                                        if (p?.isValid == true) {
-                                          ref
-                                              .read(premiumProvider.notifier)
-                                              .state = true;
-                                          ref
-                                              .read(accountUserProvider(
-                                                  pb.authStore.model.id))
-                                              .whenData((user) {
-                                            // subscription is active
-                                            user.terabyte_active = true;
-                                            ref.invalidate(combinedDataProvider(
-                                                pb.authStore.model.id));
-                                          });
-                                        } else {
-                                          ref
-                                              .read(loadingPurchaseProvider
-                                                  .notifier)
-                                              .state = false;
-                                        }
-                                      } catch (e) {
-                                        logger.w(
-                                            "Glassfy failed to purchase: $e");
-                                        ref
-                                            .read(loadingPurchaseProvider
-                                                .notifier)
-                                            .state = false;
-                                      }
-                                    },
-                                    child: Text(
-                                        S.of(context).upgradeStorage1Terabyte)),
-                                Text(
-                                    "${NumberFormat.simpleCurrency(locale: Platform.localeName).currencySymbol}${offerings?.all!.first.skus!.firstWhere((s) => s.skuId == 'monthly_subscription').product?.price} monthly"),
-                              ],
-                            );
-                          },
-                          error: (e, s) {
-                            logger.e(e);
-                            return const SizedBox.shrink();
-                          },
-                          loading: () => const SizedBox.shrink()),
                   ],
                 );
               },
