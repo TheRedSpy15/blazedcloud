@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
+import 'package:blazedcloud/models/files_api/usage.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:http/http.dart' as http;
 
@@ -329,12 +330,12 @@ Future<String> getUploadUrl(
   }
 }
 
-Future<int> getUsage(String uid, String token) async {
-  // GET to /data/usage/{uid}
+Future<Usage> getUsage(String uid, String token) async {
   logger.d("Getting usage for $uid");
 
   var headers = {'Authorization': 'Bearer $token'};
-  var request = http.Request('GET', Uri.parse('$backendUrl/data/usage/$uid'));
+  var request =
+      http.Request('GET', Uri.parse('$backendUrl/data/v2/usage/$uid'));
 
   request.headers.addAll(headers);
 
@@ -342,8 +343,7 @@ Future<int> getUsage(String uid, String token) async {
 
   if (response.statusCode == 200) {
     final responseBody = await response.stream.bytesToString();
-    logger.d("Got usage $responseBody");
-    return int.parse(responseBody);
+    return Usage.fromJson(jsonDecode(responseBody));
   } else {
     logger.e(response.reasonPhrase);
     throw Exception('Failed to load usage');

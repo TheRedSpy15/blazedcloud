@@ -12,18 +12,15 @@ import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/services/notifications.dart';
 import 'package:dio/dio.dart';
-import 'package:dio_http2_adapter/dio_http2_adapter.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
+import 'package:native_dio_adapter/native_dio_adapter.dart';
 import 'package:workmanager/workmanager.dart';
 
-final dio = Dio()
-  ..httpClientAdapter = Http2Adapter(
-    ConnectionManager(idleTimeout: const Duration(seconds: 10)),
-  );
+final dio = Dio()..httpClientAdapter = NativeAdapter();
 
 /// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {

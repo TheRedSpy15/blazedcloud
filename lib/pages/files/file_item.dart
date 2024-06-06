@@ -265,7 +265,7 @@ void shareItem(String fileKey, WidgetRef ref) {
   final userData = ref.watch(accountUserProvider(pb.authStore.model.id));
   userData.when(
     data: (data) {
-      if (data.verified || data.terabyte_active) {
+      if (data.verified || data.active_tier.isNotEmpty) {
         shareDialog(ref, fileKey);
       } else {
         shareEmailVerificationDialog(ref, data);
