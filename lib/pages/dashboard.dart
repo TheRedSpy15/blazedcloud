@@ -1,14 +1,17 @@
 import 'dart:ui';
 
 import 'package:badges/badges.dart' as badges;
+import 'package:blazedcloud/PurchaseApi.dart';
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
 import 'package:blazedcloud/generated/l10n.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/pages/files/file_page.dart';
+import 'package:blazedcloud/pages/glassfy/paywall.dart';
 import 'package:blazedcloud/pages/settings/settings.dart';
 import 'package:blazedcloud/pages/transfers/transfers.dart';
 import 'package:blazedcloud/providers/files_providers.dart';
+import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +49,11 @@ class Dashboard extends ConsumerWidget {
                   child: const Icon(Icons.cloud_sync)),
               label: S.of(context).transfers,
             ),
+            if (!ref.watch(premiumProvider))
+              NavigationDestination(
+                icon: const Icon(Icons.add_box),
+                label: S.of(context).upgrade,
+              ),
             NavigationDestination(
               icon: const Icon(Icons.settings),
               label: S.of(context).settings,
@@ -67,6 +75,8 @@ class Dashboard extends ConsumerWidget {
     ];
     final uploadController = ref.watch(uploadControllerProvider);
     final currentDirectory = ref.watch(currentDirectoryProvider);
+
+    PurchaseApi.checkSubscription(ref);
 
     return LayoutBuilder(builder: (context, constraints) {
       final wide = constraints.maxWidth > constraints.maxHeight;
@@ -170,7 +180,7 @@ class Dashboard extends ConsumerWidget {
 
   PageView selectedPageView(BuildContext context, WidgetRef ref) {
     return PageView.builder(
-        itemCount: 3,
+        itemCount: !ref.watch(premiumProvider) ? 4 : 3,
         onPageChanged: (index) {
           ref.read(currentPageIndexProvider.notifier).state = index;
         },
@@ -180,6 +190,8 @@ class Dashboard extends ConsumerWidget {
             return const FilesPage();
           } else if (index == 1) {
             return const TransfersPage();
+          } else if (index == 2 && !ref.watch(premiumProvider)) {
+            return const GlassfyPaywallPage();
           } else {
             return const SettingsScreen();
           }
@@ -210,6 +222,11 @@ class Dashboard extends ConsumerWidget {
                     child: const Icon(Icons.cloud_sync)),
                 label: Text(S.of(context).transfers),
               ),
+              if (!ref.watch(premiumProvider))
+                NavigationRailDestination(
+                  icon: const Icon(Icons.add_box),
+                  label: Text(S.of(context).upgrade),
+                ),
               NavigationRailDestination(
                 icon: const Icon(Icons.settings),
                 label: Text(S.of(context).settings),

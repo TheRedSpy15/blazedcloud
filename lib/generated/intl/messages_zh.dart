@@ -164,6 +164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "syncing": MessageLookupByLibrary.simpleMessage("同步中..."),
         "termsOfService": MessageLookupByLibrary.simpleMessage("服务条款"),
         "transfers": MessageLookupByLibrary.simpleMessage("传输"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("升级"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("升级存储"),
         "uploaded": MessageLookupByLibrary.simpleMessage("已上传"),
         "uploading": MessageLookupByLibrary.simpleMessage("正在上传..."),

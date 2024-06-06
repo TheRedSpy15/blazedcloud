@@ -1,6 +1,7 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
+import 'package:blazedcloud/firebase_options.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/pocketbase/authstore.dart';
 import 'package:blazedcloud/pages/dashboard.dart';
@@ -12,10 +13,13 @@ import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:glassfy_flutter/glassfy_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:workmanager/workmanager.dart';
@@ -25,13 +29,30 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (isMobile) {
-    await Workmanager().initialize(
-        callbackDispatcher, // The top level function, aka callbackDispatcher
-        isInDebugMode:
-            kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
-        );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FlutterError.onError = (errorDetails) {
+    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+  };
+  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+
+  try {
+    logger.i("Initializing Glassfy");
+    await Glassfy.initialize('e7e4e5d11b2f48169f26e930a660862b',
+        watcherMode: false);
+    logger.i("Glassfy initialized");
+  } catch (e) {
+    logger.w("Glassfy failed to initialize: $e");
   }
+
+  await Workmanager().initialize(
+      callbackDispatcher, // The top level function, aka callbackDispatcher
+      isInDebugMode:
+          kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+      );
 
   runApp(const MyApp());
 }

@@ -1,150 +1,152 @@
 {
-  "@@locale": "ko",
-  "serverMaintenance": "서버가 현재 유지 보수 중입니다. 나중에 다시 시도해주세요.",
-  "appName": "Blazed Cloud",
-  "save": "저장",
-  "delete": "삭제",
-  "emptyDirectory": "파일 또는 폴더가 없습니다",
-  "errorErr": "오류: {err}",
-  "@errorErr": {
-    "placeholders": {
-      "err": {}
-    }
-  },
-  "invalidEmailOrPassword": "잘못된 이메일 또는 비밀번호",
-  "login": "로그인",
-  "forgotPassword": "비밀번호를 잊으셨나요?",
-  "resetPassword": "비밀번호 재설정",
-  "email": "이메일",
-  "cancel": "취소",
-  "passwordResetEmailSent": "비밀번호 재설정 이메일이 전송되었습니다!",
-  "errorSendingPasswordResetEmail": "비밀번호 재설정 이메일 전송 중 오류가 발생했습니다",
-  "send": "보내기",
-  "password": "비밀번호",
-  "settings": "설정",
-  "transfers": "전송",
-  "files": "파일",
-  "emailDomainNotAllowed": "허용되지 않는 이메일 도메인",
-  "passwordMustBePasswordminlengthCharactersLong": "비밀번호는 {length}자 이상이어야 합니다",
-  "@passwordMustBePasswordminlengthCharactersLong": {
-    "placeholders": {
-      "length": {}
-    }
-  },
-  "signUp": "가입",
-  "failedLogingInAfterSignup": "가입 후 로그인에 실패했습니다",
-  "errorSendingRequest": "요청을 전송하는 중 오류가 발생했습니다",
-  "requestSent": "요청이 전송되었습니다!",
-  "errorUpdatingUserPleaseTryAgain": "사용자 업데이트 중 오류가 발생했습니다. 다시 시도해주세요.",
-  "deleteFile": "파일 삭제",
-  "areYouSureYouWantToDeleteThisFile": "이 파일을 삭제하시겠습니까?",
-  "downloadingGetfilenamefilekey": "{filename} 다운로드 중",
-  "@downloadingGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingFileGetfilenamefilekey": "{filename} 파일 열기 중",
-  "@openingFileGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "errorOpeningFileE": "파일 열기 오류: {filename}",
-  "@errorOpeningFileE": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingInBrowser": "브라우저에서 열기...",
-  "failedToOpenPleaseTrySavingTheFileFirst": "열지 못했습니다. 먼저 파일을 저장해보세요",
-  "fileGetfilenamefilekeyIsNotAvailableOffline": "{filename} 파일은 오프라인에서 사용할 수 없습니다",
-  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "shareFile": "파일 공유",
-  "linkCopiedToClipboard": "링크가 클립보드에 복사되었습니다",
-  "share": "공유",
-  "open": "열기",
-  "blazedExplorer": "Blazed Explorer",
-  "createFolder": "폴더 생성",
-  "create": "생성",
-  "deleteFolder": "폴더 삭제",
-  "confirmFolderDelete": "이 폴더를 삭제하시겠습니까? {foldername}",
-  "@confirmFolderDelete": {
-    "placeholders": {
-      "foldername": {}
-    }
-  },
-  "authenticationRequired": "인증 필요",
-  "areYouSureYouWantToDeleteYourAccountThis": "계정을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다. 참고로, 구독이 있는 경우 Play 스토어에서 수동으로 취소해야 합니다.",
-  "deleteAccount": "계정 삭제",
-  "accountDeleted": "계정이 삭제되었습니다",
-  "yourAccountHasBeenDeleted": "귀하의 계정이 삭제되었습니다.",
-  "ok": "확인",
-  "failedToDeleteAccount": "계정 삭제 실패",
-  "changeDownloadLocation": "다운로드 위치 변경",
-  "changeEmail": "이메일 변경",
-  "willSendALinkToYourEmailToCompleteThe": "변경을 완료하려면 이메일로 링크를 보내드립니다",
-  "viewBackendOnGithub": "Github에서 백엔드 보기",
-  "viewOnGithub": "Github에서 보기",
-  "autoDeleteAcount": "자동 계정 삭제",
-  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "90일 동안 활동이 없으면 계정을 삭제합니다. 활성 구독이 있는 사용자는 항상 무시됩니다.",
-  "signOut": "로그아웃",
-  "areYouSureYouWantToSignOut": "로그아웃하시겠습니까?",
-  "requireBiometricsToOpenApp": "앱을 열 때 생체 인식이 필요합니다",
-  "changePassword": "비밀번호 변경",
-  "willSendALinkToYourEmailToResetYour": "비밀번호를 재설정하려면 이메일로 링크를 보내드립니다",
-  "downloading": "다운로드 중...",
-  "downloaded": "다운로드 완료",
-  "selectDownloadDirectory": "다운로드 디렉토리 선택",
-  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "다음 화면에서 파일을 다운로드할 디렉토리를 선택하세요.",
-  "pickFolder": "폴더 선택",
-  "offlineFilesAreStoredAtSnapshotdata": "오프라인 파일은 {path}에 저장됩니다",
-  "@offlineFilesAreStoredAtSnapshotdata": {
-    "placeholders": {
-      "path": {}
-    }
-  },
-  "uploading": "업로드 중...",
-  "uploaded": "업로드 완료",
-  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Play 스토어 빌드를 사용하여 1TB를 구매하세요. 완료되면 해당 버전을 삭제할 수 있습니다.",
-  "folderName": "폴더 이름",
-  "storageUsage": "저장 공간 사용량",
-  "howLongToShare": "파일을 공유할 기간은 얼마나 되어야 합니까?",
-  "createAnAccount": "계정 만들기",
-  "allowedEmails": "허용된 이메일",
-  "close": "닫기",
-  "viewAllowedEmailDomains": "허용된 이메일 도메인 보기",
-  "welcomeBack": "다시 환영합니다!",
-  "upgradeStorage": "스토리지 업그레이드",
-  "failedToOpenPortal": "포털 열기 실패",
-  "manageAccount": "계정 관리",
-  "subscribedThroughPlaystoreOrAppstore": "Playstore 또는 Appstore를 통해 구독 중",
-  "shareEmailVerificationNeeded": "파일을 공유하려면 이메일을 확인하거나 활성 구독이 필요합니다.",
-  "notVerified": "이메일 확인되지 않음",
-  "emailSent": "이메일 전송됨",
-  "sendEmail": "이메일 보내기",
-  "privacyPolicy": "개인정보 보호 정책",
-  "termsOfService": "서비스 이용 약관",
-  "pleaseAuthenticateToAccessYourCloud": "클라우드에 액세스하려면 인증하세요",
-  "allowMeteredConnections": "계량 연결 허용",
-  "requireCharging": "충전 필요",
-  "syncEnabled": "동기화 활성화",
-  "syncSettings": "동기화 설정",
-  "account": "계정",
-  "security": "보안",
-  "general": "일반",
-  "currentlyNestedFoldersAreNotSupported": "현재 중첩된 폴더는 지원되지 않습니다.",
-  "cameraRollSync": "카메라 롤 동기화",
-  "camSyncDesc": "카메라 앱이 사진과 비디오를 저장하는 기기의 폴더를 선택합니다. 파일을 재귀적으로 검색하지 않습니다. 대략 6시간마다 동기화됩니다.",
-  "selectSyncLocation": "위치 선택",
-  "changeSyncPath": "경로 변경",
-  "syncing": "동기화 중...",
-  "periodicallyBackingUpSelectedFolder": "선택한 폴더 주기적으로 백업",
-  "syncNow": "지금 동기화",
-  "cameraSync": "카메라 동기화",
-  "noTransfers": "No transfers"
+    "@@locale": "ko",
+    "serverMaintenance": "서버가 현재 유지 보수 중입니다. 나중에 다시 시도해주세요.",
+    "appName": "Blazed Cloud",
+    "save": "저장",
+    "delete": "삭제",
+    "emptyDirectory": "파일 또는 폴더가 없습니다",
+    "errorErr": "오류: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "잘못된 이메일 또는 비밀번호",
+    "login": "로그인",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "resetPassword": "비밀번호 재설정",
+    "email": "이메일",
+    "cancel": "취소",
+    "passwordResetEmailSent": "비밀번호 재설정 이메일이 전송되었습니다!",
+    "errorSendingPasswordResetEmail": "비밀번호 재설정 이메일 전송 중 오류가 발생했습니다",
+    "send": "보내기",
+    "password": "비밀번호",
+    "settings": "설정",
+    "transfers": "전송",
+    "files": "파일",
+    "emailDomainNotAllowed": "허용되지 않는 이메일 도메인",
+    "passwordMustBePasswordminlengthCharactersLong": "비밀번호는 {length}자 이상이어야 합니다",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "가입",
+    "failedLogingInAfterSignup": "가입 후 로그인에 실패했습니다",
+    "errorSendingRequest": "요청을 전송하는 중 오류가 발생했습니다",
+    "requestSent": "요청이 전송되었습니다!",
+    "errorUpdatingUserPleaseTryAgain": "사용자 업데이트 중 오류가 발생했습니다. 다시 시도해주세요.",
+    "deleteFile": "파일 삭제",
+    "areYouSureYouWantToDeleteThisFile": "이 파일을 삭제하시겠습니까?",
+    "downloadingGetfilenamefilekey": "{filename} 다운로드 중",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "{filename} 파일 열기 중",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "파일 열기 오류: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "브라우저에서 열기...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "열지 못했습니다. 먼저 파일을 저장해보세요",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "{filename} 파일은 오프라인에서 사용할 수 없습니다",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "파일 공유",
+    "linkCopiedToClipboard": "링크가 클립보드에 복사되었습니다",
+    "share": "공유",
+    "open": "열기",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "폴더 생성",
+    "create": "생성",
+    "deleteFolder": "폴더 삭제",
+    "confirmFolderDelete": "이 폴더를 삭제하시겠습니까? {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "인증 필요",
+    "areYouSureYouWantToDeleteYourAccountThis": "계정을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다. 참고로, 구독이 있는 경우 Play 스토어에서 수동으로 취소해야 합니다.",
+    "deleteAccount": "계정 삭제",
+    "accountDeleted": "계정이 삭제되었습니다",
+    "yourAccountHasBeenDeleted": "귀하의 계정이 삭제되었습니다.",
+    "ok": "확인",
+    "failedToDeleteAccount": "계정 삭제 실패",
+    "changeDownloadLocation": "다운로드 위치 변경",
+    "changeEmail": "이메일 변경",
+    "willSendALinkToYourEmailToCompleteThe": "변경을 완료하려면 이메일로 링크를 보내드립니다",
+    "viewBackendOnGithub": "Github에서 백엔드 보기",
+    "viewOnGithub": "Github에서 보기",
+    "autoDeleteAcount": "자동 계정 삭제",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "90일 동안 활동이 없으면 계정을 삭제합니다. 활성 구독이 있는 사용자는 항상 무시됩니다.",
+    "signOut": "로그아웃",
+    "areYouSureYouWantToSignOut": "로그아웃하시겠습니까?",
+    "requireBiometricsToOpenApp": "앱을 열 때 생체 인식이 필요합니다",
+    "changePassword": "비밀번호 변경",
+    "willSendALinkToYourEmailToResetYour": "비밀번호를 재설정하려면 이메일로 링크를 보내드립니다",
+    "downloading": "다운로드 중...",
+    "downloaded": "다운로드 완료",
+    "selectDownloadDirectory": "다운로드 디렉토리 선택",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "다음 화면에서 파일을 다운로드할 디렉토리를 선택하세요.",
+    "pickFolder": "폴더 선택",
+    "offlineFilesAreStoredAtSnapshotdata": "오프라인 파일은 {path}에 저장됩니다",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "업로드 중...",
+    "uploaded": "업로드 완료",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Play 스토어 빌드를 사용하여 1TB를 구매하세요. 완료되면 해당 버전을 삭제할 수 있습니다.",
+    "folderName": "폴더 이름",
+    "storageUsage": "저장 공간 사용량",
+    "howLongToShare": "파일을 공유할 기간은 얼마나 되어야 합니까?",
+    "upgradeStorage1Terabyte": "1 테라바이트 구매",
+    "createAnAccount": "계정 만들기",
+    "allowedEmails": "허용된 이메일",
+    "close": "닫기",
+    "viewAllowedEmailDomains": "허용된 이메일 도메인 보기",
+    "welcomeBack": "다시 환영합니다!",
+    "upgradeStorage": "스토리지 업그레이드",
+    "failedToOpenPortal": "포털 열기 실패",
+    "manageAccount": "계정 관리",
+    "subscribedThroughPlaystoreOrAppstore": "Playstore 또는 Appstore를 통해 구독 중",
+    "shareEmailVerificationNeeded": "파일을 공유하려면 이메일을 확인하거나 활성 구독이 필요합니다.",
+    "notVerified": "이메일 확인되지 않음",
+    "emailSent": "이메일 전송됨",
+    "sendEmail": "이메일 보내기",
+    "privacyPolicy": "개인정보 보호 정책",
+    "termsOfService": "서비스 이용 약관",
+    "pleaseAuthenticateToAccessYourCloud": "클라우드에 액세스하려면 인증하세요",
+    "allowMeteredConnections": "계량 연결 허용",
+    "requireCharging": "충전 필요",
+    "syncEnabled": "동기화 활성화",
+    "syncSettings": "동기화 설정",
+    "account": "계정",
+    "security": "보안",
+    "general": "일반",
+    "currentlyNestedFoldersAreNotSupported": "현재 중첩된 폴더는 지원되지 않습니다.",
+    "cameraRollSync": "카메라 롤 동기화",
+    "camSyncDesc": "카메라 앱이 사진과 비디오를 저장하는 기기의 폴더를 선택합니다. 파일을 재귀적으로 검색하지 않습니다. 대략 6시간마다 동기화됩니다.",
+    "selectSyncLocation": "위치 선택",
+    "changeSyncPath": "경로 변경",
+    "syncing": "동기화 중...",
+    "periodicallyBackingUpSelectedFolder": "선택한 폴더 주기적으로 백업",
+    "syncNow": "지금 동기화",
+    "cameraSync": "카메라 동기화",
+    "noTransfers": "No transfers",
+    "upgrade": "업그레이드"
 }

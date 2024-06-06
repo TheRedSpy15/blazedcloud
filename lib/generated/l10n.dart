@@ -1119,6 +1119,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Upgrade`
+  String get upgrade {
+    return Intl.message(
+      'Upgrade',
+      name: 'upgrade',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

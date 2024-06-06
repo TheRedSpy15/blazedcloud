@@ -171,6 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "syncing": MessageLookupByLibrary.simpleMessage("동기화 중..."),
         "termsOfService": MessageLookupByLibrary.simpleMessage("서비스 이용 약관"),
         "transfers": MessageLookupByLibrary.simpleMessage("전송"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("업그레이드"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("스토리지 업그레이드"),
         "uploaded": MessageLookupByLibrary.simpleMessage("업로드 완료"),
         "uploading": MessageLookupByLibrary.simpleMessage("업로드 중..."),

@@ -10,6 +10,7 @@ import 'package:blazedcloud/pages/settings/custom_babstrap/icon_style.dart'
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsGroup.dart';
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsItem.dart';
 import 'package:blazedcloud/pages/sync/sync.dart';
+import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/providers/sync_providers.dart';
@@ -65,6 +66,7 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userData = ref.watch(accountUserProvider(pb.authStore.model.id));
+    final isPremium = ref.watch(premiumProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -113,7 +115,7 @@ class SettingsScreen extends ConsumerWidget {
                   items: [
                     prunableSetting(userData, context, ref),
                     signOutSetting(ref.context),
-                    deleteAccountSetting(context),
+                    deleteAccountSetting(context, isPremium),
                   ],
                 ),
                 CustomSettingsGroup(
@@ -131,7 +133,8 @@ class SettingsScreen extends ConsumerWidget {
     );
   }
 
-  CustomSettingsItem deleteAccountSetting(BuildContext context) {
+  CustomSettingsItem deleteAccountSetting(
+      BuildContext context, bool isPremium) {
     return CustomSettingsItem(
       onTap: () {
         // ask the user to confirm
