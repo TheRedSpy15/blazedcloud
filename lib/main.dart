@@ -1,7 +1,8 @@
+import 'dart:io';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
-import 'package:blazedcloud/firebase_options.dart';
 import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/pocketbase/authstore.dart';
 import 'package:blazedcloud/pages/dashboard.dart';
@@ -11,10 +12,9 @@ import 'package:blazedcloud/pages/login/signup.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:blazedcloud/utils/generic_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -28,16 +28,6 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  FlutterError.onError = (errorDetails) {
-    FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
-  };
-  // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
 
   try {
     logger.i("Initializing Glassfy");
@@ -176,11 +166,7 @@ class LandingContent extends StatelessWidget {
                             },
                             child: Text(S.of(context).privacyPolicy)),
                         TextButton(
-                            onPressed: () {
-                              logger.d("Terms of Service");
-                              launchUrl(Uri.parse(
-                                  "https://blazedcloud.com/terms-of-service/"));
-                            },
+                            onPressed: () => viewToS(),
                             child: Text(S.of(context).termsOfService)),
                       ],
                     ),
