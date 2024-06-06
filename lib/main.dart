@@ -11,6 +11,7 @@ import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -280,11 +281,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         useMaterial3: true,
-        /* light theme settings */
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        useMaterial3: true,
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.shark,
+        darkIsTrueBlack: true,
       ),
       localizationsDelegates: const [
         S.delegate,

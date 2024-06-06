@@ -12,11 +12,11 @@ class User {
   String email;
   String created;
   String updated;
-  bool terabyte_active;
   String glassfy;
   int capacity_gigs;
   bool prunable;
   bool stripe_active;
+  String active_tier;
 
   User({
     this.id = "",
@@ -28,11 +28,11 @@ class User {
     this.email = "",
     this.created = "",
     this.updated = "",
-    this.terabyte_active = false,
     this.glassfy = "",
     this.capacity_gigs = 5,
     this.prunable = false,
     this.stripe_active = false,
+    this.active_tier = "",
   });
 
   // delete user
@@ -55,11 +55,11 @@ class User {
       email: result.getStringValue('email'),
       created: result.getStringValue('created'),
       updated: result.getStringValue('updated'),
-      terabyte_active: result.getBoolValue('terabyte_active'),
       glassfy: result.getStringValue('glassfy'),
       capacity_gigs: result.getIntValue('capacity_gigs'),
       prunable: result.getBoolValue('prunable'),
       stripe_active: result.getBoolValue('stripe_active'),
+      active_tier: result.getStringValue('active_tier'),
     );
   }
 
@@ -73,10 +73,10 @@ class User {
         'email': email,
         'created': created,
         'updated': updated,
-        'terabyte_active': terabyte_active,
         'glassfy': glassfy,
         'capacity_gigs': capacity_gigs,
         'prunable': prunable,
         'stripe_active': stripe_active,
+        'active_tier': active_tier,
       };
 }

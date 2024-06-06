@@ -80,7 +80,7 @@ class UsageCard extends ConsumerWidget {
                         color: textColor,
                       ),
                     ),
-                    if (!data['isTerabyteActive'] && isMobile)
+                    if (!data['premium'] && isMobile)
                       OutlinedButton(
                           onPressed: () {
                             // snackbar to show loading
@@ -125,7 +125,7 @@ class UsageCard extends ConsumerWidget {
                             launchUrl(Uri.parse(stripePortalUrl));
                           },
                           child: Text(S.of(context).manageAccount))
-                    else if (!data['stripeActive'] && data['isTerabyteActive'])
+                    else if (!data['stripeActive'] && data['premium'])
                       Text(S.of(context).subscribedThroughPlaystoreOrAppstore),
                   ],
                 );
