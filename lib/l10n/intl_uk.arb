@@ -138,5 +138,15 @@
     "account": "Обліковий запис",
     "security": "Безпека",
     "general": "Загальні",
-    "currentlyNestedFoldersAreNotSupported": "На даний момент вкладені папки не підтримуються."
+    "currentlyNestedFoldersAreNotSupported": "На даний момент вкладені папки не підтримуються.",
+    "cameraRollSync": "Синхронізація ролі камери",
+    "camSyncDesc": "Виберіть теку на вашому пристрої, куди ваше камерне додаток зберігає фотографії та відео. Не рекурсивно шукає файли. Синхронізує приблизно кожні 6 годин.",
+    "selectSyncLocation": "Виберіть місце",
+    "changeSyncPath": "Змінити шлях",
+    "syncing": "Синхронізація...",
+    "periodicallyBackingUpSelectedFolder": "Періодично створюється резервна копія обраної теки",
+    "syncNow": "Синхронізувати зараз",
+    "cameraSync": "Синхронізація камери",
+    "noTransfers": "No transfers",
+    "upgrade": "Оновлення"
 }

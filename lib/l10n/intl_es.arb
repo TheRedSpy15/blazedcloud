@@ -138,5 +138,15 @@
     "account": "Cuenta",
     "security": "Seguridad",
     "general": "General",
-    "currentlyNestedFoldersAreNotSupported": "Actualmente no se admiten carpetas anidadas."
+    "currentlyNestedFoldersAreNotSupported": "Actualmente no se admiten carpetas anidadas.",
+    "cameraRollSync": "Sincronización de rollo de cámara",
+    "camSyncDesc": "Seleccione la carpeta en su dispositivo donde su aplicación de cámara guarda fotos y videos. No busca de forma recursiva archivos. Sincroniza aproximadamente cada 6 horas.",
+    "selectSyncLocation": "Seleccionar ubicación",
+    "changeSyncPath": "Cambiar ruta",
+    "syncing": "Sincronizando...",
+    "periodicallyBackingUpSelectedFolder": "Haciendo copia de seguridad periódicamente de la carpeta seleccionada",
+    "syncNow": "Sincronizar ahora",
+    "cameraSync": "Sincronización de cámara",
+    "noTransfers": "No transfers",
+    "upgrade": "Actualizar"
 }

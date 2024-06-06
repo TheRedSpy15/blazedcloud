@@ -64,6 +64,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Supprimer automatiquement le compte"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "Sélectionnez le dossier sur votre appareil où votre application de caméra enregistre les photos et les vidéos. Ne recherche pas de manière récursive les fichiers. Synchronise environ toutes les 6 heures."),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage(
+            "Synchronisation du rouleau de caméra"),
+        "cameraSync":
+            MessageLookupByLibrary.simpleMessage("Synchronisation de caméra"),
         "cancel": MessageLookupByLibrary.simpleMessage("Annuler"),
         "changeDownloadLocation": MessageLookupByLibrary.simpleMessage(
             "Changer l\'\'emplacement de téléchargement"),
@@ -71,6 +77,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Changer l\'\'adresse email"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Changer le mot de passe"),
+        "changeSyncPath":
+            MessageLookupByLibrary.simpleMessage("Changer le chemin"),
         "close": MessageLookupByLibrary.simpleMessage("Fermer"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Créer"),
@@ -133,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Connexion"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Gérer le compte"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified":
             MessageLookupByLibrary.simpleMessage("E-mail non vérifié"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
@@ -145,6 +154,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Email de réinitialisation du mot de passe envoyé !"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage(
+                "Sauvegarde périodique du dossier sélectionné"),
         "pickFolder":
             MessageLookupByLibrary.simpleMessage("Choisir le dossier"),
         "pleaseAuthenticateToAccessYourCloud":
@@ -170,6 +182,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("Sécurité"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Sélectionner le répertoire de téléchargement"),
+        "selectSyncLocation": MessageLookupByLibrary.simpleMessage(
+            "Sélectionner l\'\'emplacement"),
         "send": MessageLookupByLibrary.simpleMessage("Envoyer"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("Envoyer un e-mail"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -189,15 +203,18 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Abonné via le Playstore ou l\'\'Appstore"),
         "syncEnabled":
             MessageLookupByLibrary.simpleMessage("Synchronisation activée"),
+        "syncNow":
+            MessageLookupByLibrary.simpleMessage("Synchroniser maintenant"),
         "syncSettings": MessageLookupByLibrary.simpleMessage(
             "Paramètres de synchronisation"),
+        "syncing":
+            MessageLookupByLibrary.simpleMessage("Synchronisation en cours..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Conditions d\'\'utilisation"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferts"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("Mise à niveau"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Mise à niveau du stockage"),
-        "upgradeStorage1Terabyte": MessageLookupByLibrary.simpleMessage(
-            "Améliorer le stockage (1 téraoctet)"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Téléchargé"),
         "uploading":
             MessageLookupByLibrary.simpleMessage("Téléchargement en cours..."),

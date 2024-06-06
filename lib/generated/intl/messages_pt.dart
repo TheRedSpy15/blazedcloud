@@ -62,11 +62,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Excluir conta automaticamente"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "Selecione a pasta em seu dispositivo onde seu aplicativo de câmera salva fotos e vídeos. Não pesquisa de forma recursiva os arquivos. Sincroniza aproximadamente a cada 6 horas."),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage(
+            "Sincronização de rolo de câmera"),
+        "cameraSync":
+            MessageLookupByLibrary.simpleMessage("Sincronização da câmera"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("Alterar local de download"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("Alterar Email"),
         "changePassword": MessageLookupByLibrary.simpleMessage("Alterar senha"),
+        "changeSyncPath":
+            MessageLookupByLibrary.simpleMessage("Alterar caminho"),
         "close": MessageLookupByLibrary.simpleMessage("Fechar"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Criar"),
@@ -124,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Entrar"),
         "manageAccount":
             MessageLookupByLibrary.simpleMessage("Gerenciar Conta"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified":
             MessageLookupByLibrary.simpleMessage("E-mail não verificado"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
@@ -136,6 +145,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Email de redefinição de senha enviado!"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage(
+                "Fazendo backup periodicamente da pasta selecionada"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Escolher Pasta"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage(
@@ -160,6 +172,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("Segurança"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Selecionar diretório de download"),
+        "selectSyncLocation":
+            MessageLookupByLibrary.simpleMessage("Selecionar localização"),
         "send": MessageLookupByLibrary.simpleMessage("Enviar"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("Enviar E-mail"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -179,15 +193,16 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Inscrito através da Play Store ou App Store"),
         "syncEnabled":
             MessageLookupByLibrary.simpleMessage("Sincronização ativada"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("Sincronizar agora"),
         "syncSettings": MessageLookupByLibrary.simpleMessage(
             "Configurações de sincronização"),
+        "syncing": MessageLookupByLibrary.simpleMessage("Sincronizando..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Termos de Serviço"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferências"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("Atualização"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Atualizar Armazenamento"),
-        "upgradeStorage1Terabyte":
-            MessageLookupByLibrary.simpleMessage("Compre 1 Terabyte"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Enviado"),
         "uploading": MessageLookupByLibrary.simpleMessage("Enviando..."),
         "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(

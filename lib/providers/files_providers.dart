@@ -1,8 +1,8 @@
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
+import 'package:blazedcloud/models/files_api/usage.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
-import 'package:blazedcloud/utils/user_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final combinedDataProvider = FutureProvider.autoDispose
@@ -11,10 +11,10 @@ final combinedDataProvider = FutureProvider.autoDispose
   final user = await ref.read(accountUserProvider(userId).future);
 
   return {
-    'usage': usage,
-    'isTerabyteActive': user.terabyte_active,
+    'usage': usage.usage,
+    'premium': user.active_tier.isNotEmpty,
     'stripeActive': user.stripe_active,
-    'capacity': getTotalGigCapacity(user),
+    'capacity': usage.capacity,
   };
 });
 
@@ -33,6 +33,6 @@ final searchKeysProvider = FutureProvider<List<String>>((ref) async {
 });
 
 /// byte usage from /data/usage/{user id}
-final usageProvider = FutureProvider.autoDispose<int>((ref) async {
+final usageProvider = FutureProvider.autoDispose<Usage>((ref) async {
   return getUsage(pb.authStore.model.id, pb.authStore.token);
 });

@@ -61,6 +61,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Автоматично видаляти обліковий запис"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "Виберіть теку на вашому пристрої, куди ваше камерне додаток зберігає фотографії та відео. Не рекурсивно шукає файли. Синхронізує приблизно кожні 6 годин."),
+        "cameraRollSync":
+            MessageLookupByLibrary.simpleMessage("Синхронізація ролі камери"),
+        "cameraSync":
+            MessageLookupByLibrary.simpleMessage("Синхронізація камери"),
         "cancel": MessageLookupByLibrary.simpleMessage("Скасувати"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("Змінити місце завантаження"),
@@ -68,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Змінити електронну пошту"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Змінити пароль"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("Змінити шлях"),
         "close": MessageLookupByLibrary.simpleMessage("Закрити"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("Створити"),
@@ -127,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Увійти"),
         "manageAccount": MessageLookupByLibrary.simpleMessage(
             "Управління обліковим записом"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified": MessageLookupByLibrary.simpleMessage(
             "Електронна пошта не підтверджена"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
@@ -139,6 +147,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent": MessageLookupByLibrary.simpleMessage(
             "Електронний лист для скидання пароля відправлено!"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage(
+                "Періодично створюється резервна копія обраної теки"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("Вибрати папку"),
         "pleaseAuthenticateToAccessYourCloud": MessageLookupByLibrary.simpleMessage(
             "Будь ласка, аутентифікуйтеся, щоб отримати доступ до вашого хмарного сховища"),
@@ -160,6 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("Безпека"),
         "selectDownloadDirectory": MessageLookupByLibrary.simpleMessage(
             "Вибрати каталог для завантаження"),
+        "selectSyncLocation":
+            MessageLookupByLibrary.simpleMessage("Виберіть місце"),
         "send": MessageLookupByLibrary.simpleMessage("Відправити"),
         "sendEmail": MessageLookupByLibrary.simpleMessage(
             "Надіслати електронного листа"),
@@ -179,15 +192,16 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Підписано через Playstore або Appstore"),
         "syncEnabled":
             MessageLookupByLibrary.simpleMessage("Синхронізація увімкнена"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("Синхронізувати зараз"),
         "syncSettings":
             MessageLookupByLibrary.simpleMessage("Налаштування синхронізації"),
+        "syncing": MessageLookupByLibrary.simpleMessage("Синхронізація..."),
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Умови використання"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("Оновлення"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Оновлення сховища"),
-        "upgradeStorage1Terabyte":
-            MessageLookupByLibrary.simpleMessage("Придбати 1 терабайт"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Відправлено"),
         "uploading": MessageLookupByLibrary.simpleMessage("Відправлення..."),
         "viewAllowedEmailDomains": MessageLookupByLibrary.simpleMessage(

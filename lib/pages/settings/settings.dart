@@ -9,6 +9,7 @@ import 'package:blazedcloud/pages/settings/custom_babstrap/icon_style.dart'
     as babstrap;
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsGroup.dart';
 import 'package:blazedcloud/pages/settings/custom_babstrap/settingsItem.dart';
+import 'package:blazedcloud/pages/sync/sync.dart';
 import 'package:blazedcloud/providers/glassfy_providers.dart';
 import 'package:blazedcloud/providers/pb_providers.dart';
 import 'package:blazedcloud/providers/setting_providers.dart';
@@ -23,6 +24,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:workmanager/workmanager.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -72,52 +74,60 @@ class SettingsScreen extends ConsumerWidget {
         title: Text(S.of(context).settings),
       ),
       backgroundColor: context.isDarkMode ? Colors.black : Colors.blueGrey[50],
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (!Platform.isIOS)
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (!Platform.isIOS)
+                  CustomSettingsGroup(
+                    settingsGroupTitle: S.of(context).general,
+                    items: [
+                      downloadLocationChangeSetting(context),
+                    ],
+                  ),
                 CustomSettingsGroup(
-                  settingsGroupTitle: S.of(context).general,
+                  settingsGroupTitle: S.of(context).security,
                   items: [
-                    downloadLocationChangeSetting(context),
+                    biometricSetting(ref),
+                    passwordResetSetting(userData, context),
+                    emailChangeSetting(userData, context),
                   ],
                 ),
-              CustomSettingsGroup(
-                settingsGroupTitle: S.of(context).security,
-                items: [
-                  biometricSetting(ref),
-                  passwordResetSetting(userData, context),
-                  emailChangeSetting(userData, context),
-                ],
-              ),
-              //CustomSettingsGroup(
-              //  settingsGroupTitle: S.of(context).syncSettings,
-              //  items: [
-              //    syncEnabledSetting(ref),
-              //    syncAllowMeteredSetting(ref),
-              //    syncChargingOnlySetting(ref),
-              //    //syncFreqSetting(ref),
-              //  ],
-              //),
-              CustomSettingsGroup(
-                settingsGroupTitle: S.of(context).account,
-                items: [
-                  prunableSetting(userData, context, ref),
-                  signOutSetting(ref.context),
-                  deleteAccountSetting(context),
-                ],
-              ),
-              CustomSettingsGroup(
-                items: [
-                  githubSetting(context),
-                  termsSetting(context),
-                  privacyPolicySetting(context),
-                ],
-              ),
-            ],
+                if (Platform.isAndroid)
+                  CustomSettingsGroup(
+                    settingsGroupTitle: S.of(context).syncSettings,
+                    items: [
+                      if (Platform.isAndroid) syncPathSetting(ref, context),
+                      if (ref.watch(cameraFolderProvider) != null)
+                        syncEnabledSetting(ref),
+                      if (ref.watch(cameraFolderProvider) != null)
+                        syncAllowMeteredSetting(ref),
+                      if (ref.watch(cameraFolderProvider) != null)
+                        syncChargingOnlySetting(ref),
+                      //syncFreqSetting(ref),
+                    ],
+                  ),
+                CustomSettingsGroup(
+                  settingsGroupTitle: S.of(context).account,
+                  items: [
+                    prunableSetting(userData, context, ref),
+                    signOutSetting(ref.context),
+                    deleteAccountSetting(context, isPremium),
+                  ],
+                ),
+                CustomSettingsGroup(
+                  items: [
+                    githubSetting(context),
+                    termsSetting(context),
+                    privacyPolicySetting(context),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -152,7 +162,9 @@ class SettingsScreen extends ConsumerWidget {
           if (value != null) {
             // delete account
             try {
+              Workmanager().cancelByUniqueName("folderSync");
               pb.collection('users').delete(pb.authStore.model.id).then((_) {
+                SharedPreferences.getInstance().then((p) => p.clear());
                 logger.i('User Deleted - Signing out');
                 pb.authStore.clear();
                 context.go('/landing');
@@ -372,9 +384,10 @@ class SettingsScreen extends ConsumerWidget {
           if (value != null) {
             logger.i('Signing out');
             try {
+              Workmanager().cancelByUniqueName("folderSync");
               pb.authStore.clear();
-              SharedPreferences.getInstance().then(
-                  (p) => p.clear().then((_) => context.goNamed("landing")));
+              SharedPreferences.getInstance()
+                  .then((p) => p.clear().then((_) => context.go('/landing')));
             } catch (e) {
               logger.e('Error signing out: $e');
             }
@@ -476,31 +489,46 @@ class SettingsScreen extends ConsumerWidget {
 
   CustomSettingsItem? syncFreqSetting(WidgetRef ref) {
     throw UnimplementedError(); // wait for next release
+  }
+
+  CustomSettingsItem? syncPathSetting(WidgetRef ref, BuildContext context) {
+    final cameraRoll = ref.watch(cameraFolderProvider);
     return CustomSettingsItem(
       onTap: () async {
-        ref.read(allowMeteredProvider.notifier).state =
-            !ref.read(allowMeteredProvider);
-        final SharedPreferences buttonPrefs =
-            await SharedPreferences.getInstance();
-        await buttonPrefs.setBool(
-            'allowMetered', !ref.read(allowMeteredProvider));
-
-        updateSyncWorkerWithRef(ref);
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text(S.of(context).cameraRollSync),
+                content: Wrap(
+                  children: [
+                    Text(S.of(context).camSyncDesc),
+                    if (cameraRoll != null) Text(cameraRoll.path),
+                  ],
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(S.of(context).cancel),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      setCameraRoll(ref);
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(S.of(context).selectSyncLocation),
+                  ),
+                ],
+              );
+            });
       },
-      icons: Icons.cell_tower,
-      trailing: Switch(
-        value: ref.watch(allowMeteredProvider),
-        onChanged: (value) async {
-          ref.read(allowMeteredProvider.notifier).state = value;
-          final SharedPreferences buttonPrefs =
-              await SharedPreferences.getInstance();
-          await buttonPrefs.setBool('allowMetered', value);
-
-          updateSyncWorkerWithRef(ref);
-        },
-      ),
+      icons: Icons.camera_alt,
+      trailing: const Icon(Icons.arrow_forward_ios),
       iconStyle: babstrap.IconStyle(),
-      title: S.of(ref.context).allowMeteredConnections,
+      title: S.of(ref.context).cameraRollSync,
+      subtitle: cameraRoll?.path,
     );
   }
 

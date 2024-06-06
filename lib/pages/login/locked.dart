@@ -38,9 +38,7 @@ class LockedScreen extends ConsumerWidget {
                                   .authenticate(
                                       localizedReason: S
                                           .of(context)
-                                          .pleaseAuthenticateToAccessYourCloud,
-                                      options: const AuthenticationOptions(
-                                          useErrorDialogs: false))
+                                          .pleaseAuthenticateToAccessYourCloud)
                                   .then((didAuthenticate) {
                                 ref
                                     .read(isAuthenticatedProvider.notifier)

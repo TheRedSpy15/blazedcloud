@@ -1,9 +1,9 @@
 name: Flutter
 on:
   pull_request:
-    branches: [main]
+    branches: [main, playstore]
   push:
-    branches: [main]
+    branches: [main, playstore]
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
         working-directory: ${{ github.workspace }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
             distribution: 'temurin'
@@ -24,7 +24,7 @@ jobs:
             cache: 'gradle'
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.3'
+          flutter-version: '3.22.1'
           channel: 'stable'
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:-:hash:' # optional, change this to force refresh cache

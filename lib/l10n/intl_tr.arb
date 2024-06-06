@@ -1,0 +1,151 @@
+{
+    "@@locale": "tr",
+    "serverMaintenance": "Sunucu şu anda bakımda. Lütfen daha sonra tekrar deneyin.",
+    "appName": "Blazed Cloud",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "emptyDirectory": "Dosya veya klasör yok",
+    "errorErr": "Hata: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "Geçersiz e-posta veya şifre",
+    "login": "Giriş",
+    "forgotPassword": "Parolanızı mı unuttunuz?",
+    "resetPassword": "Şifreyi sıfırla",
+    "email": "E-posta",
+    "cancel": "İptal",
+    "passwordResetEmailSent": "Şifre sıfırlama e-postası gönderildi!",
+    "errorSendingPasswordResetEmail": "Şifre sıfırlama e-postası gönderilirken hata oluştu",
+    "send": "Gönder",
+    "password": "Parola",
+    "settings": "Ayarlar",
+    "transfers": "Transferler",
+    "files": "Dosyalar",
+    "emailDomainNotAllowed": "E-posta Etki Alanına izin verilmiyor",
+    "passwordMustBePasswordminlengthCharactersLong": "Parola {length} karakter uzunluğunda olmalıdır",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "Kaydol",
+    "failedLogingInAfterSignup": "Kaydolduktan sonra oturum açılamadı",
+    "errorSendingRequest": "İstek gönderilirken hata oluştu",
+    "requestSent": "İstek Gönderildi!",
+    "errorUpdatingUserPleaseTryAgain": "Kullanıcı güncellenirken hata oluştu. Lütfen tekrar deneyin.",
+    "deleteFile": "Dosyayı sil",
+    "areYouSureYouWantToDeleteThisFile": "Bu dosyayı silmek istediğinizden emin misiniz?",
+    "downloadingGetfilenamefilekey": "{filename} indiriliyor",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "Dosya açılıyor: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "Dosya açılırken hata oluştu: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "Tarayıcıda açılıyor...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Açılamadı. Lütfen önce dosyayı kaydetmeyi deneyin",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "{filename} dosyası çevrimdışı kullanılamıyor",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "Dosyayı paylaş",
+    "linkCopiedToClipboard": "Bağlantı panoya kopyalandı",
+    "share": "Paylaş",
+    "open": "Aç",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "Klasör oluştur",
+    "create": "Oluştur",
+    "deleteFolder": "Klasörü sil",
+    "confirmFolderDelete": "Bu Klasörü silmek istediğinizden emin misiniz? {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "Kimlik Doğrulama Gerekli",
+    "areYouSureYouWantToDeleteYourAccountThis": "Hesabınızı silmek istediğinizden emin misiniz? Bu geri döndürülemez. Aboneliğinizi oyun mağazası aracılığıyla manuel olarak iptal etmeniz gerekeceğini lütfen unutmayın (varsa)",
+    "deleteAccount": "Hesabı sil",
+    "accountDeleted": "Hesap silindi",
+    "yourAccountHasBeenDeleted": "Hesabınız silindi.",
+    "ok": "Tamam",
+    "failedToDeleteAccount": "Hesap silinemedi",
+    "changeDownloadLocation": "İndirme Konumunu Değiştir",
+    "changeEmail": "E-postayı Değiştir",
+    "willSendALinkToYourEmailToCompleteThe": "Değişikliği tamamlamak için e-postanıza bir bağlantı gönderilecek",
+    "viewBackendOnGithub": "Github''da arka ucu görüntüleyin",
+    "viewOnGithub": "Github''da görüntüle",
+    "autoDeleteAcount": "Hesabı Otomatik Sil",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "90 gün boyunca işlem yapılmadığında hesabınızı silin. Aktif aboneliği olan kullanıcılar için her zaman göz ardı edilir.",
+    "signOut": "Oturumu Kapat",
+    "areYouSureYouWantToSignOut": "Çıkış yapmak istediğinizden emin misiniz?",
+    "requireBiometricsToOpenApp": "Uygulamayı açmak için biyometriyi zorunlu kılın",
+    "changePassword": "Parolayı Değiştir",
+    "willSendALinkToYourEmailToResetYour": "Parolanızı sıfırlamak için e-postanıza bir bağlantı gönderilecek",
+    "downloading": "İndiriliyor...",
+    "downloaded": "İndirildi",
+    "selectDownloadDirectory": "İndirme dizinini seçin",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Lütfen bir sonraki ekranda dosyalarınızı indirmek istediğiniz dizini seçin.",
+    "pickFolder": "Klasör Seç",
+    "offlineFilesAreStoredAtSnapshotdata": "Çevrimdışı dosyalar {path} adresinde saklanır",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "Yükleniyor...",
+    "uploaded": "Yüklendi",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Playstore derlemesini kullanarak 1 TB satın alın. İşiniz bittiğinde bu sürümü kaldırabilirsiniz.",
+    "folderName": "Klasör adı",
+    "storageUsage": "Depolama Kullanımı",
+    "howLongToShare": "Dosya ne kadar süreyle paylaşıma açık olmalıdır?",
+    "createAnAccount": "Hesap Oluştur",
+    "allowedEmails": "İzin Verilen E-postalar",
+    "close": "Kapat",
+    "viewAllowedEmailDomains": "İzin Verilen E-posta Etki Alanlarını Görüntüle",
+    "welcomeBack": "Tekrar Hoş Geldiniz!",
+    "upgradeStorage": "Depolama Alanını Yükselt",
+    "failedToOpenPortal": "Portal açılamadı",
+    "manageAccount": "Hesabı Yönet",
+    "subscribedThroughPlaystoreOrAppstore": "Playstore veya Appstore üzerinden abone olundu",
+    "shareEmailVerificationNeeded": "E-postanın doğrulanması veya dosyaları paylaşmak için aktif aboneliğe sahip olması gerekir.",
+    "notVerified": "E-posta doğrulanmadı",
+    "emailSent": "E-posta gönderildi",
+    "sendEmail": "E-posta Gönder",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Hizmet Şartları",
+    "pleaseAuthenticateToAccessYourCloud": "Bulutunuza erişmek için lütfen kimliğinizi doğrulayın",
+    "allowMeteredConnections": "Ölçülü Bağlantılara İzin Ver",
+    "requireCharging": "Şarj Gerektirir",
+    "syncEnabled": "Eşitleme Etkinleştirildi",
+    "syncSettings": "Senkronizasyon Ayarları",
+    "account": "Hesap",
+    "security": "Güvenlik",
+    "general": "Genel",
+    "currentlyNestedFoldersAreNotSupported": "Şu anda iç içe klasörler desteklenmiyor.",
+    "cameraRollSync": "Kamera Rulosu Senkronizasyonu",
+    "camSyncDesc": "Cihazınızda kamera uygulamanızın fotoğraf ve videoları kaydettiği klasörü seçin. Dosyaları özyineli olarak aramaz. Yaklaşık olarak her 6 saatte bir senkronize edilir.",
+    "selectSyncLocation": "Senkronizasyon Konumunu Seç",
+    "changeSyncPath": "Yolu Değiştir",
+    "syncing": "Senkronize Ediliyor...",
+    "periodicallyBackingUpSelectedFolder": "Seçilen klasörün periyodik olarak yedeklenmesi",
+    "syncNow": "Şimdi Senkronize Et",
+    "cameraSync": "Kamera Senkronizasyonu",
+    "noTransfers": "Transfer Yok",
+    "upgrade": "Yükseltme"
+}

@@ -13,10 +13,14 @@ import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/services/notifications.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
+import 'package:native_dio_adapter/native_dio_adapter.dart';
 import 'package:workmanager/workmanager.dart';
+
+final dio = Dio()..httpClientAdapter = NativeAdapter();
 
 /// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {
@@ -28,14 +32,13 @@ class UploadController {
     port.listen((dynamic data) async {
       try {
         final uploadState = UploadState.fromJson(jsonDecode(data));
+        logger.i('Received upload state: ${uploadState.toJson()}');
 
         final uploadNotifier = _ref.read(uploadStateProvider.notifier);
         uploadNotifier.updateUploadStateByKey(
             uploadState.uploadKey, uploadState);
 
-        if (!isRequestingNotificationPermission) {
-          updateUploadNotification();
-        }
+        updateUploadNotification();
 
         if (!uploadState.isUploading) {
           _ref.invalidate(
@@ -78,25 +81,52 @@ class UploadController {
 
     if (selection != null) {
       final uid = pb.authStore.model.id;
-      final randQueueName =
-          'uploadQueue${DateTime.now().millisecondsSinceEpoch}';
+      final token = pb.authStore.token;
 
-      // create queue of uploads
-      final queue = UploadRequestQueue(
-          uid,
-          pb.authStore.token,
-          remoteDir,
-          selection.paths.map((e) => e ?? '').toList(),
-          selection.files.map((e) => e.name).toList(),
-          selection.files.map((e) => e.size).toList(),
-          randQueueName);
+      if (isMobile) {
+        final randQueueName =
+            'uploadQueue${DateTime.now().millisecondsSinceEpoch}';
 
-      logger.i('Creating queue: ${queue.toJson()}');
-      scheduleUpload(queue);
+        // create queue of uploads
+        final queue = UploadRequestQueue(
+            uid,
+            token,
+            remoteDir,
+            selection.paths.map((e) => e ?? '').toList(),
+            selection.files.map((e) => e.name).toList(),
+            selection.files.map((e) => e.size).toList(),
+            randQueueName);
+
+        logger.i('Creating queue: ${queue.toJson()}');
+        scheduleUpload(queue);
+      } else {
+        // don't use workmanager on desktop, just simple isolates.
+        for (PlatformFile file in selection.files) {
+          final isolateToken = RootIsolateToken.instance;
+          if (isolateToken == null) {
+            logger.e('RootIsolateToken is null');
+            return;
+          }
+          BackgroundIsolateBinaryMessenger.ensureInitialized(isolateToken);
+
+          final path = file.path;
+          if (path == null) {
+            logger.e('File path is null');
+            return;
+          }
+          final name = file.name;
+          final size = file.size;
+          logger.i('Starting download directly. token: ${pb.authStore.token}');
+          Isolate.run(() =>
+              startUploadDirectly(uid, path, name, size, remoteDir, token));
+        }
+      }
     }
   }
 
   void updateUploadNotification() {
+    if (!isMobile || isRequestingNotificationPermission) return;
+
     isRequestingNotificationPermission = true;
     NotificationService().initNotification().then((_) {
       NotificationService().showUploadNotification(_ref
@@ -140,6 +170,14 @@ class UploadController {
             existingWorkPolicy: ExistingWorkPolicy.replace,
             constraints: Constraints(networkType: NetworkType.connected),
             inputData: queue.toJson());
+      } else {
+        // remove the files from cache.
+        // should only be done on mobile,
+        // and we know the queue for mobile only
+        final file = File(localPaths[i]);
+        if (file.existsSync()) {
+          file.deleteSync();
+        }
       }
     }
 
@@ -164,7 +202,13 @@ class UploadController {
       return true;
     }
 
-    final uploadState = UploadState.inProgress(localPath);
+    final uploadState = UploadState(
+      isUploading: true,
+      isError: false,
+      uploadKey: localPath,
+      size: size,
+      sent: 0,
+    );
     SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
     const Duration rateLimit =
         Duration(seconds: 1); // Adjust the duration as needed
@@ -192,7 +236,6 @@ class UploadController {
       );
       logger.i('Upload url: $uploadUrl');
 
-      final dio = Dio();
       bytes() async* {
         yield* file.openRead();
       }
@@ -210,9 +253,127 @@ class UploadController {
         options:
             Options(headers: {"Content-Type": type, "Content-Length": size}),
         onSendProgress: (int sent, int total) {
-          uploadState.addTotalSent(total);
-          final progress = total / size;
-          uploadState.updateProgress(progress);
+          uploadState.updateTotalSent(sent);
+
+          // send progress to the UI
+          // The port might be null if the main isolate is not running.
+          if (sendPort != null) {
+            // rate limit to prevent spamming the main isolate
+            if (DateTime.now().difference(lastDataSentTime) >= rateLimit) {
+              try {
+                sendPort!.send(jsonEncode(uploadState.toJson()));
+              } catch (error) {
+                logger.e('send port error ($fileKey): $error');
+              }
+              lastDataSentTime = DateTime.now();
+            } else if (!uploadState.isUploading || uploadState.isError) {
+              // don't rate limit if we're not uploading or if there's an error
+              try {
+                sendPort!.send(jsonEncode(uploadState.toJson()));
+              } catch (error) {
+                logger.e('send port error ($fileKey): $error');
+              }
+            }
+          } else {
+            sendPort = IsolateNameServer.lookupPortByName("uploader");
+          }
+        },
+      );
+      uploadState.completed();
+      completer.complete(true);
+
+      // send progress to the UI
+      if (sendPort != null) {
+        try {
+          sendPort!.send(jsonEncode(uploadState.toJson()));
+        } catch (error) {
+          logger.e('send port error ($fileKey): $error');
+        }
+      }
+
+      logger.i(
+          'Upload response: ${response.statusCode} ${response.statusMessage}');
+    } catch (error) {
+      switch (error) {
+        case DioException():
+          final response = error.response;
+          logger.e('Error uploading file: ${error.message} - $response');
+        default:
+          logger.e('Upload error: $error');
+      }
+
+      uploadState.setError(error.toString());
+      completer.complete(false);
+
+      // send progress to the UI
+      if (sendPort != null) {
+        try {
+          sendPort!.send(jsonEncode(uploadState.toJson()));
+        } catch (error) {
+          logger.e('send port error ($fileKey): $error');
+        }
+      }
+    }
+
+    return completer.future;
+  }
+
+  static Future<bool> startUploadDirectly(String uid, String localPath,
+      String localName, int size, String s3Directory, String token) async {
+    logger.i('Starting upload: $localPath');
+
+    final uploadState = UploadState(
+      isUploading: true,
+      isError: false,
+      uploadKey: localPath,
+      size: size,
+      sent: 0,
+    );
+    SendPort? sendPort = IsolateNameServer.lookupPortByName("uploader");
+    const Duration rateLimit =
+        Duration(seconds: 1); // Adjust the duration as needed
+    DateTime lastDataSentTime = DateTime.now();
+
+    final fileKey = '$s3Directory$localName';
+    final type = lookupMimeType(localPath) ?? 'application/octet-stream';
+
+    final completer = Completer<bool>();
+    try {
+      final file = File(localPath);
+      if (!file.existsSync()) {
+        logger.e('File not in cache: $localPath');
+        uploadState.setError('Cache ran out of space');
+        completer.complete(true);
+        return completer.future;
+      }
+
+      final uploadUrl = await getUploadUrl(
+        uid,
+        fileKey,
+        token,
+        size,
+        contentType: type,
+      );
+      logger.i('Upload url: $uploadUrl');
+
+      bytes() async* {
+        yield* file.openRead();
+      }
+
+      final multipartFile = MultipartFile.fromStream(
+        bytes,
+        size,
+        filename: localName,
+        contentType: MediaType.parse(type),
+      );
+
+      final response = await dio.put(
+        uploadUrl,
+        data: multipartFile.finalize(),
+        options:
+            Options(headers: {"Content-Type": type, "Content-Length": size}),
+        onSendProgress: (int sent, int total) {
+          uploadState.updateTotalSent(sent);
 
           // send progress to the UI
           // The port might be null if the main isolate is not running.

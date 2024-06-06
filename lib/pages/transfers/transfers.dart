@@ -16,58 +16,67 @@ class TransfersPage extends ConsumerWidget {
     final uploadStates = ref.watch(uploadStateProvider);
     final transfers = [...downloadStates, ...uploadStates];
 
-    return ListView.builder(
-      itemCount: transfers.length + 1,
-      shrinkWrap: true,
-      physics: const AlwaysScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        // display usage card at the top of the list
-        if (index == 0) {
-          return const UsageCard();
-        }
-
-        final transfer = transfers[index - 1];
-
-        if (transfer is DownloadState) {
-          return Card(
-            child: ListTile(
-              title: Text(getFileName(transfer.downloadKey)),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(S.of(context).transfers),
+        ),
+        body: transfers.isEmpty
+            ? Center(
+                child: Column(
                 children: [
-                  Text('${(transfer.progress * 100).toStringAsFixed(2)}%'),
-                  transfer.isError
-                      ? Text('Error: ${transfer.errorMessage}')
-                      : transfer.isDownloading
-                          ? Text(S.of(context).downloading)
-                          : Text(S.of(context).downloaded),
+                  const UsageCard(),
+                  Text(S.of(context).noTransfers),
                 ],
-              ),
-              leading: const Icon(Icons.download_rounded),
-            ),
-          );
-        } else if (transfer is UploadState) {
-          return Card(
-            child: ListTile(
-              leading: const Icon(Icons.upload_rounded),
-              title: Text(getFileName(transfer.uploadKey)),
-              subtitle: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                      'Progress: ${(transfer.progress * 100).toStringAsFixed(2)}%'),
-                  transfer.isError
-                      ? Text('Error: ${transfer.errorMessage}')
-                      : transfer.isUploading
-                          ? Text(S.of(context).uploading)
-                          : Text(S.of(context).uploaded),
-                ],
-              ),
-            ),
-          );
-        }
-        return null;
-      },
-    );
+              ))
+            : ListView.builder(
+                itemCount: transfers.length + 1,
+                shrinkWrap: true,
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                  if (index == 0) return const UsageCard();
+                  final transfer = transfers[index - 1];
+
+                  if (transfer is DownloadState) {
+                    return Card(
+                      child: ListTile(
+                        title: Text(getFileName(transfer.downloadKey)),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                '${(transfer.progress * 100).toStringAsFixed(2)}%'),
+                            transfer.isError
+                                ? Text('Error: ${transfer.errorMessage}')
+                                : transfer.isDownloading
+                                    ? Text(S.of(context).downloading)
+                                    : Text(S.of(context).downloaded),
+                          ],
+                        ),
+                        leading: const Icon(Icons.download_rounded),
+                      ),
+                    );
+                  } else if (transfer is UploadState) {
+                    return Card(
+                      child: ListTile(
+                        leading: const Icon(Icons.upload_rounded),
+                        title: Text(getFileName(transfer.uploadKey)),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                'Progress: ${(transfer.progress * 100).clamp(0, 100).toStringAsFixed(2)}%'),
+                            transfer.isError
+                                ? Text('Error: ${transfer.errorMessage}')
+                                : transfer.isUploading
+                                    ? Text(S.of(context).uploading)
+                                    : Text(S.of(context).uploaded),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                  return null;
+                },
+              ));
   }
 }

@@ -138,5 +138,15 @@
     "account": "खाता",
     "security": "सुरक्षा",
     "general": "सामान्य",
-    "currentlyNestedFoldersAreNotSupported": "वर्तमान में नेस्टेड फ़ोल्डर समर्थित नहीं हैं।"
+    "currentlyNestedFoldersAreNotSupported": "वर्तमान में नेस्टेड फ़ोल्डर समर्थित नहीं हैं।",
+    "cameraRollSync": "कैमरा रोल सिंक्रनाइज़ेशन",
+    "camSyncDesc": "अपनी डिवाइस पर फोटो और वीडियो सहेजने वाले आपके कैमरा ऐप के फ़ोल्डर का चयन करें। फ़ाइलों को अनुक्रमणिक ढंग से खोजता नहीं है। लगभग हर 6 घंटे में सिंक्रनाइज़ करता है।",
+    "selectSyncLocation": "स्थान चुनें",
+    "changeSyncPath": "पथ बदलें",
+    "syncing": "सिंक्रनाइज़ किया जा रहा है...",
+    "periodicallyBackingUpSelectedFolder": "चयनित फ़ोल्डर का नियमित रूप से बैकअप लेना",
+    "syncNow": "अब सिंक्रनाइज़ करें",
+    "cameraSync": "कैमरा सिंक",
+    "noTransfers": "No transfers",
+    "upgrade": "अपग्रेड"
 }

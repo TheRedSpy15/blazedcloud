@@ -56,11 +56,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "autoDeleteAcount": MessageLookupByLibrary.simpleMessage("アカウントの自動削除"),
         "blazedExplorer":
             MessageLookupByLibrary.simpleMessage("Blazed Explorer"),
+        "camSyncDesc": MessageLookupByLibrary.simpleMessage(
+            "写真や動画を保存するデバイス上のフォルダーを選択します。ファイルを再帰的に検索しません。約6時間ごとに同期します。"),
+        "cameraRollSync": MessageLookupByLibrary.simpleMessage("カメラロール同期"),
+        "cameraSync": MessageLookupByLibrary.simpleMessage("カメラ同期"),
         "cancel": MessageLookupByLibrary.simpleMessage("キャンセル"),
         "changeDownloadLocation":
             MessageLookupByLibrary.simpleMessage("ダウンロード場所の変更"),
         "changeEmail": MessageLookupByLibrary.simpleMessage("メールアドレスの変更"),
         "changePassword": MessageLookupByLibrary.simpleMessage("パスワードの変更"),
+        "changeSyncPath": MessageLookupByLibrary.simpleMessage("パスを変更"),
         "close": MessageLookupByLibrary.simpleMessage("閉じる"),
         "confirmFolderDelete": m0,
         "create": MessageLookupByLibrary.simpleMessage("作成"),
@@ -114,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("リンクがクリップボードにコピーされました"),
         "login": MessageLookupByLibrary.simpleMessage("ログイン"),
         "manageAccount": MessageLookupByLibrary.simpleMessage("アカウントの管理"),
+        "noTransfers": MessageLookupByLibrary.simpleMessage("No transfers"),
         "notVerified": MessageLookupByLibrary.simpleMessage("メールが確認されていません"),
         "offlineFilesAreStoredAtSnapshotdata": m5,
         "ok": MessageLookupByLibrary.simpleMessage("OK"),
@@ -125,6 +131,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustBePasswordminlengthCharactersLong": m7,
         "passwordResetEmailSent":
             MessageLookupByLibrary.simpleMessage("パスワードリセットのメールが送信されました！"),
+        "periodicallyBackingUpSelectedFolder":
+            MessageLookupByLibrary.simpleMessage("選択したフォルダーを定期的にバックアップしています"),
         "pickFolder": MessageLookupByLibrary.simpleMessage("フォルダを選択"),
         "pleaseAuthenticateToAccessYourCloud":
             MessageLookupByLibrary.simpleMessage("クラウドにアクセスするには認証してください"),
@@ -144,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "security": MessageLookupByLibrary.simpleMessage("セキュリティ"),
         "selectDownloadDirectory":
             MessageLookupByLibrary.simpleMessage("ダウンロードディレクトリを選択"),
+        "selectSyncLocation": MessageLookupByLibrary.simpleMessage("場所を選択"),
         "send": MessageLookupByLibrary.simpleMessage("送信"),
         "sendEmail": MessageLookupByLibrary.simpleMessage("メール送信"),
         "serverMaintenance": MessageLookupByLibrary.simpleMessage(
@@ -159,12 +168,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "subscribedThroughPlaystoreOrAppstore":
             MessageLookupByLibrary.simpleMessage("PlaystoreまたはAppstore経由で購読済み"),
         "syncEnabled": MessageLookupByLibrary.simpleMessage("同期が有効"),
+        "syncNow": MessageLookupByLibrary.simpleMessage("今すぐ同期"),
         "syncSettings": MessageLookupByLibrary.simpleMessage("同期設定"),
+        "syncing": MessageLookupByLibrary.simpleMessage("同期中..."),
         "termsOfService": MessageLookupByLibrary.simpleMessage("利用規約"),
         "transfers": MessageLookupByLibrary.simpleMessage("転送"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("アップグレード"),
         "upgradeStorage": MessageLookupByLibrary.simpleMessage("ストレージのアップグレード"),
-        "upgradeStorage1Terabyte":
-            MessageLookupByLibrary.simpleMessage("1テラバイトを購入する"),
         "uploaded": MessageLookupByLibrary.simpleMessage("アップロード済み"),
         "uploading": MessageLookupByLibrary.simpleMessage("アップロード中..."),
         "viewAllowedEmailDomains":

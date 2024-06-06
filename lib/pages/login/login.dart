@@ -7,8 +7,9 @@ import 'package:go_router/go_router.dart';
 
 final emailController = TextEditingController();
 final isAttemptingLoginProvider = StateProvider<bool>((ref) => false);
-
 final passwordController = TextEditingController();
+
+final showClearPasword = StateProvider<bool>((ref) => false);
 
 class LoginScreen extends ConsumerWidget {
   const LoginScreen({super.key});
@@ -39,8 +40,9 @@ class LoginScreen extends ConsumerWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: TextFormField(
                           controller: emailController,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            labelText: S.of(context).email,
+                            hintText: S.of(context).email,
                           ),
                         ),
                       ),
@@ -50,9 +52,18 @@ class LoginScreen extends ConsumerWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: TextFormField(
                           controller: passwordController,
-                          obscureText: true,
+                          obscureText: !ref.watch(showClearPasword),
+                          enableSuggestions: false,
+                          keyboardType: TextInputType.text,
                           decoration: InputDecoration(
-                            labelText: S.of(context).password,
+                            hintText: S.of(context).password,
+                            suffixIcon: IconButton(
+                              icon: const Icon(Icons.remove_red_eye),
+                              onPressed: () {
+                                ref.read(showClearPasword.notifier).state =
+                                    !ref.read(showClearPasword);
+                              },
+                            ),
                           ),
                         ),
                       ),
@@ -60,7 +71,7 @@ class LoginScreen extends ConsumerWidget {
                       // Login Button
                       ElevatedButton(
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
+                          backgroundColor: WidgetStateProperty.all<Color>(
                               Theme.of(context).splashColor),
                         ),
                         onPressed: ref.watch(isAttemptingLoginProvider)

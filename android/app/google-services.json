@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "147526580769",
+    "project_id": "blazed-cloud",
+    "storage_bucket": "blazed-cloud.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147526580769:android:e4183e4e34724621f14160",
+        "android_client_info": {
+          "package_name": "com.chancesoftwarellc.blazedcloud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmlprUG8zw423DTkGt-G50r3L3sUeHf2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,9 +14,9 @@ import 'package:blazedcloud/providers/setting_providers.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
 import 'package:blazedcloud/utils/generic_utils.dart';
 import 'package:blazedcloud/utils/sync_utils.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:glassfy_flutter/glassfy_flutter.dart';
@@ -28,9 +28,6 @@ import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
 
   try {
     logger.i("Initializing Glassfy");
@@ -77,7 +74,7 @@ final _router = GoRouter(
     GoRoute(
       name: "dashboard",
       path: '/dashboard',
-      builder: (context, state) => const Dashboard(),
+      builder: (context, state) => Dashboard(),
     ),
   ],
 );
@@ -199,14 +196,14 @@ class LandingPage extends ConsumerWidget {
                 if (isLoaded) {
                   return ref.read(isBiometricEnabledProvider)
                       ? ref.read(isAuthenticatedProvider)
-                          ? const Dashboard()
+                          ? Dashboard()
                           : const LockedScreen()
-                      : const Dashboard();
+                      : Dashboard();
                 }
-                return const Dashboard();
+                return Dashboard();
               }, error: (err, stack) {
                 logger.e("Error loading prefs: $err");
-                return const Dashboard();
+                return Dashboard();
               }, loading: () {
                 return const Scaffold(
                   body: Center(
@@ -291,11 +288,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         useMaterial3: true,
-        /* light theme settings */
       ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        useMaterial3: true,
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.shark,
+        darkIsTrueBlack: true,
       ),
       localizationsDelegates: const [
         S.delegate,

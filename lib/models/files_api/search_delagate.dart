@@ -42,8 +42,8 @@ class FileSearchDelegate extends SearchDelegate {
   ListView fileSearchResults() {
     return ListView(
       children: [
-        ...fuzzySearch(query, keys).map(
-            (e) => SearchItem(key: Key(e), fileKey: getStartingDirectory() + e))
+        ...fuzzySearch(query, keys)
+            .map((e) => SearchItem(key: Key(e), fileKey: e))
       ],
     );
   }

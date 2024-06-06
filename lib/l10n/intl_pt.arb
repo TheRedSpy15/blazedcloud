@@ -138,5 +138,15 @@
     "account": "Conta",
     "security": "Segurança",
     "general": "Geral",
-    "currentlyNestedFoldersAreNotSupported": "Atualmente, pastas aninhadas não são suportadas."
+    "currentlyNestedFoldersAreNotSupported": "Atualmente, pastas aninhadas não são suportadas.",
+    "cameraRollSync": "Sincronização de rolo de câmera",
+    "camSyncDesc": "Selecione a pasta em seu dispositivo onde seu aplicativo de câmera salva fotos e vídeos. Não pesquisa de forma recursiva os arquivos. Sincroniza aproximadamente a cada 6 horas.",
+    "selectSyncLocation": "Selecionar localização",
+    "changeSyncPath": "Alterar caminho",
+    "syncing": "Sincronizando...",
+    "periodicallyBackingUpSelectedFolder": "Fazendo backup periodicamente da pasta selecionada",
+    "syncNow": "Sincronizar agora",
+    "cameraSync": "Sincronização da câmera",
+    "noTransfers": "No transfers",
+    "upgrade": "Atualização"
 }

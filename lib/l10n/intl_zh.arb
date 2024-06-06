@@ -138,5 +138,15 @@
     "account": "帐户",
     "security": "安全",
     "general": "通用",
-    "currentlyNestedFoldersAreNotSupported": "目前不支持嵌套文件夹。"
+    "currentlyNestedFoldersAreNotSupported": "目前不支持嵌套文件夹。",
+    "cameraRollSync": "相册同步",
+    "camSyncDesc": "选择设备上您的相机应用程序保存照片和视频的文件夹。不递归搜索文件。大约每 6 小时同步一次。",
+    "selectSyncLocation": "选择位置",
+    "changeSyncPath": "更改路径",
+    "syncing": "同步中...",
+    "periodicallyBackingUpSelectedFolder": "定期备份所选文件夹",
+    "syncNow": "立即同步",
+    "cameraSync": "相机同步",
+    "noTransfers": "No transfers",
+    "upgrade": "升级"
 }

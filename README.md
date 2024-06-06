@@ -1,10 +1,12 @@
-# blazedcloud
+# Blazed Cloud
+![Mastodon Follow](https://img.shields.io/mastodon/follow/112482060159629920)
 
-![logo](https://github.com/TheRedSpy15/blazedcloud/blob/development/assets/icon-192.png)
+![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/blazed_cloud)
 
-[![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
 
 ![Alt](https://repobeats.axiom.co/api/embed/ed8f2fa1e7b0d3aa5e3ef7d1c174533ef59e32e3.svg "Repobeats analytics image")
+
+[![Flutter](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml/badge.svg)](https://github.com/TheRedSpy15/blazedcloud/actions/workflows/flutter.yml)
 
 ## TLDR
 
@@ -13,7 +15,6 @@ Simple, minimalistic file backup provider built with Flutter, Pocketbase and S3 
 ### Other Blazed Cloud Repos:
 - [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
 - [Landing](https://github.com/TheRedSpy15/blazedcloud-landing)
-- [Desktop tool](https://github.com/TheRedSpy15/blazedcloud-sync)
 
 # Overview
 ### What is Blazed Cloud?
@@ -27,15 +28,10 @@ Blazed Cloud aims to be a privacy friendly Google Drive, and be simpler to use.
 
 ### This Repository Specifically
 
-This repository is for the mobile application to access Blazed Cloud. It's designed with Flutter and is currently only on Android. Once it's a bit more feature complete it'll go on IOS. This is to focus on developing the core features, before testing and adapting the code to work on both platforms
+This repository is for the cross platform client to access the service
 
-This mobile client has all it's basic features completed. However the following are still in development:
-- [ ] Automatic Camera uploads
-- [ ] Automatic folder syncing
-- [ ] Files can be downloaded for offline use, but no current in-app viewing
-- [ ] Oauth Sign in
-
-**Completed Features outside of core functions**
+This client has quite a few features worth highlighting:
+- [x] Automatic Camera uploads
 - [x] App locking with biometrics
 - [x] Timed file sharing via urls
 - [x] OPTIONAL automatic account deletion (unused over 90 days)
@@ -51,9 +47,17 @@ Releases are also available directly via GitHub
      alt="Get it on Google Play"
      height="100">](https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud)
 
-Dont forget to take advantage of our [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
-
 **Play store users: The playstore varient of the app has Firebase Crashlytics bundled (as of 1.3.3). This is to have some level of error reporting for us to fix crashes. You can avoid this by downloading from Github directly, or through FDroid!**
+
+## Desktop usage
+
+**Windows: https://github.com/TheRedSpy15/blazedcloud/blob/main/how-to-windows.md**
+
+**Linux & Mac pending more testing**
+
+## Access from the web
+
+Dont forget to take advantage of our [Web Portal](https://github.com/TheRedSpy15/blazedcloud-web)
 
 # Contributing
 

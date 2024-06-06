@@ -1,0 +1,151 @@
+{
+  "@@locale": "ro",
+  "serverMaintenance": "Serverul este sub mentenanta.Va rugam incercati din nou mai tarziu",
+  "appName": "Blazed Cloud",
+  "save": "Salveaza",
+  "delete": "Sterge",
+  "emptyDirectory": "Nici-un fisier sau folder",
+  "errorErr": "Erroare: {err}",
+  "@errorErr": {
+    "placeholders": {
+      "err": {}
+    }
+  },
+  "invalidEmailOrPassword": "Email sau parola invalida",
+  "login": "Autentificare",
+  "forgotPassword": "Ati uitat parola?",
+  "resetPassword": "Resetare parola",
+  "email": "email",
+  "cancel": "Anulare",
+  "passwordResetEmailSent": "Email-ul pentru resetarea parolei a fost trimis",
+  "errorSendingPasswordResetEmail": "Eroare trimitere mail pentru resetarea parolei",
+  "send": "Trimite",
+  "password": "Parola",
+  "settings": "Setari",
+  "transfers": "Transferuri",
+  "files": "Fisiere",
+  "emailDomainNotAllowed": "Domeniul emailului nu este permis",
+  "passwordMustBePasswordminlengthCharactersLong": "Parola trebuie sa aiba {length} caractere",
+  "@passwordMustBePasswordminlengthCharactersLong": {
+    "placeholders": {
+      "length": {}
+    }
+  },
+  "signUp": "Inregistrare",
+  "failedLogingInAfterSignup": "Nu se poate intra in cont dupa inregistrare",
+  "errorSendingRequest": "Eroare trimitere cerere",
+  "requestSent": "Cerere trimis",
+  "errorUpdatingUserPleaseTryAgain": "Eroare actualizare user.Va rugam incercati mai tarziu",
+  "deleteFile": "Sterge fisier",
+  "areYouSureYouWantToDeleteThisFile": "Sunteti sigur ca vreti sa stergeti acest fisier?",
+  "downloadingGetfilenamefilekey": "Instalare {filename}",
+  "@downloadingGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingFileGetfilenamefilekey": "Deschidere fisier: {filename}",
+  "@openingFileGetfilenamefilekey": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "errorOpeningFileE": "Eroare deschidere fisier: {filename}",
+  "@errorOpeningFileE": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "openingInBrowser": "Deschidere in browser...",
+  "failedToOpenPleaseTrySavingTheFileFirst": "Eroare deschidere fisier.Incercati sa salvati fisierul prima oara",
+  "fileGetfilenamefilekeyIsNotAvailableOffline": "Fisierul {filename} nu este valabil offline",
+  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+    "placeholders": {
+      "filename": {}
+    }
+  },
+  "shareFile": "Distribuire fisier",
+  "linkCopiedToClipboard": "Link copiat",
+  "share": "Distribuie",
+  "open": "Deschide",
+  "blazedExplorer": "Blazed Explorer",
+  "createFolder": "Creaza fisier",
+  "create": "Creaza",
+  "deleteFolder": "Sterge folder",
+  "confirmFolderDelete": "Sunteti sigur ca doriti sa stergeti acest folder? {foldername}",
+  "@confirmFolderDelete": {
+    "placeholders": {
+      "foldername": {}
+    }
+  },
+  "authenticationRequired": "Autentificare necesara",
+  "areYouSureYouWantToDeleteYourAccountThis": "Sunteti sigur ca doriti sa stergeti acest cont? Actiunea este ireversibila. Va trebui sa anulati abonamentul prin play store (daca aveti una)",
+  "deleteAccount": "Stergere cont",
+  "accountDeleted": "Cont sters",
+  "yourAccountHasBeenDeleted": "Contul dumneavoastra a fost sters.",
+  "ok": "OK",
+  "failedToDeleteAccount": "Eroare stergere cont",
+  "changeDownloadLocation": "Schimba locatia de instalare",
+  "changeEmail": "Schimba email",
+  "willSendALinkToYourEmailToCompleteThe": "Se trimite un mail cu linkul pentru completarea",
+  "viewBackendOnGithub": "Vedeti backend-ul pe Github",
+  "viewOnGithub": "Vedeti pe Github",
+  "autoDeleteAcount": "Stergere automata a contului",
+  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Stergeti contul automat dupa 90 de zile de inactivitate.Mereu ignorat pentru utilizatorii cu abonament.",
+  "signOut": "Deconectare",
+  "areYouSureYouWantToSignOut": "Sunteti sigur ca doriti sa va deconectati?",
+  "requireBiometricsToOpenApp": "Aplicatia necesita scanare biometrica pentru a fi deschisa",
+  "changePassword": "Schimba parola",
+  "willSendALinkToYourEmailToResetYour": "Se va trimite un mail pentru resetare parolei",
+  "downloading": "Instalare...",
+  "downloaded": "Instalat",
+  "selectDownloadDirectory": "Selectati fisierul de instalare",
+  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Selectati fisierul unde doriti instalarea fisierelor , pe urmatorul ecran",
+  "pickFolder": "Selectati folderul",
+  "offlineFilesAreStoredAtSnapshotdata": "Fisierele offline sunt tinute in {path}",
+  "@offlineFilesAreStoredAtSnapshotdata": {
+    "placeholders": {
+      "path": {}
+    }
+  },
+  "uploading": "Incarcare...",
+  "uploaded": "Incarcat",
+  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Cumparati 1TB folosind aplicatia de pe Play Store.Puteti dezinstala aplicatia dupa plata",
+  "folderName": "Nume folder",
+  "storageUsage": "Spatiu folosit",
+  "howLongToShare": "Pentru cat timp doriti sa fie disponibil pentru distribuire?",
+  "createAnAccount": "Creaza cont",
+  "allowedEmails": "Emailuri permise",
+  "close": "Inchide",
+  "viewAllowedEmailDomains": "Vedeti emailuri permise",
+  "welcomeBack": "Bine ati revenit!",
+  "upgradeStorage": "Crestere spatiu",
+  "failedToOpenPortal": "Nu se poate deschide portalul",
+  "manageAccount": "Gestionare cont",
+  "subscribedThroughPlaystoreOrAppstore": "Abonat prin playstore sau appstore",
+  "shareEmailVerificationNeeded": "Email-ul trebuie verificat sau sa aveti un abonament activ pentru a distribuii fisiere.",
+  "notVerified": "Email-ul nu este verificat",
+  "emailSent": "Email trimis",
+  "sendEmail": "Trimite email",
+  "privacyPolicy": "Poltica de confidentialitate",
+  "termsOfService": "Termenii serviciului",
+  "pleaseAuthenticateToAccessYourCloud": "Va rugam autentificativa pentru a intra in cloud.",
+  "allowMeteredConnections": "Permiteti conexiune masurata.",
+  "requireCharging": "Necesita schimbare",
+  "syncEnabled": "Sincronizare pornita",
+  "syncSettings": "Setari de sincronizare",
+  "account": "Cont",
+  "security": "Securitate",
+  "general": "General",
+  "currentlyNestedFoldersAreNotSupported": "Fisierele curente nested nu sunt disponibile.",
+  "cameraRollSync": "Sincronizare Rulou Aparat de Fotografiat",
+  "camSyncDesc": "Selectați folderul de pe dispozitivul dvs. în care aplicația dvs. de cameră salvează fotografii și videoclipuri. Nu caută recursiv fișierele. Se sincronizează aproximativ la fiecare 6 ore",
+  "selectSyncLocation": "Selectați Locația",
+  "changeSyncPath": "Schimbați Calea",
+  "syncing": "Se Sincronizează...",
+  "periodicallyBackingUpSelectedFolder": "Efectuând periodic backup pentru folderul selectat",
+  "syncNow": "Sincronizați Acum",
+  "cameraSync": "Sincronizare Aparat de Fotografiat",
+  "noTransfers": "Fără Transferuri",
+  "upgrade": "Upgrade"
+}
