@@ -76,3 +76,4 @@ class UsageCard extends ConsumerWidget {
       ),
     );
   }
+}
