@@ -38,11 +38,13 @@ void main() async {
     logger.w("Glassfy failed to initialize: $e");
   }
 
-  await Workmanager().initialize(
-      callbackDispatcher, // The top level function, aka callbackDispatcher
-      isInDebugMode:
-          kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
-      );
+  if (isMobile) {
+    await Workmanager().initialize(
+        callbackDispatcher, // The top level function, aka callbackDispatcher
+        isInDebugMode:
+            kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
+        );
+  }
 
   runApp(const MyApp());
 }
