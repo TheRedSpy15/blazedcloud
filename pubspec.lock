@@ -513,10 +513,10 @@ packages:
     dependency: transitive
     description:
       name: local_auth_android
-      sha256: "48dfb2d954da8ef6a77adfc93a29998f7729e9308eaa817e91dea4500317b2c8"
+      sha256: b77dc490fef9214e785c326bf11fa733feaa47675d0433f05f48b5caa486c8f7
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.39"
+    version: "1.0.40"
   local_auth_darwin:
     dependency: transitive
     description:
@@ -633,10 +633,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "9c96da072b421e98183f9ea7464898428e764bc0ce5567f27ec8693442e72514"
+      sha256: bca87b0165ffd7cdb9cad8edd22d18d2201e886d9a9f19b4fb3452ea7df3a72a
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.5"
+    version: "2.2.6"
   path_provider_foundation:
     dependency: transitive
     description:
