@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blazedcloud/constants.dart';
 import 'package:blazedcloud/controllers/download_controller.dart';
 import 'package:blazedcloud/controllers/upload_controller.dart';
@@ -32,6 +34,19 @@ void main() async {
             kDebugMode // If enabled it will post a notification whenever the task is running. Handy for debugging tasks
         );
   }
+
+  PlatformDispatcher.instance.onError = (error, stack) {
+    if (!kDebugMode) {
+      pb.collection('errors').create(body: {
+        'error': error.toString(),
+        'stack': stack.toString(),
+        'user': pb.authStore.model?.id ?? '',
+        'platform': Platform.operatingSystem,
+        'platformVersion': Platform.operatingSystemVersion,
+      });
+    }
+    return true;
+  };
 
   runApp(const MyApp());
 }
