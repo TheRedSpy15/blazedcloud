@@ -17,10 +17,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
-import 'package:native_dio_adapter/native_dio_adapter.dart';
 import 'package:workmanager/workmanager.dart';
-
-final dio = Dio()..httpClientAdapter = NativeAdapter();
 
 /// orchestrates uploads that are user initiated and need to interact with the UI
 class UploadController {
@@ -367,7 +364,7 @@ class UploadController {
         contentType: MediaType.parse(type),
       );
 
-      final response = await dio.put(
+      await dio.put(
         uploadUrl,
         data: multipartFile.finalize(),
         options:
@@ -399,6 +396,7 @@ class UploadController {
           }
         },
       );
+      logger.i('Upload success $fileKey');
       uploadState.completed();
       completer.complete(true);
 
@@ -410,9 +408,6 @@ class UploadController {
           logger.e('send port error ($fileKey): $error');
         }
       }
-
-      logger.i(
-          'Upload response: ${response.statusCode} ${response.statusMessage}');
     } catch (error) {
       switch (error) {
         case DioException():
