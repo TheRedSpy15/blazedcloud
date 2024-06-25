@@ -315,13 +315,16 @@ class FileItem extends ConsumerWidget {
                     timeLimit: const Duration(seconds: 5),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(10.0),
-                    compressionRatio: 0.1,
+                    compressionRatio: 0.5,
                     cache: true,
-                    cacheKey: base64Encode(fileKey.codeUnits),
+                    cacheKey: fileKey.codeUnits.toString(),
                     imageCacheName: 'image-cache',
                     cacheMaxAge: const Duration(days: 7),
                     width: 50,
                     height: 50,
+                    cacheHeight: 50,
+                    cacheWidth: 50,
+                    printError: false,
                     fit: BoxFit.fill,
                   );
                 })

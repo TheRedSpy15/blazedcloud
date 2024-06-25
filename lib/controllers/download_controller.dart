@@ -11,6 +11,7 @@ import 'package:blazedcloud/providers/transfers_providers.dart';
 import 'package:blazedcloud/services/files_api.dart';
 import 'package:blazedcloud/services/notifications.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -159,7 +160,12 @@ class DownloadController {
       return false;
     }
 
-    final downloadState = DownloadState.inProgress(fileKey);
+    final downloadState = DownloadState(
+        isDownloading: true,
+        isError: false,
+        downloadKey: fileKey,
+        recieved: 0,
+        size: 0);
     final completer = Completer<bool>();
     try {
       // Ensure the directory exists
@@ -167,28 +173,20 @@ class DownloadController {
       if (!await directory.exists()) {
         await directory.create(recursive: true);
       }
-
-      // Initialize progress to 0
-      double progress = 0.0;
-
       final file = File('$filePath.part');
 
       if (!await file.exists()) {
         await file.create(recursive: true);
       }
-      final sink = file.openWrite();
 
       const Duration rateLimit =
           Duration(milliseconds: 300); // Adjust the duration as needed
       DateTime lastDataSentTime = DateTime.now();
 
-      final response = await getFile(uid, fileKey, token);
-      response.stream.listen((data) async {
-        final totalBytes = response.contentLength ?? 0;
-        progress += data.length / totalBytes;
-        downloadState.updateProgress(progress);
-
-        sink.add(data);
+      final link = await getFileLink(uid, fileKey, token);
+      await dio.download(link, file.path, onReceiveProgress: (received, total) {
+        downloadState.updateProgress(received);
+        downloadState.size = total;
 
         // The port might be null if the main isolate is not running.
         if (sendPort != null) {
@@ -204,39 +202,29 @@ class DownloadController {
         } else {
           sendPort = IsolateNameServer.lookupPortByName("downloader");
         }
-      }, onError: (error) {
-        logger.e('Download error: $error');
-        sink.flush().then((_) => sink.close());
+      }, data: {'file': getFileName(fileKey)});
+
+      logger.i('Download complete');
+      file.renameSync(filePath);
+      downloadState.completed();
+      completer.complete(true);
+
+      if (sendPort != null) {
+        try {
+          sendPort!.send(jsonEncode(downloadState.toJson()));
+        } catch (error) {
+          logger.e('send port error ($fileKey): $error');
+        }
+      }
+    } catch (error) {
+      if (error is DioException) {
+        logger.e('Dio error: ${error.type}\n${error.response?.data}');
+        downloadState.setError(error.message ?? 'Unknown error');
+        completer.complete(false);
+      } else {
         downloadState.setError(error.toString());
         completer.complete(false);
-
-        if (sendPort != null) {
-          try {
-            sendPort!.send(jsonEncode(downloadState.toJson()));
-          } catch (error) {
-            logger.e('send port error ($fileKey): $error');
-          }
-        }
-      }, onDone: () {
-        logger.i('Download complete');
-        sink.flush().then((_) => sink.close().then((_) {
-              file.renameSync(filePath);
-              downloadState.completed();
-              completer.complete(true);
-
-              if (sendPort != null) {
-                try {
-                  sendPort!.send(jsonEncode(downloadState.toJson()));
-                } catch (error) {
-                  logger.e('send port error ($fileKey): $error');
-                }
-              }
-            }));
-      }, cancelOnError: true);
-    } catch (error) {
-      logger.e('Download error: $error');
-      downloadState.setError(error.toString());
-      completer.complete(false);
+      }
 
       if (sendPort != null) {
         try {
@@ -287,7 +275,12 @@ class DownloadController {
       }
     });
 
-    final downloadState = DownloadState.inProgress(download.fileKey);
+    final downloadState = DownloadState(
+        isDownloading: true,
+        isError: false,
+        downloadKey: download.fileKey,
+        recieved: 0,
+        size: 0);
     final completer = Completer<bool>();
     try {
       // Ensure the directory exists
@@ -296,27 +289,20 @@ class DownloadController {
         await directory.create(recursive: true);
       }
 
-      // Initialize progress to 0
-      double progress = 0.0;
-
       final file = File('$filePath.part');
 
       if (!await file.exists()) {
         await file.create(recursive: true);
       }
-      final sink = file.openWrite();
 
       const Duration rateLimit =
           Duration(milliseconds: 300); // Adjust the duration as needed
       DateTime lastDataSentTime = DateTime.now();
 
-      final response = await getFile(uid, download.fileKey, token);
-      response.stream.listen((data) async {
-        final totalBytes = response.contentLength ?? 0;
-        progress += data.length / totalBytes;
-        downloadState.updateProgress(progress);
-
-        sink.add(data);
+      final link = await getFileLink(uid, download.fileKey, token);
+      await dio.download(link, file.path, onReceiveProgress: (received, total) {
+        downloadState.updateProgress(received);
+        downloadState.size = total;
 
         // The port might be null if the main isolate is not running.
         if (sendPort != null) {
@@ -332,38 +318,21 @@ class DownloadController {
         } else {
           sendPort = IsolateNameServer.lookupPortByName("downloader");
         }
-      }, onError: (error) {
-        logger.e('Download error: $error');
-        sink.flush().then((_) => sink.close());
-        downloadState.setError(error.toString());
-        completer.complete(false);
+      });
 
-        if (sendPort != null) {
-          try {
-            sendPort!.send(jsonEncode(downloadState.toJson()));
-          } catch (error) {
-            logger.e('send port error (${download.fileKey}): $error');
-          }
-        }
-      }, onDone: () {
-        logger.i('Download complete');
-        sink.flush().then((_) async {
-          await sink.close();
-          file.renameSync(filePath);
-        });
-        downloadState.completed();
-        completer.complete(true);
+      logger.i('Download complete');
+      file.renameSync(filePath);
+      downloadState.completed();
+      completer.complete(true);
 
-        if (sendPort != null) {
-          try {
-            sendPort!.send(jsonEncode(downloadState.toJson()));
-          } catch (error) {
-            logger.e('send port error (${download.fileKey}): $error');
-          }
+      if (sendPort != null) {
+        try {
+          sendPort!.send(jsonEncode(downloadState.toJson()));
+        } catch (error) {
+          logger.e('send port error (${download.fileKey}): $error');
         }
-      }, cancelOnError: true);
+      }
     } catch (error) {
-      logger.e('Download error: $error');
       downloadState.setError(error.toString());
       completer.complete(false);
 

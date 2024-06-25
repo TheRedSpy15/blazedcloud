@@ -44,7 +44,7 @@ class TransfersPage extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                                '${(transfer.progress * 100).toStringAsFixed(2)}%'),
+                                '${(transfer.progress * 100).clamp(0, 100).toStringAsFixed(2)}%'),
                             transfer.isError
                                 ? Text('Error: ${transfer.errorMessage}')
                                 : transfer.isDownloading

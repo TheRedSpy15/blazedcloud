@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -7,28 +6,27 @@ import 'package:blazedcloud/log.dart';
 import 'package:blazedcloud/models/files_api/list_files.dart';
 import 'package:blazedcloud/models/files_api/usage.dart';
 import 'package:blazedcloud/utils/files_utils.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
+import 'package:native_dio_adapter/native_dio_adapter.dart';
 
-/// in memory list of file links. To prevent constantly getting links from the server for file page
-final fileLinks = <String, String>{};
-final httpClient = http.Client();
+final dio = Dio()
+  ..options.baseUrl = backendUrl
+  ..interceptors.add(QueuedInterceptor())
+  ..httpClientAdapter = NativeAdapter();
 
 Future<void> changeObjectKey(
     String uid, String oldKey, String newKey, String token) async {
   var headers = {'Authorization': 'Bearer $token'};
-  var request =
-      http.MultipartRequest('POST', Uri.parse('$backendUrl/data/rename/$uid'));
-  request.fields.addAll({'oldKey': oldKey, 'newKey': newKey});
 
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.post('/data/rename/$uid',
+      queryParameters: {'oldKey': oldKey, 'newKey': newKey},
+      options: Options(headers: headers));
 
   if (response.statusCode == 200) {
     logger.d("Renamed object $oldKey to $newKey");
   } else {
     logger.e(
-        "Failed to rename object $oldKey to $newKey. ${response.reasonPhrase}\n${await response.stream.bytesToString()}");
+        "Failed to rename object $oldKey to $newKey. ${response.statusMessage}\n${response.statusCode}");
     throw Exception('Failed to rename object');
   }
 }
@@ -43,58 +41,47 @@ Future<bool> createFolder(String folderKey) async {
       pb.authStore.model.id, filename, pb.authStore.token, body.length,
       contentType: "");
 
-  final response = await httpClient.put(Uri.parse(uploadUrl), body: body);
+  final response = await dio.put(uploadUrl, data: body);
   return response.statusCode == 200;
 }
 
 Future<bool> deleteFile(String uid, String fileKey, String token) async {
-  var headers = {'Authorization': 'Bearer $token'};
-  var request = http.MultipartRequest(
-      'DELETE', Uri.parse('$backendUrl/data/delete/$uid/file'));
-  request.fields.addAll({'fileKey': fileKey});
-
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.delete('/data/delete/$uid/file',
+      queryParameters: {'fileKey': filterUidFromKey(fileKey)},
+      options: Options(headers: {'Authorization': 'Bearer $token'}));
 
   if (response.statusCode == 200) {
     logger.d("Deleted file $fileKey");
     return true;
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     return false;
   }
 }
 
 Future<bool> deleteFolder(String uid, String folderKey, String token) async {
-  var headers = {'Authorization': 'Bearer $token'};
-  var request = http.MultipartRequest(
-      'DELETE', Uri.parse('$backendUrl/data/delete/$uid/folder'));
-  request.fields.addAll({'folderKey': filterUidFromKey(folderKey)});
-
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.delete('/data/delete/$uid/folder',
+      queryParameters: {'folderKey': filterUidFromKey(folderKey)},
+      options: Options(headers: {'Authorization': 'Bearer $token'}));
 
   if (response.statusCode == 200) {
     logger.d("Deleted folder $folderKey");
     return true;
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     return false;
   }
 }
 
 Future<List<String>> getAllowedEmailDomains() async {
-  var request = http.Request('GET', Uri.parse('$backendUrl/config/emails'));
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.get('/config/emails',
+      options: Options(responseType: ResponseType.json));
 
   if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
-    logger.d("Got allowed email domains $responseBody");
-    return List<String>.from(jsonDecode(responseBody));
+    logger.d("Got allowed email domains $response.data");
+    return List<String>.from(response.data);
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
 
     // fallback to protonmail and gmail
     return [
@@ -110,14 +97,10 @@ Future<List<String>> getAllowedEmailDomains() async {
 /// gets all objects in camera-backup folder. Rate limited to 1 request per second by api.
 /// Returns only the string after the last / in the key
 Future<List<String>> getCameraSyncList(String uid, String token) async {
-  var headers = {'Authorization': 'Bearer $token', 'redirect': 'follow'};
-  var request = http.Request(
-      'GET', Uri.parse('$backendUrl/data/listall/camerasync/$uid'));
-
-  request.headers.addAll(headers);
-
-  // data is returned as array of Contents objects
-  final response = await httpClient.send(request);
+  final response = await dio.get('/data/listall/camerasync/$uid',
+      options: Options(
+          headers: {'Authorization': 'Bearer $token', 'redirect': 'follow'},
+          responseType: ResponseType.json));
 
   if (response.statusCode == HttpStatus.insufficientStorage) {
     throw Exception('folderSync cancelled - Not enough storage');
@@ -125,151 +108,77 @@ Future<List<String>> getCameraSyncList(String uid, String token) async {
 
   if (response.statusCode == 200) {
     List<String> keys = List.empty(growable: true);
-    final responseBody = await response.stream.bytesToString();
 
     try {
-      final json = jsonDecode(responseBody);
-      for (var item in json) {
+      for (var item in response.data) {
         keys.add(item['Key'].split('/').last);
       }
     } catch (e) {
       logger.e("Error parsing camera sync list: $e");
-      logger.e(responseBody);
+      logger.e(response.data);
     }
 
     return keys;
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     throw Exception('Failed to camera sync list');
-  }
-}
-
-Future<http.StreamedResponse> getFile(
-    String uid, String fileKey, String token) async {
-  logger.i("Getting file ${getFileName(fileKey)} with key $fileKey");
-  final link = await getFileLink(uid, fileKey, token);
-
-  var request = http.MultipartRequest('GET', Uri.parse(link.toString()));
-  request.fields.addAll({'file': getFileName(fileKey)});
-
-  http.StreamedResponse response = await httpClient.send(request);
-
-  if (response.statusCode == 200) {
-    logger.d("Got file $fileKey");
-    return response;
-  } else {
-    response.stream.bytesToString().then((value) => logger
-        .e("${response.reasonPhrase} - ${response.statusCode} \n $value"));
-    logger.e("");
-    throw Exception('Failed to get file');
   }
 }
 
 /// don't call directly to download files. This is used by getFile(). Unless you want to share the link
 Future<String> getFileLink(String uid, String filename, String token,
     {bool sharing = false, String duration = "15m"}) async {
-  var request =
-      http.MultipartRequest('POST', Uri.parse('$backendUrl/data/down/$uid'));
-
-  if (!sharing) {
-    // check in memory list first
-    if (fileLinks.containsKey(filename)) {
-      return fileLinks[filename]!;
-    }
-
-    request.fields.addAll({'filename': filename});
-  } else {
-    request.fields.addAll(
-        {'filename': filename, 'duration': duration, 'useShlink': 'true'});
+  dynamic body = {'filename': filename};
+  if (sharing) {
+    body = {'filename': filename, 'duration': duration, 'useShlink': 'true'};
   }
 
-  var headers = {'Authorization': 'Bearer $token'};
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.post('/data/down/$uid',
+      queryParameters: body,
+      options: Options(headers: {'Authorization': 'Bearer $token'}));
 
   if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
-
-    // add link to in memory list if not sharing
-    if (!sharing) {
-      fileLinks[filename] = responseBody;
-    }
-
-    return responseBody;
+    return response.data;
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     throw Exception('Failed to get link');
-  }
-}
-
-Future<ListBucketResult> getFilelist(
-    String uid, String from, String token) async {
-  logger.d("Getting file list for $uid");
-  var headers = {'Authorization': 'Bearer $token'};
-  var request = http.Request('POST', Uri.parse('$backendUrl/data/list/$uid'));
-
-  request.body = jsonEncode({'from': from});
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
-
-  if (response.statusCode == 200) {
-    final responseBody = await response.stream.transform(utf8.decoder).join();
-    return ListBucketResult.fromJson(jsonDecode(responseBody));
-  } else {
-    logger.e(response.reasonPhrase);
-    throw Exception('Failed to load file list');
   }
 }
 
 Future<ListBucketResult> getFilelistByFolder(
     String uid, String prefix, String token) async {
   logger.d("Getting file list $prefix");
-  var headers = {'Authorization': 'Bearer $token'};
-
-  var form = {'prefix': prefix};
-  final response = await httpClient.post(
-      Uri.parse('$backendUrl/data/v2/list/$uid'),
-      headers: headers,
-      body: form);
+  final response = await dio.post('/data/v2/list/$uid',
+      queryParameters: {'prefix': prefix},
+      options: Options(
+          headers: {'Authorization': 'Bearer $token'},
+          responseType: ResponseType.json));
 
   if (response.statusCode == 200) {
-    final result = ListBucketResult.fromJson(jsonDecode(response.body));
+    final result = ListBucketResult.fromJson(response.data);
     logger.d("Got file list. Size: ${result.contents?.length} Prefix: $prefix");
 
     // sort by creation date
     result.contents?.sort((a, b) => b.lastModified!.compareTo(a.lastModified!));
-
-    // remove place holder file
-    result.contents?.removeWhere((element) =>
-        element.key == "$prefix.blazed-placeholder" ||
-        element.key == "$prefix/.blazed-placeholder");
-
     return result;
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     throw Exception('Failed to load file list');
   }
 }
 
 /// gets all objects for a user. Rate limited to 1 request per second by api. Returns only keys
 Future<List<String>> getSearchList(String uid, String token) async {
-  var headers = {'Authorization': 'Bearer $token', 'redirect': 'follow'};
-  var request = http.Request('GET', Uri.parse('$backendUrl/data/listall/$uid'));
-
-  request.headers.addAll(headers);
-
-  // data is returned as array of Contents objects
-  final response = await httpClient.send(request);
+  final response = await dio.get('/data/listall/$uid',
+      options: Options(
+          headers: {'Authorization': 'Bearer $token', 'redirect': 'follow'},
+          responseType: ResponseType.json));
 
   if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
     List<String> keys = List.empty(growable: true);
 
     try {
-      final json = jsonDecode(responseBody);
-      for (var item in json) {
+      for (var item in response.data) {
         keys.add(item['Key']);
       }
     } catch (e) {
@@ -278,27 +187,24 @@ Future<List<String>> getSearchList(String uid, String token) async {
 
     return keys;
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     throw Exception('Failed to load file list');
   }
 }
 
 Future<String> getStripeCheckout(
     String uid, String priceId, String token) async {
-  var headers = {'Authorization': 'Bearer $token'};
-  var request =
-      http.Request('POST', Uri.parse('$backendUrl/stripe/checkout/$uid'));
-  request.bodyFields = {'priceId': priceId};
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.post('/stripe/checkout/$uid',
+      queryParameters: {'priceId': priceId},
+      options: Options(
+          headers: {'Authorization': 'Bearer $token'},
+          responseType: ResponseType.json));
 
   if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
-    logger.d("Got stripe checkout $responseBody");
-    return jsonDecode(responseBody)['url'];
+    logger.d("Got stripe checkout ${response.data}");
+    return response.data['url'];
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     throw Exception('Failed to get stripe checkout');
   }
 }
@@ -307,25 +213,18 @@ Future<String> getStripeCheckout(
 Future<String> getUploadUrl(
     String uid, String fileKey, String token, int length,
     {String contentType = "application/octet-stream"}) async {
-  var headers = {'Authorization': 'Bearer $token'};
-  var request =
-      http.MultipartRequest('POST', Uri.parse('$backendUrl/data/v2/up/$uid'));
-  request.fields.addAll({
-    'filename': fileKey,
-    'contentType': contentType,
-    'contentSize': length.toString()
-  });
-
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.post('/data/v2/up/$uid',
+      queryParameters: {
+        'filename': fileKey,
+        'contentType': contentType,
+        'contentSize': length.toString()
+      },
+      options: Options(headers: {'Authorization': 'Bearer $token'}));
 
   if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
-    return (responseBody);
+    return (response.data);
   } else {
-    logger.e(
-        "Upload Failed: ${response.reasonPhrase} ${response.statusCode}\n${await response.stream.bytesToString()}");
+    logger.e("Upload Failed: ${response.statusMessage} ${response.statusCode}");
     throw Exception('Failed to get upload url');
   }
 }
@@ -333,19 +232,15 @@ Future<String> getUploadUrl(
 Future<Usage> getUsage(String uid, String token) async {
   logger.d("Getting usage for $uid");
 
-  var headers = {'Authorization': 'Bearer $token'};
-  var request =
-      http.Request('GET', Uri.parse('$backendUrl/data/v2/usage/$uid'));
-
-  request.headers.addAll(headers);
-
-  http.StreamedResponse response = await httpClient.send(request);
+  final response = await dio.get('/data/v2/usage/$uid',
+      options: Options(
+          headers: {'Authorization': 'Bearer $token'},
+          responseType: ResponseType.json));
 
   if (response.statusCode == 200) {
-    final responseBody = await response.stream.bytesToString();
-    return Usage.fromJson(jsonDecode(responseBody));
+    return Usage.fromJson(response.data);
   } else {
-    logger.e(response.reasonPhrase);
+    logger.e(response.statusMessage);
     throw Exception('Failed to load usage');
   }
 }
