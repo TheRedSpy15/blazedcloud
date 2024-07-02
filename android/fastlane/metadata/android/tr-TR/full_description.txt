@@ -1,0 +1,24 @@
+Sorunsuz ve güvenli bir dosya yönetimi deneyimi için bulut depolama çözümünüz Blazed Cloud'a hoş geldiniz!
+
+- Askeri Sınıf AES-256 Şifreleme:
+Dosyalarınızın askeri düzeyde AES-256 şifrelemeyle korunduğunu bilmenin rahatlığını yaşayın. Blazed Cloud gizliliğinizi ciddiye alır ve değerli verilerinize yalnızca sizin erişebilmenizi sağlar.
+
+- Basit ve Sezgisel Tasarım:
+Blazed Cloud, basitlik göz önünde bulundurularak tasarlanmıştır. Gereksiz gösterişler yok, kafa karıştırıcı özellikler yok; yalnızca size tam olarak ihtiyacınız olanı veren temiz bir arayüz. Birkaç dokunuşla dosyalarınızı zahmetsizce yükleyin, indirin ve yönetin.
+
+- Otomatik Kamera Yüklemesi:
+Değerli anılarınızın, onları her zaman manuel olarak yükleme zorunluluğuyla güvende tutulduğu konusunda içiniz rahat olsun
+
+- Başkalarının gözetlemesini önleyin!:
+Cihazınızın Biyometrik güvenliği desteklemesi. Blazed Cloud uygulamanızı tek bir düğmeye dokunarak kilitlemeniz yeterlidir. Bir dahaki sefere birisi onu açmaya çalıştığında, kendisinin siz olduğunuzu doğrulaması gerekecek
+
+- Zahmetsiz Dosya Paylaşımı:
+Ne kadar süreyle paylaşmak istediğinizi belirlemeniz yeterli; paylaşılabilir URL'niz cihazınızın panosuna kopyalanacaktır.
+
+- Platformlar Arası Uyumluluk:
+Dosyalarınıza tüm cihazlarınızdan sorunsuz bir şekilde erişin. Blazed Cloud, verilerinize erişme yeteneğinizden emin olmanıza yardımcı olmak için platformlar arası bir tasarımla oluşturulmuştur
+
+- Sizin Bulutunuz, Sizin Yolunuz:
+Bulut depolama deneyiminizi ihtiyaçlarınıza uyacak şekilde özelleştirin. Dosyalarınızı düzenleyin, klasörler oluşturun ve verilerinize istediğiniz zaman, istediğiniz yerden erişin. Blazed Cloud kontrolün sizde olmasını sağlar.
+
+Basit. Güvenli. Özel.

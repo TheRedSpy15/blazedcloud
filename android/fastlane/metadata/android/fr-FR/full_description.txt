@@ -1,0 +1,24 @@
+Bienvenue sur Blazed Cloud, votre solution de stockage cloud pour une expérience de gestion de fichiers transparente et sécurisée !
+
+- Cryptage AES-256 de qualité militaire:
+Soyez tranquille en sachant que vos fichiers sont protégés avec un cryptage AES-256 de niveau militaire. Blazed Cloud prend votre confidentialité au sérieux, garantissant que vous seul avez accès à vos précieuses données.
+
+- Conception simple et intuitive:
+Blazed Cloud est conçu dans un souci de simplicité. Pas de fioritures inutiles, pas de fonctionnalités déroutantes : juste une interface claire qui vous offre exactement ce dont vous avez besoin. Téléchargez, téléchargez et gérez vos fichiers sans effort en quelques clics.
+
+- Téléchargement automatique de la caméra:
+Ayez l'esprit tranquille en sachant que vos précieux souvenirs sont conservés en sécurité sans avoir à les télécharger manuellement à tout moment.
+
+- Empêchez les autres de fouiner !:
+À condition que votre appareil prenne en charge la sécurité biométrique. Vous verrouillez simplement votre application Blazed Cloud en appuyant simplement sur un bouton. La prochaine fois que quelqu'un essaiera de l'ouvrir, il devra vérifier qu'il s'agit bien de vous.
+
+- Partage de fichiers sans effort:
+Définissez simplement la durée pendant laquelle vous souhaitez partager et votre URL partageable sera copiée dans le presse-papiers de votre appareil.
+
+- Compatibilité multiplateforme:
+Accédez à vos fichiers de manière transparente sur tous vos appareils. Blazed Cloud est construit avec une conception multiplateforme pour vous aider à avoir confiance dans votre capacité à accéder à vos données.
+
+- Votre cloud, à votre façon:
+Personnalisez votre expérience de stockage cloud en fonction de vos besoins. Organisez vos fichiers, créez des dossiers et accédez à vos données à tout moment et en tout lieu. Blazed Cloud vous donne le contrôle.
+
+Simple. Sécurisé. Privé.

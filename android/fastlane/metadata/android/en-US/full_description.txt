@@ -1,0 +1,24 @@
+Welcome to Blazed Cloud, your the cloud storage solution for a seamless and secure file management experience!
+
+- Military Grade AES-256 Encryption:
+Rest easy knowing that your files are safeguarded with military-grade AES-256 encryption. Blazed Cloud takes your privacy seriously, ensuring that only you have access to your valuable data.
+
+- Simple and Intuitive Design:
+Blazed Cloud is designed with simplicity in mind. No unnecessary frills, no confusing features—just a clean interface that gives you exactly what you need. Effortlessly upload, download, and manage your files with a few taps.
+
+- Automatic Camera Upload:
+Have peace of mind that your precious memories are kept safe with the hassle of manually uploading them all the time
+
+- Keep others from snooping!:
+Providing your device supports Biometric security. You simply lock your Blazed Cloud app with just a tap of a button. Next time someone tries to open it, they'll need to verify they're you
+
+- Effortless File Sharing:
+Just set a duration of how long you want to share, and your shareable URL will be copied to your device clipboard
+
+- Cross-Platform Compatibility:
+Access your files seamlessly across all your devices. Blazed Cloud is built with a cross platform design to help you feel confident in your ability to access your data
+
+- Your Cloud, Your Way:
+Customize your cloud storage experience to suit your needs. Organize your files, create folders, and access your data anytime, anywhere. Blazed Cloud puts you in control.
+
+Simple. Secure. Private.

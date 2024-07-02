@@ -6,6 +6,8 @@ class DownloadState {
   String? errorMessage;
   double progress;
   String downloadKey;
+  int recieved = 0;
+  int size = 0;
 
   DownloadState({
     required this.isDownloading,
@@ -13,6 +15,8 @@ class DownloadState {
     this.errorMessage,
     this.progress = 0.0,
     required this.downloadKey,
+    required this.recieved,
+    required this.size,
   });
 
   factory DownloadState.error(String errorMessage) => DownloadState(
@@ -20,6 +24,8 @@ class DownloadState {
         isError: true,
         errorMessage: errorMessage,
         downloadKey: '',
+        size: 0,
+        recieved: 0,
       );
   factory DownloadState.fromJson(Map<String, dynamic> json) {
     return DownloadState(
@@ -28,18 +34,10 @@ class DownloadState {
       errorMessage: json['errorMessage'],
       progress: json['progress'] ?? 0.0,
       downloadKey: json['downloadKey'] ?? '',
+      recieved: json['recieved'] ?? 0,
+      size: json['size'] ?? 0,
     );
   }
-  factory DownloadState.idle() => DownloadState(
-        isDownloading: false,
-        isError: false,
-        downloadKey: '',
-      );
-  factory DownloadState.inProgress(String name) => DownloadState(
-        isDownloading: true,
-        isError: false,
-        downloadKey: name,
-      );
 
   void completed() => isDownloading = false;
 
@@ -57,10 +55,13 @@ class DownloadState {
       'errorMessage': errorMessage,
       'progress': progress,
       'downloadKey': downloadKey,
+      'recieved': recieved,
+      'size': size,
     };
   }
 
-  void updateProgress(double newProgress) {
-    progress = newProgress;
+  void updateProgress(int totalReceived) {
+    recieved = totalReceived;
+    progress = totalReceived / size;
   }
 }

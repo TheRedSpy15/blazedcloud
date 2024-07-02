@@ -51,9 +51,11 @@ Releases are also available directly via GitHub
 
 ## Desktop usage
 
-**Windows: https://github.com/TheRedSpy15/blazedcloud/blob/main/how-to-windows.md**
+**- Windows: https://github.com/TheRedSpy15/blazedcloud/blob/main/how-to-windows.md**
 
-**Linux & Mac pending more testing**
+**- Mac: download from Appstore**
+
+**Linux pending more testing**
 
 ## Access from the web
 

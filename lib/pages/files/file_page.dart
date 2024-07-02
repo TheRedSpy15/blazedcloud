@@ -103,10 +103,10 @@ class FilesPage extends ConsumerWidget {
                       int fileSize = files[fileIndex].size ?? 0;
                       String uploaded = files[fileIndex].lastModified ?? "";
                       if (fileKey.contains(".blazed-placeholder")) {
-                        return const SizedBox.shrink();
+                        return null;
                       }
                       if (fileKey.endsWith(".part")) {
-                        return const SizedBox.shrink();
+                        return null;
                       }
                       return FileItem(
                         fileKey: fileKey,

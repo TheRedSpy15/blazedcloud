@@ -2,7 +2,7 @@ name: blazedcloud
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -17,10 +17,10 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
 # format: x.x.x+x0x0x
-version: 1.6.1+10601
+version: 1.6.4+10604
 
 environment:
-  sdk: '>=3.1.2 <4.0.0'
+  sdk: ">=3.1.2 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -41,7 +41,6 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   shared_preferences: ^2.2.1
   flutter_riverpod: ^2.4.0
-  http: ^1.1.0
   file_picker: ^8.0.2
   flutter_local_notifications: ^17.1.0
   open_filex: ^4.3.2
@@ -49,7 +48,7 @@ dependencies:
   glassfy_flutter: ^1.6.2
   http_parser: ^4.0.2
   mime: ^1.0.4
-  dio: ^5.3.3
+  dio: ^5.4.3+1
   url_launcher: ^6.2.1
   badges: ^3.1.2
   workmanager:
@@ -79,19 +78,6 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
-  flutter_launcher_icons: "^0.13.1"
-
-flutter_launcher_icons:
-  android: "launcher_icon"
-  adaptive_icon_background: "#000000"
-  adaptive_icon_foreground: "assets/icon/icon.png"
-  ios: true
-  windows:
-    generate: true
-    image_path: "assets/icon/icon.png"
-    icon_size: 48 # min:48, max:256, default: 48
-  image_path: "assets/icon/icon.png"
-  min_sdk_android: 21 # android min sdk min:16, default 21
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
