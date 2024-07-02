@@ -47,8 +47,6 @@ Releases are also available directly via GitHub
      alt="Get it on Google Play"
      height="100">](https://play.google.com/store/apps/details?id=com.chancesoftwarellc.blazedcloud)
 
-**Play store users: The playstore varient of the app has Firebase Crashlytics bundled (as of 1.3.3). This is to have some level of error reporting for us to fix crashes. You can avoid this by downloading from Github directly, or through FDroid!**
-
 ## Desktop usage
 
 **- Windows: https://github.com/TheRedSpy15/blazedcloud/blob/main/how-to-windows.md**
