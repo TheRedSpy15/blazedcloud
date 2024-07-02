@@ -1,150 +1,152 @@
 {
-  "@@locale": "es",
-  "serverMaintenance": "El servidor está actualmente en mantenimiento. Por favor, inténtalo de nuevo más tarde.",
-  "appName": "Blazed Cloud",
-  "save": "Guardar",
-  "delete": "Eliminar",
-  "emptyDirectory": "Sin archivos o carpetas",
-  "errorErr": "Error: {err}",
-  "@errorErr": {
-    "placeholders": {
-      "err": {}
-    }
-  },
-  "invalidEmailOrPassword": "Correo electrónico o contraseña inválidos",
-  "login": "Iniciar sesión",
-  "forgotPassword": "¿Olvidaste la contraseña?",
-  "resetPassword": "Restablecer contraseña",
-  "email": "Correo electrónico",
-  "cancel": "Cancelar",
-  "passwordResetEmailSent": "¡Correo electrónico de restablecimiento de contraseña enviado!",
-  "errorSendingPasswordResetEmail": "Error al enviar el correo electrónico de restablecimiento de contraseña",
-  "send": "Enviar",
-  "password": "Contraseña",
-  "settings": "Configuraciones",
-  "transfers": "Transferencias",
-  "files": "Archivos",
-  "emailDomainNotAllowed": "Dominio de correo electrónico no permitido",
-  "passwordMustBePasswordminlengthCharactersLong": "La contraseña debe tener {length} caracteres de longitud",
-  "@passwordMustBePasswordminlengthCharactersLong": {
-    "placeholders": {
-      "length": {}
-    }
-  },
-  "signUp": "Registrarse",
-  "failedLogingInAfterSignup": "Fallo al iniciar sesión después del registro",
-  "errorSendingRequest": "Error al enviar la solicitud",
-  "requestSent": "¡Solicitud enviada!",
-  "errorUpdatingUserPleaseTryAgain": "Error al actualizar el usuario. Por favor, inténtalo de nuevo.",
-  "deleteFile": "Eliminar archivo",
-  "areYouSureYouWantToDeleteThisFile": "¿Estás seguro de que quieres eliminar este archivo?",
-  "downloadingGetfilenamefilekey": "Descargando {filename}",
-  "@downloadingGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingFileGetfilenamefilekey": "Abriendo archivo: {filename}",
-  "@openingFileGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "errorOpeningFileE": "Error al abrir el archivo: {filename}",
-  "@errorOpeningFileE": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingInBrowser": "Abriendo en el navegador...",
-  "failedToOpenPleaseTrySavingTheFileFirst": "Error al abrir. Por favor, intenta guardar el archivo primero",
-  "fileGetfilenamefilekeyIsNotAvailableOffline": "El archivo {filename} no está disponible sin conexión",
-  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "shareFile": "Compartir archivo",
-  "linkCopiedToClipboard": "Enlace copiado al portapapeles",
-  "share": "Compartir",
-  "open": "Abrir",
-  "blazedExplorer": "Blazed Explorer",
-  "createFolder": "Crear carpeta",
-  "create": "Crear",
-  "deleteFolder": "Eliminar carpeta",
-  "confirmFolderDelete": "¿Estás seguro de que quieres eliminar esta carpeta? {foldername}",
-  "@confirmFolderDelete": {
-    "placeholders": {
-      "foldername": {}
-    }
-  },
-  "authenticationRequired": "Autenticación requerida",
-  "areYouSureYouWantToDeleteYourAccountThis": "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción a través de la tienda de juegos manualmente (si tienes una)",
-  "deleteAccount": "Eliminar cuenta",
-  "accountDeleted": "Cuenta eliminada",
-  "yourAccountHasBeenDeleted": "Tu cuenta ha sido eliminada.",
-  "ok": "OK",
-  "failedToDeleteAccount": "Error al eliminar la cuenta",
-  "changeDownloadLocation": "Cambiar ubicación de descarga",
-  "changeEmail": "Cambiar correo electrónico",
-  "willSendALinkToYourEmailToCompleteThe": "Enviaremos un enlace a tu correo electrónico para completar el cambio",
-  "viewBackendOnGithub": "Ver backend en Github",
-  "viewOnGithub": "Ver en Github",
-  "autoDeleteAcount": "Eliminar cuenta automáticamente",
-  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Eliminar tu cuenta después de 90 días de inactividad. Siempre se ignora para usuarios con suscripciones activas.",
-  "signOut": "Cerrar sesión",
-  "areYouSureYouWantToSignOut": "¿Estás seguro de que quieres cerrar sesión?",
-  "requireBiometricsToOpenApp": "Requerir biometría para abrir la aplicación",
-  "changePassword": "Cambiar contraseña",
-  "willSendALinkToYourEmailToResetYour": "Enviaremos un enlace a tu correo electrónico para restablecer tu contraseña",
-  "downloading": "Descargando...",
-  "downloaded": "Descargado",
-  "selectDownloadDirectory": "Seleccionar directorio de descarga",
-  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Por favor, selecciona un directorio donde te gustaría descargar tus archivos en la próxima pantalla.",
-  "pickFolder": "Seleccionar carpeta",
-  "offlineFilesAreStoredAtSnapshotdata": "Los archivos sin conexión se almacenan en {path}",
-  "@offlineFilesAreStoredAtSnapshotdata": {
-    "placeholders": {
-      "path": {}
-    }
-  },
-  "uploading": "Subiendo...",
-  "uploaded": "Subido",
-  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compra 1TB utilizando la versión de Playstore. Puedes desinstalar esa versión cuando hayas terminado.",
-  "folderName": "Nombre de la carpeta",
-  "storageUsage": "Uso de almacenamiento",
-  "howLongToShare": "¿Cuánto tiempo debería estar disponible el archivo para compartir?",
-  "createAnAccount": "Crear una cuenta",
-  "allowedEmails": "Correos electrónicos permitidos",
-  "close": "Cerrar",
-  "viewAllowedEmailDomains": "Ver dominios de correo electrónico permitidos",
-  "welcomeBack": "¡Bienvenido de nuevo!",
-  "upgradeStorage": "Actualizar Almacenamiento",
-  "failedToOpenPortal": "Error al abrir el portal",
-  "manageAccount": "Gestionar Cuenta",
-  "subscribedThroughPlaystoreOrAppstore": "Suscripto a través de Playstore o Appstore",
-  "shareEmailVerificationNeeded": "Es necesario verificar el correo electrónico o tener una suscripción activa para compartir archivos.",
-  "notVerified": "Correo electrónico no verificado",
-  "emailSent": "Correo electrónico enviado",
-  "sendEmail": "Enviar correo electrónico",
-  "privacyPolicy": "Política de privacidad",
-  "termsOfService": "Términos de servicio",
-  "pleaseAuthenticateToAccessYourCloud": "Por favor, autentíquese para acceder a su nube",
-  "allowMeteredConnections": "Permitir conexiones con tarifa",
-  "requireCharging": "Requiere carga",
-  "syncEnabled": "Sincronización activada",
-  "syncSettings": "Configuración de sincronización",
-  "account": "Cuenta",
-  "security": "Seguridad",
-  "general": "General",
-  "currentlyNestedFoldersAreNotSupported": "Actualmente no se admiten carpetas anidadas.",
-  "cameraRollSync": "Sincronización de rollo de cámara",
-  "camSyncDesc": "Seleccione la carpeta en su dispositivo donde su aplicación de cámara guarda fotos y videos. No busca de forma recursiva archivos. Sincroniza aproximadamente cada 6 horas.",
-  "selectSyncLocation": "Seleccionar ubicación",
-  "changeSyncPath": "Cambiar ruta",
-  "syncing": "Sincronizando...",
-  "periodicallyBackingUpSelectedFolder": "Haciendo copia de seguridad periódicamente de la carpeta seleccionada",
-  "syncNow": "Sincronizar ahora",
-  "cameraSync": "Sincronización de cámara",
-  "noTransfers": "No transfers"
+    "@@locale": "es",
+    "serverMaintenance": "El servidor está actualmente en mantenimiento. Por favor, inténtalo de nuevo más tarde.",
+    "appName": "Blazed Cloud",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "emptyDirectory": "Sin archivos o carpetas",
+    "errorErr": "Error: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "Correo electrónico o contraseña inválidos",
+    "login": "Iniciar sesión",
+    "forgotPassword": "¿Olvidaste la contraseña?",
+    "resetPassword": "Restablecer contraseña",
+    "email": "Correo electrónico",
+    "cancel": "Cancelar",
+    "passwordResetEmailSent": "¡Correo electrónico de restablecimiento de contraseña enviado!",
+    "errorSendingPasswordResetEmail": "Error al enviar el correo electrónico de restablecimiento de contraseña",
+    "send": "Enviar",
+    "password": "Contraseña",
+    "settings": "Configuraciones",
+    "transfers": "Transferencias",
+    "files": "Archivos",
+    "emailDomainNotAllowed": "Dominio de correo electrónico no permitido",
+    "passwordMustBePasswordminlengthCharactersLong": "La contraseña debe tener {length} caracteres de longitud",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "Registrarse",
+    "failedLogingInAfterSignup": "Fallo al iniciar sesión después del registro",
+    "errorSendingRequest": "Error al enviar la solicitud",
+    "requestSent": "¡Solicitud enviada!",
+    "errorUpdatingUserPleaseTryAgain": "Error al actualizar el usuario. Por favor, inténtalo de nuevo.",
+    "deleteFile": "Eliminar archivo",
+    "areYouSureYouWantToDeleteThisFile": "¿Estás seguro de que quieres eliminar este archivo?",
+    "downloadingGetfilenamefilekey": "Descargando {filename}",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "Abriendo archivo: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "Error al abrir el archivo: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "Abriendo en el navegador...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Error al abrir. Por favor, intenta guardar el archivo primero",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "El archivo {filename} no está disponible sin conexión",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "Compartir archivo",
+    "linkCopiedToClipboard": "Enlace copiado al portapapeles",
+    "share": "Compartir",
+    "open": "Abrir",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "Crear carpeta",
+    "create": "Crear",
+    "deleteFolder": "Eliminar carpeta",
+    "confirmFolderDelete": "¿Estás seguro de que quieres eliminar esta carpeta? {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "Autenticación requerida",
+    "areYouSureYouWantToDeleteYourAccountThis": "¿Estás seguro de que quieres eliminar tu cuenta? Esto es irreversible. Ten en cuenta que deberás cancelar tu suscripción a través de la tienda de juegos manualmente (si tienes una)",
+    "deleteAccount": "Eliminar cuenta",
+    "accountDeleted": "Cuenta eliminada",
+    "yourAccountHasBeenDeleted": "Tu cuenta ha sido eliminada.",
+    "ok": "OK",
+    "failedToDeleteAccount": "Error al eliminar la cuenta",
+    "changeDownloadLocation": "Cambiar ubicación de descarga",
+    "changeEmail": "Cambiar correo electrónico",
+    "willSendALinkToYourEmailToCompleteThe": "Enviaremos un enlace a tu correo electrónico para completar el cambio",
+    "viewBackendOnGithub": "Ver backend en Github",
+    "viewOnGithub": "Ver en Github",
+    "autoDeleteAcount": "Eliminar cuenta automáticamente",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Eliminar tu cuenta después de 90 días de inactividad. Siempre se ignora para usuarios con suscripciones activas.",
+    "signOut": "Cerrar sesión",
+    "areYouSureYouWantToSignOut": "¿Estás seguro de que quieres cerrar sesión?",
+    "requireBiometricsToOpenApp": "Requerir biometría para abrir la aplicación",
+    "changePassword": "Cambiar contraseña",
+    "willSendALinkToYourEmailToResetYour": "Enviaremos un enlace a tu correo electrónico para restablecer tu contraseña",
+    "downloading": "Descargando...",
+    "downloaded": "Descargado",
+    "selectDownloadDirectory": "Seleccionar directorio de descarga",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Por favor, selecciona un directorio donde te gustaría descargar tus archivos en la próxima pantalla.",
+    "pickFolder": "Seleccionar carpeta",
+    "offlineFilesAreStoredAtSnapshotdata": "Los archivos sin conexión se almacenan en {path}",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "Subiendo...",
+    "uploaded": "Subido",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Compra 1TB utilizando la versión de Playstore. Puedes desinstalar esa versión cuando hayas terminado.",
+    "folderName": "Nombre de la carpeta",
+    "storageUsage": "Uso de almacenamiento",
+    "howLongToShare": "¿Cuánto tiempo debería estar disponible el archivo para compartir?",
+    "upgradeStorage1Terabyte": "Mejorar Almacenamiento (1 Terabyte)",
+    "createAnAccount": "Crear una cuenta",
+    "allowedEmails": "Correos electrónicos permitidos",
+    "close": "Cerrar",
+    "viewAllowedEmailDomains": "Ver dominios de correo electrónico permitidos",
+    "welcomeBack": "¡Bienvenido de nuevo!",
+    "upgradeStorage": "Actualizar Almacenamiento",
+    "failedToOpenPortal": "Error al abrir el portal",
+    "manageAccount": "Gestionar Cuenta",
+    "subscribedThroughPlaystoreOrAppstore": "Suscripto a través de Playstore o Appstore",
+    "shareEmailVerificationNeeded": "Es necesario verificar el correo electrónico o tener una suscripción activa para compartir archivos.",
+    "notVerified": "Correo electrónico no verificado",
+    "emailSent": "Correo electrónico enviado",
+    "sendEmail": "Enviar correo electrónico",
+    "privacyPolicy": "Política de privacidad",
+    "termsOfService": "Términos de servicio",
+    "pleaseAuthenticateToAccessYourCloud": "Por favor, autentíquese para acceder a su nube",
+    "allowMeteredConnections": "Permitir conexiones con tarifa",
+    "requireCharging": "Requiere carga",
+    "syncEnabled": "Sincronización activada",
+    "syncSettings": "Configuración de sincronización",
+    "account": "Cuenta",
+    "security": "Seguridad",
+    "general": "General",
+    "currentlyNestedFoldersAreNotSupported": "Actualmente no se admiten carpetas anidadas.",
+    "cameraRollSync": "Sincronización de rollo de cámara",
+    "camSyncDesc": "Seleccione la carpeta en su dispositivo donde su aplicación de cámara guarda fotos y videos. No busca de forma recursiva archivos. Sincroniza aproximadamente cada 6 horas.",
+    "selectSyncLocation": "Seleccionar ubicación",
+    "changeSyncPath": "Cambiar ruta",
+    "syncing": "Sincronizando...",
+    "periodicallyBackingUpSelectedFolder": "Haciendo copia de seguridad periódicamente de la carpeta seleccionada",
+    "syncNow": "Sincronizar ahora",
+    "cameraSync": "Sincronización de cámara",
+    "noTransfers": "No transfers",
+    "upgrade": "Actualizar"
 }

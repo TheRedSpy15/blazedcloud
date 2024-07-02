@@ -199,6 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Умови використання"),
         "transfers": MessageLookupByLibrary.simpleMessage("Передачі"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("Оновлення"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Оновлення сховища"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Відправлено"),

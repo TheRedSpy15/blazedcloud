@@ -146,5 +146,6 @@
     "periodicallyBackingUpSelectedFolder": "Seçilen klasörün periyodik olarak yedeklenmesi",
     "syncNow": "Şimdi Senkronize Et",
     "cameraSync": "Kamera Senkronizasyonu",
-    "noTransfers": "Transfer Yok"
+    "noTransfers": "Transfer Yok",
+    "upgrade": "Yükseltme"
 }

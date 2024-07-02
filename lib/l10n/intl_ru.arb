@@ -1,150 +1,152 @@
 {
-  "@@locale": "ru",
-  "serverMaintenance": "Сервер находится на техническом обслуживании. Пожалуйста, попробуйте позже.",
-  "appName": "Blazed Cloud",
-  "save": "Сохранить",
-  "delete": "Удалить",
-  "emptyDirectory": "Нет файлов или папок",
-  "errorErr": "Ошибка: {err}",
-  "@errorErr": {
-    "placeholders": {
-      "err": {}
-    }
-  },
-  "invalidEmailOrPassword": "Неверный адрес электронной почты или пароль",
-  "login": "Войти",
-  "forgotPassword": "Забыли пароль?",
-  "resetPassword": "Сброс пароля",
-  "email": "Эл. почта",
-  "cancel": "Отмена",
-  "passwordResetEmailSent": "Письмо для сброса пароля отправлено!",
-  "errorSendingPasswordResetEmail": "Ошибка отправки письма для сброса пароля",
-  "send": "Отправить",
-  "password": "Пароль",
-  "settings": "Настройки",
-  "transfers": "Передачи",
-  "files": "Файлы",
-  "emailDomainNotAllowed": "Домен электронной почты не разрешен",
-  "passwordMustBePasswordminlengthCharactersLong": "Пароль должен содержать {length} символов",
-  "@passwordMustBePasswordminlengthCharactersLong": {
-    "placeholders": {
-      "length": {}
-    }
-  },
-  "signUp": "Зарегистрироваться",
-  "failedLogingInAfterSignup": "Не удалось войти после регистрации",
-  "errorSendingRequest": "Ошибка отправки запроса",
-  "requestSent": "Запрос отправлен!",
-  "errorUpdatingUserPleaseTryAgain": "Ошибка обновления пользователя. Пожалуйста, попробуйте снова.",
-  "deleteFile": "Удалить файл",
-  "areYouSureYouWantToDeleteThisFile": "Вы уверены, что хотите удалить этот файл?",
-  "downloadingGetfilenamefilekey": "Загрузка {filename}",
-  "@downloadingGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingFileGetfilenamefilekey": "Открытие файла: {filename}",
-  "@openingFileGetfilenamefilekey": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "errorOpeningFileE": "Ошибка открытия файла: {filename}",
-  "@errorOpeningFileE": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "openingInBrowser": "Открытие в браузере...",
-  "failedToOpenPleaseTrySavingTheFileFirst": "Не удалось открыть. Пожалуйста, попробуйте сначала сохранить файл",
-  "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступен в автономном режиме",
-  "@fileGetfilenamefilekeyIsNotAvailableOffline": {
-    "placeholders": {
-      "filename": {}
-    }
-  },
-  "shareFile": "Поделиться файлом",
-  "linkCopiedToClipboard": "Ссылка скопирована в буфер обмена",
-  "share": "Поделиться",
-  "open": "Открыть",
-  "blazedExplorer": "Blazed Explorer",
-  "createFolder": "Создать папку",
-  "create": "Создать",
-  "deleteFolder": "Удалить папку",
-  "confirmFolderDelete": "Вы уверены, что хотите удалить эту папку? {foldername}",
-  "@confirmFolderDelete": {
-    "placeholders": {
-      "foldername": {}
-    }
-  },
-  "authenticationRequired": "Требуется аутентификация",
-  "areYouSureYouWantToDeleteYourAccountThis": "Вы уверены, что хотите удалить свою учетную запись? Это невозможно отменить. Обратите внимание, что вы должны вручную отменить подписку в магазине приложений (если у вас есть одна)",
-  "deleteAccount": "Удалить аккаунт",
-  "accountDeleted": "Аккаунт удален",
-  "yourAccountHasBeenDeleted": "Ваша учетная запись была удалена.",
-  "ok": "OK",
-  "failedToDeleteAccount": "Не удалось удалить аккаунт",
-  "changeDownloadLocation": "Изменить место загрузки",
-  "changeEmail": "Изменить эл. почту",
-  "willSendALinkToYourEmailToCompleteThe": "Отправим ссылку на вашу электронную почту для завершения изменения",
-  "viewBackendOnGithub": "Посмотреть бэкэнд на Github",
-  "viewOnGithub": "Посмотреть на Github",
-  "autoDeleteAcount": "Автоматическое удаление аккаунта",
-  "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Удалить ваш аккаунт после 90 дней бездействия. Всегда игнорируется для пользователей с активными подписками.",
-  "signOut": "Выйти",
-  "areYouSureYouWantToSignOut": "Вы уверены, что хотите выйти?",
-  "requireBiometricsToOpenApp": "Требовать биометрию для открытия приложения",
-  "changePassword": "Изменить пароль",
-  "willSendALinkToYourEmailToResetYour": "Отправим ссылку на вашу электронную почту для сброса пароля",
-  "downloading": "Загрузка...",
-  "downloaded": "Загружено",
-  "selectDownloadDirectory": "Выберите директорию для загрузки",
-  "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Выберите директорию, в которую вы хотели бы загрузить ваши файлы на следующем экране.",
-  "pickFolder": "Выбрать папку",
-  "offlineFilesAreStoredAtSnapshotdata": "Файлы для автономного режима сохраняются по пути{path}",
-  "@offlineFilesAreStoredAtSnapshotdata": {
-    "placeholders": {
-      "path": {}
-    }
-  },
-  "uploading": "Загрузка...",
-  "uploaded": "Загружено",
-  "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Приобретите 1 ТБ, используя сборку из Play Store. Вы можете удалить эту версию после завершения.",
-  "folderName": "Имя папки",
-  "storageUsage": "Использование хранилища",
-  "howLongToShare": "На какой срок файл должен быть доступен для общего доступа?",
-  "createAnAccount": "Создать аккаунт",
-  "allowedEmails": "Разрешенные электронные почты",
-  "close": "Закрыть",
-  "viewAllowedEmailDomains": "Просмотр разрешенных доменов электронной почты",
-  "welcomeBack": "Добро пожаловать назад!",
-  "upgradeStorage": "Повышение объема хранилища",
-  "failedToOpenPortal": "Не удалось открыть портал",
-  "manageAccount": "Управление учетной записью",
-  "subscribedThroughPlaystoreOrAppstore": "Подписано через Playstore или Appstore",
-  "shareEmailVerificationNeeded": "Необходима проверка электронной почты или активная подписка для передачи файлов.",
-  "notVerified": "Электронная почта не подтверждена",
-  "emailSent": "Отправлено электронное письмо",
-  "sendEmail": "Отправить электронное письмо",
-  "privacyPolicy": "Политика конфиденциальности",
-  "termsOfService": "Условия использования",
-  "pleaseAuthenticateToAccessYourCloud": "Пожалуйста, прошедшите аутентификацию, чтобы получить доступ к вашему облаку",
-  "allowMeteredConnections": "Разрешить тарифицированные подключения",
-  "requireCharging": "Требуется подключение к зарядке",
-  "syncEnabled": "Синхронизация включена",
-  "syncSettings": "Настройки синхронизации",
-  "account": "Аккаунт",
-  "security": "Безопасность",
-  "general": "Общие",
-  "currentlyNestedFoldersAreNotSupported": "В настоящее время вложенные папки не поддерживаются.",
-  "cameraRollSync": "Синхронизация камеры",
-  "camSyncDesc": "Выберите папку на вашем устройстве, куда ваше камерное приложение сохраняет фотографии и видео. Не рекурсивно ищет файлы. Синхронизирует примерно каждые 6 часов.",
-  "selectSyncLocation": "Выберите место",
-  "changeSyncPath": "Изменить путь",
-  "syncing": "Синхронизация...",
-  "periodicallyBackingUpSelectedFolder": "Периодически создается резервная копия выбранной папки",
-  "syncNow": "Синхронизировать сейчас",
-  "cameraSync": "Синхронизация камеры",
-  "noTransfers": "No transfers"
+    "@@locale": "ru",
+    "serverMaintenance": "Сервер находится на техническом обслуживании. Пожалуйста, попробуйте позже.",
+    "appName": "Blazed Cloud",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "emptyDirectory": "Нет файлов или папок",
+    "errorErr": "Ошибка: {err}",
+    "@errorErr": {
+        "placeholders": {
+            "err": {}
+        }
+    },
+    "invalidEmailOrPassword": "Неверный адрес электронной почты или пароль",
+    "login": "Войти",
+    "forgotPassword": "Забыли пароль?",
+    "resetPassword": "Сброс пароля",
+    "email": "Эл. почта",
+    "cancel": "Отмена",
+    "passwordResetEmailSent": "Письмо для сброса пароля отправлено!",
+    "errorSendingPasswordResetEmail": "Ошибка отправки письма для сброса пароля",
+    "send": "Отправить",
+    "password": "Пароль",
+    "settings": "Настройки",
+    "transfers": "Передачи",
+    "files": "Файлы",
+    "emailDomainNotAllowed": "Домен электронной почты не разрешен",
+    "passwordMustBePasswordminlengthCharactersLong": "Пароль должен содержать {length} символов",
+    "@passwordMustBePasswordminlengthCharactersLong": {
+        "placeholders": {
+            "length": {}
+        }
+    },
+    "signUp": "Зарегистрироваться",
+    "failedLogingInAfterSignup": "Не удалось войти после регистрации",
+    "errorSendingRequest": "Ошибка отправки запроса",
+    "requestSent": "Запрос отправлен!",
+    "errorUpdatingUserPleaseTryAgain": "Ошибка обновления пользователя. Пожалуйста, попробуйте снова.",
+    "deleteFile": "Удалить файл",
+    "areYouSureYouWantToDeleteThisFile": "Вы уверены, что хотите удалить этот файл?",
+    "downloadingGetfilenamefilekey": "Загрузка {filename}",
+    "@downloadingGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingFileGetfilenamefilekey": "Открытие файла: {filename}",
+    "@openingFileGetfilenamefilekey": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "errorOpeningFileE": "Ошибка открытия файла: {filename}",
+    "@errorOpeningFileE": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "openingInBrowser": "Открытие в браузере...",
+    "failedToOpenPleaseTrySavingTheFileFirst": "Не удалось открыть. Пожалуйста, попробуйте сначала сохранить файл",
+    "fileGetfilenamefilekeyIsNotAvailableOffline": "Файл {filename} недоступен в автономном режиме",
+    "@fileGetfilenamefilekeyIsNotAvailableOffline": {
+        "placeholders": {
+            "filename": {}
+        }
+    },
+    "shareFile": "Поделиться файлом",
+    "linkCopiedToClipboard": "Ссылка скопирована в буфер обмена",
+    "share": "Поделиться",
+    "open": "Открыть",
+    "blazedExplorer": "Blazed Explorer",
+    "createFolder": "Создать папку",
+    "create": "Создать",
+    "deleteFolder": "Удалить папку",
+    "confirmFolderDelete": "Вы уверены, что хотите удалить эту папку? {foldername}",
+    "@confirmFolderDelete": {
+        "placeholders": {
+            "foldername": {}
+        }
+    },
+    "authenticationRequired": "Требуется аутентификация",
+    "areYouSureYouWantToDeleteYourAccountThis": "Вы уверены, что хотите удалить свою учетную запись? Это невозможно отменить. Обратите внимание, что вы должны вручную отменить подписку в магазине приложений (если у вас есть одна)",
+    "deleteAccount": "Удалить аккаунт",
+    "accountDeleted": "Аккаунт удален",
+    "yourAccountHasBeenDeleted": "Ваша учетная запись была удалена.",
+    "ok": "OK",
+    "failedToDeleteAccount": "Не удалось удалить аккаунт",
+    "changeDownloadLocation": "Изменить место загрузки",
+    "changeEmail": "Изменить эл. почту",
+    "willSendALinkToYourEmailToCompleteThe": "Отправим ссылку на вашу электронную почту для завершения изменения",
+    "viewBackendOnGithub": "Посмотреть бэкэнд на Github",
+    "viewOnGithub": "Посмотреть на Github",
+    "autoDeleteAcount": "Автоматическое удаление аккаунта",
+    "deleteYourAccountAfter90DaysOfInactivityUsersWith": "Удалить ваш аккаунт после 90 дней бездействия. Всегда игнорируется для пользователей с активными подписками.",
+    "signOut": "Выйти",
+    "areYouSureYouWantToSignOut": "Вы уверены, что хотите выйти?",
+    "requireBiometricsToOpenApp": "Требовать биометрию для открытия приложения",
+    "changePassword": "Изменить пароль",
+    "willSendALinkToYourEmailToResetYour": "Отправим ссылку на вашу электронную почту для сброса пароля",
+    "downloading": "Загрузка...",
+    "downloaded": "Загружено",
+    "selectDownloadDirectory": "Выберите директорию для загрузки",
+    "pleaseSelectADirectoryWhereYouWouldLikeToDownload": "Выберите директорию, в которую вы хотели бы загрузить ваши файлы на следующем экране.",
+    "pickFolder": "Выбрать папку",
+    "offlineFilesAreStoredAtSnapshotdata": "Файлы для автономного режима сохраняются по пути{path}",
+    "@offlineFilesAreStoredAtSnapshotdata": {
+        "placeholders": {
+            "path": {}
+        }
+    },
+    "uploading": "Загрузка...",
+    "uploaded": "Загружено",
+    "purchase1tbUsingPlaystoreBuildYouCanUninstallThatVersion": "Приобретите 1 ТБ, используя сборку из Play Store. Вы можете удалить эту версию после завершения.",
+    "folderName": "Имя папки",
+    "storageUsage": "Использование хранилища",
+    "howLongToShare": "На какой срок файл должен быть доступен для общего доступа?",
+    "upgradeStorage1Terabyte": "Покупка 1 терабайта",
+    "createAnAccount": "Создать аккаунт",
+    "allowedEmails": "Разрешенные электронные почты",
+    "close": "Закрыть",
+    "viewAllowedEmailDomains": "Просмотр разрешенных доменов электронной почты",
+    "welcomeBack": "Добро пожаловать назад!",
+    "upgradeStorage": "Повышение объема хранилища",
+    "failedToOpenPortal": "Не удалось открыть портал",
+    "manageAccount": "Управление учетной записью",
+    "subscribedThroughPlaystoreOrAppstore": "Подписано через Playstore или Appstore",
+    "shareEmailVerificationNeeded": "Необходима проверка электронной почты или активная подписка для передачи файлов.",
+    "notVerified": "Электронная почта не подтверждена",
+    "emailSent": "Отправлено электронное письмо",
+    "sendEmail": "Отправить электронное письмо",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsOfService": "Условия использования",
+    "pleaseAuthenticateToAccessYourCloud": "Пожалуйста, прошедшите аутентификацию, чтобы получить доступ к вашему облаку",
+    "allowMeteredConnections": "Разрешить тарифицированные подключения",
+    "requireCharging": "Требуется подключение к зарядке",
+    "syncEnabled": "Синхронизация включена",
+    "syncSettings": "Настройки синхронизации",
+    "account": "Аккаунт",
+    "security": "Безопасность",
+    "general": "Общие",
+    "currentlyNestedFoldersAreNotSupported": "В настоящее время вложенные папки не поддерживаются.",
+    "cameraRollSync": "Синхронизация камеры",
+    "camSyncDesc": "Выберите папку на вашем устройстве, куда ваше камерное приложение сохраняет фотографии и видео. Не рекурсивно ищет файлы. Синхронизирует примерно каждые 6 часов.",
+    "selectSyncLocation": "Выберите место",
+    "changeSyncPath": "Изменить путь",
+    "syncing": "Синхронизация...",
+    "periodicallyBackingUpSelectedFolder": "Периодически создается резервная копия выбранной папки",
+    "syncNow": "Синхронизировать сейчас",
+    "cameraSync": "Синхронизация камеры",
+    "noTransfers": "No transfers",
+    "upgrade": "Обновление"
 }

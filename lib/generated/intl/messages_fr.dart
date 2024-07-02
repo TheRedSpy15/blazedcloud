@@ -212,6 +212,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Conditions d\'\'utilisation"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferts"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("Mise à niveau"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Mise à niveau du stockage"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Téléchargé"),

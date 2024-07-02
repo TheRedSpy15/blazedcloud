@@ -196,6 +196,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "termsOfService":
             MessageLookupByLibrary.simpleMessage("Termenii serviciului"),
         "transfers": MessageLookupByLibrary.simpleMessage("Transferuri"),
+        "upgrade": MessageLookupByLibrary.simpleMessage("Upgrade"),
         "upgradeStorage":
             MessageLookupByLibrary.simpleMessage("Crestere spatiu"),
         "uploaded": MessageLookupByLibrary.simpleMessage("Incarcat"),
