@@ -211,13 +211,10 @@ class SignUpScreen extends ConsumerWidget {
             context.go('/dashboard');
           }
         });
-      }).onError((error, stackTrace) {
-        logger.e(error);
-        ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(S.of(context).failedLogingInAfterSignup)));
-        return Future.value(null);
       });
     } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(S.of(context).failedLogingInAfterSignup)));
       logger.e(e);
     }
   }
